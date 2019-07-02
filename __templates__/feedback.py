@@ -36,19 +36,33 @@ def generate_feedback(result_file_path="student/task.result"):
         else:
             for line in file:
                 line = line.strip()
-                # by default, there is at least the name of ; second one is optional
-                elems = line.split(':')
-                name = elems[0]
-                method = elems[1]
 
-                # Two kind of problems : exception (E) and failure (F)
-                # Messages follows the same structure
-                msg = "{}  : la classe {} {} {} ) \n" \
-                    .format(
-                        "Exception" if line[0] == "E" else "Erreur",
-                        name,
-                        "a lancé une exception" if line[0] == "E" else "n'a pas passé les tests",
-                        "( méthode {} )".format(method) if method != "" else ""
-                    )
-                # Appends global message
-                feedback.set_global_result(msg, True)
+                # A identified failure type ( from now : Exception and Assertion )
+                if line[0] in ['E', 'F']:
+
+                    # by default, there is at least the name of class; second one is optional
+                    elems = line.split(':')
+                    name = elems[0]
+                    method = elems[1]
+
+                    # Two kind of problems : exception (E) and failure (F)
+                    # Messages follows the same structure
+                    msg = "{}  : la classe {} {} {} ) \n" \
+                        .format(
+                            "Exception" if line[0] == 'E' else "Erreur",
+                            name,
+                            "a lancé une exception" if line[0] == 'E' else "n'a pas passé les tests",
+                            "( méthode {} )".format(method) if method != '' else ''
+                        )
+
+                    # Appends global message
+                    feedback.set_global_result(msg, True)
+
+                # Other
+                else:
+
+                    # Since we don't know the failure (yet), let's throw it at the face of the student
+                    msg = "{} \n".format(line)
+
+                    # Appends global message
+                    feedback.set_global_result(msg, True)
