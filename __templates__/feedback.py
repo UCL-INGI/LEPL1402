@@ -1,6 +1,6 @@
 import sys
 import os
-from inginious import rst, feedback
+from inginious import feedback
 
 
 # Throw a fatal error if the given code doesn't compile
