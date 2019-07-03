@@ -32,14 +32,24 @@ def result_feedback(result):
         # we have a feedback from JavaGrading
         # Fetch total for INGInious
         # example : text = "\nTOTAL 5/10\n"
+
+        # WARNING : there could be multiple TOTAL in the stdout
+        # So we must merge everything
         regex = "\nTOTAL (\d*[.]?\d*\/\d*[.]?\d*)"
+        matches = re.findall(regex, result.stdout)
 
-        test = re.search(regex, result.stdout)
-        total_line = test.group()
+        # convert everything in float
+        converted_results = [
+            [
+                float(item)
+                for item in match.split("/")
+            ]
+            for match in matches
+        ]
+        student_result, total_result = [sum(i) for i in zip(*converted_results)]
 
-        # Time to extract the result
-        student_result, total_result = [float(item) for item in total_line.split("/")]
-        feedback.set_grade(student_result/total_result)
+        # Time to compute the result
+        feedback.set_grade(student_result / total_result)
 
         # Display grader message (useful if there is a mistake)
         feedback.set_global_result(result.stdout)
