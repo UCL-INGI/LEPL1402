@@ -83,3 +83,8 @@ def basename_filename(filename):
     # the file extension is .java so 5 characters
     # Better than using os.path.splittext : https://stackoverflow.com/a/39648242/6149867
     return basename[:-5]
+
+
+# Find files in folder without extension
+def find_files_in_folder(folder):
+    return [basename_filename(item.name) for item in Path(folder).iterdir() if item.is_file()]
