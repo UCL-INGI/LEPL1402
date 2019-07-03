@@ -60,6 +60,11 @@ run_code = generate_java_command_string(runner_path, CWD)
 # append filepaths so that we can lookup for the file in Runner
 run_code = append_args_to_command(run_code, [filename])
 
+result = run_command(run_code)
 
 # TODO result stdout
 
+#####################################
+#   Show results                    #
+#####################################
+result_feedback(result)

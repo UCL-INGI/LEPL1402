@@ -24,7 +24,7 @@ def run_command(cmd):
     proc.wait()  # waiting the child process to finish
 
     stdout = proc.stdout.read().decode('utf-8')
-    stderr = proc.stderr.read()  # .decode('utf-8')
+    stderr = proc.stderr.read().decode('utf-8')
 
     return ProcessOutput(proc.returncode, stdout, stderr)
 

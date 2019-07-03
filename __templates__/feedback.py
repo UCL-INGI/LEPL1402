@@ -1,5 +1,5 @@
 import sys
-from pathlib import Path
+import re
 from inginious import feedback
 
 
@@ -13,20 +13,33 @@ def compilation_feedback(problem_id, result):
 
 
 # common behaviour message for "return code" result
+# TODO les utiliser dans les annotations grades de
 return_messages = {
-    0: "Votre code a passé avec succès tous les tests pour cette mission.",
-    252: "La limite de mémoire de votre programme est dépassée",
-    253: "La limite de temps d'exécution de votre programme est dépassée"
+    0: "Your code has successfully passed all tests for this mission.",
+    252: "The memory limit of your program is exceeded.",
+    253: "The time limit for running your program has been exceeded."
 }
 
 
 # Generate the final message(s) to student
-def generate_result_feedback(result, result_file_path):
-    msg = return_messages.get(result.returncode, "Il semble que vous ayiez fait des erreurs dans votre code")
-    # for success only, display only the message and nothing else
-    if result.returncode == 0:
-        feedback.set_global_result(msg)
+def result_feedback(result):
+    # for security , if the grader has issues
+    if result.returncode != 0:
+        feedback.set_global_result("JavaGrading fails to provide an answer")
+        feedback.set_grade(0.0)
         sys.exit(0)
     else:
-        feedback.set_global_result(msg, True)
-        # In case the result feedback is not present
+        # we have a feedback from JavaGrading
+        # Fetch total for INGInious
+        # example : text = "\nTOTAL 5/10\n"
+        regex = "\nTOTAL (\d*[.]?\d*\/\d*[.]?\d*)"
+
+        test = re.search(regex, result.stdout)
+        total_line = test.group()
+
+        # Time to extract the result
+        student_result, total_result = [float(item) for item in total_line.split("/")]
+        feedback.set_grade(student_result/total_result)
+
+        # Display grader message (useful if there is a mistake)
+        feedback.set_global_result(result.stdout)
