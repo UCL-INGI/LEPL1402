@@ -19,7 +19,7 @@ def librairies():
 
 
 # Wrapper to execute system commands and easily get stdout, stderr steams and return code
-def runCommand(cmd):
+def run_command(cmd):
     proc = subprocess.Popen(shlex.split(cmd), stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     proc.wait()  # waiting the child process to finish
 
@@ -30,7 +30,7 @@ def runCommand(cmd):
 
 
 # Store the given problemid code into the base_path folder ( "student" by default) and return the filename
-def store_uploaded_file(problem_id, base_path="student"):
+def store_uploaded_file(problem_id, base_path):
     student_upload = input.get_input(problem_id)
     filename = input.get_input("{}:filename".format(problem_id))
     filename_with_path = "{}/{}".format(base_path, filename)
@@ -44,7 +44,7 @@ def store_uploaded_file(problem_id, base_path="student"):
 
 
 # Apply parse_template on each file stored in base_path
-def apply_templates(base_path="student"):
+def apply_templates(base_path):
     basepath = Path("{}/".format(base_path))
     only_top_level_files = [
         "{}/{}".format(base_path, item.name)
@@ -57,7 +57,7 @@ def apply_templates(base_path="student"):
 
 # Generate compile/run command for given file
 # Bonus : it removes the ".java" extension for javac
-def generate_command_string(filename, command="java", classpath="student"):
+def generate_command_string(filename, classpath, command="java"):
     libs = librairies()
     command_code = "{} -classpath {} {} {}" \
         .format(
