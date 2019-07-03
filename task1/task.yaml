@@ -1,0 +1,15 @@
+author: Dark Vador
+context: |+
+    .. raw:: html
+        <p>
+          Complétez la classe StudentTests conformément à l'énoncé de la phase de réalisation de la mission.
+        </p>
+name: WhiteBox Testing - Binary Search
+accessible: true
+order: 1
+language: java
+environment: java9scala
+problems:
+    student_code:
+        type: multiline
+        name: test
