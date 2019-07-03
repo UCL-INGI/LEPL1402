@@ -33,7 +33,7 @@ def run_command(cmd):
 def store_uploaded_file(problem_id, base_path):
     student_upload = input.get_input(problem_id)
     filename = input.get_input("{}:filename".format(problem_id))
-    filename_with_path = "{}/{}".format(base_path, filename)
+    filename_with_path = Path(base_path)/filename
 
     # Stores a copy of this file inside "student" folder
     with open(filename_with_path, 'w+') as fileUpload:
@@ -45,9 +45,9 @@ def store_uploaded_file(problem_id, base_path):
 
 # Apply parse_template on each file stored in base_path
 def apply_templates(base_path):
-    basepath = Path("{}/".format(base_path))
+    basepath = Path(base_path)
     only_top_level_files = [
-        "{}/{}".format(base_path, item.name)
+        Path(base_path)/item.name
         for item in basepath.iterdir()
         if item.is_file()
     ]
@@ -57,7 +57,7 @@ def apply_templates(base_path):
 
 # Generate compile/run command for given file
 # Bonus : it removes the ".java" extension for javac
-def generate_command_string(filename, classpath, command="java"):
+def generate_java_command_string(filename, classpath, command="java"):
     libs = librairies()
     command_code = "{} -classpath {} {} {}" \
         .format(
@@ -68,6 +68,11 @@ def generate_command_string(filename, classpath, command="java"):
             filename if command == "javac" else basename_filename(filename)
         )
     return command_code
+
+
+# to append ccommand with args
+def append_args_to_command(cmd, args=[]):
+    return "{} {}".format(cmd, *args)
 
 
 # Extract the filename basename without extension
