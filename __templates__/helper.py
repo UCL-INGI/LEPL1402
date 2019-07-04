@@ -2,7 +2,6 @@
 
 # les imports
 import subprocess
-import shlex
 from inginious import input
 from collections import namedtuple
 from pathlib import Path
@@ -24,7 +23,7 @@ def librairies():
 
 # Wrapper to execute system commands and easily get stdout, stderr steams and return code
 def run_command(cmd):
-    proc = subprocess.Popen(shlex.split(cmd), stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+    proc = subprocess.Popen(cmd, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     proc.wait()  # waiting the child process to finish
 
     stdout = proc.stdout.read().decode('utf-8')
