@@ -12,7 +12,11 @@ ProcessOutput = namedtuple('ProcessOutput', ['returncode', 'stdout', 'stderr'])
 
 # Libraries to be add to run/compile via option -cp of java(c)
 def librairies():
-    lib = ''
+    # JUnit and JavaGrading
+    lib = '/course/common/junit-4.12.jar'
+    lib += ':/course/common/hamcrest-core-1.3.jar'
+    lib += ':/course/common/JavaGrading-0.3.2.jar'
+
     # Rest later : for example
     # lib += ':/usr/share/java/powermock-mockito2-junit-1.7.1/*'
     return lib
@@ -55,6 +59,13 @@ def apply_templates(base_path, out_path):
         src = Path(out_path)/file
         dst = Path(base_path)/file
         input.parse_template(src, dst)
+
+
+# Apply parse_template on each given filepath
+# Useful when we have the given file at the top level of the task
+def apply_templates_files(files):
+    for file in files:
+        input.parse_template(file)
 
 
 # Generate compile/run command for given file

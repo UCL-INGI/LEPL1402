@@ -30,7 +30,7 @@ public class StudentTests {
         assertEquals(5, res);
 
          */
-        fail();
+        @        @student_code@@
     }
     // END OF STUDENT CODE
 

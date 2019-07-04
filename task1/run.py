@@ -30,30 +30,24 @@ helper, feedback = [
 # Current path of the run script
 CWD = Path(os.getcwd())
 
-# Template folder location
-TEMPLATES = CWD/"templates"
-
 # Our code
 FLAVOUR = CWD/"flavour"
 
-# Src folder location ( that will contains the templates with code
-DST_TEMPLATES = CWD/"src"
-
 # Test runner
 runner_path = CWD/"StudentTestRunner.java"
-
-##########################################
-#   Warning : create each new dir before #
-##########################################
 
 
 #####################################
 #       Apply templates             #
 #####################################
 
-helper.apply_templates(TEMPLATES, DST_TEMPLATES)
+# If we have a folder where we have only these files
+# helper.apply_templates(SRC_TEMPLATES, DST_TEMPLATES)
 
-# TODO le(s) compiler par la suite si pas le meme folder
+# Else give them manually
+helper.apply_templates_files([CWD/"StudentTests.java"])
+
+# TODO le(s) compiler par la suite si pas le meme folder ?
 
 #####################################
 #   COMPILE  TEST  RUNNER           #
@@ -63,7 +57,7 @@ runner_compile = helper.generate_java_command_string(runner_path, CWD, "javac")
 result = helper.run_command(runner_path)
 
 # handle compilation errors
-feedback.compilation_feedback("some_problem_id", result)
+feedback.compilation_feedback("student_code", result)
 
 #####################################
 #   COMPILE OTHER JAVA CODE         #
@@ -73,11 +67,13 @@ feedback.compilation_feedback("some_problem_id", result)
 flavor_classes = helper.find_files_in_folder(FLAVOUR)
 
 # Compile each one and throw error if cannot compile
+# We need them in order to make Class.forName works as expected
+# TODO check if really needed ?
 for flavor in flavor_classes:
     filename = "{}.java".format(flavor)
     code_compile = helper.generate_java_command_string(FLAVOUR/filename, FLAVOUR, "javac")
     result = helper.run_command(code_compile)
-    feedback.compilation_feedback("some_problem_id", result)
+    feedback.compilation_feedback("student_code", result)
 
 
 #####################################
