@@ -45,7 +45,9 @@ runner_path = CWD/"StudentTestRunner.java"
 # helper.apply_templates(SRC_TEMPLATES, DST_TEMPLATES)
 
 # Else give them manually
-helper.apply_templates_files([CWD/"StudentTests.java"])
+# For Python 3.5 , we cannot use Path like object directly yet ( fixed in 3.6)
+# we have to do : str(PathLibObject)
+helper.apply_templates_files([str(CWD/"StudentTests.java")])
 
 # TODO le(s) compiler par la suite si pas le meme folder ?
 
@@ -53,8 +55,8 @@ helper.apply_templates_files([CWD/"StudentTests.java"])
 #   COMPILE  TEST  RUNNER           #
 #####################################
 
-runner_compile = helper.generate_java_command_string(runner_path, CWD, "javac")
-result = helper.run_command(runner_path)
+runner_compile = helper.generate_java_command_string(str(runner_path), str(CWD), "javac")
+result = helper.run_command(runner_compile)
 
 # handle compilation errors
 feedback.compilation_feedback("student_code", result)
@@ -64,14 +66,14 @@ feedback.compilation_feedback("student_code", result)
 #####################################
 
 # Get the classes names
-flavor_classes = helper.find_files_in_folder(FLAVOUR)
+flavor_classes = helper.find_files_in_folder(str(FLAVOUR))
 
 # Compile each one and throw error if cannot compile
 # We need them in order to make Class.forName works as expected
 # TODO check if really needed ?
 for flavor in flavor_classes:
     filename = "{}.java".format(flavor)
-    code_compile = helper.generate_java_command_string(FLAVOUR/filename, FLAVOUR, "javac")
+    code_compile = helper.generate_java_command_string(str(FLAVOUR/filename), str(FLAVOUR), "javac")
     result = helper.run_command(code_compile)
     feedback.compilation_feedback("student_code", result)
 
@@ -81,7 +83,7 @@ for flavor in flavor_classes:
 #####################################
 
 # invoke runner with classes as arg
-run_code = helper.generate_java_command_string(runner_path, CWD)
+run_code = helper.generate_java_command_string(str(runner_path), str(CWD))
 run_code = helper.append_args_to_command(run_code, [flavor_classes])
 
 result = helper.run_command(run_code)
