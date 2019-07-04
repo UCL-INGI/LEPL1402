@@ -77,7 +77,12 @@ feedback.compilation_feedback("student_code", result)
 #####################################
 
 # invoke runner with classes as arg
-run_code = helper.generate_java_command_string(RUNNER_PATH)
+
+# Java wants a package name and not the full path so
+package_name_string = str(Path(RUNNER_PATH).relative_to(CWD))
+package_name = package_name_string.replace("/", ".")
+
+run_code = helper.generate_java_command_string(package_name)
 print("{} \n".format(run_code))
 
 result = helper.run_command(run_code)
