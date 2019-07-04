@@ -65,15 +65,16 @@ def apply_templates(base_path, out_path):
 # the files_input argument is either an array of string or a string :
 # 1. If it is a string, it means we want to run "java" command with only one file
 # 2. Else , it means we want to run "javac" command (possible to use globing characters * )
-def generate_java_command_string(files_input, classpath, command="java"):
+def generate_java_command_string(files_input, command="java"):
     libs = librairies()
-    files = ' '.join([str(v) for v in files_input]) if command == "javac" else basename_filename(files_input)
+    # the file extension is .java so 5 characters
+    # Better than using os.path.splittext : https://stackoverflow.com/a/39648242/6149867
+    files = ' '.join([str(v) for v in files_input]) if command == "javac" else files_input[:-5]
 
-    command_code = "{} -classpath {} {} {}" \
+    command_code = "{} {} {}" \
         .format(
             command,
-            classpath,
-            '-cp {}'.format(libs),
+            "-cp {}".format(libs) if command == "javac" else '',
             files
         )
     return command_code
@@ -82,18 +83,3 @@ def generate_java_command_string(files_input, classpath, command="java"):
 # to append ccommand with args
 def append_args_to_command(cmd, args=[]):
     return "{} {}".format(cmd, ' '.join([str(v) for v in args]))
-
-
-# Extract the filename basename without extension
-# And returns only the name
-def basename_filename(filename):
-    # extract the basename
-    basename = Path(filename).name
-    # the file extension is .java so 5 characters
-    # Better than using os.path.splittext : https://stackoverflow.com/a/39648242/6149867
-    return basename[:-5]
-
-
-# Find files in folder without extension
-def find_files_in_folder(folder):
-    return [basename_filename(item.name) for item in Path(folder).iterdir() if item.is_file()]

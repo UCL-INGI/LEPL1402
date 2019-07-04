@@ -25,7 +25,7 @@ return_messages = {
 def result_feedback(result):
     # for security , if the grader has issues
     if result.returncode != 0:
-        feedback.set_global_result("JavaGrading fails to provide an answer")
+        feedback.set_global_result("JavaGrading fails to provide an answer {}".format(result.stderr))
         feedback.set_grade(0.0)
         sys.exit(0)
     else:
