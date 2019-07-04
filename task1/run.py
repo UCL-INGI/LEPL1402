@@ -40,7 +40,7 @@ FLAVOUR = CWD/"flavour"
 DST_TEMPLATES = CWD/"src"
 
 # Test runner
-runner_path = CWD/"Runner.java"
+runner_path = CWD/"StudentTestRunner.java"
 
 ##########################################
 #   Warning : create each new dir before #

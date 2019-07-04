@@ -73,9 +73,8 @@ def generate_java_command_string(filename, classpath, command="java"):
 
 
 # to append ccommand with args
-# TODO à corriger
 def append_args_to_command(cmd, args=[]):
-    return "{} {}".format(cmd, *args)
+    return "{} {}".format(cmd, ' '.join([str(v) for v in args]))
 
 
 # Extract the filename basename without extension
