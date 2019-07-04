@@ -62,10 +62,11 @@ helper.apply_templates(PATH_TEMPLATES, PATH_SRC)
 
 # code to be compiled is in SRC AND FLAVOUR
 code_to_compile = [
-    str(Path(PATH_FLAVOUR)/FILE_EXTENSION),
-    str(Path(PATH_SRC)/FILE_EXTENSION)
+    str(Path(PATH_FLAVOUR)/"{}{}".format("*", FILE_EXTENSION)),
+    str(Path(PATH_SRC)/"{}{}".format("*", FILE_EXTENSION))
 ]
 compile_cmd = helper.generate_java_command_string(code_to_compile, CWD, "javac")
+print(compile_cmd)
 result = helper.run_command(compile_cmd)
 
 # handle compilation errors

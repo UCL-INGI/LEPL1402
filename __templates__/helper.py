@@ -56,26 +56,19 @@ def apply_templates(base_path, out_path):
         if item.is_file()
     ]
     for file in only_top_level_files:
-        src = Path(out_path)/file
-        dst = Path(base_path)/file
+        dst = str(Path(out_path)/file)
+        src = str(Path(base_path)/file)
         input.parse_template(src, dst)
-
-
-# Apply parse_template on each given filepath ( if it is ever required to do that)
-# Useful when we have the given file at the top level of the task
-def apply_templates_files(files):
-    for file in files:
-        input.parse_template(file)
 
 
 # Generate compile/run command for given file
 # It removes the ".java" extension for javac
-# the files argument is either an array of string or a string :
+# the files_input argument is either an array of string or a string :
 # 1. If it is a string, it means we want to run "java" command with only one file
 # 2. Else , it means we want to run "javac" command (possible to use globing characters * )
-def generate_java_command_string(files, classpath, command="java"):
+def generate_java_command_string(files_input, classpath, command="java"):
     libs = librairies()
-    files = ' '.join([str(v) for v in files]) if command == "javac" else basename_filename(files)
+    files = ' '.join([str(v) for v in files_input]) if command == "javac" else basename_filename(files_input)
 
     command_code = "{} -classpath {} {} {}" \
         .format(
