@@ -43,16 +43,18 @@ def store_uploaded_file(problem_id, base_path):
     return filename_with_path
 
 
-# Apply parse_template on each file stored in base_path
-def apply_templates(base_path):
+# Apply parse_template on each file stored in base_path to out_path
+def apply_templates(base_path, out_path):
     basepath = Path(base_path)
     only_top_level_files = [
-        Path(base_path)/item.name
+        item.name
         for item in basepath.iterdir()
         if item.is_file()
     ]
     for file in only_top_level_files:
-        input.parse_template(file)
+        src = Path(out_path)/file
+        dst = Path(base_path)/file
+        input.parse_template(src, dst)
 
 
 # Generate compile/run command for given file
@@ -71,6 +73,7 @@ def generate_java_command_string(filename, classpath, command="java"):
 
 
 # to append ccommand with args
+# TODO à corriger
 def append_args_to_command(cmd, args=[]):
     return "{} {}".format(cmd, *args)
 
