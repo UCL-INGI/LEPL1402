@@ -27,64 +27,57 @@ helper, feedback = [
 #             CONSTANTS             #
 #####################################
 
-# Current path of the run script
+# Current path of the run script (/task)
 CWD = Path(os.getcwd())
 
 # Our code
-FLAVOUR = CWD/"flavour"
+# For Python 3.5 , we cannot use Path like object directly yet ( fixed in 3.6)
+# we have to do : str(PathLibObject)
+
+# Where we keep the good and wrong implementations
+PATH_FLAVOUR = str(CWD/"flavour")
+
+# Our templates
+PATH_TEMPLATES = str(CWD/"templates")
 
 # Test runner
-runner_path = CWD/"StudentTestRunner.java"
+RUNNER_PATH = str(CWD/"src"/"StudentTestRunner.java")
 
+# Source code to be tested
+PATH_SRC = str(CWD/"src")
+
+# File extension
+FILE_EXTENSION = ".java"
 
 #####################################
 #       Apply templates             #
 #####################################
 
-# If we have a folder where we have only these files
-# helper.apply_templates(SRC_TEMPLATES, DST_TEMPLATES)
-
-# Else give them manually
-# For Python 3.5 , we cannot use Path like object directly yet ( fixed in 3.6)
-# we have to do : str(PathLibObject)
-helper.apply_templates_files([str(CWD/"StudentTests.java")])
-
-# TODO le(s) compiler par la suite si pas le meme folder ?
+# we have a folder where we have only these files
+helper.apply_templates(PATH_TEMPLATES, PATH_SRC)
 
 #####################################
-#   COMPILE  TEST  RUNNER           #
+#   COMPILE ALL CODE IN SRC         #
 #####################################
 
-runner_compile = helper.generate_java_command_string(str(runner_path), str(CWD), "javac")
-result = helper.run_command(runner_compile)
+# code to be compiled is in SRC AND FLAVOUR
+code_to_compile = [
+    str(Path(PATH_FLAVOUR)/FILE_EXTENSION),
+    str(Path(PATH_SRC)/FILE_EXTENSION)
+]
+compile_cmd = helper.generate_java_command_string(code_to_compile, CWD, "javac")
+result = helper.run_command(compile_cmd)
 
 # handle compilation errors
 feedback.compilation_feedback("student_code", result)
-
-#####################################
-#   COMPILE OTHER JAVA CODE         #
-#####################################
-
-# Get the classes names
-flavor_classes = helper.find_files_in_folder(str(FLAVOUR))
-
-# Compile each one and throw error if cannot compile
-# We need them in order to make Class.forName works as expected
-# TODO check if really needed ?
-for flavor in flavor_classes:
-    filename = "{}.java".format(flavor)
-    code_compile = helper.generate_java_command_string(str(FLAVOUR/filename), str(FLAVOUR), "javac")
-    result = helper.run_command(code_compile)
-    feedback.compilation_feedback("student_code", result)
-
 
 #####################################
 #   RUN  TEST  RUNNER               #
 #####################################
 
 # invoke runner with classes as arg
-run_code = helper.generate_java_command_string(str(runner_path), str(CWD))
-run_code = helper.append_args_to_command(run_code, [flavor_classes])
+run_code = helper.generate_java_command_string(RUNNER_PATH, CWD)
+print("{} \n".format(run_code))
 
 result = helper.run_command(run_code)
 
