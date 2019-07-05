@@ -10,7 +10,7 @@ public class Exercise implements FlavourExercise {
     // Add manually instances of your falvours here !
     private static final BinarySearchFlavour[] allFlavours = new BinarySearchFlavour[]{
         new BinarySearchCorrect(), new BinarySearchErr1() , new BinarySearchErr2(),
-            new BinarySearchErr3(), new BinarySearchErr4(), new BinarySearchErr5(),
+            new BinarySearchErr3(), /*new BinarySearchErr4(), */ new BinarySearchErr5(),
             new BinarySearchErr6()
     };
 

@@ -13,22 +13,23 @@ def compilation_feedback(problem_id, result):
 
 
 # common behaviour message for "return code" result
-# TODO les utiliser dans les annotations grades de
 return_messages = {
     0: "Your code has successfully passed all tests for this mission.",
+    1: "Your code failed all tests for this mission.",
     252: "The memory limit of your program is exceeded.",
     253: "The time limit for running your program has been exceeded."
 }
 
 
 # Generate the final message(s) to student
-def result_feedback(result):
-    # for security , if the grader has issues
-    if result.returncode != 0:
-        feedback.set_global_result("JavaGrading fails to provide an answer {}".format(result.stderr))
-        feedback.set_grade(0.0)
-        sys.exit(0)
-    else:
+# has_feedback : to tell us if feedback is expected
+def result_feedback(result, has_feedback=False):
+    
+    # Top level message
+    msg = "{}\n".format(return_messages.get(result.returncode, "Uncommon Failure"))
+
+    # print a message to student if we have the JavaGrading output
+    if has_feedback:
         # we have a feedback from JavaGrading
         # Fetch total for INGInious
         # example : text = "\nTOTAL 5/10\n"
@@ -52,4 +53,11 @@ def result_feedback(result):
         feedback.set_grade(student_result / total_result)
 
         # Display grader message (useful if there is a mistake)
-        feedback.set_global_result(result.stdout)
+        msg += result.stdout
+        feedback.set_global_result(msg)
+
+    # For exercises with binary result : 0 or 100
+    else:
+        grade = 100.0 if result.returncode == 0 else 0.0
+        feedback.set_global_result(msg) 
+        feedback.set_grade(0.0)
