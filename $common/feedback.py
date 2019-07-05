@@ -23,41 +23,68 @@ return_messages = {
 
 # Generate the final message(s) to student
 # has_feedback : to tell us if feedback is expected
-def result_feedback(result, has_feedback=False):
+# quorum : float between 0.0 (0%) and 1.0 (100%) that the user should reach in order to success the task
+# feedback_kind : JavaGrading / JaCoCo / etc (useful only when you have has_feedback=True)
+def result_feedback(result, has_feedback=False, quorum=1.0, feedback_kind=''):
     
     # Top level message
     msg = "{}\n".format(return_messages.get(result.returncode, "Uncommon Failure"))
+    feedback.set_global_feedback(msg, True) 
 
-    # print a message to student if we have the JavaGrading output
+    # For advanced feedback
+    score_ratio = 0
+
+    # if we have a feedback, use it
     if has_feedback:
-        # we have a feedback from JavaGrading
-        # Fetch total for INGInious
-        # example : text = "\nTOTAL 5/10\n"
+        
+        # Each one has its own way to express itself
+        msg = ""
 
-        # WARNING : there could be multiple TOTAL in the stdout
-        # So we must merge everything
-        regex = "\nTOTAL (\d*[.]?\d*\/\d*[.]?\d*)"
-        matches = re.findall(regex, result.stdout)
+        # JavaGrading
+        if feedback_kind == "JavaGrading":
+            score_ratio, msg = extract_java_grading_result(result)
+        
+        # JaCoCo
+        # TODO
 
-        # convert everything in float
-        converted_results = [
-            [
-                float(item)
-                for item in match.split("/")
-            ]
-            for match in matches
-        ]
-        student_result, total_result = [sum(i) for i in zip(*converted_results)]
-
-        # Time to compute the result
-        feedback.set_grade(student_result / total_result)
-
-        # Display grader message (useful if there is a mistake)
-        msg += result.stdout
-        feedback.set_global_result(msg)
+        # Print the rest
+        feedback_result(score_ratio)
+        feedback.set_grade(score_ratio * 100)
 
     # For exercises with binary result : 0 or 100
     else:
-        grade = 100.0 if result.returncode == 0 else 0.0
-        feedback.set_global_result(msg) 
-        feedback.set_grade(0.0)
+        score_ratio = 1.0 if result.returncode == 0 else 0.0
+        feedback_result(score_ratio)
+        feedback.set_grade(score_ratio * 100)
+
+
+# Decision function to decide if the student pass the required level for this task
+def feedback_result(score_ratio, quorum=1.0):    
+    result = "success" if score_ratio >= quorum else "failed"
+    feedback.set_global_result(result)
+
+
+# Extract score and message that use JavaGrading
+def extract_java_grading_result(result):
+    # we have a feedback from JavaGrading
+    # Fetch total for INGInious
+    # example : text = "\nTOTAL 5/10\n"
+
+    # WARNING : there could be multiple TOTAL in the stdout
+    # So we must merge everything
+
+    regex = "\nTOTAL (\d*[.]?\d*\/\d*[.]?\d*)"
+    matches = re.findall(regex, result.stdout)
+
+    # convert everything in float
+    converted_results = [
+        [
+            float(item)
+            for item in match.split("/")
+        ]
+        for match in matches
+    ]
+    
+    student_result, total_result = [sum(i) for i in zip(*converted_results)]
+
+    return student_result / total_result, result.stdout
