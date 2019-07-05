@@ -1,7 +1,7 @@
 accessible: true
 name: '[LEPL1402]: Computer Science 2'
 admins:
-- ''
+- superadmin
 tutors: []
 groups_student_choice: false
 use_classrooms: true
