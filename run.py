@@ -45,6 +45,7 @@ filename = store_uploaded_file("studentupload", student_path)
 
 # Compile the java student code
 compile_code = generate_java_command_string(filename, CWD, "javac")
+print(compile_code)
 result = run_command(compile_code)
 
 # handle compilation errors
@@ -58,7 +59,10 @@ compilation_feedback("studentupload", result)
 run_code = generate_java_command_string(runner_path, CWD)
 
 # append filepaths so that we can lookup for the file in Runner
+# also appends -ea just to be sure everything works as expected
+run_code = append_args_to_command(run_code, ["-ea"])
 run_code = append_args_to_command(run_code, [filename])
+print(run_code)
 
 result = run_command(run_code)
 
