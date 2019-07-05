@@ -1,18 +1,20 @@
-package BlackBox;
+package src;
 
-import BlackBox.flavour.*;
+import flavour.*;
 
-public class Exercise implements FlavourExercise {
+public class Exercise implements ExerciseFlavour {
 
     private static int count = 0;
-    public static BinarySearchFlavour currentFlavour;
+    private static BinarySearchFlavour currentFlavour;
 
     // Add manually instances of your falvours here !
     private static final BinarySearchFlavour[] allFlavours = new BinarySearchFlavour[]{
-        new BinarySearchCorrect(), new BinarySearchErr1() , new BinarySearchErr2(),
+        new BinarySearchCorrect(), new BinarySearchErr1(), new BinarySearchErr2(),
             new BinarySearchErr3(), new BinarySearchErr4(), new BinarySearchErr5(),
             new BinarySearchErr6()
     };
+
+    // BUGGED : Flavour "Err4" yields an infinite loop... Maybe adapt the JailRunner to measure CPU time.
 
     public static final int nImplems = allFlavours.length;
 

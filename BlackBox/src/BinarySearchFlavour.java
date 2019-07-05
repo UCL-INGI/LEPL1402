@@ -1,6 +1,6 @@
-package BlackBox;
+package src;
 
-public class BinarySearchFlavour implements FlavourExercise {
+public class BinarySearchFlavour implements ExerciseFlavour {
 
     public int binarySearch(int [] arr, int low, int high, int elem){
         // The "presumably" correct implementation, the one we'll give to students.

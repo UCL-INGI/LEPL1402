@@ -1,6 +1,7 @@
-package BlackBox;
+package src;
 
 
+import com.github.guillaumederval.javagrading.GradeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -8,6 +9,7 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
 
 @RunWith(JailRunner.class)
+@GradeClass(totalValue = 1, defaultCpuTimeout = 1000)
 public class StudentTests {
 
     // STUDENT CODE WILL BE INSERTED HERE

@@ -1,4 +1,4 @@
-package BlackBox;
+package src;
 
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
@@ -13,7 +13,7 @@ public class StudentTestRunner {
         // Give all the classes implementing binarySearch as arguments.
 
         boolean flag = false;
-        FlavourExercise ex = new Exercise();
+        ExerciseFlavour ex = new Exercise();
         int nDefinitions = 0;
 
         try {
