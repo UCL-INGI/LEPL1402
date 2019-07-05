@@ -6,9 +6,9 @@ from inginious import feedback
 # Throw a fatal error if the given code doesn't compile
 def compilation_feedback(problem_id, result):
     if result.stderr:
-        msg = "Votre fichier n'a pas compilé ou une erreur s'est produite : {}".format(result.stderr)
+        msg = "Your file did not compile : INGINIOUS is not your IDE ..."
         feedback.set_problem_feedback(msg, problem_id)
-        feedback.set_global_result("Erreur de compilation (ou autre)")
+        feedback.set_global_result("Compilation Error")
         sys.exit(0)
 
 

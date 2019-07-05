@@ -23,6 +23,7 @@ runner_path = CWD/"Runner.java"
 #####################################
 
 # Compile the runner
+print("COMPILING THE RUNNER ...")
 runner_compile = generate_java_command_string(runner_path, CWD, "javac")
 result = run_command(runner_path)
 
@@ -45,7 +46,7 @@ filename = store_uploaded_file("studentupload", student_path)
 
 # Compile the java student code
 compile_code = generate_java_command_string(filename, CWD, "javac")
-print(compile_code)
+print("COMPILING THE STUDENT CODE ...")
 result = run_command(compile_code)
 
 # handle compilation errors
@@ -62,11 +63,8 @@ run_code = generate_java_command_string(runner_path, CWD)
 # also appends -ea just to be sure everything works as expected
 run_code = append_args_to_command(run_code, ["-ea"])
 run_code = append_args_to_command(run_code, [filename])
-print(run_code)
-
+print("RUNNING THE TESTRUNNER ....")
 result = run_command(run_code)
-
-# TODO result stdout
 
 #####################################
 #   Show results                    #
