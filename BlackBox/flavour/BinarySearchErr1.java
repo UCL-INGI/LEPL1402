@@ -1,7 +1,7 @@
-package BlackBox.flavour;
+package flavour;
 
-import BlackBox.BinarySearchFlavour;
-import BlackBox.FlavourExercise;
+import src.BinarySearchFlavour;
+import src.FlavourExercise;
 
 public class BinarySearchErr1 extends BinarySearchFlavour implements FlavourExercise {
 

@@ -12,7 +12,8 @@ ProcessOutput = namedtuple('ProcessOutput', ['returncode', 'stdout', 'stderr'])
 # Libraries to be add to run/compile via option -cp of java(c)
 def librairies():
     # JUnit and JavaGrading
-    lib = '/course/common/junit-4.12.jar'
+    lib = '.'
+    lib += ':/course/common/junit-4.12.jar'
     lib += ':/course/common/hamcrest-core-1.3.jar'
     lib += ':/course/common/JavaGrading-0.3.2.jar'
 
@@ -74,7 +75,7 @@ def generate_java_command_string(files_input, command="java"):
     command_code = "{} {} {}" \
         .format(
             command,
-            "-cp {}".format(libs) if command == "javac" else '',
+            "-cp {}".format(libs),
             files
         )
     return command_code
