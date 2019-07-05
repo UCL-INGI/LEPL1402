@@ -1,9 +1,9 @@
 package flavour;
 
 import src.BinarySearchFlavour;
-import src.FlavourExercise;
+import src.ExerciseFlavour;
 
-public class BinarySearchErr1 extends BinarySearchFlavour implements FlavourExercise {
+public class BinarySearchErr1 extends BinarySearchFlavour {
 
     private static final boolean correctness = false;
 
