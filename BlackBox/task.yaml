@@ -1,6 +1,6 @@
 author: "Dark Vador"
 accessible: true
-name: "WhiteBox Testing - Binary Search"
+name: "BlackBox Testing - Binary Search"
 context: "In this task, you should provide a TestSuite for the Binary Search class"
 
 problems:

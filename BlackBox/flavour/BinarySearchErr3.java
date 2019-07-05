@@ -1,6 +1,6 @@
-package BlackBox.flavour;
+package flavour;
 
-import BlackBox.BinarySearchFlavour;
+import src.BinarySearchFlavour;
 
 public class BinarySearchErr3 extends BinarySearchFlavour {
 

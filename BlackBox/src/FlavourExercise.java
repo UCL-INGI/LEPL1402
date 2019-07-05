@@ -1,4 +1,4 @@
-package BlackBox;
+package src;
 
 public interface FlavourExercise {
 

@@ -1,4 +1,4 @@
-package BlackBox;
+package src;
 
 import com.github.guillaumederval.javagrading.TestSecurityManager;
 import org.junit.runners.BlockJUnit4ClassRunner;

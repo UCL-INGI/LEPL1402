@@ -1,6 +1,6 @@
-package BlackBox;
+package src;
 
-import BlackBox.flavour.*;
+import flavour.*;
 
 public class Exercise implements FlavourExercise {
 
