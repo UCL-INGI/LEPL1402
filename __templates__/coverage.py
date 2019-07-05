@@ -28,10 +28,12 @@ def exec_file_generation_command(file):
 
 # TODO A Tester
 # Command to generate the result as a xml file from JaCoCo
-def generate_coverage_report(exec_file, xml_output):
-    return "{} -jar {} report {} --xml {}".format(
+# https://stackoverflow.com/questions/47717538/usage-of-jacococli-jar-with-multiple-classfiles
+def generate_coverage_report(exec_file, classes_path, xml_output):
+    return "{} -jar {} report {} {} --xml {}".format(
         "java",
         "/course/common/jacococli.jar",
         exec_file,
+        ' '.join(["--classfiles {}".format(str(c)) for c in classes_path]),
         xml_output
     )
