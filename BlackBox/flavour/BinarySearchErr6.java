@@ -1,14 +1,16 @@
-package flavour;
+package BlackBox.flavour;
 
-public class BinarySearchErr5 {
+import BlackBox.BinarySearchFlavour;
 
-    public static final boolean correctness = false;
+public class BinarySearchErr6 extends BinarySearchFlavour {
+
+    private static final boolean correctness = false;
 
     public int binarySearch(int [] arr, int low, int high, int elem) {
 
 
-        if(low > high || low < 0 || high > arr.length-1){
-            return -2;
+        if(low > high || low < 0 || arr == null ||  high > arr.length-1){
+            return -1; //mistake is here
         }
 
         while (high >= low) {
@@ -28,7 +30,11 @@ public class BinarySearchErr5 {
         }
 
         // not found.
-        return -2; //mistake is here
+        return -1;
     }
 
+    @Override
+    public boolean correctness(){
+        return correctness;
+    }
 }

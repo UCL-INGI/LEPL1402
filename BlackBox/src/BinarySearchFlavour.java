@@ -1,14 +1,12 @@
-package flavour;
+package BlackBox;
 
-public class BinarySearchErr6 {
+public class BinarySearchFlavour implements FlavourExercise {
 
-    public static final boolean correctness = false;
-
-    public int binarySearch(int [] arr, int low, int high, int elem) {
-
+    public int binarySearch(int [] arr, int low, int high, int elem){
+        // The "presumably" correct implementation, the one we'll give to students.
 
         if(low > high || low < 0 || arr == null ||  high > arr.length-1){
-            return -1; //mistake is here
+            return -2;
         }
 
         while (high >= low) {
@@ -30,4 +28,10 @@ public class BinarySearchErr6 {
         // not found.
         return -1;
     }
+
+    @Override
+    public boolean correctness() {
+        return true;
+    }
+
 }

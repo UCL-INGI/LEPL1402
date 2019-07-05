@@ -1,8 +1,10 @@
-package flavour;
+package BlackBox.flavour;
 
-public class BinarySearchErr2  {
+import BlackBox.BinarySearchFlavour;
 
-    public static final boolean correctness = false;
+public class BinarySearchErr2 extends BinarySearchFlavour {
+
+    private static final boolean correctness = false;
 
     public int binarySearch(int [] arr, int low, int high, int elem) {
 
@@ -28,5 +30,10 @@ public class BinarySearchErr2  {
 
         // not found.
         return -1;
+    }
+
+    @Override
+    public boolean correctness(){
+        return correctness;
     }
 }
