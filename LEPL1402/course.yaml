@@ -1,0 +1,17 @@
+accessible: true
+name: '[LEPL1402]: Computer Science 2'
+admins:
+- ''
+tutors: []
+groups_student_choice: false
+use_classrooms: true
+allow_unregister: true
+allow_preview: false
+registration: true
+registration_password: null
+registration_ac: null
+registration_ac_list:
+- ''
+is_lti: false
+lti_keys: {}
+lti_send_back_grade: false

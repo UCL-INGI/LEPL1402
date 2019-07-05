@@ -2,8 +2,8 @@
 
 # les imports
 import os
-from .__templates__.helper import *
-from .__templates__.feedback import *
+from LEPL1402. import *
+from LEPL1402. import *
 
 #####################################
 #             CONSTANTS             #
