@@ -17,16 +17,6 @@ def extract_stats(path_to_xml_file):
 
 
 # TODO A Tester
-# Command to generate a exec file from JaCoCo
-def exec_file_generation_command(file):
-    return "{} –javaagent:{} {}".format(
-        "java",
-        "/course/common/jacocoagent.jar",
-        file[:-5]
-    )
-
-
-# TODO A Tester
 # Command to generate the result as a xml file from JaCoCo
 # https://stackoverflow.com/questions/47717538/usage-of-jacococli-jar-with-multiple-classfiles
 def generate_coverage_report(exec_file, classes_path, xml_output):

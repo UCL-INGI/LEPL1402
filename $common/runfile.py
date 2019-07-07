@@ -53,7 +53,7 @@ def main():
 
     # TODO Ici cela dépend : dans le cas "classic", il suffit de run le runner
     # TODO Quoi qu'il arrive, il faut envoyer le feedback_settings
-    # Dans le cas,
+    # Command to generate a exec file from JaCoCo ;
 
     run_code = helper.generate_java_command_string(RUNNER_JAVA_NAME)
     print("{} \n".format(run_code))

@@ -37,7 +37,7 @@ def run_command(cmd):
 def store_uploaded_file(problem_id, base_path):
     student_upload = input.get_input(problem_id)
     filename = input.get_input("{}:filename".format(problem_id))
-    filename_with_path = Path(base_path)/filename
+    filename_with_path = Path(base_path) / filename
 
     # Stores a copy of this file inside "student" folder
     with open(filename_with_path, 'w+') as fileUpload:
@@ -56,31 +56,35 @@ def apply_templates(base_path, out_path):
         if item.is_file()
     ]
     for file in only_top_level_files:
-        dst = str(Path(out_path)/file)
-        src = str(Path(base_path)/file)
+        dst = str(Path(out_path) / file)
+        src = str(Path(base_path) / file)
         input.parse_template(src, dst)
 
 
 # Generate compile/run command for given file
-# It removes the ".java" extension for javac
 # the files_input argument is either an array of string or a string :
 # 1. If it is a string, it means we want to run "java" command with only one file
 # 2. Else , it means we want to run "javac" command (possible to use globing characters * )
-def generate_java_command_string(files_input, command="java"):
-    libs = librairies()
-    # the file extension is .java so 5 characters
-    # Better than using os.path.splittext : https://stackoverflow.com/a/39648242/6149867
+def generate_java_command_string(files_input, command="java", libs=librairies(), coverage=False):
+    # file(s) to compile or to execute
     files = ' '.join([str(v) for v in files_input]) if command == "javac" else files_input[:-5]
 
-    command_code = "{} {} {}" \
-        .format(
-            command,
-            "-cp {}".format(libs),
-            files
-        )
-    return command_code
+    # options to be used
+    # space in key is needed as we simply concat key/value strings
+    options = {
+        "-cp ": libs,
+        # Only add the coverage option when needed
+        "–javaagent:": "/course/common/jacocoagent.jar" if coverage else None
+    }
+
+    # only include not null options values
+    str_options = ' '.join(
+        ["{}{}".format(option, value) for option, value in options.items() if value]
+    )
+
+    return "{} {} {}".format(command, str_options, files)
 
 
 # to append ccommand with args
-def append_args_to_command(cmd, args=[]):
+def append_args_to_command(cmd, args):
     return "{} {}".format(cmd, ' '.join([str(v) for v in args]))
