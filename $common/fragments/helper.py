@@ -72,9 +72,10 @@ def generate_java_command_string(files_input, command="java", libs=librairies(),
     # options to be used
     # space in key is needed as we simply concat key/value strings
     options = {
-        "-cp ": libs,
         # Only add the coverage option when needed
-        "–javaagent:": "/course/common/jacocoagent.jar" if coverage else None
+        "–javaagent:": "/course/common/jacocoagent.jar" if coverage else None,
+        # Include libraries
+        "-cp ": libs
     }
 
     # only include not null options values

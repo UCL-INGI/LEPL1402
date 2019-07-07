@@ -50,12 +50,10 @@ def main():
     #####################################
 
     # invoke runner with classes as arg
+    # in the case of code coverage ( Jacoco ) , we need to generate also the report file (exec ) by the JaCoco agent
+    coverage_required = True if feedback_settings["feedback_kind"] == "JaCoCo" else None
 
-    # TODO Ici cela dépend : dans le cas "classic", il suffit de run le runner
-    # TODO Quoi qu'il arrive, il faut envoyer le feedback_settings
-    # Command to generate a exec file from JaCoCo ;
-
-    run_code = helper.generate_java_command_string(RUNNER_JAVA_NAME)
+    run_code = helper.generate_java_command_string(RUNNER_JAVA_NAME, coverage=coverage_required)
     print("{} \n".format(run_code))
 
     result = helper.run_command(run_code)
