@@ -1,8 +1,8 @@
 import sys
 import re
+import yaml
 from pathlib import Path
 from inginious import feedback
-from inginious.common import custom_yaml
 from fragments import coverage, helper
 
 
@@ -106,7 +106,7 @@ def config_file_to_dict(file_path):
     else:
 
         with open(file_path, "r") as stream:
-            result = custom_yaml.load(stream)
+            result = yaml.load(stream)
 
             return {
                 # Boolean : if we have a feedback output to purpose
