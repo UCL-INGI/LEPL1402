@@ -32,7 +32,7 @@ return_messages = {
 #   feedback_kind : JavaGrading / JaCoCo / etc (useful only when you have has_feedback=True)
 #   coverage_stats:
 def result_feedback(result, feedback_settings):
-    
+    print(result.stderr)
     # Top level message
     msg = "{}\n".format(return_messages.get(result.returncode, "Uncommon Failure"))
     feedback.set_global_feedback(msg, True) 
