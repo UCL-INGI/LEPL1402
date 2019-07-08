@@ -3,6 +3,7 @@ import re
 from pathlib import Path
 from inginious import feedback
 from inginious.common import custom_yaml
+from . import coverage, helper
 
 
 # Throw a fatal error if the given code doesn't compile
@@ -36,9 +37,6 @@ def result_feedback(result, feedback_settings):
     msg = "{}\n".format(return_messages.get(result.returncode, "Uncommon Failure"))
     feedback.set_global_feedback(msg, True) 
 
-    # For advanced feedback
-    score_ratio = 0
-
     # if we have a feedback, use it
     if feedback_settings.has_feedback:
 
@@ -50,9 +48,8 @@ def result_feedback(result, feedback_settings):
             feedback.set_global_feedback(msg, True)
         
         # JaCoCo
-        # TODO
         if feedback_settings.feedback_kind == "JaCoCo":
-            score_ratio, msg = None, None
+            score_ratio, msg = extract_jacoco_result(feedback_settings)
             feedback_result(score_ratio)
             feedback.set_grade(score_ratio * 100)
 
@@ -125,3 +122,34 @@ def config_file_to_dict(file_path):
                 # !!seq ?
                 "coverage_stats": result["coverage_stats"] if "coverage_stats" in result else None
             }
+
+
+# Extract result from JaCoCo
+def extract_jacoco_result(feedback_settings):
+    coverage_stats = feedback_settings["coverage_stats"]
+    # No coverage stats , cannot evaluate this
+    if not coverage_stats:
+        return 0.0, "NO COVERAGE CRITERIA WERE GIVEN"
+    else:
+        # Generate the exec report file
+        gen_report = coverage.generate_coverage_report()
+        helper.run_command(gen_report)
+
+        # extract stats
+        coverage_result = coverage.extract_stats()
+        filtered_coverage_result = [x for x in coverage_result if x["type"] in coverage_stats]
+
+        # generate score and message
+        covered = sum(x["covered"] for x in filtered_coverage_result)
+        total = covered + sum(x["missed"] for x in filtered_coverage_result)
+
+        # TODO preparer les messages en RST
+        msg = '\n'.join(
+            [
+                "{}:\t{}/{}".format(c["type"], c["covered"], c["covered"] + c["missed"])
+                for c in filtered_coverage_result
+            ]
+        )
+
+        return covered / total, msg
+
