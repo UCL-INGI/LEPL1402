@@ -26,6 +26,7 @@ def main():
     #   Load feedback task settings     #
     #####################################
     feedback_settings = feedback.config_file_to_dict(FEEDBACK_REVIEW_PATH)
+    print("FEEDBACK SETTINGS LOADED")
 
     #####################################
     #       Apply templates             #
@@ -33,13 +34,14 @@ def main():
 
     # we have a folder where we have only these files
     helper.apply_templates(PATH_TEMPLATES, PATH_SRC)
+    print("TEMPLATE(S) APPLIED")
 
     #####################################
     #   COMPILE ALL CODE IN SRC         #
     #####################################
 
     compile_cmd = helper.generate_java_command_string(FILES_TO_COMPILE, "javac")
-    print(compile_cmd)
+    print("COMPILING CODE : {}".format(compile_cmd))
     result = helper.run_command(compile_cmd)
 
     # handle compilation errors
@@ -54,10 +56,9 @@ def main():
     coverage_required = True if feedback_settings["feedback_kind"] == "JaCoCo" else False
 
     if coverage_required:
-
         # We need a jar file to please JaCoCo
         create_jar = helper.generate_jar_file()
-
+        print("GENERATING JAR FOR JACOCO : {}".format(create_jar))
         # Execute this
         result = helper.run_command(create_jar)
 
@@ -76,8 +77,7 @@ def main():
 
     else:
         run_code = helper.generate_java_command_string(RUNNER_JAVA_NAME, coverage=False)
-        print("{} \n".format(run_code))
-
+        print("RUNNING CODE : {}".format(run_code))
         result = helper.run_command(run_code)
 
         #####################################

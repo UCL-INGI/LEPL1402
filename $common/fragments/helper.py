@@ -6,6 +6,8 @@ from inginious import input
 from collections import namedtuple
 from pathlib import Path
 
+from fragments.constants import *
+
 ProcessOutput = namedtuple('ProcessOutput', ['returncode', 'stdout', 'stderr'])
 
 
@@ -103,4 +105,4 @@ def append_args_to_command(cmd, args):
 # Files to compile need just to refactor the string
 
 def generate_jar_file(class_folders=[PATH_FLAVOUR, PATH_SRC], dst=JACOCO_JAR_FILE):
-    return "java -cvf {} {}".format(dst, ' '.join(class_folders))
+    return "jar -cvf {} {}".format(dst, ' '.join(class_folders))

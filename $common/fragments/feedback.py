@@ -10,6 +10,7 @@ from fragments import coverage, helper
 def compilation_feedback(result):
     if result.returncode != 0:
         msg = "Your file did not compile : INGINIOUS is not your IDE ..."
+        print(result.stderr)
         feedback.set_global_feedback(msg)
         feedback.set_global_result("failed")
         feedback.set_grade(0.0)
