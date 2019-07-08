@@ -1,5 +1,5 @@
 from xml.etree import ElementTree as ET
-from .constants import *
+from fragments.constants import *
 
 
 # https://docs.python.org/3/library/xml.etree.elementtree.html

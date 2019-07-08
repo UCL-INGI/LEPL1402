@@ -5,8 +5,8 @@ import importlib.util
 # Our import for common function    #
 #####################################
 
-from .fragments import helper, feedback
-from .fragments.constants import *
+from fragments import helper, feedback
+from fragments.constants import *
 
 
 # For extreme usage only XD

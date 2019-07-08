@@ -1,6 +1,6 @@
 #!/bin/python3
 import importlib.util
-
+import sys
 
 # Dynamically load modules we need
 # Credits to https://stackoverflow.com/a/67692/6149867
@@ -15,6 +15,7 @@ def dynamically_load_module(module, path):
 #####################################
 # Our import for common run file    #
 #####################################
+sys.path.append("/course/common")
 
 runfile = dynamically_load_module("runfile", "/course/common/runfile.py")
 runfile.main()

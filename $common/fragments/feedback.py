@@ -3,7 +3,7 @@ import re
 from pathlib import Path
 from inginious import feedback
 from inginious.common import custom_yaml
-from . import coverage, helper
+from fragments import coverage, helper
 
 
 # Throw a fatal error if the given code doesn't compile
