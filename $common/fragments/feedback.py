@@ -38,17 +38,17 @@ def result_feedback(result, feedback_settings):
     feedback.set_global_feedback(msg, True) 
 
     # if we have a feedback, use it
-    if feedback_settings.has_feedback:
+    if feedback_settings["has_feedback"]:
 
         # JavaGrading
-        if feedback_settings.feedback_kind == "JavaGrading":
+        if feedback_settings["feedback_kind"] == "JavaGrading":
             score_ratio, msg = extract_java_grading_result(result)
             feedback_result(score_ratio)
             feedback.set_grade(score_ratio * 100)
             feedback.set_global_feedback(msg, True)
         
         # JaCoCo
-        if feedback_settings.feedback_kind == "JaCoCo":
+        if feedback_settings["feedback_kind"] == "JaCoCo":
             score_ratio, msg = extract_jacoco_result(feedback_settings)
             feedback_result(score_ratio)
             feedback.set_grade(score_ratio * 100)
@@ -106,8 +106,8 @@ def config_file_to_dict(file_path):
     else:
 
         with open(file_path, "r") as stream:
+            # File must not be empty
             result = yaml.load(stream)
-
             return {
                 # Boolean : if we have a feedback output to purpose
                 "has_feedback": result["has_feedback"] if "has_feedback" in result else False,

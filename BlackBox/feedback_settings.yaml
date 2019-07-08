@@ -1,6 +1,6 @@
 # Example of file
 # has_feedback: false
-# quorum: 0.8
+quorum: 1.0
 # feedback_kind: JaCoCo
 # coverage_stats:
 #  - INSTRUCTION
