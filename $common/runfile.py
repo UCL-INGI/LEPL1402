@@ -56,6 +56,7 @@ def main():
     print("GENERATING JAR : {}".format(create_jar))
     # Execute this
     result = helper.run_command(create_jar)
+    print(result.stdout)
 
     # handle compilation errors
     feedback.compilation_feedback(result)

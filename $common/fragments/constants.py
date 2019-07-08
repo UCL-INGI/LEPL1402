@@ -41,7 +41,7 @@ RUNNER_JAVA_NAME = str(Path(RUNNER_PATH).relative_to(CWD)).replace("/", ".")
 FEEDBACK_REVIEW_PATH = str(CWD / "feedback_settings.yaml")
 
 # JaCoCo needs a jar to execute its stuff
-JAR_FILE = str(CWD / "task_evaluation_compiled.jar")
+JAR_FILE = str(CWD / "task_evaluation.jar")
 
 # JaCoCo coverage file path
 JACOCO_EXEC_FILE = str(CWD / "jacoco.exec")

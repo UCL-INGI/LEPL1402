@@ -102,9 +102,12 @@ def append_args_to_command(cmd, args):
 def without_extension(path):
     return path.replace(Path(path).suffix, "")
 
+# Give relative path : Java interpret /task as package ( when it's not be the case)
+def relative_path(path):
+    return str(Path(path).relative_to(CWD))
+
 # For jacoco , only way to proceed
 # Files to compile need just to refactor the string
-
 def generate_jar_file(class_folders=[PATH_FLAVOUR, PATH_SRC], main_class=RUNNER_JAVA_NAME, dst=JAR_FILE):
-    return "jar -cfe {} {} {}".format(dst, without_extension(main_class), ' '.join(class_folders))
+    return "jar -cvfe {} {} {}".format(dst, without_extension(main_class), ' '.join([relative_path(path) for path in class_folders]))
 
