@@ -51,4 +51,4 @@ JACOCO_CLASS_FILES = [PATH_FLAVOUR]
 JACOCO_RESULT_FILE = str(CWD / "coverage_result.xml")
 
 # JaCoCo needs a jar to execute its stuff
-JACOCO_JAR_FILE = str(CWD / "JaCoCo-compiled.jar")
+JACOCO_JAR_FILE = str(CWD / "task_evaluation_compiled.jar")

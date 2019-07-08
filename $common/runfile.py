@@ -65,8 +65,14 @@ def main():
         feedback.compilation_feedback(result)
 
         # run the code with java agent
+        run_code = helper.generate_java_command_string(JACOCO_JAR_FILE, coverage=True, is_jar=True)
 
+        result = helper.run_command(run_code)
 
+        #####################################
+        #   Show and handle results         #
+        #####################################
+        feedback.result_feedback(result, feedback_settings)
 
     else:
         run_code = helper.generate_java_command_string(RUNNER_JAVA_NAME, coverage=False)
