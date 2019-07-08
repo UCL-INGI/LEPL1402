@@ -51,12 +51,16 @@ def main():
     #       GENERATE A JAR FILE         #
     #####################################
 
-    # We need a jar file
+    # We need a manifest in order to make the created jar runnable
+    helper.create_manifest()
+    
+    # Create a jar file
     create_jar = helper.generate_jar_file()
     print("GENERATING JAR : {}".format(create_jar))
     # Execute this
     result = helper.run_command(create_jar)
-    print(result.stdout)
+    # For debug
+    # print(result.stdout)
 
     # handle compilation errors
     feedback.compilation_feedback(result)

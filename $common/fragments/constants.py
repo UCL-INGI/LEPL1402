@@ -43,6 +43,9 @@ FEEDBACK_REVIEW_PATH = str(CWD / "feedback_settings.yaml")
 # JaCoCo needs a jar to execute its stuff
 JAR_FILE = str(CWD / "task_evaluation.jar")
 
+# Manifest for JAR FILE (since it ignores -cp option)
+MANIFEST_FILE = str(CWD / "MANIFEST.MF")
+
 # JaCoCo coverage file path
 JACOCO_EXEC_FILE = str(CWD / "jacoco.exec")
 

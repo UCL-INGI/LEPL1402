@@ -76,7 +76,8 @@ def generate_java_command_string(files_input, command="java", libs=librairies(),
     options = [
         # Only add the coverage option when needed
         ("–javaagent:", "/course/common/jacocoagent.jar" if coverage else None),
-        # Include libraries
+        # Include libraries if not a jar file
+        # Set N°2 : https://javarevisited.blogspot.com/2012/10/5-ways-to-add-multiple-jar-to-classpath-java.html
         ("-cp ", libs),
         # If we use a jar file for coverage
         ("-jar ", "{}.jar".format(files) if is_jar else None)
@@ -106,8 +107,16 @@ def without_extension(path):
 def relative_path(path):
     return str(Path(path).relative_to(CWD))
 
+# Since using a jar simply ignore -cp option, we have no other choice to create a manifest to add the libraries
+def create_manifest():
+    with open(MANIFEST_FILE, 'w+') as manifest:
+        libs = librairies().split(":")
+        libs_str = "{} {}\n".format("Class-Path:", ' '.join(libs))
+        manifest.write(libs_str)
+        manifest.close()
+
 # For jacoco , only way to proceed
 # Files to compile need just to refactor the string
-def generate_jar_file(class_folders=[PATH_FLAVOUR, PATH_SRC], main_class=RUNNER_JAVA_NAME, dst=JAR_FILE):
-    return "jar -cvfe {} {} {}".format(dst, without_extension(main_class), ' '.join([relative_path(path) for path in class_folders]))
+def generate_jar_file(class_folders=[PATH_FLAVOUR, PATH_SRC], main_class=RUNNER_JAVA_NAME, dst=JAR_FILE, manifest=MANIFEST_FILE):
+    return "jar -cmvfe {} {} {} {}".format(manifest, dst, without_extension(main_class), ' '.join([relative_path(path) for path in class_folders]))
 
