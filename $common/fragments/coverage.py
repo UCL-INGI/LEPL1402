@@ -1,9 +1,10 @@
 from xml.etree import ElementTree as ET
+from .constants import *
 
 
 # https://docs.python.org/3/library/xml.etree.elementtree.html
 # Extract the stats given by Jacoco into a list so that we can use that later
-def extract_stats(path_to_xml_file):
+def extract_stats(path_to_xml_file=JACOCO_RESULT_FILE):
     tree = ET.parse(path_to_xml_file)
     root = tree.getroot()
     return [
@@ -19,7 +20,9 @@ def extract_stats(path_to_xml_file):
 # TODO A Tester
 # Command to generate the result as a xml file from JaCoCo
 # https://stackoverflow.com/questions/47717538/usage-of-jacococli-jar-with-multiple-classfiles
-def generate_coverage_report(exec_file, classes_path, xml_output):
+def generate_coverage_report(exec_file=JACOCO_EXEC_FILE,
+                             classes_path=JACOCO_CLASS_FILES,
+                             xml_output=JACOCO_RESULT_FILE):
     return "{} -jar {} report {} {} --xml {}".format(
         "java",
         "/course/common/jacococli.jar",

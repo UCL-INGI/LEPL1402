@@ -7,7 +7,7 @@ from inginious.common import custom_yaml
 
 # Throw a fatal error if the given code doesn't compile
 def compilation_feedback(result):
-    if result.stderr:
+    if result.returncode != 0:
         msg = "Your file did not compile : INGINIOUS is not your IDE ..."
         feedback.set_global_feedback(msg)
         feedback.set_global_result("failed")
@@ -41,22 +41,20 @@ def result_feedback(result, feedback_settings):
 
     # if we have a feedback, use it
     if feedback_settings.has_feedback:
-        
-        # Each one has its own way to express itself
-        msg = ""
 
         # JavaGrading
         if feedback_settings.feedback_kind == "JavaGrading":
             score_ratio, msg = extract_java_grading_result(result)
+            feedback_result(score_ratio)
+            feedback.set_grade(score_ratio * 100)
+            feedback.set_global_feedback(msg, True)
         
         # JaCoCo
         # TODO
         if feedback_settings.feedback_kind == "JaCoCo":
             score_ratio, msg = None, None
-
-        # Print the rest
-        feedback_result(score_ratio)
-        feedback.set_grade(score_ratio * 100)
+            feedback_result(score_ratio)
+            feedback.set_grade(score_ratio * 100)
 
     # For exercises with binary result : 0 or 100
     else:

@@ -39,3 +39,13 @@ RUNNER_JAVA_NAME = str(Path(RUNNER_PATH).relative_to(CWD)).replace("/", ".")
 
 # Config file to generate feedback for every kind of exercises
 FEEDBACK_REVIEW_PATH = str(CWD / "feedback_settings.yaml")
+
+# JaCoCo coverage file path
+JACOCO_EXEC_FILE = str(CWD / "jacoco.exec")
+
+# JaCoCo classfiles
+# By default, use the flavour folder (so that we can efficiently
+JACOCO_CLASS_FILES = [PATH_FLAVOUR]
+
+# JaCoCo result file in xml
+JACOCO_RESULT_FILE = str(CWD / "coverage_result.xml")

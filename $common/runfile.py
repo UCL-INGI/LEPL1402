@@ -51,7 +51,7 @@ def main():
 
     # invoke runner with classes as arg
     # in the case of code coverage ( Jacoco ) , we need to generate also the report file (exec ) by the JaCoco agent
-    coverage_required = True if feedback_settings["feedback_kind"] == "JaCoCo" else None
+    coverage_required = True if feedback_settings["feedback_kind"] == "JaCoCo" else False
 
     run_code = helper.generate_java_command_string(RUNNER_JAVA_NAME, coverage=coverage_required)
     print("{} \n".format(run_code))
