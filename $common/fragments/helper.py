@@ -65,9 +65,11 @@ def apply_templates(base_path, out_path):
 # the files_input argument is either an array of string or a string :
 # 1. If it is a string, it means we want to run "java" command with only one file
 # 2. Else , it means we want to run "javac" command (possible to use globing characters * )
-def generate_java_command_string(files_input, command="java", libs=librairies(), coverage=False):
+def generate_java_command_string(files_input, command="java", libs=librairies(), coverage=False, is_jar=False):
     # file(s) to compile or to execute
-    files = ' '.join([str(v) for v in files_input]) if command == "javac" else files_input[:-5]
+    files = ' '.join(
+        [str(v) for v in files_input]
+    ) if command == "javac" else files_input.replace(Path(files_input).suffix, "")
 
     # options to be used
     # space in key is needed as we simply concat key/value strings
@@ -75,7 +77,9 @@ def generate_java_command_string(files_input, command="java", libs=librairies(),
         # Only add the coverage option when needed
         ("–javaagent:", "/course/common/jacocoagent.jar" if coverage else None),
         # Include libraries
-        ("-cp ", libs)
+        ("-cp ", libs),
+        # If we use a jar file for coverage
+        ("-jar ", "{}.jar".format(files) if is_jar else None)
     ]
 
     # only include not null options values
@@ -83,9 +87,20 @@ def generate_java_command_string(files_input, command="java", libs=librairies(),
         ["{}{}".format(option, value) for (option, value) in options if value]
     )
 
-    return "{} {} {}".format(command, str_options, files)
+    # If jar, no need to format the last argument
+    if is_jar:
+        return "{} {}".format(command, str_options)
+    else:
+        return "{} {} {}".format(command, str_options, files)
 
 
 # to append ccommand with args
 def append_args_to_command(cmd, args):
     return "{} {}".format(cmd, ' '.join([str(v) for v in args]))
+
+
+# For jacoco , only way to proceed
+# Files to compile need just to refactor the string
+
+def generate_jar_file(class_folders=[PATH_FLAVOUR, PATH_SRC], dst=JACOCO_JAR_FILE):
+    return "java -cvf {} {}".format(dst, ' '.join(class_folders))

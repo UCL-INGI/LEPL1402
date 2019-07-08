@@ -131,7 +131,7 @@ def extract_jacoco_result(feedback_settings):
     if not coverage_stats:
         return 0.0, "NO COVERAGE CRITERIA WERE GIVEN"
     else:
-        # Generate the exec report file
+        # Generate the xml report file
         gen_report = coverage.generate_coverage_report()
         helper.run_command(gen_report)
 

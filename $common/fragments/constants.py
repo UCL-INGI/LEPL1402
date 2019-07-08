@@ -49,3 +49,6 @@ JACOCO_CLASS_FILES = [PATH_FLAVOUR]
 
 # JaCoCo result file in xml
 JACOCO_RESULT_FILE = str(CWD / "coverage_result.xml")
+
+# JaCoCo needs a jar to execute its stuff
+JACOCO_JAR_FILE = str(CWD / "JaCoCo-compiled.jar")
