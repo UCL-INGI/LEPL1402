@@ -69,9 +69,7 @@ def apply_templates(base_path, out_path):
 # 2. Else , it means we want to run "javac" command (possible to use globing characters * )
 def generate_java_command_string(files_input, command="java", libs=librairies(), coverage=False, is_jar=False):
     # file(s) to compile or to execute
-    files = ' '.join(
-        [str(v) for v in files_input]
-    ) if command == "javac" else files_input.replace(Path(files_input).suffix, "")
+    files = ' '.join([str(v) for v in files_input]) if command == "javac" else without_extension(files_input)
 
     # options to be used
     # space in key is needed as we simply concat key/value strings
@@ -100,9 +98,13 @@ def generate_java_command_string(files_input, command="java", libs=librairies(),
 def append_args_to_command(cmd, args):
     return "{} {}".format(cmd, ' '.join([str(v) for v in args]))
 
+# filename without extension
+def without_extension(path):
+    return path.replace(Path(path).suffix, "")
 
 # For jacoco , only way to proceed
 # Files to compile need just to refactor the string
 
-def generate_jar_file(class_folders=[PATH_FLAVOUR, PATH_SRC], dst=JACOCO_JAR_FILE):
-    return "jar -cvf {} {}".format(dst, ' '.join(class_folders))
+def generate_jar_file(class_folders=[PATH_FLAVOUR, PATH_SRC], main_class=RUNNER_JAVA_NAME, dst=JAR_FILE):
+    return "jar -cfe {} {} {}".format(dst, without_extension(main_class), ' '.join(class_folders))
+

@@ -48,42 +48,33 @@ def main():
     feedback.compilation_feedback(result)
 
     #####################################
+    #       GENERATE A JAR FILE         #
+    #####################################
+
+    # We need a jar file
+    create_jar = helper.generate_jar_file()
+    print("GENERATING JAR : {}".format(create_jar))
+    # Execute this
+    result = helper.run_command(create_jar)
+
+    # handle compilation errors
+    feedback.compilation_feedback(result)
+
+    #####################################
     #   RUN  TEST  RUNNER               #
     #####################################
 
     # invoke runner with classes as arg
     # in the case of code coverage ( Jacoco ) , we need to generate also the report file (exec ) by the JaCoco agent
     coverage_required = True if feedback_settings["feedback_kind"] == "JaCoCo" else False
+    run_code = helper.generate_java_command_string(JAR_FILE, coverage=coverage_required, is_jar=True)
+    print("RUNNING CODE : {}".format(run_code))
+    result = helper.run_command(run_code)
 
-    if coverage_required:
-        # We need a jar file to please JaCoCo
-        create_jar = helper.generate_jar_file()
-        print("GENERATING JAR FOR JACOCO : {}".format(create_jar))
-        # Execute this
-        result = helper.run_command(create_jar)
-
-        # handle compilation errors
-        feedback.compilation_feedback(result)
-
-        # run the code with java agent
-        run_code = helper.generate_java_command_string(JACOCO_JAR_FILE, coverage=True, is_jar=True)
-
-        result = helper.run_command(run_code)
-
-        #####################################
-        #   Show and handle results         #
-        #####################################
-        feedback.result_feedback(result, feedback_settings)
-
-    else:
-        run_code = helper.generate_java_command_string(RUNNER_JAVA_NAME, coverage=False)
-        print("RUNNING CODE : {}".format(run_code))
-        result = helper.run_command(run_code)
-
-        #####################################
-        #   Show and handle results         #
-        #####################################
-        feedback.result_feedback(result, feedback_settings)
+    #####################################
+    #   Show and handle results         #
+    #####################################
+    feedback.result_feedback(result, feedback_settings)
 
 
 if __name__ == "__main__":
