@@ -1,7 +1,6 @@
 package flavour;
 
 import src.BinarySearchFlavour;
-import src.FlavourExercise;
 
 public class BinarySearchCorrect extends BinarySearchFlavour {
 
