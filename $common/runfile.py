@@ -79,9 +79,6 @@ def main():
     # in the case of code coverage ( Jacoco ) , we need to generate also the report file (exec ) by the JaCoco agent
     coverage_required = True if feedback_settings["feedback_kind"] == "JaCoCo" else False
 
-    # If needed, copy the jacoco libs into CWD
-    need_jacoco_libs(coverage_required)
-
     run_code = helper.generate_java_command_string(JAR_FILE, coverage=coverage_required, is_jar=True)
     print("RUNNING CODE : {}".format(run_code))
     result = helper.run_command(run_code)

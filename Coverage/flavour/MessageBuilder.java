@@ -1,4 +1,4 @@
-package src;
+package flavour;
 
 public class MessageBuilder {
 
