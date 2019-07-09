@@ -75,7 +75,7 @@ def generate_java_command_string(files_input, command="java", libs=librairies(),
     # space in key is needed as we simply concat key/value strings
     options = [
         # Only add the coverage option when needed
-        ("-javaagent:", "jacocoagent.jar" if coverage else None),
+        ("-javaagent:", "/course/common/jacocoagent.jar" if coverage else None),
         # Include libraries if not a jar file
         # Set N°2 : https://javarevisited.blogspot.com/2012/10/5-ways-to-add-multiple-jar-to-classpath-java.html
         ("-cp ", libs if not is_jar else None),

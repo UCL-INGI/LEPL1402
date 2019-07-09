@@ -35,7 +35,6 @@ return_messages = {
 #   coverage_stats:
 def result_feedback(result, feedback_settings):
     # print(result.stderr)
-    print("{} : {} : {}".format(result.returncode, result.stdout, result.stderr))
     # Top level message
     msg = "{}\n".format(return_messages.get(result.returncode, "Uncommon Failure"))
     feedback.set_global_feedback(msg, True) 
@@ -136,11 +135,13 @@ def extract_jacoco_result(feedback_settings):
     else:
         # Generate the xml report file
         gen_report = coverage.generate_coverage_report()
+        print("GENERATING THE EXEC FILE : {}".format(gen_report))
         helper.run_command(gen_report)
 
         # extract stats
         coverage_result = coverage.extract_stats()
         filtered_coverage_result = [x for x in coverage_result if x["type"] in coverage_stats]
+        print(filtered_coverage_result)
 
         # generate score and message
         covered = sum(x["covered"] for x in filtered_coverage_result)
