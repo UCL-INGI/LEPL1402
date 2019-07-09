@@ -13,15 +13,20 @@ ProcessOutput = namedtuple('ProcessOutput', ['returncode', 'stdout', 'stderr'])
 
 # Libraries to be add to run/compile via option -cp of java(c)
 def librairies():
-    # JUnit and JavaGrading
-    lib = '.'
-    lib += ':/course/common/junit-4.12.jar'
-    lib += ':/course/common/hamcrest-core-1.3.jar'
-    lib += ':/course/common/JavaGrading-0.3.2.jar'
+    
+    # Current folder (not really used but why not)
+    libs = '.'
+    libs_to_include = ["junit-4.12.jar", "hamcrest-core-1.3.jar", "JavaGrading-0.3.2.jar"]
 
-    # Rest later : for example
-    # lib += ':/usr/share/java/powermock-mockito2-junit-1.7.1/*'
-    return lib
+    # other librarires if provided
+    libs += ":{}".format(
+        ':'.join([
+            str(Path(LIBS_FOLDER) / lib)
+            for lib in libs_to_include
+        ])
+    ) if libs_to_include else ""
+
+    return libs
 
 
 # Wrapper to execute system commands and easily get stdout, stderr steams and return code
@@ -75,9 +80,9 @@ def generate_java_command_string(files_input, command="java", libs=librairies(),
     # space in key is needed as we simply concat key/value strings
     options = [
         # Only add the coverage option when needed
-        ("–javaagent:", "jacocoagent.jar" if coverage else None),
+        ("-javaagent:", str(Path(LIBS_FOLDER) / "jacocoagent.jar") if coverage else None),
         # Include libraries if not a jar file
-        # Set N°2 : https://javarevisited.blogspot.com/2012/10/5-ways-to-add-multiple-jar-to-classpath-java.html
+        # See N°2 : https://javarevisited.blogspot.com/2012/10/5-ways-to-add-multiple-jar-to-classpath-java.html
         ("-cp ", libs if not is_jar else None),
         # If we use a jar file for coverage
         ("-jar ", "{}.jar".format(files) if is_jar else None)

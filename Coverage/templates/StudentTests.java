@@ -3,7 +3,7 @@ package src;
 import com.github.guillaumederval.javagrading.GradeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
+import flavour.*;
 
 import static org.junit.Assert.*;
 

@@ -49,12 +49,11 @@ MANIFEST_FILE = str(CWD / "MANIFEST.MF")
 # JaCoCo coverage file path
 JACOCO_EXEC_FILE = str(CWD / "jacoco.exec")
 
-# JaCoCo classfiles
-# By default, use the flavour folder (so that we can efficiently
+# JaCoCo classfiles for report ( only take the useful one in flavour)
 JACOCO_CLASS_FILES = [PATH_FLAVOUR]
 
 # JaCoCo result file in xml
 JACOCO_RESULT_FILE = str(CWD / "coverage_result.xml")
 
 # Libraries folder
-LIBS_FOLDER = "/course/common"
+LIBS_FOLDER = "/course/common/libs"

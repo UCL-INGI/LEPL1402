@@ -1,11 +1,42 @@
 author: "Dark Vador"
 accessible: true
 name: "Coverage Testing"
-context: "In this task, you should provide a TestSuite for coverage check"
+context: |-
+    In this task, you should provide a TestSuite for coverage check of the following class :
 
+    .. code-block:: java
+
+        public class MessageBuilder {
+
+            public String getMessage(String name) {
+                StringBuilder result = new StringBuilder();
+                if (name == null || name.trim().length() == 0) {
+                    result.append("Please provide a name!");
+                } else {
+                    result.append("Hello " + name);
+                }
+                return result.toString();
+            }
+        }
+
+    In order to succeed this task, you must cover the following points : Instructions , Branches
+    ( see https://www.eclemma.org/jacoco/trunk/doc/counters.html )
+
+    
 problems:
     student_code:
         type: "code"
         language: java
+        header: |-
+            
+            .. code-block:: java
+
+                // All required class(es) are already imported so no need to add import statement(s) 
+
+                public class StudentTests {
+
+                    // TODO STUDENT: Add your test cases here
+
+                }
 
 environment: java8scala
