@@ -1,3 +1,4 @@
+import shutil
 from xml.etree import ElementTree as ET
 from fragments.constants import *
 
@@ -25,8 +26,15 @@ def generate_coverage_report(exec_file=JACOCO_EXEC_FILE,
                              xml_output=JACOCO_RESULT_FILE):
     return "{} -jar {} report {} {} --xml {}".format(
         "java",
-        "/course/common/jacococli.jar",
+        "jacococli.jar",
         exec_file,
         ' '.join(["--classfiles {}".format(str(c)) for c in classes_path]),
         xml_output
     )
+
+# JaCoCo libraries need to be in the CWD so that they cannot be misunderstand  as packages
+def copy_jacoco_libs_into_cwd():
+    for lib in ["jacococli.jar", "jacocoagent.jar"]:
+        src = str(Path(LIBS_FOLDER) / lib)
+        dst = str(Path("/task") / lib)
+        shutil.copy2(src, dst)

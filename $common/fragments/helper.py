@@ -6,6 +6,8 @@ from inginious import input
 from collections import namedtuple
 from pathlib import Path
 
+from fragments.constants import *
+
 ProcessOutput = namedtuple('ProcessOutput', ['returncode', 'stdout', 'stderr'])
 
 
@@ -65,17 +67,20 @@ def apply_templates(base_path, out_path):
 # the files_input argument is either an array of string or a string :
 # 1. If it is a string, it means we want to run "java" command with only one file
 # 2. Else , it means we want to run "javac" command (possible to use globing characters * )
-def generate_java_command_string(files_input, command="java", libs=librairies(), coverage=False):
+def generate_java_command_string(files_input, command="java", libs=librairies(), coverage=False, is_jar=False):
     # file(s) to compile or to execute
-    files = ' '.join([str(v) for v in files_input]) if command == "javac" else files_input[:-5]
+    files = ' '.join([str(v) for v in files_input]) if command == "javac" else without_extension(files_input)
 
     # options to be used
     # space in key is needed as we simply concat key/value strings
     options = [
         # Only add the coverage option when needed
-        ("–javaagent:", "/course/common/jacocoagent.jar" if coverage else None),
-        # Include libraries
-        ("-cp ", libs)
+        ("–javaagent:", "jacocoagent.jar" if coverage else None),
+        # Include libraries if not a jar file
+        # Set N°2 : https://javarevisited.blogspot.com/2012/10/5-ways-to-add-multiple-jar-to-classpath-java.html
+        ("-cp ", libs if not is_jar else None),
+        # If we use a jar file for coverage
+        ("-jar ", "{}.jar".format(files) if is_jar else None)
     ]
 
     # only include not null options values
@@ -83,9 +88,39 @@ def generate_java_command_string(files_input, command="java", libs=librairies(),
         ["{}{}".format(option, value) for (option, value) in options if value]
     )
 
-    return "{} {} {}".format(command, str_options, files)
+    # If jar, no need to format the last argument
+    if is_jar:
+        return "{} {}".format(command, str_options)
+    else:
+        return "{} {} {}".format(command, str_options, files)
 
 
 # to append ccommand with args
 def append_args_to_command(cmd, args):
     return "{} {}".format(cmd, ' '.join([str(v) for v in args]))
+
+
+# filename without extension
+def without_extension(path):
+    return path.replace(Path(path).suffix, "")
+
+
+# Give relative path : Java interpret /task as package ( when it's not be the case)
+def relative_path(path):
+    return str(Path(path).relative_to(CWD))
+
+
+# Since using a jar simply ignore -cp option, we have no other choice to create a manifest to add the libraries
+def create_manifest():
+    with open(MANIFEST_FILE, 'w+') as manifest:
+        libs = librairies().split(":")
+        libs_str = "{} {}\n".format("Class-Path:", ' '.join(libs))
+        manifest.write(libs_str)
+        manifest.close()
+
+
+# For jacoco , only way to proceed
+# Files to compile need just to refactor the string
+def generate_jar_file(class_folders=[PATH_FLAVOUR, PATH_SRC], main_class=RUNNER_JAVA_NAME, dst=JAR_FILE, manifest=MANIFEST_FILE):
+    return "jar -cmvfe {} {} {} {}".format(manifest, dst, without_extension(main_class), ' '.join([relative_path(path) for path in class_folders]))
+

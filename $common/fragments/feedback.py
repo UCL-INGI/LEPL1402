@@ -10,6 +10,7 @@ from fragments import coverage, helper
 def compilation_feedback(result):
     if result.returncode != 0:
         msg = "Your file did not compile : INGINIOUS is not your IDE ..."
+        print(result.stderr)
         feedback.set_global_feedback(msg)
         feedback.set_global_result("failed")
         feedback.set_grade(0.0)
@@ -32,7 +33,8 @@ return_messages = {
 #   feedback_kind : JavaGrading / JaCoCo / etc (useful only when you have has_feedback=True)
 #   coverage_stats:
 def result_feedback(result, feedback_settings):
-    
+    # print(result.stderr)
+    print("{} : {} : {}".format(result.returncode, result.stdout, result.stderr))
     # Top level message
     msg = "{}\n".format(return_messages.get(result.returncode, "Uncommon Failure"))
     feedback.set_global_feedback(msg, True) 
@@ -131,7 +133,7 @@ def extract_jacoco_result(feedback_settings):
     if not coverage_stats:
         return 0.0, "NO COVERAGE CRITERIA WERE GIVEN"
     else:
-        # Generate the exec report file
+        # Generate the xml report file
         gen_report = coverage.generate_coverage_report()
         helper.run_command(gen_report)
 

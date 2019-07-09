@@ -1,0 +1,11 @@
+author: "Dark Vador"
+accessible: true
+name: "Coverage Testing"
+context: "In this task, you should provide a TestSuite for coverage check"
+
+problems:
+    student_code:
+        type: "code"
+        language: java
+
+environment: java8scala
