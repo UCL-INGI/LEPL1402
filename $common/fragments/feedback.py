@@ -45,19 +45,22 @@ def result_feedback(result, feedback_settings):
         # JavaGrading
         if feedback_settings["feedback_kind"] == "JavaGrading":
             score_ratio, msg = extract_java_grading_result(result)
-            feedback_result(score_ratio)
+            feedback_result(score_ratio, feedback_settings["quorum"])
             feedback.set_grade(score_ratio * 100)
             feedback.set_global_feedback(msg, True)
         
         # JaCoCo
         if feedback_settings["feedback_kind"] == "JaCoCo":
             score_ratio, msg = extract_jacoco_result(feedback_settings)
-            feedback_result(score_ratio)
+            feedback_result(score_ratio, feedback_settings["quorum"])
             feedback.set_grade(score_ratio * 100)
             feedback.set_global_feedback(msg, True)
 
     # For exercises with binary result : 0 or 100
     else:
+        # TODO stdout 
+        # print(result.stdout)
+        # feedback.set_global_feedback(result.stdout, True)
         score_ratio = 1.0 if result.returncode == 0 else 0.0
         feedback_result(score_ratio)
         feedback.set_grade(score_ratio * 100) 
