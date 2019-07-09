@@ -1,7 +1,6 @@
 package flavour;
 
 import src.BinarySearchFlavour;
-import src.ExerciseFlavour;
 
 public class BinarySearchErr1 extends BinarySearchFlavour {
 
@@ -39,8 +38,4 @@ public class BinarySearchErr1 extends BinarySearchFlavour {
         return correctness;
     }
 
-
-    public static void main(String [] args){
-
-    }
 }

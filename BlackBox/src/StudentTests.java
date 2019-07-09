@@ -19,6 +19,7 @@ public class StudentTests {
         int [] arr = new int[] {1, 3, 5, 6, 8, 10, 11, 13, 17, 42, 100, 110, 121};
         int res = Exercise.binarySearch(arr, 0, arr.length-1, 10);
         assertEquals(5, res);
+        System.exit(1);
 
     }
     // END OF STUDENT CODE
