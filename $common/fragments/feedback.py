@@ -21,6 +21,7 @@ def compilation_feedback(result):
 return_messages = {
     0: "Your code has successfully passed all tests for this mission.",
     1: "Your code failed all tests for this mission.",
+    2: "You used prohibited instructions ( such as System.exit(127) ) : Cheating is not a solution to your problems in life.",
     252: "The memory limit of your program is exceeded.",
     253: "The time limit for running your program has been exceeded."
 }
