@@ -5,7 +5,7 @@ import importlib.util
 # Our import for common function    #
 #####################################
 
-from fragments import helper, feedback
+from fragments import helper, feedback, coverage
 from fragments.constants import *
 
 
@@ -19,6 +19,12 @@ def dynamically_load_module(module, path):
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     return mod
+
+def need_jacoco_libs(coverage_required=False):
+    if coverage_required:
+        # coverage needs to have
+        coverage.copy_jacoco_libs_into_cwd()
+        print("Copied the JaCoCo libraries into CWD")
 
 
 def main():
@@ -72,6 +78,10 @@ def main():
     # invoke runner with classes as arg
     # in the case of code coverage ( Jacoco ) , we need to generate also the report file (exec ) by the JaCoco agent
     coverage_required = True if feedback_settings["feedback_kind"] == "JaCoCo" else False
+
+    # If needed, copy the jacoco libs into CWD
+    need_jacoco_libs(coverage_required)
+
     run_code = helper.generate_java_command_string(JAR_FILE, coverage=coverage_required, is_jar=True)
     print("RUNNING CODE : {}".format(run_code))
     result = helper.run_command(run_code)

@@ -75,7 +75,7 @@ def generate_java_command_string(files_input, command="java", libs=librairies(),
     # space in key is needed as we simply concat key/value strings
     options = [
         # Only add the coverage option when needed
-        ("–javaagent:", "/course/common/jacocoagent.jar" if coverage else None),
+        ("–javaagent:", "jacocoagent.jar" if coverage else None),
         # Include libraries if not a jar file
         # Set N°2 : https://javarevisited.blogspot.com/2012/10/5-ways-to-add-multiple-jar-to-classpath-java.html
         ("-cp ", libs if not is_jar else None),
@@ -99,13 +99,16 @@ def generate_java_command_string(files_input, command="java", libs=librairies(),
 def append_args_to_command(cmd, args):
     return "{} {}".format(cmd, ' '.join([str(v) for v in args]))
 
+
 # filename without extension
 def without_extension(path):
     return path.replace(Path(path).suffix, "")
 
+
 # Give relative path : Java interpret /task as package ( when it's not be the case)
 def relative_path(path):
     return str(Path(path).relative_to(CWD))
+
 
 # Since using a jar simply ignore -cp option, we have no other choice to create a manifest to add the libraries
 def create_manifest():
@@ -114,6 +117,7 @@ def create_manifest():
         libs_str = "{} {}\n".format("Class-Path:", ' '.join(libs))
         manifest.write(libs_str)
         manifest.close()
+
 
 # For jacoco , only way to proceed
 # Files to compile need just to refactor the string
