@@ -54,12 +54,13 @@ def result_feedback(result, feedback_settings):
             score_ratio, msg = extract_jacoco_result(feedback_settings)
             feedback_result(score_ratio)
             feedback.set_grade(score_ratio * 100)
+            feedback.set_global_feedback(msg, True)
 
     # For exercises with binary result : 0 or 100
     else:
         score_ratio = 1.0 if result.returncode == 0 else 0.0
         feedback_result(score_ratio)
-        feedback.set_grade(score_ratio * 100)
+        feedback.set_grade(score_ratio * 100) 
 
 
 # Decision function to decide if the student pass the required level for this task

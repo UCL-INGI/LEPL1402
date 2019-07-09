@@ -25,7 +25,7 @@ def generate_coverage_report(exec_file=JACOCO_EXEC_FILE,
                              xml_output=JACOCO_RESULT_FILE):
     return "{} -jar {} report {} {} --xml {}".format(
         "java",
-        "/course/common/jacococli.jar",
+        str(Path(LIBS_FOLDER) / "jacococli.jar"),
         exec_file,
         ' '.join(["--classfiles {}".format(str(c)) for c in classes_path]),
         xml_output

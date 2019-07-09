@@ -56,4 +56,4 @@ JACOCO_CLASS_FILES = [PATH_FLAVOUR]
 JACOCO_RESULT_FILE = str(CWD / "coverage_result.xml")
 
 # Libraries folder
-LIBS_FOLDER = "/course/common"
+LIBS_FOLDER = "/course/common/libs"
