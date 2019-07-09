@@ -3,7 +3,11 @@ package flavour;
 import src.BinarySearchFlavour;
 import src.ExerciseFlavour;
 
+<<<<<<< HEAD
 public class BinarySearchErr1 extends BinarySearchFlavour implements ExerciseFlavour {
+=======
+public class BinarySearchErr1 extends BinarySearchFlavour {
+>>>>>>> 4b94073c605519203bf270963f07afb5088fa490
 
     private static final boolean correctness = false;
 
