@@ -126,6 +126,6 @@ def create_manifest():
 
 # For jacoco , only way to proceed
 # Files to compile need just to refactor the string
-def generate_jar_file(class_folders=[PATH_FLAVOUR, PATH_SRC], main_class=RUNNER_JAVA_NAME, dst=JAR_FILE, manifest=MANIFEST_FILE):
+def generate_jar_file(class_folders, main_class=RUNNER_JAVA_NAME, dst=JAR_FILE, manifest=MANIFEST_FILE):
     return "jar -cmvfe {} {} {} {}".format(manifest, dst, without_extension(main_class), ' '.join([relative_path(path) for path in class_folders]))
 

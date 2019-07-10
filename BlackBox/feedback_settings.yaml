@@ -1,7 +1,2 @@
-# Example of file
-# has_feedback: false
 quorum: 1.0
-# feedback_kind: JaCoCo
-# coverage_stats:
-#  - INSTRUCTION
-#  - BRANCH
+exercise_kind: flavour

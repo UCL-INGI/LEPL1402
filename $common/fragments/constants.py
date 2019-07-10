@@ -24,13 +24,6 @@ PATH_TEMPLATES = str(CWD / "templates")
 # Source code to be tested
 PATH_SRC = str(CWD / "src")
 
-# Files that must be compiled
-# code to be compiled is in SRC AND FLAVOUR
-FILES_TO_COMPILE = [
-    str(Path(PATH_FLAVOUR) / "{}{}".format("*", FILE_EXTENSION)),
-    str(Path(PATH_SRC) / "{}{}".format("*", FILE_EXTENSION))
-]
-
 # Test runner
 RUNNER_PATH = str(CWD / "src" / "StudentTestRunner.java")
 
