@@ -119,7 +119,7 @@ def config_file_to_dict(file_path):
             # File must not be empty
             load_config = yaml.load(stream)
             # Merge dictionnaries
-            return default_values if load_config is not None else {**default_values, **load_config}
+            return default_values if load_config is None else {**default_values, **load_config}
 
 
 # Extract result from JaCoCo
