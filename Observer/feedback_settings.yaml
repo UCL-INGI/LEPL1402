@@ -1,0 +1,5 @@
+# Example of file
+exercise_type: Generic
+has_feedback: true
+quorum: 1
+feedback_kind: JavaGrading

@@ -16,7 +16,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n.. code-block:\n\n\t$trace\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
     public void testSubscriptions(){
 
         MeteoStation station = new MeteoStation();
@@ -38,7 +38,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Your code has problems to broadcast alerts to subscribers \n.. code-block:\n\n\t$trace\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Your code has problems to broadcast alerts to subscribers\n", onFail = true, onTimeout = true)})
     public void testAlerts(){
 
         MeteoStation station = new MeteoStation();
@@ -61,11 +61,12 @@ public class InginiousTests {
 
     }
 
+    //.. code-block:\n\n\t$trace\n
 
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Your code has problems to update alert messages \n.. code-block:\n\n\t$trace\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Your code has problems to update alert messages\n", onFail = true, onTimeout = true)})
     public void testUpdate(){
 
         MeteoStation station = new MeteoStation();
@@ -97,7 +98,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-            @GradeFeedback(message = "A client cannot be present 2 times in the same meteostation \n.. code-block:\n\n\t$trace\n", onFail = true, onTimeout = true)})
+            @GradeFeedback(message = "A client cannot be present 2 times in the same meteostation\n", onFail = true, onTimeout = true)})
     public void testDuplicate(){
         Observable station = new MeteoStation();
         Observer client = new Client(0);

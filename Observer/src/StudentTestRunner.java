@@ -7,7 +7,7 @@ import org.junit.runner.notification.Failure;
 
 import java.util.List;
 
-public class Runner {
+public class StudentTestRunner {
 
     public static void main(String [] args) {
 

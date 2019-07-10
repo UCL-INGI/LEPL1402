@@ -1,0 +1,47 @@
+author: "Yakoub J, Rucquoy A"
+accessible: true
+name: "Observer design pattern"
+context: |-
+    In this task, you have to implement the Observer design pattern for the case of a meteo station:
+
+    .. code-block:: java
+
+        public class MeteoStation extends Observable {
+
+            // YOUR CODE HERE
+
+        }
+
+
+        public class Client extends Observer {
+
+            // YOUR CODE HERE
+
+        }
+
+    Note that Observable_ and Observer_ are two abstract classes containing abstract methods.
+    Therefore, check and read them carefully in order to implement things correctly. We also
+    provide you a Pair_ implementation, representing some kind of tuple containing a String and an int
+    (**TODO** : check later with Guillaume and professors if we give them "Pair" or if we let them implement it as an exercise):
+
+    .. _Observable: /course/LEPL1402/Observer/Observable.java
+    .. _Observer: /course/LEPL1402/Observer/Observer.java
+    .. _Pair: /course/LEPL1402/Observer/Pair.java
+
+
+    
+problems:
+    student_client:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the BODY of your Client class:
+
+
+    student_station:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the BODY of your MeteoStation class:
+
+environment: java8scala
