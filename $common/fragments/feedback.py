@@ -2,7 +2,7 @@ import sys
 import re
 import yaml
 from pathlib import Path
-from inginious import feedback
+from inginious import feedback, rst
 from fragments import coverage, helper
 
 
@@ -28,16 +28,9 @@ return_messages = {
 
 
 # Generate the final message(s) to student
-# feedback_settings (a dict) contains the following field(s) ( check config_file_to_dict for more details ):
-#   has_feedback : to tell us if feedback is expected
-#   quorum : float between 0.0 (0%) and 1.0 (100%) that the user should reach in order to success the task
-#   feedback_kind : JavaGrading / JaCoCo / etc (useful only when you have has_feedback=True)
-#   coverage_stats:
 def result_feedback(result, feedback_settings):
-    # print(result.stderr)
     # Top level message
-    msg = "{}\n".format(return_messages.get(result.returncode, "Uncommon Failure"))
-    feedback.set_global_feedback(msg, True) 
+    msg = "{}\n".format(return_messages.get(result.returncode, "Uncommon Failure")) 
 
     # if we have a feedback, use it
     if feedback_settings["has_feedback"]:
@@ -45,31 +38,31 @@ def result_feedback(result, feedback_settings):
         # JavaGrading
         if feedback_settings["feedback_kind"] == "JavaGrading":
             score_ratio, msg = extract_java_grading_result(result)
+            feedback.set_global_feedback(msg, True) 
             feedback_result(score_ratio, feedback_settings["quorum"])
-            feedback.set_grade(score_ratio * 100)
-            feedback.set_global_feedback(msg, True)
+            feedback.set_global_feedback(rst.get_codeblock("java", msg), True)
         
         # JaCoCo
         if feedback_settings["feedback_kind"] == "JaCoCo":
             score_ratio, msg = extract_jacoco_result(feedback_settings)
             feedback_result(score_ratio, feedback_settings["quorum"])
-            feedback.set_grade(score_ratio * 100)
-            feedback.set_global_feedback(msg, True)
+            message_index = 0 if score_ratio >= feedback_settings["quorum"] else 1
+            msg2 = "{}\n".format(return_messages.get(message_index, "Uncommon Failure")) 
+            feedback.set_global_feedback(msg2, True) 
+            feedback.set_global_feedback(rst.get_codeblock("java", msg), True)
 
     # For exercises with binary result : 0 or 100
     else:
-        # TODO stdout 
-        # print(result.stdout)
-        # feedback.set_global_feedback(result.stdout, True)
+        feedback.set_global_feedback(msg, True)
         score_ratio = 1.0 if result.returncode == 0 else 0.0
         feedback_result(score_ratio)
-        feedback.set_grade(score_ratio * 100) 
 
 
 # Decision function to decide if the student pass the required level for this task
 def feedback_result(score_ratio, quorum=1.0):    
     result = "success" if score_ratio >= quorum else "failed"
     feedback.set_global_result(result)
+    feedback.set_grade(score_ratio * 100) 
 
 
 # Extract score and message that use JavaGrading
