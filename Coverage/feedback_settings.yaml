@@ -1,7 +1,7 @@
-# Example of file
 has_feedback: true
 quorum: 0.7
 feedback_kind: JaCoCo
+exercise_kind: flavour
 coverage_stats:
   - INSTRUCTION
   - BRANCH

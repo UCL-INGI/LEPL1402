@@ -101,33 +101,25 @@ def extract_java_grading_result(result):
 # Using a yaml file, we can extract the kind of exercise/feedback
 def config_file_to_dict(file_path):
 
+    # Check github wiki for more information
+    default_values = {
+        "has_feedback": False,
+        "quorum": 1.0,
+        "feedback_kind": None,
+        "coverage_stats": None,
+        "exercise_kind": "default"
+    }
+
     # no config file so use basic settings
     if not Path(file_path).exists():
-        return {
-            "has_feedback": False,
-            "quorum": 1.0,
-            "feedback_kind": None,
-            "coverage_stats": None
-        }
+        return default_values
     else:
 
         with open(file_path, "r") as stream:
             # File must not be empty
-            result = yaml.load(stream)
-            return {
-                # Boolean : if we have a feedback output to purpose
-                "has_feedback": result["has_feedback"] if "has_feedback" in result else False,
-                # Float : the minimal required ratio in order to success the task ( between 0.0 and 1.0 )
-                "quorum": result["quorum"] if "quorum" in result else 1.0,
-                # String : the feedback kind ( one of these values : "JavaGrading", "JaCoCo" )
-                # (Default '' : no feedback to throw at the face of the user)
-                "feedback_kind": result["feedback_kind"] if "feedback_kind" in result else None,
-                # Array of string : Which stats should be used to compute the success ratio
-                # Possibles string values are ( from JaCoco ) : INSTRUCTION / BRANCH / LINE / METHOD / CLASS / etc...
-                # Default values is None
-                # !!seq ?
-                "coverage_stats": result["coverage_stats"] if "coverage_stats" in result else None
-            }
+            load_config = yaml.load(stream)
+            # Merge dictionnaries
+            return default_values if load_config is not None else {**default_values, **load_config}
 
 
 # Extract result from JaCoCo

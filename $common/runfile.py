@@ -46,7 +46,15 @@ def main():
     #   COMPILE ALL CODE IN SRC         #
     #####################################
 
-    compile_cmd = helper.generate_java_command_string(FILES_TO_COMPILE, "javac")
+    # If we are in "default" exercise kind, we don't need a FLAVOUR folder
+    folders_to_compile = [PATH_SRC] if feedback_settings["exercise_kind"] == "default" else [PATH_FLAVOUR, PATH_SRC]
+    # Files that must be compiled
+    files_to_compile = [
+        "{}/{}{}".format(folder, "*", FILE_EXTENSION)
+        for folder in folders_to_compile
+    ]
+
+    compile_cmd = helper.generate_java_command_string(files_to_compile, "javac")
     print("COMPILING CODE : {}".format(compile_cmd))
     result = helper.run_command(compile_cmd)
 
@@ -61,7 +69,7 @@ def main():
     helper.create_manifest()
     
     # Create a jar file
-    create_jar = helper.generate_jar_file()
+    create_jar = helper.generate_jar_file(folders_to_compile)
     print("GENERATING JAR : {}".format(create_jar))
     # Execute this
     result = helper.run_command(create_jar)
