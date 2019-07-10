@@ -7,7 +7,7 @@ import org.junit.runner.notification.Failure;
 
 import java.util.List;
 
-public class Runner {
+public class StudentTestRunner {
 
     public static void main(String [] args) {
 
@@ -29,10 +29,14 @@ public class Runner {
      */
     private static void determineProblem(Result result){
         boolean flag = false;
-        List<Failure> failures = result.getFailures();
 
-        for(Failure fail : failures){
-            flag |= fail.getMessage().contains("access denied");
+        if(result.getFailureCount() != 0) {
+
+            List<Failure> failures = result.getFailures();
+
+            for (Failure fail : failures) {
+                flag |= fail.getMessage()!= null && fail.getMessage().contains("access denied");
+            }
         }
 
         if(flag) {

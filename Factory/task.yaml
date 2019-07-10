@@ -1,0 +1,60 @@
+author: "Yakoub J, Rucquoy A"
+accessible: true
+name: "[TESTABLE] Factory design pattern - Level generator"
+context: |-
+    In this task, we will ask you to implement a labyrinth mini-game level builder using 
+    The factory design pattern. Each level consists in a set of Wall_, Key_, Floor_, Door_, all
+    of them implementing the LevelComponent_ interface.
+    Your objective is thus to implement the two following classes:
+
+    .. code-block:: java
+
+        public class ElementFactory extends Factory {
+
+            // YOUR CODE HERE
+
+            public static ElementFactory getInstance() {
+
+                // YOUR SINGLETON HERE
+
+            }
+
+        }
+
+
+        public class Level extends AbstractLevel {
+
+            // YOUR CODE HERE
+
+        }
+    
+    .. _Wall: /course/LEPL1402/Factory/Wall.java
+    .. _Key: /course/LEPL1402/Factory/Key.java
+    .. _Floor: /course/LEPL1402/Factory/Floor.java
+    .. _Door: /course/LEPL1402/Factory/Door.java
+    .. _LevelComponent: /course/LEPL1402/Factory/LevelComponent.java
+
+    Note that these two classes extends the abstract classes Factory_ and AbstractLevel_. Pay attention, we add a small constraint to this exercise: your ElementFactory
+    **must** be a singleton (i.e, it should not be possible to instantiate your factory
+    with java's "new" keyword).
+
+
+    .. _Factory: /course/LEPL1402/Factory/Factory.java
+    .. _AbstractLevel: /course/LEPL1402/Factory/AbstractLevel.java
+
+    
+problems:
+    student_factory:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **BODY** of your ElementFactory class:
+
+
+    student_level:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **BODY** of your Level class:
+
+environment: java8scala
