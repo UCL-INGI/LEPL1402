@@ -38,7 +38,6 @@ def result_feedback(result, feedback_settings):
         # JavaGrading
         if feedback_settings["feedback_kind"] == "JavaGrading":
             score_ratio, msg = extract_java_grading_result(result)
-            feedback.set_global_feedback(msg, True) 
             feedback_result(score_ratio, feedback_settings["quorum"])
             feedback.set_global_feedback(rst.get_codeblock("java", msg), True)
         
