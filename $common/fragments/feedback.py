@@ -38,6 +38,8 @@ def result_feedback(result, feedback_settings):
         # JavaGrading
         if feedback_settings["feedback_kind"] == "JavaGrading":
             score_ratio, msg = extract_java_grading_result(result)
+            # To prevent some genius to have success grade with a probited
+            score_ratio = 0.0 if result.returncode == 2 else score_ratio 
             feedback_result(score_ratio, feedback_settings["quorum"])
             feedback.set_global_feedback(rst.get_codeblock("java", msg), True)
         
