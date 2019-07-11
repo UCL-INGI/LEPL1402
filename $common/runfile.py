@@ -1,11 +1,12 @@
 #!/bin/python3
 import importlib.util
+import os
 
 #####################################
 # Our import for common function    #
 #####################################
 
-from fragments import helper, feedback, coverage
+from fragments import helper, feedback
 from fragments.constants import *
 
 
@@ -19,12 +20,6 @@ def dynamically_load_module(module, path):
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     return mod
-
-def need_jacoco_libs(coverage_required=False):
-    if coverage_required:
-        # coverage needs to have
-        coverage.copy_jacoco_libs_into_cwd()
-        print("Copied the JaCoCo libraries into CWD")
 
 
 def main():
@@ -43,17 +38,30 @@ def main():
     print("TEMPLATE(S) APPLIED")
 
     #####################################
+    #   CREATE A CLASSES FOLDER         #
+    #####################################
+    os.makedirs(PATH_CLASSES, exist_ok=True)
+    print("SET UP CLASSES FOLDER FOR COMPILATION")
+
+    #####################################
     #   COMPILE ALL CODE IN SRC         #
     #####################################
 
     # If we are in "default" exercise kind, we don't need a FLAVOUR folder
     folders_to_compile = [PATH_SRC] if feedback_settings["exercise_kind"] == "default" else [PATH_FLAVOUR, PATH_SRC]
-    # Files that must be compiled
+    # Files that must be compiled by javac
+    
     # TODO 
     files_to_compile = [
         "{}/{}{}".format(folder, "*", FILE_EXTENSION)
         for folder in folders_to_compile
     ]
+
+    test = [
+        helper.find_files_folder_in_path(folder)
+        for folder in folders_to_compile
+    ]
+    print(test)
 
     compile_cmd = helper.generate_java_command_string(files_to_compile, "javac")
     print("COMPILING CODE : {}".format(compile_cmd))
@@ -70,10 +78,10 @@ def main():
     helper.create_manifest()
     
     # Create a jar file
-    create_jar = helper.generate_jar_file(folders_to_compile)
+    create_jar = helper.generate_jar_file()
     print("GENERATING JAR : {}".format(create_jar))
-    # Execute this
-    result = helper.run_command(create_jar)
+    # WARNING ; JUST FOR JAVA TO NOT MISUNDERSTAND OUR STRUCTURE, we have to change the CWD in the command
+    result = helper.run_command(create_jar, PATH_CLASSES)
     # For debug
     # print(result.stdout)
 

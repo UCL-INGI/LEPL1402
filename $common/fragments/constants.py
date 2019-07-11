@@ -24,6 +24,9 @@ PATH_TEMPLATES = str(CWD / "templates")
 # Source code to be tested
 PATH_SRC = str(CWD / "src")
 
+# .class storage path
+PATH_CLASSES = str(CWD / "classes")
+
 # Test runner
 RUNNER_PATH = str(CWD / "src" / "StudentTestRunner.java")
 
