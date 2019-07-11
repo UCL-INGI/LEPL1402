@@ -1,0 +1,75 @@
+author: "Yakoub J, Rucquoy A"
+accessible: true
+name: "[TESTABLE] Visitor design pattern - Calculator"
+context: |-
+    In this task, we will ask you to implement a basic calculator (+,-,*,/) using 
+    the visitor design pattern. Every expression you will compute will be represented as a tree. A tree contains at least one node
+    and every node of the tree is either :
+
+    - a parent node containing two sub nodes (an operand) 
+
+    - a leaf (a value)
+
+    Here is an example of how your code is supposed to run:
+
+    .. code-block:: java
+
+        Node root = new Add(new Leaf(1), new Leaf(2)); // 1 + 2 
+        Visitor calculator = new Evaluation();
+
+        calculator.visit((Add)root); // 3
+
+
+    **We provide you a set of class you have to complete** here_
+
+    There are a lot of classes but please don't panick, this exercise shouldn't require more than 50ish lines of code from you. 
+    
+    .. _here: /course/LEPL1402/Visitor/source.zip
+
+
+    
+problems:
+    student_add:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **BODY** of your Add class:
+
+
+    student_mult:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **BODY** of your Mult class:
+
+
+    student_div:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **BODY** of your Div class:
+
+
+    student_sub:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **BODY** of your Sub class:
+
+    
+    student_leaf:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **BODY** of your Leaf class:
+
+
+    student_evaluation:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **BODY** of your Evaluation class:
+
+
+
+environment: java8scala
