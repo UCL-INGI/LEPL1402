@@ -49,20 +49,25 @@ def main():
 
     # If we are in "default" exercise kind, we don't need a FLAVOUR folder
     folders_to_compile = [PATH_SRC] if feedback_settings["exercise_kind"] == "default" else [PATH_FLAVOUR, PATH_SRC]
-    # Files that must be compiled by javac
     
-    # TODO 
+    # Need that for custom structure, for example many packages in folders_to_compile
+
+    all_folders_to_compile = [
+        item 
+        for sublist in 
+            [ 
+                helper.find_files_folder_in_path(folder) 
+                for folder in folders_to_compile 
+            ] 
+        for item in sublist
+    ]
+
+    # Files that must be compiled by javac
     files_to_compile = [
         "{}/{}{}".format(folder, "*", FILE_EXTENSION)
-        for folder in folders_to_compile
+        for folder in all_folders_to_compile
     ]
-
-    test = [
-        helper.find_files_folder_in_path(folder)
-        for folder in folders_to_compile
-    ]
-    print(test)
-
+    
     compile_cmd = helper.generate_java_command_string(files_to_compile, "javac")
     print("COMPILING CODE : {}".format(compile_cmd))
     result = helper.run_command(compile_cmd)
@@ -82,7 +87,7 @@ def main():
     print("GENERATING JAR : {}".format(create_jar))
     # WARNING ; JUST FOR JAVA TO NOT MISUNDERSTAND OUR STRUCTURE, we have to change the CWD in the command
     result = helper.run_command(create_jar, PATH_CLASSES)
-    # For debug
+    # For debug the jar construction
     # print(result.stdout)
 
     # handle compilation errors
