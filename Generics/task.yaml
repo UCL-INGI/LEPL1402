@@ -1,0 +1,31 @@
+author: "Yakoub J, Rucquoy A"
+accessible: true
+name: "Generics"
+context: |-
+    In this task, you have to implement the generic map / filter functions of the following class that extends the following abstract class: GenericList_
+
+    .. code-block:: java
+
+        public class MyList<T> extends GenericList<T> {
+    
+            public MyList(ArrayList<T> elements){
+                super(elements);
+            }
+
+            // YOUR CODE HERE
+
+        }
+    
+    To help you understand how Predicate and Function works, check the documentation : Doc_
+    
+    .. _GenericList: /course/LEPL1402/Generics/GenericList.java
+    .. _Doc: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+    
+problems:
+    student_generic:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the BODY of your MyList class:
+
+environment: java8scala

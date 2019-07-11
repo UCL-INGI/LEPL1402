@@ -49,6 +49,7 @@ def main():
     # If we are in "default" exercise kind, we don't need a FLAVOUR folder
     folders_to_compile = [PATH_SRC] if feedback_settings["exercise_kind"] == "default" else [PATH_FLAVOUR, PATH_SRC]
     # Files that must be compiled
+    # TODO 
     files_to_compile = [
         "{}/{}{}".format(folder, "*", FILE_EXTENSION)
         for folder in folders_to_compile
