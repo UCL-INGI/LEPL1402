@@ -34,7 +34,7 @@ def main():
     #####################################
 
     # we have a folder where we have only these files
-    helper.apply_templates(PATH_TEMPLATES, PATH_SRC)
+    helper.apply_templates(PATH_TEMPLATES)
     print("TEMPLATE(S) APPLIED")
 
     #####################################
@@ -47,11 +47,11 @@ def main():
     #   COMPILE ALL CODE IN SRC         #
     #####################################
 
-    # If we are in "default" exercise kind, we don't need a FLAVOUR folder
-    folders_to_compile = [PATH_SRC] if feedback_settings["exercise_kind"] == "default" else [PATH_FLAVOUR, PATH_SRC]
+    # Possible paths where we could keep source code : src, templates and flavour (optional)
+    folders_to_compile = [PATH_SRC, PATH_TEMPLATES, PATH_FLAVOUR]
     
     # Need that for custom structure, for example many packages in folders_to_compile
-
+    # the functions calls will provide us only the one that exists
     all_folders_to_compile = [
         item 
         for sublist in 

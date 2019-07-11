@@ -55,20 +55,21 @@ def store_uploaded_file(problem_id, base_path):
 
 # Find all java packages folder inside path recursively ( useful for javac )
 def find_files_folder_in_path(path):
+    base_folder = Path(path)
+    files = Path(path).rglob("*{}".format(FILE_EXTENSION)) if base_folder.exists() else []
     return { 
-        str(Path(relative_path(folder)).parent)
-        for folder in Path(path).rglob("*{}".format(FILE_EXTENSION)) 
+        str(Path(relative_path(file)).parent)
+        for file in files
     }
 
-# Apply parse_template on each file stored in base_path to out_path
-def apply_templates(base_path, out_path):
+# Apply parse_template on each file stored in base_path
+def apply_templates(base_path):
     basepath = Path(base_path)
     files = basepath.rglob("*{}".format(FILE_EXTENSION)) 
 
     for file in files:
         src = str(file)
-        dst = str(Path(out_path) / relative_path(str(file), base_path))
-        input.parse_template(src, dst)
+        input.parse_template(src)
 
 
 # Generate compile/run command for given file

@@ -106,8 +106,7 @@ def config_file_to_dict(file_path):
         "has_feedback": False,
         "quorum": 1.0,
         "feedback_kind": None,
-        "coverage_stats": None,
-        "exercise_kind": "default"
+        "coverage_stats": None
     }
 
     # no config file so use basic settings
