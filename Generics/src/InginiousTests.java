@@ -7,47 +7,59 @@ import com.github.guillaumederval.javagrading.GradingRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+
 import java.util.*;
+import templates.*;
 
 import static org.junit.Assert.*;
 
 @RunWith(GradingRunner.class) // classic "jail runner" from Guillaume's library
 public class InginiousTests {
 
-    // Test for filter
+    // generate random number
+    private Supplier<Integer> rng = () -> (int) ((Math.random()*100) + 1); // never generate 0
 
+    // function to collect elements
+    private ArrayList<Integer> collectCons(Cons student) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        Cons currentElement = student;
+        while(currentElement != null) {
+            result.add(currentElement.v);
+            currentElement = currentElement.next;
+        }
+        return result;
+    }
+
+    // Test for filter
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
     @GradeFeedback(message = "Filter does not work\n", onFail = true, onTimeout = true)})
     public void testFilter(){
         
-        List<String> v = Arrays.asList("Java", "jAVA", "I love code");
-        ArrayList<String> init = new ArrayList(v);
-        GenericList<String> test = new MyList(init);
+        for(int i=0; i<100; i++){
+            Integer [] seeds = Stream.generate(rng).limit(3).toArray(Integer[]::new);
+            
+            Cons list = new Cons(seeds[0], new Cons(seeds[1], new Cons(seeds[2], null)));
 
-        // filter 
-        GenericList<String> filterResult = test.filter(s -> !s.equalsIgnoreCase("java"));
+            // result
+            int randomValue = rng.get();
+            P filterFunction = new FilterElementLowerThan(randomValue);
+            Cons filterResult = list.filter(filterFunction);
 
-        // assert
-        List<String> result = Arrays.asList("I love code");
-        ArrayList<String> expected = new ArrayList<String>(result);
-        assertTrue(expected.equals(filterResult.elements));
-    }
-
-    @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Filter does not work (empty array)\n", onFail = true, onTimeout = true)})
-    public void testFilter2(){
-        GenericList<Integer> test = new MyList<Integer>(new ArrayList());
-
-        // filter
-        GenericList<Integer> filterResult = test.filter(i -> i > 0);
-
-        // assert
-        ArrayList<Integer> expected = new ArrayList<Integer>();
-        assertTrue(expected.equals(filterResult.elements));
+            // assert
+            ArrayList<Integer> elements = collectCons(list);
+            ArrayList<Integer> collectedResult = collectCons(filterResult);
+            ArrayList<Integer> expectedResult = new ArrayList<Integer>();
+            for (Integer element : elements) {
+                if ( filterFunction.filter((int) element) ) {
+                    expectedResult.add(element);
+                }
+            }
+            assertEquals(expectedResult, collectedResult);
+        }
     }
 
     // Test for map
@@ -57,36 +69,20 @@ public class InginiousTests {
     @GradeFeedback(message = "Map does not work\n", onFail = true, onTimeout = true)})
     public void testMap(){
         
-        List<String> v = Arrays.asList("Java", "jAVA", "I love code");
-        ArrayList<String> init = new ArrayList(v);
-        GenericList<String> test = new MyList<String>(init);
-
-        // map
-        GenericList<String> mapResult = test.map(s -> s.toUpperCase());
-
-        // assert
-        List<String> result = Arrays.asList("JAVA", "JAVA", "I LOVE CODE");
-        ArrayList<String> expected = new ArrayList<String>(result);
-        assertTrue(expected.equals(mapResult.elements));
-    }
-
-    @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Map does not work\n", onFail = true, onTimeout = true)})
-    public void testMap2(){
+        Integer [] seeds = Stream.generate(rng).limit(3).toArray(Integer[]::new);
         
-        List<String> v = Arrays.asList("java is great", "java is too old", "I love java");
-        ArrayList<String> init = new ArrayList(v);
-        GenericList<String> test = new MyList<String>(init);
+        Cons list = new Cons(seeds[0], new Cons(seeds[1], new Cons(seeds[2], null)));
 
-        // map
-        GenericList<String> mapResult = test.map(s -> s.replace("java", "NODE.JS"));
+        // results
+        int randomValue = rng.get();
+        F mapFunction = new MapBy(randomValue);
+        Cons expectedList = new Cons(seeds[0] * randomValue, new Cons(seeds[1] * randomValue, new Cons(seeds[2] * randomValue, null)));
+        Cons mapResult = list.map(mapFunction);
 
         // assert
-        List<String> result = Arrays.asList("NODE.JS is great", "NODE.JS is too old", "I love NODE.JS");
-        ArrayList<String> expected = new ArrayList<String>(result);
-        assertTrue(expected.equals(mapResult.elements));
+        ArrayList<Integer> collectedResult = collectCons(mapResult);
+        ArrayList<Integer> expectedResult = collectCons(expectedList);
+        assertEquals(expectedResult, collectedResult);
     }
 
 }
