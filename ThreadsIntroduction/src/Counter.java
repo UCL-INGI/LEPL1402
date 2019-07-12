@@ -1,6 +1,5 @@
 package src;
 
-
 public class Counter implements Runnable {
 
     private int count;
@@ -19,6 +18,12 @@ public class Counter implements Runnable {
         this.rnd = (int) ( (Math.random()*100) + 1000);
     }
 
-@   @student_run@@
+    @Override
+    public void run() {
+        for(int i=0; i< getRnd(); i++){
+            count += 1;
+        }
+    }
 
 }
+
