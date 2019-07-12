@@ -75,11 +75,11 @@ public class InginiousTests {
         int randomValue = rng.get();
         F mapFunction = new MapBy(randomValue);
         Cons expectedList = new Cons(seeds[0] * randomValue, new Cons(seeds[1] * randomValue, new Cons(seeds[2] * randomValue, null)));
-        Cons filterResult = list.map(mapFunction);
+        Cons mapResult = list.map(mapFunction);
 
         // assert
-        ArrayList<Integer> collectedResult = collectCons(filterResult);
-        ArrayList<Integer> expectedResult = collectCons(list);
+        ArrayList<Integer> collectedResult = collectCons(mapResult);
+        ArrayList<Integer> expectedResult = collectCons(expectedList);
         assertEquals(expectedResult, collectedResult);
     }
 
