@@ -1,0 +1,43 @@
+author: "Yakoub J, Rucquoy A"
+accessible: true
+name: "Generics 2"
+context: |-
+    In this task, you have to implement the generic map / filter functions of the following class :
+
+    .. code-block:: java
+
+        import java.util.function.Predicate;
+        import java.util.function.Function;
+
+        public class Cons < E > {
+            // the item inside this list node
+            public E v;
+            // The next element, null if nothing
+            public Cons<E> next;
+            // creates a new Cons that applies function f on all elements
+            public <R> Cons <R> map(Function <E,R> function) {
+                // TODO by student
+            }
+            // creates a new Cons with all elements that matches predicate p
+            public Cons <E> filter(Predicate <E> predicate) {
+                // TODO by student
+            }
+            // Constructor
+            public Cons(E v, Cons < E > next) {
+                this.v = v;
+                this.next = next;
+            }
+        }
+    
+    To help you understand how Predicate and Function works, check the documentation : Doc_
+    
+    .. _Doc: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+    
+problems:
+    student_generic:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the map/filter functions of your Cons class:
+
+environment: java8scala
