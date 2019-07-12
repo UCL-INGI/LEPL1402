@@ -43,27 +43,20 @@ public class InginiousTests {
         
         Cons list = new Cons(seeds[0], new Cons(seeds[1], new Cons(seeds[2], null)));
 
-        // filter the number lower than given one
-        class FilterElementLowerThan extends P {
-            int number;
-            FilterElementLowerThan(int number) {
-                this.number = number;
-            }
-            boolean filter(int v) {
-                return v < number;
-            }
-        }
-
         // result
         int randomValue = rng.get();
         P filterFunction = new FilterElementLowerThan(randomValue);
         Cons filterResult = list.filter(filterFunction);
 
         // assert
+        ArrayList<Integer> elements = collectCons(list);
         ArrayList<Integer> collectedResult = collectCons(filterResult);
-        ArrayList<Integer> expectedResult = collectCons(list);
-        // remove the elements that didn't match
-        expectedResult.removeIf(i -> !v < number);
+        ArrayList<Integer> expectedResult = new ArrayList<Integer>();
+        for (Integer element : elements) {
+            if ( filterFunction.filter((int) element) ) {
+                expectedResult.add(element);
+            }
+        }
         assertEquals(expectedResult, collectedResult);
     }
 
@@ -77,17 +70,6 @@ public class InginiousTests {
         Integer [] seeds = Stream.generate(rng).limit(3).toArray(Integer[]::new);
         
         Cons list = new Cons(seeds[0], new Cons(seeds[1], new Cons(seeds[2], null)));
-
-        // filter the number lower than given one
-        class MapBy extends F {
-            int number;
-            MapBy(int number) {
-                this.number = number;
-            }
-            int apply(int v) {
-                return v * number;
-            }
-        }
 
         // results
         int randomValue = rng.get();
