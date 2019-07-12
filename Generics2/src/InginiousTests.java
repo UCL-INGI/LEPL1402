@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 public class InginiousTests {
 
     // generate random number
-    private Supplier<Integer> rng = () -> (int) ((Math.random()*100) + 1); // never generate 0
+    private Supplier<Integer> rng = () -> (int) ((Math.random()*100) + 2); // never generate 0 or 1 
 
     // function to collect elements
     private ArrayList<Integer> collectCons(Cons<Integer> student) {
@@ -38,25 +38,27 @@ public class InginiousTests {
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
     @GradeFeedback(message = "Filter does not work\n", onFail = true, onTimeout = true)})
     public void testFilter(){
-        
-        Integer [] seeds = Stream.generate(rng).limit(3).toArray(Integer[]::new);
-        
-        Cons<Integer> list = new Cons(seeds[0], new Cons(seeds[1], new Cons(seeds[2], null)));
 
-        // result
-        int randomValue = rng.get();
-        Cons<Integer> filterResult = list.filter(p -> p < randomValue);
+        for(int i=0; i < 100; i++){
+            Integer [] seeds = Stream.generate(rng).limit(3).toArray(Integer[]::new);
+            
+            Cons<Integer> list = new Cons(seeds[0], new Cons(seeds[1], new Cons(seeds[2], null)));
 
-        // assert
-        ArrayList<Integer> elements = collectCons(list);
-        ArrayList<Integer> collectedResult = collectCons(filterResult);
-        ArrayList<Integer> expectedResult = new ArrayList<Integer>();
-        for (Integer element : elements) {
-            if ( element < randomValue ) {
-                expectedResult.add(element);
+            // result
+            int randomValue = rng.get();
+            Cons<Integer> filterResult = list.filter(p -> p < randomValue);
+
+            // assert
+            ArrayList<Integer> elements = collectCons(list);
+            ArrayList<Integer> collectedResult = collectCons(filterResult);
+            ArrayList<Integer> expectedResult = new ArrayList<Integer>();
+            for (Integer element : elements) {
+                if ( element < randomValue ) {
+                    expectedResult.add(element);
+                }
             }
+            assertEquals(expectedResult, collectedResult);
         }
-        assertEquals(expectedResult, collectedResult);
     }
 
     // Test for map
