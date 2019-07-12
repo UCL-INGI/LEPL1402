@@ -1,10 +1,11 @@
-package src;
+package templates;
 
 import com.github.guillaumederval.javagrading.GradeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-
+import src.JailRunner;
+import src.Exercise;
 import static org.junit.Assert.*;
 
 @RunWith(JailRunner.class)
