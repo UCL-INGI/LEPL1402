@@ -1,21 +1,18 @@
-import java.util.function.Predicate;
-import java.util.function.Function;
-
-public class Cons<E> {
+public class Cons {
     // the item inside this list node
-    E v;
+    public int v;
     // The next element, null if nothing
-    Cons<E> next;
+    public Cons next;
     // creates a new Cons that applies function f on all elements
-    <R> Cons<R> map(Function<E, R> function) {
+    public Cons map(F f) {
         // TODO by student
     }
     // creates a new Cons with all elements that matches predicate p
-    Cons<E> filter(Predicate<E> predicate) {
+    public Cons filter(P p) {
         // TODO by student
     }
     // Constructor
-    Cons(E v, Cons<E> next) {
+    public Cons(int v, Cons next) {
         this.v = v;
         this.next = next;
     }
