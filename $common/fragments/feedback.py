@@ -40,30 +40,36 @@ def result_feedback(result, feedback_settings):
             score_ratio, msg = extract_java_grading_result(result)
             # To prevent some genius to have success grade with a probited
             score_ratio = 0.0 if result.returncode == 2 else score_ratio 
-            feedback_result(score_ratio, feedback_settings["quorum"])
+            feedback_result(score_ratio, feedback_settings)
             feedback.set_global_feedback(rst.get_codeblock("java", msg), True)
         
         # JaCoCo
         if feedback_settings["feedback_kind"] == "JaCoCo":
-            score_ratio, msg = extract_jacoco_result(feedback_settings)
-            feedback_result(score_ratio, feedback_settings["quorum"])
-            message_index = 0 if score_ratio >= feedback_settings["quorum"] else 1
-            msg2 = "{}\n".format(return_messages.get(message_index, "Uncommon Failure")) 
-            feedback.set_global_feedback(msg2, True) 
-            feedback.set_global_feedback(rst.get_codeblock("java", msg), True)
+            if result.returncode == 0:
+                score_ratio, msg = extract_jacoco_result(feedback_settings)
+                feedback_result(score_ratio, feedback_settings)
+                message_index = 0 if score_ratio >= feedback_settings["quorum"] else 1
+                msg2 = "{}\n".format(return_messages.get(message_index, "Uncommon Failure")) 
+                feedback.set_global_feedback(msg2, True) 
+                feedback.set_global_feedback(rst.get_codeblock("java", msg), True)
+            else:
+                feedback.set_global_feedback(msg, True)
+                feedback_result(0.0, feedback_settings)
 
     # For exercises with binary result : 0 or 100
     else:
         feedback.set_global_feedback(msg, True)
         score_ratio = 1.0 if result.returncode == 0 else 0.0
-        feedback_result(score_ratio)
+        feedback_result(score_ratio, feedback_settings)
 
 
 # Decision function to decide if the student pass the required level for this task
-def feedback_result(score_ratio, quorum=1.0):    
-    result = "success" if score_ratio >= quorum else "failed"
+def feedback_result(score_ratio, feedback_settings):    
+    result = "success" if score_ratio >= feedback_settings["quorum"] else "failed"
     feedback.set_global_result(result)
-    feedback.set_grade(score_ratio * 100) 
+    # If coverage exercise, give him 100% if >= quorum else the basic score
+    updated_score_ratio = 1.0 if result == "success" and feedback_settings["feedback_kind"] == "JaCoCo" else score_ratio
+    feedback.set_grade(updated_score_ratio * 100) 
 
 
 # Extract score and message that use JavaGrading

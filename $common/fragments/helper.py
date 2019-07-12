@@ -30,8 +30,8 @@ def librairies():
 
 
 # Wrapper to execute system commands and easily get stdout, stderr steams and return code
-def run_command(cmd):
-    proc = subprocess.Popen(cmd, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+def run_command(cmd, cwd=None):
+    proc = subprocess.Popen(cmd, cwd=cwd ,shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     proc.wait()  # waiting the child process to finish
 
     stdout = proc.stdout.read().decode('utf-8')
@@ -53,18 +53,21 @@ def store_uploaded_file(problem_id, base_path):
 
     return filename_with_path
 
+# Find all java packages folder inside path recursively ( useful for javac )
+def find_files_folder_in_path(path):
+    return { 
+        str(Path(relative_path(folder)).parent)
+        for folder in Path(path).rglob("*{}".format(FILE_EXTENSION)) 
+    }
 
 # Apply parse_template on each file stored in base_path to out_path
 def apply_templates(base_path, out_path):
     basepath = Path(base_path)
-    only_top_level_files = [
-        item.name
-        for item in basepath.iterdir()
-        if item.is_file()
-    ]
-    for file in only_top_level_files:
-        dst = str(Path(out_path) / file)
-        src = str(Path(base_path) / file)
+    files = basepath.rglob("*{}".format(FILE_EXTENSION)) 
+
+    for file in files:
+        src = str(file)
+        dst = str(Path(out_path) / relative_path(str(file), base_path))
         input.parse_template(src, dst)
 
 
@@ -85,7 +88,9 @@ def generate_java_command_string(files_input, command="java", libs=librairies(),
         # See N°2 : https://javarevisited.blogspot.com/2012/10/5-ways-to-add-multiple-jar-to-classpath-java.html
         ("-cp ", libs if not is_jar else None),
         # If we use a jar file for coverage
-        ("-jar ", "{}.jar".format(files) if is_jar else None)
+        ("-jar ", "{}.jar".format(files) if is_jar else None),
+        # If javac , stores classes into one folder
+        ("-d ", PATH_CLASSES if command == "javac" else None)
     ]
 
     # only include not null options values
@@ -111,8 +116,8 @@ def without_extension(path):
 
 
 # Give relative path : Java interpret /task as package ( when it's not be the case)
-def relative_path(path):
-    return str(Path(path).relative_to(CWD))
+def relative_path(path, base_path=CWD):
+    return str(Path(path).relative_to(base_path))
 
 
 # Since using a jar simply ignore -cp option, we have no other choice to create a manifest to add the libraries
@@ -124,8 +129,7 @@ def create_manifest():
         manifest.close()
 
 
-# For jacoco , only way to proceed
-# Files to compile need just to refactor the string
-def generate_jar_file(class_folders, main_class=RUNNER_JAVA_NAME, dst=JAR_FILE, manifest=MANIFEST_FILE):
-    return "jar -cmvfe {} {} {} {}".format(manifest, dst, without_extension(main_class), ' '.join([relative_path(path) for path in class_folders]))
+# Create a jar file using the class files inside the PATH_CLASSES
+def generate_jar_file(main_class=RUNNER_JAVA_NAME, dst=JAR_FILE, manifest=MANIFEST_FILE):
+    return "jar -cmvfe {} {} {} {}".format(manifest, dst, without_extension(main_class), ".")
 

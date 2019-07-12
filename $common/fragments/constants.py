@@ -24,6 +24,9 @@ PATH_TEMPLATES = str(CWD / "templates")
 # Source code to be tested
 PATH_SRC = str(CWD / "src")
 
+# .class storage path
+PATH_CLASSES = str(CWD / "classes")
+
 # Test runner
 RUNNER_PATH = str(CWD / "src" / "StudentTestRunner.java")
 
@@ -43,7 +46,7 @@ MANIFEST_FILE = str(CWD / "MANIFEST.MF")
 JACOCO_EXEC_FILE = str(CWD / "jacoco.exec")
 
 # JaCoCo classfiles for report ( only take the useful one in flavour)
-JACOCO_CLASS_FILES = [PATH_FLAVOUR]
+JACOCO_CLASS_FILES = [str(Path(PATH_CLASSES) / "flavour")]
 
 # JaCoCo result file in xml
 JACOCO_RESULT_FILE = str(CWD / "coverage_result.xml")
