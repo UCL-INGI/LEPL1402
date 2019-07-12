@@ -54,8 +54,9 @@ public class InginiousTests {
             }
         }
 
+        // result
         int randomValue = rng.get();
-        F filterFunction = new FilterElementLowerThan(randomValue);
+        P filterFunction = new FilterElementLowerThan(randomValue);
         Cons filterResult = list.filter(filterFunction);
 
         // assert
@@ -73,17 +74,31 @@ public class InginiousTests {
     @GradeFeedback(message = "Map does not work\n", onFail = true, onTimeout = true)})
     public void testMap(){
         
-        List<String> v = Arrays.asList("Java", "jAVA", "I love code");
-        ArrayList<String> init = new ArrayList(v);
-        GenericList<String> test = new MyList<String>(init);
+        Integer [] seeds = Stream.generate(rng).limit(3).toArray(Integer[]::new);
+        
+        Cons list = new Cons(seeds[0], new Cons(seeds[1], new Cons(seeds[2], null)));
 
-        // map
-        GenericList<String> mapResult = test.map(s -> s.toUpperCase());
+        // filter the number lower than given one
+        class MapBy extends F {
+            int number;
+            MapBy(int number) {
+                this.number = number;
+            }
+            int apply(int v) {
+                return v * number;
+            }
+        }
+
+        // results
+        int randomValue = rng.get();
+        F mapFunction = new MapBy(randomValue);
+        Cons expectedList = new Cons(seeds[0] * randomValue, new Cons(seeds[1] * randomValue, new Cons(seeds[2] * randomValue, null)));
+        Cons filterResult = list.map(mapFunction);
 
         // assert
-        List<String> result = Arrays.asList("JAVA", "JAVA", "I LOVE CODE");
-        ArrayList<String> expected = new ArrayList<String>(result);
-        assertTrue(expected.equals(mapResult.elements));
+        ArrayList<Integer> collectedResult = collectCons(filterResult);
+        ArrayList<Integer> expectedResult = collectCons(list);
+        assertEquals(expectedResult, collectedResult);
     }
 
 }
