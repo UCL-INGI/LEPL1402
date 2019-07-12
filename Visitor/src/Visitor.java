@@ -1,5 +1,7 @@
 package src;
 
+import templates.*;
+
 public interface Visitor {
 
     public int visit(Add visitable);
