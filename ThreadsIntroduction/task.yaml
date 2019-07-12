@@ -1,0 +1,77 @@
+author: "Yakoub J, Rucquoy A"
+accessible: true
+name: "[TESTABLE] Small introduction to threads - Counters"
+context: |-
+    In this task, we will ask you to implement the following method :
+
+
+    .. code-block:: java
+
+        public class Launcher {
+
+            /*
+             * Instantiate and start each thread from "t" with its OWN Counter object,
+             * then wait for all threads to finish and return the set of Counter objects
+             * the threads ran on. Each thread must be named according to its index in the 
+             * "t" array.
+             */
+            public static Counter[] init(Thread [] t) {
+                // YOUR CODE HERE
+            }
+
+        }
+    
+
+    In Java, a thread needs an entry point to know where to start when we want it to run : this entry point can be 
+    any object implementing the Runnable_ interface. For this exercise, we ask you to implement the Runnable_ interface on "Counter", a small class increasing
+    an int variable "rnd" times.
+
+
+    .. code-block:: java
+
+        public class Counter implements Runnable {
+
+            private int count;
+            private int rnd;
+
+            public int getCount() {
+                return count;
+            }
+
+            public int getRnd(){
+                return rnd;
+            }
+
+            public Counter(){
+                this.count = 0;
+                this.rnd = (int) ( (Math.random()*100) + 1000);
+            }
+
+            // YOUR CODE HERE
+        }
+
+
+    .. _Runnable : https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html
+
+
+    
+problems:
+    student_init:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your init **method**:
+
+
+    student_run:
+        type: "code"
+        language: java
+        header: |-
+            Paste here your implementation of the **Runnable** interface for the Counter class:
+
+
+
+
+
+
+environment: java8scala
