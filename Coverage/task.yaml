@@ -1,27 +1,67 @@
-author: "Dark Vador"
+author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "Coverage Testing"
+name: "[TESTABLE] Coverage Testing"
 context: |-
     In this task, you should provide a TestSuite for coverage check of the following class :
 
     .. code-block:: java
 
-        public class MessageBuilder {
-
-            public String getMessage(String name) {
-                StringBuilder result = new StringBuilder();
-                if (name == null || name.trim().length() == 0) {
-                    result.append("Please provide a name!");
-                } else {
-                    result.append("Hello " + name);
+        public class BigDecimal {
+            /*
+             * parse exponent
+             */
+            public static long parseExp(char[] in, int offset, int len){
+                long exp = 0;
+                offset++;
+                char c = in[offset];
+                len--;
+                boolean negexp = (c == '-');
+                // optional sign
+                if (negexp || c == '+') {
+                    offset++;
+                    c = in[offset];
+                    len--;
                 }
-                return result.toString();
+                if (len <= 0) // no exponent digits
+                    throw new NumberFormatException();
+                // skip leading zeros in the exponent
+                while (len > 10 && (c=='0' || (Character.digit(c, 10) == 0))) {
+                    offset++;
+                    c = in[offset];
+                    len--;
+                }
+                if (len > 10) // too many nonzero exponent digits
+                    throw new NumberFormatException();
+                // c now holds first digit of exponent
+                for (;; len--) {
+                    int v;
+                    if (c >= '0' && c <= '9') {
+                        v = c - '0';
+                    } else {
+                        v = Character.digit(c, 10);
+                        if (v < 0) // not a digit
+                            throw new NumberFormatException();
+                    }
+                    exp = exp * 10 + v;
+                    if (len == 1)
+                        break; // that was final character
+                    offset++;
+                    c = in[offset];
+                }
+                if (negexp) // apply sign
+                    exp = -exp;
+                return exp;
             }
         }
 
-    In order to succeed this task, you must cover the following points : Instructions , Branches
-    ( see https://www.eclemma.org/jacoco/trunk/doc/counters.html )
 
+    In order to succeed this task, you must cover the following points : 
+        - Instructions 
+        - Branches
+
+    ( see https://www.eclemma.org/jacoco/trunk/doc/counters.html for more information )
+
+    All required class(es) are already imported so no need to add import statement(s) in your answer
     
 problems:
     student_code:
@@ -29,14 +69,6 @@ problems:
         language: java
         header: |-
             
-            .. code-block:: java
-
-                // All required class(es) are already imported so no need to add import statement(s) 
-
-                public class StudentTests {
-
-                    // TODO STUDENT: Add your test cases here
-
-                }
+            Paste here your JUnit test cases :
 
 environment: java8scala
