@@ -1,6 +1,6 @@
-author: "Dark Vador"
+author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "Coverage Testing"
+name: "[TESTABLE] Coverage Testing"
 context: |-
     In this task, you should provide a TestSuite for coverage check of the following class :
 

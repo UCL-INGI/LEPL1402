@@ -1,6 +1,6 @@
 author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "Generics 2"
+name: "[TESTABLE] Generics 2"
 context: |-
     In this task, you have to implement the generic map / filter functions of the following class :
 

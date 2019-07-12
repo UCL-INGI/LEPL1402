@@ -1,6 +1,6 @@
 author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "Observer design pattern"
+name: "[TESTABLE] Observer design pattern"
 context: |-
     In this task, you have to implement the Observer design pattern for the case of a meteo station:
 
