@@ -1,6 +1,6 @@
 package src;
 
-abstract class Node {
+public abstract class Node {
 
     private Visitable left;
     private Visitable right;

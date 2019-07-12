@@ -1,8 +1,7 @@
 package src;
 
-abstract class Factory {
+public abstract class Factory {
     
-    abstract LevelComponent getElement(String str);
-
+    public abstract LevelComponent getElement(String str);
 
 }

@@ -1,31 +1,54 @@
 author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "Generics"
+name: "Generics 1"
 context: |-
-    In this task, you have to implement the generic map / filter functions of the following class that extends the following abstract class: GenericList_
+    In this task, you have to implement the map / filter functions of the following class :
 
     .. code-block:: java
 
-        public class MyList<T> extends GenericList<T> {
-    
-            public MyList(ArrayList<T> elements){
-                super(elements);
+        public class Cons {
+            // the item inside this list node
+            public int v;
+            // The next element, null if nothing
+            public Cons next;
+            // creates a new Cons that applies function f on all elements
+            public Cons map(F f) {
+                // TODO by student
             }
-
-            // YOUR CODE HERE
-
+            // creates a new Cons with all elements that matches predicate p
+            public Cons filter(P p) {
+                // TODO by student
+            }
+            // Constructor
+            public Cons(int v, Cons next) {
+                this.v = v;
+                this.next = next;
+            }
         }
     
-    To help you understand how Predicate and Function works, check the documentation : Doc_
+    Here are the interfaces for the object parameter for filter/map 
     
-    .. _GenericList: /course/LEPL1402/Generics/GenericList.java
-    .. _Doc: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+    .. code-block:: java
+
+        interface F {
+            int apply(int v);
+        }
+
+        interface P {
+            boolean filter(int v);
+        }
+
+    ( You can find all the required files here :  Cons_ , Function_ , Predicate_ )
+    
+    .. _Cons: /course/LEPL1402/Generics/Cons.java
+    .. _Function: /course/LEPL1402/Generics/F.java
+    .. _Predicate: /course/LEPL1402/Generics/P.java
     
 problems:
     student_generic:
         type: "code"
         language: java
         header: |-
-            Paste here the BODY of your MyList class:
+            Paste here the map/filter functions of your Cons class:
 
 environment: java8scala

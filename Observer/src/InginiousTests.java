@@ -10,6 +10,8 @@ import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
+import templates.*;
+
 @RunWith(GradingRunner.class) // classic "jail runner" from Guillaume's library
 public class InginiousTests {
 

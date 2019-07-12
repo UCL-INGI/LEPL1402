@@ -1,5 +1,2 @@
-# Example of file
-exercise_type: default
 has_feedback: True
-quorum: 1
 feedback_kind: JavaGrading

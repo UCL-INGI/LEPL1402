@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
+import templates.*;
 
 @RunWith(GradingRunner.class)
 public class InginiousTests {

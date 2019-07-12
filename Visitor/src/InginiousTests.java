@@ -11,6 +11,8 @@ import org.junit.runner.RunWith;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
+import templates.*;
+
 import static org.junit.Assert.*;
 
 @RunWith(GradingRunner.class)

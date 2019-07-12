@@ -1,6 +1,6 @@
 package src;
 
-abstract class AbstractLevel {
+public abstract class AbstractLevel {
 
     protected LevelComponent[] [] components;
     protected int size;
@@ -8,8 +8,8 @@ abstract class AbstractLevel {
     @Override
     abstract public String toString();
 
-    abstract LevelComponent[][] getComponents();
+    abstract public LevelComponent[][] getComponents();
 
-    abstract int getSize();
+    abstract public int getSize();
 
 }

@@ -3,7 +3,7 @@ package src;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class Observable {
+public abstract class Observable {
 
     // An Observable object is the object that will broadcast informations/states/messages to
     // other specifics objects : its observers

@@ -1,6 +1,6 @@
 package src;
 
-abstract class Observer {
+abstract public class Observer {
 
     // A subscriber is an "observer" object. It will get updates from a meteo station.
 

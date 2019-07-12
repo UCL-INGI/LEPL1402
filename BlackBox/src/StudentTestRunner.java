@@ -7,6 +7,8 @@ import org.junit.runner.notification.Failure;
 import java.lang.reflect.Field;
 import java.util.List;
 
+import templates.*;
+
 public class StudentTestRunner {
 
 

@@ -6,7 +6,6 @@ import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
 import java.util.List;
-import templates.*;
 
 public class StudentTestRunner {
 
