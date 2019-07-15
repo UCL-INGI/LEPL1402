@@ -1,0 +1,89 @@
+accessible: true
+author: "Yakoub J, Rucquoy A"
+environment: mcq
+error_message: "Try again!"
+success_message: "Good job!"
+name: "[TESTABLE] Code accuracy - Pre, Post conditions and Invariants"
+problems: 
+  mcq1: 
+    choices:
+      -
+        text: |-
+           .. math::
+            @I\ left + 1 <= k <= right
+        valid: true
+      - 
+        text: |-
+          .. math::
+            @post\ \forall k\ |\ left <= k <= pivot,\ a[k] <= a[pivot]
+        valid: true
+      -
+        text: |-
+          .. math::
+            @post\ \forall k\ |\ pivot < k <= right,\ a[pivot] < a[k]
+        valid: true
+      -
+        text: |-
+          .. math::
+            @pre\ left <= right
+        valid: true
+      -
+        text: |-
+          .. math::
+            @pre\ left < right
+      -
+        text: |-
+          .. math::
+            @post\ \forall k\ |\ left <= k <= pivot,\ a[k] < a[pivot]
+      -
+        text: |-
+          .. math::
+            @post\ \forall k\ |\ pivot < k <= right,\ a[pivot] <= a[k]
+      -
+        text: |-
+          .. math::
+            @I\ left + 1 <= k < right
+    header: |-
+
+        What must be the pre (@pre) / post (@post) conditions and loop invariant (@I) for the given partition function of QuickSort_ ?
+
+        .. code-block:: java
+            
+            int partition(String[] a, int left, int right) {
+              
+              int k, pivot = left;
+              String center = a[left];
+
+              for( k = left+1; k <= right; k++) {
+                if (a[k].compareTo(center) < 0) {
+                  pivot++;
+                  swap(a, k, pivot);
+                }
+              }
+              swap(a, left, pivot);
+              return pivot;
+            }
+
+        .. _QuickSort: https://en.wikipedia.org/wiki/Quicksort
+    type: multiple_choice
+    multiple: true
+  mcq2:
+    type: multiple_choice
+    header: |-
+
+      Which statment(s) about loop invariant is/are true ?
+    choices:
+      -
+        text: A loop invariant is a condition that is always true
+        feedback: Only needed to be true immediately before and immediately after each iteration of a loop, not through an iteration
+      -
+        text: A loop invariant is a condition that must be true through an iteration
+        feedback: Nothing is said about its truth of falsity part at this time
+      -
+        text: A loop invariant is a condition that is necessarily true immediately before and immediately after each iteration of a loop
+        valid: true
+  mcq3:
+    type: match
+    header: Which Java keyword can you use to verify assumptions inside your code ?
+    answer: assert
+      

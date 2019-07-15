@@ -7,6 +7,7 @@ admins:
 - jyakoub
 - rucquoya
 - raminsadre
+- superadmin
 tutors: []
 groups_student_choice: false
 use_classrooms: true
