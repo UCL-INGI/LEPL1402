@@ -192,3 +192,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 \.idea/
+
+course\.yaml
