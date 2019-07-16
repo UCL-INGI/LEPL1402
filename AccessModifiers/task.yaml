@@ -3,7 +3,7 @@ author: "Yakoub J, Rucquoy A"
 environment: mcq
 error_message: "Try again!"
 success_message: "Good job!"
-name: "[TESTABLE] Java Access Modifiers / Scopes"
+name: "[TESTABLE] Access Modifiers / Scopes"
 problems:
   mcq1:
     choices: 
@@ -188,7 +188,7 @@ problems:
             }
     header: |-
 
-      With the following code, which situation are possible ?
+      With the following code, which situation(s) is / are possible ?
 
       .. code-block:: java
 
@@ -205,4 +205,97 @@ problems:
         class Beta {
             final static String RANDOM_QUOTE = "You shall not pass";
         }
+  mcq3:
+    type: multiple_choice
+    multiple: true
+    header: |-
+      Which following examples of inner class are correct ?
+    choices:
+      -
+        text: |-
+          .. code-block:: java
+
+            public class OuterClass {
+              private String classAlias = "outer alias";
+
+              class InnerClass {
+                String classAlias = "inner alias";
+
+                public void printAlias() {
+                  System.out.println("Outer: " + OuterClass.this.classAlias);
+                  System.out.println("Inner: " + this.classAlias);
+                }
+              }
+
+              public static void main(String... args) {
+                InnerClass innerClass = new OuterClass().new InnerClass();
+                innerClass.printAlias();
+              }
+            }
+        valid: true
       
+      -
+        text: |-
+          .. code-block:: java
+
+            public class OuterClass {
+              private String classAlias = "outer alias";
+
+              class InnerClass {
+                String classAlias = "inner alias";
+
+                public void printAlias() {
+                  System.out.println("Outer: " + OuterClass.classAlias);
+                  System.out.println("Inner: " + this.classAlias);
+                }
+              }
+
+              public static void main(String... args) {
+                InnerClass innerClass = new OuterClass().new InnerClass();
+                innerClass.printAlias();
+              }
+            }
+        feedback: "OuterClass isn't a static class so you must use this in printAlias()"
+      -
+        text: |-
+          .. code-block:: java
+
+            public class MethodLocalInnerClassExample {
+                void printFromInner(final int a) {
+                    final int y = 10;
+
+                    class MethodLocalInnerClass {
+                      int w = 5;
+
+                      public void print(int z) {
+                        System.out.println("y - z + w + a = " + (y-z+w+a));
+                      }
+                    }
+
+                    MethodLocalInnerClass innerClass = new MethodLocalInnerClass();
+                    innerClass.print(5);
+                }
+            }
+        valid: true
+      -
+        text: |-
+          .. code-block:: java
+
+            public class MethodLocalInnerClassExample {
+                void printFromInner(final int a) {
+                    final int y = 10;
+
+                    class MethodLocalInnerClass {
+                      int w = 5;
+
+                      public void print(int z) {
+                        System.out.println("y - z + w + a = " + (y-z+w+a));
+                      }
+                    }
+
+                    MethodLocalInnerClassExample.MethodLocalInnerClass innerClass = new MethodLocalInnerClass();
+                    innerClass.print(5);
+                }
+            }
+        feedback: |-
+          You will get a "cannot find symbol" as you don't need here to put the outer class for initialisation
