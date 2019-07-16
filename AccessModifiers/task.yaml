@@ -1,0 +1,208 @@
+accessible: true
+author: "Yakoub J, Rucquoy A"
+environment: mcq
+error_message: "Try again!"
+success_message: "Good job!"
+name: "[TESTABLE] Java Access Modifiers / Scopes"
+problems:
+  mcq1:
+    choices: 
+      -
+        text: |-
+          .. list-table::
+            :header-rows: 1
+
+            * - Modifier
+              - Class
+              - Package
+              - Subclass
+              - Everywhere
+            * - public
+              - True
+              - True
+              - True
+              - True
+        valid: true
+      -
+        text: |-
+          .. list-table::
+            :header-rows: 1
+
+            * - Modifier
+              - Class
+              - Package
+              - Subclass
+              - Everywhere
+            * - private
+              - True
+              - True
+              - False
+              - False
+        feedback: "Even in the same package, we cannot access private field(s) / method(s) "
+      -
+        text: |-
+          .. list-table::
+            :header-rows: 1
+
+            * - Modifier
+              - Class
+              - Package
+              - Subclass
+              - Everywhere
+            * - private
+              - True
+              - False
+              - False
+              - False
+        valid: true
+      -
+        text: |-
+          .. list-table::
+            :header-rows: 1
+
+            * - Modifier
+              - Class
+              - Package
+              - Subclass
+              - Everywhere
+            * - protected
+              - True
+              - True
+              - False
+              - False
+        feedback: "Even inside another package, protected methods of a class are available to subclasses that extend them"
+      -
+        text: |-
+          .. list-table::
+            :header-rows: 1
+
+            * - Modifier
+              - Class
+              - Package
+              - Subclass
+              - Everywhere
+            * - protected
+              - True
+              - True
+              - True
+              - False
+        valid: true
+      -
+        text: |-
+          .. list-table::
+            :header-rows: 1
+
+            * - Modifier
+              - Class
+              - Package
+              - Subclass
+              - Everywhere
+            * - default
+              - True
+              - True
+              - False
+              - False
+        valid: true
+      -
+        text: |-
+          .. list-table::
+            :header-rows: 1
+
+            * - Modifier
+              - Class
+              - Package
+              - Subclass
+              - Everywhere
+            * - default
+              - True
+              - True
+              - True
+              - False
+        feedback: "If a class has no modifier (the default, also known as package-private), it is visible only within its own package "
+    header: |-
+
+      Select the right statements to fill this table
+
+      +------------+------------+------------+--------------+--------------+
+      |            |          Access Levels                                |
+      +------------+------------+------------+--------------+--------------+
+      |  Modifier  |  Class     | Package    |  Subclass    | Everywhere   |
+      +============+============+============+==============+==============+
+      |  private   |     ?      |      ?     |      ?       |     ?        |
+      +------------+------------+------------+--------------+--------------+
+      |  default   |     ?      |      ?     |      ?       |     ?        |
+      +------------+------------+------------+--------------+--------------+
+      |  protected |     ?      |      ?     |      ?       |     ?        |
+      +------------+------------+------------+--------------+--------------+
+      |  public    |     ?      |      ?     |      ?       |     ?        |
+      +------------+------------+------------+--------------+--------------+
+
+    type: multiple_choice
+    multiple: true
+  mcq2:
+    type: multiple_choice
+    multiple: true
+    choices:
+      -
+        text: |-
+          .. code-block:: java
+          
+            package two;
+            import one.*;
+
+            public class Test {
+              public static void main(String... args) {
+                System.out.println(Beta.RANDOM_QUOTE);
+              }
+            }
+        feedback: "Wrong as you cannot access the Beta class outside the package one due to the default modifier"
+      -
+        text: |-
+          .. code-block:: java
+          
+            package two;
+            import one.*;
+            public class AlphaPrime extends Alpha {
+              @override
+              protected int give_random_number() {
+                return Alpha.MEAN_OF_LIFE * ( (int) Math.random() * 2 );
+              }
+            }
+            public class Test {
+              public static void main(String... args) {
+                AlphaPrime a = new AlphaPrime();
+                System.out.println(a.give_random_number());
+              }
+            }
+        valid: true
+      -
+        valid: true
+        text: |-
+          .. code-block:: java
+
+            package one;
+            class Test {
+              public static void main(String... args) {
+                System.out.println(Beta.RANDOM_QUOTE);
+              }
+            }
+    header: |-
+
+      With the following code, which situation are possible ?
+
+      .. code-block:: java
+
+        package one;
+
+        public class Alpha {
+            static final int MEAN_OF_LIFE = 42;
+            private final String SOME_STRING = "EPL UCLouvain";
+            protected int give_random_number() {
+                return 42;
+            }
+        }
+
+        class Beta {
+            final static String RANDOM_QUOTE = "You shall not pass";
+        }
+      
