@@ -36,7 +36,7 @@ context: |-
 
     Note that these two classes extends the abstract classes Factory_ and AbstractLevel_. Pay attention, we add a small constraint to this exercise: your ElementFactory
     **must** be a singleton (i.e, it should not be possible to instantiate your factory
-    with java's "new" keyword).
+    with java's ``new`` keyword).
 
 
     .. _Factory: /course/LEPL1402/Factory/Factory.java
@@ -48,13 +48,13 @@ problems:
         type: "code"
         language: java
         header: |-
-            Paste here the **BODY** of your ElementFactory class:
+            Paste here the **body** of your ``ElementFactory`` class:
 
 
     student_level:
         type: "code"
         language: java
         header: |-
-            Paste here the **BODY** of your Level class:
+            Paste here the **body** of your ``Level`` class:
 
 environment: java8scala
