@@ -1,4 +1,4 @@
-package templates;
+package src;
 import src.Factory;
 import src.LevelComponent;
 import src.Wall;

@@ -1,4 +1,4 @@
-package templates;
+package src;
 import src.AbstractLevel;
 import src.LevelComponent;
 

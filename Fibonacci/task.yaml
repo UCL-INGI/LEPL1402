@@ -1,0 +1,54 @@
+author: "Yakoub J, Rucquoy A"
+accessible: true
+name: "[TESTABLE] Fibonacci"
+context: |-
+    In this task, we will ask you to implement two different versions of the Fibonacci sequence number: a recursive one and an iterative one. 
+    The objective of this exercise is to make you aware of what a call stack is and what problem could occur. We strongly suggest you to 
+    test your code with various input : what will happen if you test your recursive implementation with a very large index. Why ? Will the same
+    thing happen with your iterative implementation ? Why ? 
+
+    .. code-block:: java
+
+        public class Fibonacci {
+
+            /*
+             * Returns the index-th element of the fibonnaci sequence, computed recursively
+             */
+            public static int fiboRecursive(int index){
+                // YOUR CODE HERE
+            }
+
+            /*
+             * Returns the index-th element of the fibonnaci sequence, computed iteratively
+             */
+            public static int fiboIterative(int index){
+                // YOUR CODE HERE
+            }
+
+        }
+    
+    
+    Reminder : Fibonacci's sequence is computed as follows
+
+    .. math::
+
+         f(n) =\begin{cases}0 & n = 0\\1 & n = 1\\ f(n-1) + f(n-2) & n > 1\end{cases} 
+
+
+
+    
+problems:
+    student_recursive:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your ``fiboRecursive(int index)`` method:
+
+
+    student_iterative:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your ``fiboIterative(int index)`` method:
+
+environment: java8scala
