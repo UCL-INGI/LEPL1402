@@ -14,18 +14,19 @@ context: |-
             // YOUR CODE HERE
 
             public static ElementFactory getInstance() {
-
                 // YOUR SINGLETON HERE
-
             }
 
         }
 
 
         public class Level extends AbstractLevel {
+            
+            public Level(String input){
+                // YOUR CODE HERE
+            }
 
             // YOUR CODE HERE
-
         }
     
     .. _Wall: /course/LEPL1402/Factory/Wall.java
@@ -36,7 +37,9 @@ context: |-
 
     Note that these two classes extends the abstract classes Factory_ and AbstractLevel_. Pay attention, we add a small constraint to this exercise: your ElementFactory
     **must** be a singleton (i.e, it should not be possible to instantiate your factory
-    with java's ``new`` keyword).
+    with java's ``new`` keyword). For your ``Level`` class, what we want you to do is, given a String, create a ``Level`` object whose ``components``
+    is a 2D array where each cell represent a ``LevelComponent``. Note that all sub-arrays in ``components`` will have the same size as we will only ask you to create "square" labyrinths. 
+
 
 
     .. _Factory: /course/LEPL1402/Factory/Factory.java
