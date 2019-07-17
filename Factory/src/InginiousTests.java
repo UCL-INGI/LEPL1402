@@ -16,12 +16,15 @@ public class InginiousTests {
 
     private Supplier<Integer> rng = () -> (int) (Math.random() * 4); // between 0 and 3
 
+    Supplier<Integer> rngSize = () -> (int) Math.max(3, ((Math.random() * 7)+1)); // between 3 and 7
+
     private String [] elems = {"#","K","-","D"};
 
     private Supplier<String> levels = () -> {
+        int size = rngSize.get();
         StringBuilder str = new StringBuilder();
-        for(int i=0; i<5; i++){
-            for(int j=0; j<5; j++){
+        for(int i=0; i<size; i++){
+            for(int j=0; j<size; j++){
                 str.append(elems[rng.get()]);
             }
             str.append("\n");
@@ -29,7 +32,7 @@ public class InginiousTests {
         return str.toString();
     };
 
-    
+
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback( message= "There is a problem in your level construction. Check your factory and your level class", onFail = true),
@@ -42,17 +45,19 @@ public class InginiousTests {
         for(String in : input) {
 
             Level level = new Level(in);
-            assertEquals(level.toString(), in);
+            assertEquals(in, level.toString());
             LevelComponent[][] levelcomps = level.getComponents();
             int size = level.getSize();
 
             int idx = 0;
-            for(int i=0; i<size; i++){
-                for(int j=0; j<size; j++){
+            for(int i=0; i<Math.sqrt(size); i++){
+                for(int j=0; j<Math.sqrt(size); j++){
                     assertEquals(levelcomps[i][j].draw(), String.valueOf(in.charAt(idx++)));
                 }
                 idx++;
             }
+
+            assertEquals(size, (int)(in.length()-Math.sqrt(size)));
 
         }
 
@@ -69,4 +74,5 @@ public class InginiousTests {
 
         assertTrue(factory == factoryBis);
     }
+
 }
