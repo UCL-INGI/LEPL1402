@@ -1,6 +1,6 @@
 author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "[TESTABLE] Visitor design pattern - List Filtering"
+name: "[Testable] Visitor design pattern - List Filtering"
 context: |-
     In this task, we will ask you to implement a list filtering using the visitor design pattern. More precisely, your visitor
     will need to traverse a list full of objects of different kind. At the end of its traversal, your observer should have a 
@@ -23,6 +23,18 @@ context: |-
 
     .. _Visitable : /course/LEPL1402/VisitorBasic/Visitable.java 
     .. _Visitor : /course/LEPL1402/VisitorBasic/Visitor.java
+
+    
+    Here is an example of how your code is supposed to run:
+
+    .. code-block:: java
+
+        Visitor visitor = new VisitorList(Integer.class);
+        Visitable visitable = new VisitableList(new Object[]{1, 2, 3, 3.1, 4, "HELLO"});
+
+        visitor.visit(visitable);
+
+        List<Object> lst = visitor.getFiltered(); // [1, 2, 3, 4]
 
     
 problems:
