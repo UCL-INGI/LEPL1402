@@ -53,7 +53,7 @@ problems:
             i1 is equal to i2
             i3 is equal to i4
             s1 is not equal to s2      
-        feedback: "Java cached only Integers (from -127 to 127) references so == will returns false whereas .equals() give true"
+        feedback: "Java cached only soms Integers (from -127 to 127) references so == will returns false whereas .equals() give true"
       -
         text: |-
           .. code-block::
@@ -135,4 +135,89 @@ problems:
               System.out.println("SAME");
             }
         feedback: "There is not always a problem here : it depends on the random boolean value"
-    
+  mcq5:
+    type: multiple_choice
+    name: Enumeration
+    header: |-
+      
+      What could be a problem here ?
+
+      .. code-block:: java
+        
+        public static void main(String args[]) {
+          Hashtable sampleMap = new Hashtable();
+          Enumeration enumeration = sampleMap.elements();
+          enumeration.nextElement();
+        }
+    choices:
+      -
+        text: |-
+          A NoSuchElementException will occur as we have no element in the hashtable. 
+        valid: true
+        feedback: Thereby we must call "enumeration.hasMoreElements()" each time before any call of enumeration.nextElement();
+      -
+        text: |-
+          A RuntimeException will occur as we have no element in the hashtable.
+        feedback: NoSuchElementException extends RuntimeException
+  mcq6:
+    type: multiple_choice
+    name: Forgetting to free resources
+    multiple: true
+    header: |-
+
+      Select correct code sample(s) that does the same thing that this unsafe code sample :
+
+      .. code-block:: java
+
+        PrintWriter writer = null;
+
+        try {
+          writer = new PrintWriter(new File("EPL.txt"));
+          writer.write("WhateverStringIWant");
+        } catch (Exception err) {
+          err.printStackTrace();
+        }
+    choices:
+      -
+        text: |-
+          .. code-block:: java
+
+            PrintWriter writer = null;
+
+            try {
+              writer = new PrintWriter(new File("EPL.txt"));
+              writer.write("WhateverStringIWant");
+              writer.close();
+            } catch (Exception err) {
+              err.printStackTrace();
+            }
+        feedback: "Not safe as it is still possible to leak the file ressource in the catch part"
+      -
+        text: |-
+          .. code-block:: java
+
+            PrintWriter writer = null;
+
+            try {
+              writer = new PrintWriter(new File("EPL.txt"));
+              writer.write("WhateverStringIWant");
+            } catch (Exception err) {
+              err.printStackTrace();
+            } finally {
+              if ( writer != null ) {
+                writer.close();
+              }
+            }
+        valid: true
+        feedback: "The try-catch-finally works to deal with this problem but it takes many lines, no ?"
+      -
+        text: |-
+          .. code-block:: java
+
+            try (PrintWriter writer = new PrintWriter(new File("EPL.txt"))) {
+              writer.write("WhateverStringIWant");
+            } catch(Exception err) {
+              err.printStackTrace();
+            }
+        valid: true
+        feedback: "Always prefer the try-with-resources notation as it takes much less code lines"
