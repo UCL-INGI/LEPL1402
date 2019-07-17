@@ -30,8 +30,8 @@ public class InginiousTests {
         int [][] original = new int[number_of_row][];
 
         for(int row = 0; row < number_of_row; row++) {
-            Integer [] seeds = Stream.generate(rng).limit(number_of_column).toArray(Integer[]::new);
-            original[i] = seeds;
+            int [] seeds = Stream.generate(rng).limit(number_of_column).mapToInt(i -> i).toArray();
+            original[row] = seeds;
         }
 
         return original;
@@ -67,16 +67,17 @@ public class InginiousTests {
             StringBuilder str = new StringBuilder(); 
 
             for(int row = 0; row < number_of_row; row++) {
-                // random number for column
-                Integer [] seeds = Stream.generate(rng).limit(rng2.get()).toArray(Integer[]::new);
-                for(Integer v: seeds) {
-                    str.append(v.toString() + " ")
+                
+                int [] seeds = Stream.generate(rng).limit(rng2.get()).mapToInt(j -> j).toArray();
+                for(int v: seeds) {
+                    str.append(String.valueOf(v) + " ");
                 }
-                expected[i] = seeds;
+                expected[row] = seeds;
                 str.append("\n");
                 if (row != number_of_row -1) {
                     str.append(" ");
                 }
+
             }
 
             // Time to stringify this thing for student
@@ -107,11 +108,11 @@ public class InginiousTests {
 
             for(int row = 0; row < number_of_row; row++) {
                 // random number for column
-                Integer [] seeds = Stream.generate(rng).limit(rng2.get()).toArray(Integer[]::new);
-                for(Integer v: seeds) {
+                int [] seeds = Stream.generate(rng).limit(rng2.get()).mapToInt(j -> j).toArray();
+                for(int v: seeds) {
                     sum += v;
                 }
-                expected[i] = seeds;
+                expected[row] = seeds;
             }
 
             // Time to test the student
