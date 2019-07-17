@@ -1,8 +1,9 @@
 author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "[TESTABLE] Arrays 2D and Matrix : not the same"
+name: "[TESTABLE] Arrays 2D and Matrix"
 context: |-
-    In this task, you have to implement the functions of the following class that implements the Array2DBuilderInterface_:
+    In order to understand the differences between a matrix and a multidimensional array, 
+    you have to implement the functions of the following class that implements the Array2DBuilderInterface_:
 
     .. code-block:: java
 
@@ -10,7 +11,7 @@ context: |-
             // TODO
         }
     
-    .. _Array2DBuilderInterface: /course/LEPL1402/Matrix/Cons.java
+    .. _Array2DBuilderInterface: /course/LEPL1402/Array2D/Array2DBuilderInterface.java
     
 problems:
     student_code:
