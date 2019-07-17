@@ -37,6 +37,21 @@ public class InginiousTests {
         return original;
     }
 
+    // compute matrix multiplication
+    // Credits to https://www.programiz.com/java-programming/examples/multiply-matrix-function
+    // (code on stackoveflow was ugly as hell)
+    private int[][] multiplyMatrices(int[][] firstMatrix, int[][] secondMatrix, int r1, int c1, int c2) {
+        int[][] product = new int[r1][c2];
+        for(int i = 0; i < r1; i++) {
+            for (int j = 0; j < c2; j++) {
+                for (int k = 0; k < c1; k++) {
+                    product[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+                }
+            }
+        }
+        return product;
+    }
+
     // Test for build_from
     @Test
     @Grade
@@ -132,6 +147,36 @@ public class InginiousTests {
                 Arrays.deepEquals(
                     expected, 
                     student_code.transpose(original)
+                )
+            );
+
+        }
+    }
+
+    // Test for product
+    @Test
+    @Grade
+    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
+    @GradeFeedback(message = "int[][] product(int[][] matrix1, int[][] matrix2) does not work\n", onFail = true, onTimeout = true)})
+    public void testProduct() {
+        
+        for(int i = 0; i < 10; i++) {
+            
+            // generate an 2D array that will be an regular matrix
+            int number_of_row = rng2.get();
+            int column = rng2.get();
+            int [][] matrix1 = generate_regular_matrix(number_of_row, column);
+            int column2 = rng2.get();
+            int [][] matrix2 = generate_regular_matrix(column, column2);
+
+            // compute the real result
+            int [][] expected = multiplyMatrices(matrix1, matrix2, number_of_row, column, column2);
+
+            // Time to test the student
+            assertTrue(
+                Arrays.deepEquals(
+                    expected, 
+                    student_code.product(matrix1, matrix2)
                 )
             );
 
