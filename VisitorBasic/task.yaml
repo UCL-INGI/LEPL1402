@@ -1,0 +1,56 @@
+author: "Yakoub J, Rucquoy A"
+accessible: true
+name: "[Testable] Visitor design pattern - List Filtering"
+context: |-
+    In this task, we will ask you to implement a list filtering using the visitor design pattern. More precisely, your visitor
+    will need to traverse a list full of objects of different kind. At the end of its traversal, your observer should have a 
+    filtered list containing only ``Integer`` elements from the original list. To succeed this task, you'll have to give us the 
+    implementation of these two classes : 
+
+    .. code-block:: java
+
+        public class VisitorList extends Visitor {
+            // YOUR CODE HERE
+        }
+
+        public class VisitableList extends Visitable {
+            // YOUR CODE HERE
+        }
+        
+
+    These two classes must extends Visitable_ and Visitor_. These are abstract classes, pay attention to implement all abstract 
+    methods these classes contain.
+
+    .. _Visitable : /course/LEPL1402/VisitorBasic/Visitable.java 
+    .. _Visitor : /course/LEPL1402/VisitorBasic/Visitor.java
+
+    
+    Here is an example of how your code is supposed to run:
+
+    .. code-block:: java
+
+        Visitor visitor = new VisitorList(Integer.class);
+        Visitable visitable = new VisitableList(new Object[]{1, 2, 3, 3.1, 4, "HELLO"});
+
+        visitor.visit(visitable);
+
+        List<Object> lst = visitor.getFiltered(); // [1, 2, 3, 4]
+
+    
+problems:
+    student_visitable:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your ``VisitableList`` class:
+
+
+    student_visitor:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your ``Visitor`` class:
+
+
+
+environment: java8scala
