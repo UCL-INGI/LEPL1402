@@ -221,3 +221,24 @@ problems:
             }
         valid: true
         feedback: "Always prefer the try-with-resources notation as it takes much less code lines"
+  mcq7:
+    type: multiple_choice
+    name: Static / Not Static context on fields / methods call
+    header: |-
+       Does it work ?
+
+       .. code-block:: java
+
+        public class StaticTest {
+          private int count=0;
+          public static void main(String args[]) {
+            count++;
+          }
+        }
+    choices:
+      -
+        text: |-
+          No as we get the following compiler error "non-static variable count cannot be referenced from a static context"
+        valid: true
+      -
+        text: "Yes"
