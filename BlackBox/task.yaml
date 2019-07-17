@@ -1,19 +1,17 @@
-author: "Dark Vador"
 accessible: true
-name: "BlackBox Testing - Binary Search"
-context: "In this task, you should provide a TestSuite for the Binary Search class"
+author: Rucquoy Alexandre
 context: |-
     In this task, you should provide a TestSuite for the method binarySearch :
-    
+
     .. code-block:: java
 
         /*
-         * This method returns the index of the "arr" table between the 
-         * "low" and "high" indexes. where is the element "elem" OR -1 
+         * This method returns the index of the "arr" table between the
+         * "low" and "high" indexes. where is the element "elem" OR -1
          * if "elem" is not there OR -2 if the parameters do not respect the preconditions.
          *
          * @pre low >= 0, high <= |arr|, low <= high, sorted(arr[low...high]) == true
-         * @post returns the index in which the searched element is located, 
+         * @post returns the index in which the searched element is located,
          * -1 if it is not present.
          */
         public int binarySearch(int [] arr, int low, int high, int elem) {
@@ -21,11 +19,26 @@ context: |-
         }
 
     Based on the specifications provided, create test cases of the different parameter possibilities
-
-
+environment: java8scala
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    time: '60'
+    output: '2'
+    memory: '100'
+name: BlackBox Testing - Binary Search
+network_grading: false
 problems:
     student_code:
-        type: "code"
+        name: ''
+        type: code
         language: java
-
-environment: java8scala
+        default: ''
+        header: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
