@@ -21,7 +21,7 @@ def compilation_feedback(result):
 return_messages = {
     0: "Your code has successfully passed all tests for this mission.",
     1: "Your code failed all tests for this mission.",
-    2: "You used prohibited instructions ( such as System.exit(127) ) : Cheating is not a solution to your problems in life.",
+    2: "You used prohibited instructions ( such as System.exit(127) ) : This incident will be reported.",
     252: "The memory limit of your program is exceeded.",
     253: "The time limit for running your program has been exceeded."
 }
@@ -106,7 +106,8 @@ def config_file_to_dict(file_path):
         "has_feedback": False,
         "quorum": 1.0,
         "feedback_kind": None,
-        "coverage_stats": None
+        "coverage_stats": None,
+        "prohibited": {}
     }
 
     # no config file so use basic settings
@@ -139,10 +140,10 @@ def extract_jacoco_result(feedback_settings):
         print(filtered_coverage_result)
 
         # generate score and message
+
         covered = sum(x["covered"] for x in filtered_coverage_result)
         total = covered + sum(x["missed"] for x in filtered_coverage_result)
 
-        # TODO preparer les messages en RST
         msg = '\n'.join(
             [
                 "{}:\t{}/{}".format(c["type"], c["covered"], c["covered"] + c["missed"])
@@ -150,5 +151,16 @@ def extract_jacoco_result(feedback_settings):
             ]
         )
 
-        return covered / total, msg
+        # For security (if report gives 0 at total, don't try to apply division)
+        ratio = covered / total if total > 0 else 0.0
 
+        return ratio, msg
+
+def handle_prohibited_statments(feedback_settings):
+    result = helper.contains_prohibited_statment(feedback_settings)
+    if result:
+        msg = return_messages.get(2, "Uncommon Failure")
+        feedback.set_global_feedback(msg)
+        feedback.set_global_result("failed")
+        feedback.set_grade(0.0)
+        sys.exit(0)        

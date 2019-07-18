@@ -30,6 +30,13 @@ def main():
     print("FEEDBACK SETTINGS LOADED")
 
     #####################################
+    #   Check prohibited statments      #
+    #####################################
+
+    feedback.handle_prohibited_statments(feedback_settings)
+    print("NO PROHIBITED STATMENT(S) DETECTED")
+
+    #####################################
     #       Apply templates             #
     #####################################
 
