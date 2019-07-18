@@ -41,6 +41,7 @@ def run_command(cmd, cwd=None):
 
 
 # Store the given problemid code into the base_path folder ( "student" by default) and return the filename
+# Warning : this function is not used in the runfile but I keep it just to remember how to deal with get_input
 def store_uploaded_file(problem_id, base_path):
     student_upload = input.get_input(problem_id)
     filename = input.get_input("{}:filename".format(problem_id))
@@ -134,3 +135,22 @@ def create_manifest():
 def generate_jar_file(main_class=RUNNER_JAVA_NAME, dst=JAR_FILE, manifest=MANIFEST_FILE):
     return "jar -cmvfe {} {} {} {}".format(manifest, dst, without_extension(main_class), ".")
 
+# Check out if any statment of the prohibited array is contained in the @problem input
+def contains_prohibited_statement_in_input(prohibited_array, problem_id):
+    student_upload = input.get_input(problem_id)
+    # Extract the given code into a single String file with no space, leading stuff, etc...
+    # FYI: It is done to simplify the verification as statments in java could be on multiple lines
+    source_code_as_string = student_upload.decode('utf-8').strip().replace("\n", '').replace(" ", '')
+    
+    # if any match , student tried to cheat
+    return any(
+        prohibited_statment in source_code_as_string 
+        for prohibited_statment in prohibited_array
+    )
+
+# Main method that will be invoked by runfile.py to check all given problem inputs for prohibited instructions
+def contains_prohibited_statment(feedback_settings):
+    return any(
+        contains_prohibited_statement_in_input(statments, problem_id)
+        for (problem_id, statments) in feedback_settings["prohibited"].items()
+    )    
