@@ -242,3 +242,100 @@ problems:
         valid: true
       -
         text: "Yes"
+  mcq8:
+    type: multiple_choice
+    name: Pass by value or by reference
+    header: |-
+
+      Can you correctly predict what would be the STDOUT of the following code ?
+      
+      .. code-block:: java
+
+        // A user defined class to illustrate
+        public class Student {
+          private double grade;
+          private String name;
+          public Student(String name, double grade) {
+            this.name = name;
+            this.grade = grade;
+          }
+          public double getGrade() {
+            return this.grade;
+          }
+          public String getName() {
+            return this.name;
+          }
+          public void setGrade(double grade) {
+            this.grade = grade;
+          }
+        }
+        
+        public class Test {
+
+          //Generic swap method
+          public static void swap(Object o1, Object o2){
+            Object temp = o1;
+            o1 = o2;
+            o2 = temp;
+          }
+
+          // Common functions that illustrate external modification of a Object 
+
+          public static void setGrade(Student std) {
+            std = new Student(std.getName(), std.getGrade() * 2 );
+            std.setGrade( std.getGrade() * 2 );    
+          }
+
+          public static void setGrade2(Student std) {
+            std.setGrade(0);    
+          }
+
+          // Let's see if you can correctly predict the STDOUT
+        
+          public static void main(String[] args) {
+          
+            int mean_of_life = 42;
+            int random_int = 2048;
+            swap(mean_of_life, random_int);
+            String s1 = "After swapping call, MEAN OF LIFE is equal to "+ mean_of_life;
+            System.out.println(s1);
+
+            Student std = new Student("Noel", 10);
+            String s_part = "Student " + std.getName() + " has the grade ";
+
+            setGrade(std);
+            String s2 = s_part + std.getGrade();
+            System.out.println(s2);
+
+            setGrade2(std);
+            String s3 = s_part + std.getGrade();
+            System.out.println(s3);
+          }
+        }
+
+    choices:
+      -
+        text: |-
+          .. code-block::
+          
+            After swapping call, MEAN OF LIFE is equal to 42
+            Student Noel has the grade 10.0
+            Student Noel has the grade 0.0
+
+        valid: true
+      -
+        text: |-
+          .. code-block::
+          
+            After swapping call, MEAN OF LIFE is equal to 2048
+            Student Noel has the grade 10.0
+            Student Noel has the grade 0.0
+        feedback: "Even for primitives (like int), the swap method will not work"
+      -
+        text: |-
+          .. code-block::
+          
+            After swapping call, MEAN OF LIFE is equal to 42
+            Student Noel has the grade 40.0
+            Student Noel has the grade 0.0
+        feedback: "Just because we first change the value of the reference to the object in setGrade(), futher operations will be without effect"
