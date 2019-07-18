@@ -3,7 +3,7 @@ author: "Yakoub J, Rucquoy A"
 environment: mcq
 error_message: "Try again!"
 success_message: "Good job!"
-name: "[TESTABLE] 10 Common errors for Java Beginners"
+name: "[TESTABLE] Game of 9 common Java programming errors"
 problems:
   mcq1:
     type: multiple_choice
@@ -339,3 +339,27 @@ problems:
             Student Noel has the grade 40.0
             Student Noel has the grade 0.0
         feedback: "Just because we first change the value of the reference to the object in setGrade(), futher operations will be without effect"
+  mcq9:
+    type: multiple_choice
+    multiple: true
+    name: Forgetting something ...
+    header: |-
+      What are the problems here ?
+
+      .. code-block:: java
+
+        public class Wrong {
+          public static compute_something(int v) {
+            v * 3,14
+          }
+        }
+    choices:
+      -
+        text: "Missing a semicolon after v * 3,14 : Each statement must finish by a semicolon"
+        valid: true
+      -
+        text: "Missing a double modifier in the method declaration of compute_something"
+        valid: true
+      -
+        text: "Missing a return in compute_something as Java is not Python"
+        valid: true
