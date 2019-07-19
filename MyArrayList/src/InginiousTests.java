@@ -46,7 +46,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
-            @GradeFeedback(onFail = true, message = "Enqueuing more elements than \"initSize\" does not work in your code. You need to resize ! ")})
+            @GradeFeedback(onFail = true, message = "Enqueuing more elements than \"initSize\" and/or does not work in your code. You need to resize ! ")})
     public void testResize(){
 
         int init = rng.get();
@@ -56,7 +56,51 @@ public class InginiousTests {
         Arrays.stream(elements).forEach(list::enqueue);
 
         assertEquals(3*init, list.size());
+
+        for(int i = 0; i < init*3; i++){
+            assertEquals(elements[i], list.getList()[i]);
+        }
+
     }
+
+
+    @Test
+    @Grade
+    @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
+            @GradeFeedback(onFail = true, message = "You should not leave \"blanks\" in your array when you remove an element")})
+    public void testRemove(){
+
+        MyArrayList<Integer> simple = new MyArrayList<Integer>(3);
+        simple.enqueue(1);
+        simple.enqueue(2);
+        simple.enqueue(3);
+        Integer res = simple.remove(1); // removes "2"
+
+        assertEquals(2, (int)res);
+        assertNotEquals(simple.remove(1), res);
+
+        MyArrayList<Integer> list = new MyArrayList<Integer>(20);
+        Integer [] elements = Stream.generate(rng).limit(10).toArray(Integer[]::new);
+        Arrays.stream(elements).forEach(list::enqueue);
+
+
+
+        for(int i = 0; i < 10; i++){
+            list.remove(i);
+            assertEquals(9, list.size());
+            assertNull(list.getList()[9]);
+            for(int j = 0; j < 9; j++){
+                Integer ret = list.remove(0);
+                assertNotNull(ret);
+            }
+            assertEquals(0, list.size());
+            list = new MyArrayList<Integer>(20);
+            Arrays.stream(elements).forEach(list::enqueue);
+        }
+
+
+    }
+
 
 
     @Test

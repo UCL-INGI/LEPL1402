@@ -39,11 +39,15 @@ public class MyArrayList<Item> implements Iterable<Item> {
     @   @student_utils@@
 
     /*
-     * Dont give this method to students, they dont need to implement nor use it.
+     * Dont give these two methods to students, they dont need to implement nor use it.
      * Only serves for testing purposes.
      */
     public int listSize(){
         return this.list.length;
+    }
+
+    public Object [] getList(){
+        return this.list;
     }
 
 

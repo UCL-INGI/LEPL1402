@@ -1,12 +1,29 @@
 author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "[TESTABLE] My ArrayList"
+name: "[TESTABLE] MyArrayList"
 context: |-
     In this task, you have to implement your own version of the famous java's ``ArrayList<E>`` : a dynamic sized array. Each time you want to add an element, you must check that the item can fit and then append it at the end of the list. 
-    If the array is too small, you need to resize it so that new items can be added in the future. Removing an element is a bit different: you need to specify 
-    an index to choose which element of the list you want to remove (``remove(0)`` for the first ... ``remove(size()-1)`` for the last). **Pay attention**: your ``remove`` method 
-    must throw an ``IndexOutOfBoundsException`` if the index parameter is smaller than ``0`` or greater than ``size()-1``
+    If the array is too small, you need to resize it so that new items can be added in the future. To remove an element you need to specify 
+    an index to choose which element of the list you want to remove (``remove(0)`` for the first ... ``remove(size()-1)`` for the last). **Pay attention**: 
+        
+        - your ``remove`` method must throw an ``IndexOutOfBoundsException`` if the index parameter is smaller than ``0`` or greater than ``size()-1``
+        - Never leave "blanks" in your array. When you remove an element at some ``index``, **all subsequents** elements must be "shifted". 
+    
+    So if your list look like this:
 
+    .. figure:: /course/LEPL1402/MyArrayList/before.png
+       :scale: 100 %
+       :alt: alternate text
+       :align: center
+       :figclass: align-center 
+
+    Then after the call ``remove(1)`` it should look like this:
+
+    .. figure:: /course/LEPL1402/MyArrayList/after.png
+       :scale: 100 %
+       :alt: alternate text
+       :align: center
+       :figclass: align-center 
 
     
     You also need to implement the ``MyArrayListIterator`` class.
@@ -15,8 +32,12 @@ context: |-
 
         - Your iterator don't have to implement the ``remove`` method from Iterator_.
         - Your iterator must throw a ``ConcurrentModificationException`` when you want to get the next element but some other element has been added to the list meanwhile.
+        - You cannot use ``System.arraycopy`` for this exercise.
+
+    A lot of classes implement this interface, including the official ArrayList_ from java. We **strongly** encourage you to experiment how the ``ArrayList<E>`` iterator works before implementing yours.
 
     .. _Iterator : https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
+    .. _ArrayList: https://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html
 
 
     Here is the class (downloadable here_) where we will insert your code : 
@@ -74,8 +95,6 @@ context: |-
             }
 
         }
-
-
 
     
 problems:
