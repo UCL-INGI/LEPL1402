@@ -30,7 +30,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Fail with dup and mul together\n", onFail = true, onTimeout = true)})
     public void missionExampleAboutDupAndMul(){
         Assert.assertEquals(
                             "5.5 dup mul pstack must yield 30.25",
@@ -42,7 +42,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "true should be a valid token\n", onFail = true, onTimeout = true)})
     public void trueIsAValidToken(){
         Assert.assertEquals("true", i.interpret("true pstack"));
     }
@@ -50,7 +50,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "false should be a valid token\n", onFail = true, onTimeout = true)})
     public void falseIsAValidToken(){
         Assert.assertEquals("false", i.interpret("false pstack"));
     }
@@ -66,7 +66,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Exch doesn't work as expected\n", onFail = true, onTimeout = true)})
     public void testExch(){
         Assert.assertEquals(
                             "Exch swaps the top two items on the stack",
@@ -76,7 +76,7 @@ public class InginiousTests {
     @Test(expected=EmptyStackException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Calling exch on an empty stack must throw an EmptyStackException\n", onFail = true, onTimeout = true)})
     public void testExchEmpty(){
         i.interpret("exch pstack");
         Assert.fail("Calling exch on an empty stack must throw an EmptyStackException");
@@ -85,7 +85,7 @@ public class InginiousTests {
     @Test(expected=EmptyStackException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Calling exch on a stack of length 1 must throw an EmptyStackException\n", onFail = true, onTimeout = true)})
     public void testExchNotEnoughOperands(){
         i.interpret("1 exch pstack");
         Assert.fail("Calling exch on a stack of length 1 must throw an EmptyStackException");
@@ -130,7 +130,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Interpreting the empty string must yield the empty string\n", onFail = true, onTimeout = true)})
     public void interpretEmptyString(){
         Assert.assertEquals(
                             "Interpreting the empty string must yield the empty string",
@@ -141,7 +141,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Adding two integers yields the integer sum of the terms\n", onFail = true, onTimeout = true)})
     public void addingTwoIntegersMustYieldTheIntegerSum(){
         Assert.assertEquals(
                             "Adding two integers yields the integer sum of the terms",
@@ -150,7 +150,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Adding two integers yields the integer sum of the terms\n", onFail = true, onTimeout = true)})
     public void addTwoOperands(){
         Assert.assertEquals(
                             "Adding two integers yields the integer sum of the terms",
@@ -160,7 +160,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Adding two negative integers yields their (negative) integer sum\n", onFail = true, onTimeout = true)})
     public void addNegativeIntOperands(){
         Assert.assertEquals(
                             "Adding two negative integers yields their (negative) integer sum",
@@ -170,7 +170,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Adding an integer and a floating point value yields a floating point value\n", onFail = true, onTimeout = true)})
     public void addIntAndDoubleOperands(){
         Assert.assertEquals(
                             "Adding an integer and a floating point value yields a floating point value",
@@ -179,7 +179,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Adding an a floating point value and an integer yields a floating point value\n", onFail = true, onTimeout = true)})
     public void addDoubleAndIntOperands(){
         Assert.assertEquals(
                             "Adding an a floating point value and an integer yields a floating point value",
@@ -189,7 +189,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Adding two negative floating point value returns their (negative) floating point sum\n", onFail = true, onTimeout = true)})
     public void addNegativeDoubleOperands(){
         Assert.assertEquals(
                             "Adding two negative floating point value returns their (negative) floating point sum",
@@ -199,7 +199,7 @@ public class InginiousTests {
     @Test(expected=EmptyStackException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Calling add when there is only one item on the stack must throw an EmptyStackException\n", onFail = true, onTimeout = true)})
     public void addOneOperandThrowsException(){
         i.interpret("-3 add ");
         Assert.fail("Calling add when there is only one item on the stack must throw an EmptyStackException");
@@ -207,7 +207,7 @@ public class InginiousTests {
     @Test(expected=Exception.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Boolean don't support addition\n", onFail = true, onTimeout = true)})
     public void boolDontSupportAddition(){
         i.interpret("true false add");
         Assert.fail("Boolean don't support addition");
@@ -215,7 +215,7 @@ public class InginiousTests {
     @Test(expected=Exception.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Boolean don't support subtraction\n", onFail = true, onTimeout = true)})
     public void boolDontSupportSubtraction(){
         i.interpret("true false sub");
         Assert.fail("Boolean don't support subtraction");
@@ -223,7 +223,7 @@ public class InginiousTests {
     @Test(expected=Exception.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Boolean don't support multiplication\n", onFail = true, onTimeout = true)})
     public void boolDontSupportMultiplication(){
         i.interpret("true false mul");
         Assert.fail("Boolean don't support multiplication");
@@ -231,7 +231,7 @@ public class InginiousTests {
     @Test(expected=Exception.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Boolean don't support division\n", onFail = true, onTimeout = true)})
     public void boolDontSupportDivision(){
         i.interpret("true false div");
         Assert.fail("Boolean don't support division");
@@ -241,7 +241,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Subtracting two integers can yield a negative integer\n", onFail = true, onTimeout = true)})
     public void subTwoOperands(){
         // 2 3 sub == 2 - 3
         Assert.assertEquals(
@@ -251,7 +251,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "It must be possible to subtract a negative integer\n", onFail = true, onTimeout = true)})
     public void subNegativeIntOperand(){
         Assert.assertEquals(
                             "It must be possible to subtract a negative integer",
@@ -260,7 +260,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "It must be possible to subtract an int and a float value\n", onFail = true, onTimeout = true)})
     public void subIntDoubleOperand(){
         Assert.assertEquals(
                             "It must be possible to subtract an int and a float value",
@@ -269,7 +269,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "It must be possible to subtract a float value and an int\n", onFail = true, onTimeout = true)})
     public void subDoubleIntOperand(){
         Assert.assertEquals(
                             "It must be possible to subtract a float value and an int",
@@ -278,7 +278,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "It must be possible to subtract a negative float value\n", onFail = true, onTimeout = true)})
     public void subNegativeDoubleOperand(){
         Assert.assertEquals(
                             "It must be possible to subtract a negative float value",
@@ -287,7 +287,7 @@ public class InginiousTests {
     @Test(expected=EmptyStackException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Subtraction requires two operands on the stack\n", onFail = true, onTimeout = true)})
     public void subOneOperand(){
         i.interpret("3 sub pstack");
         Assert.fail("Subtraction requires two operands on the stack");
@@ -295,7 +295,7 @@ public class InginiousTests {
     @Test(expected=EmptyStackException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Subtraction requires two operands on the stack\n", onFail = true, onTimeout = true)})
     public void subEmpty(){
         i.interpret("sub pstack");
         Assert.fail("Subtraction requires two operands on the stack");
@@ -303,7 +303,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "It is possible to subtract two floating point values\n", onFail = true, onTimeout = true)})
     public void subDoubleOperands(){
         Assert.assertEquals(
                             "It is possible to subtract two floating point values",
@@ -321,7 +321,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "It is possible to multiply two integer values\n", onFail = true, onTimeout = true)})
     public void mulTwoOperands(){
         // 2 3 mul == 2 * 3
         Assert.assertEquals(
@@ -331,7 +331,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "It is possible to multiply a negative integer value\n", onFail = true, onTimeout = true)})
     public void mulNegativeIntOperand(){
         Assert.assertEquals(
                             "It is possible to multiply a negative integer value",
@@ -340,7 +340,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "It is possible to multiply a negative float value by an int and it must return a negative float\n", onFail = true, onTimeout = true)})
     public void mulNegativeDoubleOperand(){
         Assert.assertEquals(
                             "It is possible to multiply a negative float value by an int and "
@@ -350,7 +350,7 @@ public class InginiousTests {
     @Test(expected=EmptyStackException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Multiplication requires two numeric operands on the stack\n", onFail = true, onTimeout = true)})
     public void mulOneOperand(){
         i.interpret("3 mul pstack");
         Assert.fail("Multiplication requires two numeric operands on the stack");
@@ -358,7 +358,7 @@ public class InginiousTests {
     @Test(expected=EmptyStackException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Multiplication requires two numeric operands on the stack\n", onFail = true, onTimeout = true)})
     public void mulEmpty(){
         i.interpret("mul pstack");
         Assert.fail("Multiplication requires two numeric operands on the stack");
@@ -366,7 +366,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "It is possible to multiply a float value by an int and it must return a float value\n", onFail = true, onTimeout = true)})
     public void mulDoubleIntOperands(){
         Assert.assertEquals(
                             "It is possible to multiply a float value by an int and it must return a float value",
@@ -375,7 +375,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "It is possible to multiply an int by a float value and it must return a float value\n", onFail = true, onTimeout = true)})
     public void mulIntDoubleOperands(){
         Assert.assertEquals(
                             "It is possible to multiply an int by a float value and it must return a float value",
@@ -384,7 +384,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Operators precedence is set by the stack (1 3 4 mul add pstack) must yield 13\n", onFail = true, onTimeout = true)})
     public void operatorsPrecedenceSetByTheStack1(){
         Assert.assertEquals(
                             "Operators precedence is set by the stack (1 3 4 mul add pstack) must yield 13",
@@ -393,7 +393,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Operators precedence is set by the stack (1 3 mul 4 add) must yield (1*3 + 4)\n", onFail = true, onTimeout = true)})
     public void operatorsPrecedenceSetByTheStack2(){
         // 1*3 + 4
         Assert.assertEquals(
@@ -406,7 +406,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Div ALWAYS returns a float value\n", onFail = true, onTimeout = true)})
     public void divTwoIntOperands(){
         // Because div always returns float
         Assert.assertEquals(
@@ -416,7 +416,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "It is possible to divide a negative integer\n", onFail = true, onTimeout = true)})
     public void divNegativeIntOperand(){
         // Because div always returns float
         Assert.assertEquals(
@@ -426,7 +426,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "It is possible to divide a float by an int and it must return a float value\n", onFail = true, onTimeout = true)})
     public void divDoubleIntOperands(){
         // 2 3 mul == 2 / 3
         Assert.assertEquals(
@@ -436,7 +436,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "It is possible to divide an int by a float and it must return a float value\n", onFail = true, onTimeout = true)})
     public void divIntDoubleOperands(){
         // 2 3 mul == 2 / 3
         Assert.assertEquals(
@@ -447,7 +447,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Division accepts negative float operands\n", onFail = true, onTimeout = true)})
     public void divNegativeDoubleOperand(){
         Assert.assertEquals(
                             "Division accepts negative float operands",
@@ -456,7 +456,7 @@ public class InginiousTests {
     @Test(expected=EmptyStackException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Division requires two numeric operands on the stack\n", onFail = true, onTimeout = true)})
     public void divOneOperand(){
         i.interpret("3 div pstack");
         Assert.fail("Division requires two numeric operands on the stack");
@@ -464,7 +464,7 @@ public class InginiousTests {
     @Test(expected=EmptyStackException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Division requires two numeric operands on the stack\n", onFail = true, onTimeout = true)})
     public void divEmpty(){
         i.interpret("div pstack");
         Assert.fail("Division requires two numeric operands on the stack");
@@ -472,7 +472,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Division allows to mix floating point and integer operands (it must return a float value)\n", onFail = true, onTimeout = true)})
     public void divDoubleOperands(){
         Assert.assertEquals(
                             "Division allows to mix floating point and integer operands (it must return a float value)",
@@ -481,7 +481,7 @@ public class InginiousTests {
     @Test(expected=ArithmeticException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Dividing a double by zero must throw an ArithmeticException\n", onFail = true, onTimeout = true)})
     public void divPositiveDoubleByZero(){
         // Infinity if it were java semantics
         i.interpret("2.0 0 div pstack");
@@ -491,7 +491,7 @@ public class InginiousTests {
     @Test(expected=ArithmeticException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Dividing a negative double by zero must throw an ArithmeticException\n", onFail = true, onTimeout = true)})
     public void divNegativeDoubleByZero(){
         // -Infinity if it were java semantics
         i.interpret("-2.0 0 div pstack");
@@ -501,7 +501,7 @@ public class InginiousTests {
     @Test(expected=ArithmeticException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Dividing a 0.0 by zero must throw an ArithmeticException\n", onFail = true, onTimeout = true)})
     public void divDoubleZeroByZero(){
         // NaN if it were java semantics
         i.interpret("0.0 0.0 div pstack");
@@ -512,7 +512,7 @@ public class InginiousTests {
     @Test(expected=ArithmeticException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Dividing a int by zero must throw an ArithmeticException\n", onFail = true, onTimeout = true)})
     public void divPositiveIntegerDivByZeroThrowsException(){
         i.interpret("1 0 div pstack");
         Assert.fail("Dividing a int by zero must throw an ArithmeticException");
@@ -520,7 +520,7 @@ public class InginiousTests {
     @Test(expected=ArithmeticException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Dividing a negative int by zero must throw an ArithmeticException\n", onFail = true, onTimeout = true)})
     public void divNegativeIntegerDivByZeroThrowsException(){
         i.interpret("-1 0 div pstack");
         Assert.fail("Dividing a negative int by zero must throw an ArithmeticException");
@@ -530,7 +530,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "iDiv ALWAYS returns an int value\n", onFail = true, onTimeout = true)})
     public void idivTwoIntOperands(){
         // Because idiv always returns int
         Assert.assertEquals(
@@ -540,7 +540,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "It is possible to divide a negative integer\n", onFail = true, onTimeout = true)})
     public void idivNegativeIntOperand(){
         // Because idiv always returns int
         Assert.assertEquals(
@@ -550,7 +550,7 @@ public class InginiousTests {
     @Test(expected=Exception.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Idiv with Double and Int\n", onFail = true, onTimeout = true)})
     public void idivDoubleIntOperands(){
         // 2 3 mul == 2 / 3
         i.interpret("2.5 3 idiv pstack");
@@ -558,7 +558,7 @@ public class InginiousTests {
     @Test(expected=Exception.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Idiv with Int and Double operands\n", onFail = true, onTimeout = true)})
     public void idivIntDoubleOperands(){
         i.interpret("2 3.0 idiv pstack");
     }
@@ -566,14 +566,14 @@ public class InginiousTests {
     @Test(expected=Exception.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "IDiv negative double operand\n", onFail = true, onTimeout = true)})
     public void idivNegativeDoubleOperand(){
         i.interpret("-2.0 3 idiv pstack");
     }
     @Test(expected=EmptyStackException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Division requires two numeric operands on the stack\n", onFail = true, onTimeout = true)})
     public void idivOneOperand(){
         i.interpret("3 idiv pstack");
         Assert.fail("Division requires two numeric operands on the stack");
@@ -581,7 +581,7 @@ public class InginiousTests {
     @Test(expected=EmptyStackException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Division requires two numeric operands on the stack\n", onFail = true, onTimeout = true)})
     public void idivEmpty(){
         i.interpret("idiv pstack");
         Assert.fail("Division requires two numeric operands on the stack");
@@ -589,14 +589,14 @@ public class InginiousTests {
     @Test(expected=Exception.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Idiv two double operands\n", onFail = true, onTimeout = true)})
     public void idivTwoDoubleOperands(){
         i.interpret("2.0 3.0 idiv pstack");
     }
     @Test(expected=Exception.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Idiv Positive Double by Zero\n", onFail = true, onTimeout = true)})
     public void idivPositiveDoubleByZero(){
         // Infinity if it were java semantics
         i.interpret("2.0 0 idiv pstack");
@@ -604,7 +604,7 @@ public class InginiousTests {
     @Test(expected=Exception.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Idiv Negative Double by Zero\n", onFail = true, onTimeout = true)})
     public void idivNegativeDoubleByZero(){
         // -Infinity if it were java semantics
         i.interpret("-2.0 0 idiv pstack");
@@ -612,7 +612,7 @@ public class InginiousTests {
     @Test(expected=Exception.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "IDiv Double zero by zero\n", onFail = true, onTimeout = true)})
     public void idivDoubleZeroByZero(){
         // NaN if it were java semantics
         i.interpret("0.0 0.0 idiv pstack");
@@ -621,7 +621,7 @@ public class InginiousTests {
     @Test(expected=ArithmeticException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Dividing a int by zero must throw an ArithmeticException\n", onFail = true, onTimeout = true)})
     public void idivPositiveIntegerDivByZeroThrowsException(){
         i.interpret("1 0 idiv pstack");
         Assert.fail("Dividing a int by zero must throw an ArithmeticException");
@@ -629,7 +629,7 @@ public class InginiousTests {
     @Test(expected=ArithmeticException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Dividing a negative int by zero must throw an ArithmeticException\n", onFail = true, onTimeout = true)})
     public void idivNegativeIntegerDivByZeroThrowsException(){
         i.interpret("-1 0 idiv pstack");
         Assert.fail("Dividing a negative int by zero must throw an ArithmeticException");
@@ -637,7 +637,7 @@ public class InginiousTests {
     @Test(expected=ArithmeticException.class)
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Dividing a 0 by zero must throw an ArithmeticException\n", onFail = true, onTimeout = true)})
     public void idivZeroIntegerDivByZeroThrowsException(){
         i.interpret("0 0 idiv pstack");
         Assert.fail("Dividing a 0 by zero must throw an ArithmeticException");
@@ -719,7 +719,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Wrong string concatenation\n", onFail = true, onTimeout = true)})
     public void multiplePstacks(){
         Assert.assertEquals(
                             "Multiple calls to to pstack must provoke the resulting string "
@@ -730,7 +730,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Calling pstack after popping the last result should yield an empty string (stack is empty)\n", onFail = true, onTimeout = true)})
     public void pstackAfterPoppingLastResultReturnsEmptyString(){
         Assert.assertEquals(
                             "Calling pstack after popping the last result should yield an "
@@ -748,7 +748,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "The string produced by pstack must read bottom-up from left to right. (1 2 3 4 pstack) must yield (1 2 3 4)\n", onFail = true, onTimeout = true)})
     public void pstackMustPrintElementsBottomUp(){
         Assert.assertEquals(
                             "The string produced by pstack must read bottom-up from left to"
