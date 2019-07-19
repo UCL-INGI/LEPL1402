@@ -14,7 +14,8 @@ context: |-
       - Shape and all its methods are abstract (since instantiating a Shape class doesn't make sense )
       - Don't forget every needed modifier, keywords, etc (abstract, public, ...)
       - No need of not-static variables in your code as we pass you the needed parameter to apply your computation
-      - Use Math.PI in your Circle
+      - Use Math.PI in your Circle implementation
+      - Advanced feedback are available only if your code has complied
     
 problems:
     student_shape:

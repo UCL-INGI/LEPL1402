@@ -37,14 +37,14 @@ public class InginiousTests {
         // Now check if they respected given implementation ; will throw exception if not the case
         try {
             
-            Method my_method = c.getDeclaredMethod("getArea", new Class[1]{Double.class});
+            Method my_method = c.getDeclaredMethod("getArea", new Class[]{Double.class});
             int modifier_of_method = my_method.getModifiers();
             
             assertTrue(Modifier.isAbstract(modifier_of_method));
             assertTrue(Modifier.isPublic(modifier_of_method));
             assertTrue(my_method.getReturnType().equals(Double.class));
             
-            my_method = c.getDeclaredMethod("getPerimeter", new Class[1]{Double.class});
+            my_method = c.getDeclaredMethod("getPerimeter", new Class[]{Double.class});
             modifier_of_method = my_method.getModifiers();
             
             assertTrue(Modifier.isAbstract(modifier_of_method));
@@ -73,7 +73,7 @@ public class InginiousTests {
 
             try {
 
-                Method my_method = class_array[i].getDeclaredMethod("getArea", new Class[1]{Double.class});
+                Method my_method = class_array[i].getDeclaredMethod("getArea", new Class[]{Double.class});
                 int modifier_of_method = my_method.getModifiers();
 
                 // should be only public
@@ -81,7 +81,7 @@ public class InginiousTests {
                 assertTrue(my_method.getReturnType().equals(Double.class));
                 
                 // should also be only public
-                my_method = class_array[i].getDeclaredMethod("getPerimeter", new Class[1]{Double.class});
+                my_method = class_array[i].getDeclaredMethod("getPerimeter", new Class[]{Double.class});
                 modifier_of_method = my_method.getModifiers();
 
                 assertTrue(modifier_of_method == Modifier.PUBLIC);
