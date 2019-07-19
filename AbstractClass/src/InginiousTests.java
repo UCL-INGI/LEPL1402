@@ -8,9 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.function.Supplier;
-import java.util.stream.Stream;
 
-import java.util.*;
 import templates.*;
 
 import java.lang.reflect.*;
@@ -37,19 +35,19 @@ public class InginiousTests {
         // Now check if they respected given implementation ; will throw exception if not the case
         try {
             
-            Method my_method = c.getDeclaredMethod("getArea", new Class[]{Double.class});
+            Method my_method = c.getDeclaredMethod("getArea", double.class);
             int modifier_of_method = my_method.getModifiers();
             
             assertTrue(Modifier.isAbstract(modifier_of_method));
             assertTrue(Modifier.isPublic(modifier_of_method));
-            assertTrue(my_method.getReturnType().equals(Double.class));
+            assertTrue(my_method.getReturnType().equals(double.class));
             
-            my_method = c.getDeclaredMethod("getPerimeter", new Class[]{Double.class});
+            my_method = c.getDeclaredMethod("getPerimeter", double.class);
             modifier_of_method = my_method.getModifiers();
             
             assertTrue(Modifier.isAbstract(modifier_of_method));
             assertTrue(Modifier.isPublic(modifier_of_method));
-            assertTrue(my_method.getReturnType().equals(Double.class));
+            assertTrue(my_method.getReturnType().equals(double.class));
 
         } catch (Exception e) {
             fail();
@@ -61,7 +59,7 @@ public class InginiousTests {
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
     @GradeFeedback(message = "Wrong modifiers in your subclasses implementation\n", onFail = true, onTimeout = true)})
     public void checkSubClassImplementation() {
-        Class[] class_array = new Class[] {Circle.class, Shape.class};
+        Class[] class_array = new Class[] {Circle.class, Square.class};
 
         for(int i = 0; i < class_array.length; i++) {
             int modifier_of_class = class_array[i].getModifiers();
@@ -69,23 +67,24 @@ public class InginiousTests {
             assertTrue(modifier_of_class == Modifier.PUBLIC);
 
             // should extends the Square class
-            assertTrue(class_array[i].isAssignableFrom(Square.class));
+            assertTrue(Shape.class.isAssignableFrom(class_array[i]));
 
             try {
 
-                Method my_method = class_array[i].getDeclaredMethod("getArea", new Class[]{Double.class});
+                Method my_method = class_array[i].getDeclaredMethod("getArea", new Class[]{double.class});
                 int modifier_of_method = my_method.getModifiers();
 
                 // should be only public
                 assertTrue(modifier_of_method == Modifier.PUBLIC);
-                assertTrue(my_method.getReturnType().equals(Double.class));
+                assertTrue(my_method.getReturnType().equals(double.class));
                 
                 // should also be only public
-                my_method = class_array[i].getDeclaredMethod("getPerimeter", new Class[]{Double.class});
+                my_method = class_array[i].getDeclaredMethod("getPerimeter", new Class[]{double.class});
                 modifier_of_method = my_method.getModifiers();
 
                 assertTrue(modifier_of_method == Modifier.PUBLIC);
-                assertTrue(my_method.getReturnType().equals(Double.class));                
+                assertTrue(my_method.getReturnType().equals(double.class));                
+                i++;
 
             } catch (Exception e) {
                 fail();
@@ -105,10 +104,10 @@ public class InginiousTests {
         
         for(int i = 0; i < 10; i++) {
             double random_double = rng.get();
-            assertEquals(random_double * random_double * Math.PI, c.getArea(random_double));
-            assertEquals(random_double * random_double, s.getArea(random_double));
-            assertEquals(Math.PI * 2 * random_double, c.getPerimeter(random_double));
-            assertEquals(random_double * 4, s.getPerimeter(random_double));
+            assertEquals(random_double * random_double * Math.PI, c.getArea(random_double), 0);
+            assertEquals(random_double * random_double, s.getArea(random_double), 0);
+            assertEquals(Math.PI * 2 * random_double, c.getPerimeter(random_double), 0);
+            assertEquals(random_double * 4, s.getPerimeter(random_double), 0);
         }
     }
     
