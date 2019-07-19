@@ -1,7 +1,7 @@
 accessible: true
-author: Rucquoy Alexandre
+author: Yakoub J, Rucquoy A
 context: |-
-    In this task, you should provide a TestSuite for the method binarySearch :
+    In this task, you will need to provide a JUnit4 TestSuite for the **static method** ``binarySearch`` located in the **class** ``Exercise``  :
 
     .. code-block:: java
 
@@ -14,11 +14,32 @@ context: |-
          * @post returns the index in which the searched element is located,
          * -1 if it is not present.
          */
-        public int binarySearch(int [] arr, int low, int high, int elem) {
-            // Whatever correct implementation possible here
+        public static int binarySearch(int [] arr, int low, int high, int elem) {
+            ...
         }
 
-    Based on the specifications provided, create test cases of the different parameter possibilities
+    Based on the specifications provided, create test cases for different input and possible outputs. We strongly suggest you to read the Junit4_ asserts documentation. Here is a signature 
+    to start your test suite: 
+
+    .. code-block:: java 
+
+        import org.junit.Test;
+        import static org.junit.Assert.*;
+
+        public class TestSuite{
+
+            @Test
+            public void test(){
+                Exercise.binarySearch(...)
+            }
+
+            // Add more tests here.
+
+        }
+
+
+    .. _Junit4: https://junit.org/junit4/javadoc/4.12/org/junit/Assert.html
+
 environment: java8scala
 evaluate: best
 groups: false
@@ -35,7 +56,8 @@ problems:
         type: code
         language: java
         default: ''
-        header: ''
+        header: |-
+            Insert here the **body** of your test suite:
 stored_submissions: 0
 submission_limit:
     amount: -1
