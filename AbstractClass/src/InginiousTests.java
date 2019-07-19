@@ -8,9 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.function.Supplier;
-import java.util.stream.Stream;
 
-import java.util.*;
 import templates.*;
 
 import java.lang.reflect.*;
@@ -69,7 +67,7 @@ public class InginiousTests {
             assertTrue(modifier_of_class == Modifier.PUBLIC);
 
             // should extends the Square class
-            assertTrue(Square.class.isAssignableFrom(class_array[i]));
+            assertTrue(Shape.class.isAssignableFrom(class_array[i]));
 
             try {
 
