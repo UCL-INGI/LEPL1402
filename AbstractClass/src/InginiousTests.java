@@ -37,14 +37,14 @@ public class InginiousTests {
         // Now check if they respected given implementation ; will throw exception if not the case
         try {
             
-            Method my_method = c.getDeclaredMethod("getArea", new Class[]{double.class});
+            Method my_method = c.getDeclaredMethod("getArea", double.class);
             int modifier_of_method = my_method.getModifiers();
             
             assertTrue(Modifier.isAbstract(modifier_of_method));
             assertTrue(Modifier.isPublic(modifier_of_method));
             assertTrue(my_method.getReturnType().equals(double.class));
             
-            my_method = c.getDeclaredMethod("getPerimeter", new Class[]{double.class});
+            my_method = c.getDeclaredMethod("getPerimeter", double.class);
             modifier_of_method = my_method.getModifiers();
             
             assertTrue(Modifier.isAbstract(modifier_of_method));
@@ -69,7 +69,7 @@ public class InginiousTests {
             assertTrue(modifier_of_class == Modifier.PUBLIC);
 
             // should extends the Square class
-            assertTrue(class_array[i].isAssignableFrom(Square.class));
+            assertTrue(Square.class.isAssignableFrom(class_array[i]));
 
             try {
 
@@ -86,6 +86,7 @@ public class InginiousTests {
 
                 assertTrue(modifier_of_method == Modifier.PUBLIC);
                 assertTrue(my_method.getReturnType().equals(double.class));                
+                i++;
 
             } catch (Exception e) {
                 fail();
@@ -105,10 +106,10 @@ public class InginiousTests {
         
         for(int i = 0; i < 10; i++) {
             double random_double = rng.get();
-            assertEquals(random_double * random_double * Math.PI, c.getArea(random_double));
-            assertEquals(random_double * random_double, s.getArea(random_double));
-            assertEquals(Math.PI * 2 * random_double, c.getPerimeter(random_double));
-            assertEquals(random_double * 4, s.getPerimeter(random_double));
+            assertEquals(random_double * random_double * Math.PI, c.getArea(random_double), 0);
+            assertEquals(random_double * random_double, s.getArea(random_double), 0);
+            assertEquals(Math.PI * 2 * random_double, c.getPerimeter(random_double), 0);
+            assertEquals(random_double * 4, s.getPerimeter(random_double), 0);
         }
     }
     
