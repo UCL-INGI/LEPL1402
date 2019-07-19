@@ -1,0 +1,39 @@
+author: "Yakoub J, Rucquoy A"
+accessible: true
+name: "[TESTABLE] Abstract Class"
+context: |-
+    In this task, you have to implement the following code represented as this UML diagram :
+
+    .. figure:: /course/LEPL1402/AbstractClass/AbstractClass.jpg
+       :scale: 100 %
+       :alt: alternate text
+       :align: center
+       :figclass: align-center 
+
+    Before jumping to the code, a few things to keep in mind :  
+      - Shape and all its methods are abstract (since instantiating a Shape class doesn't make sense )
+      - Don't forget every needed modifier, keywords, etc (abstract, public, ...)
+      - No need of not-static variables in your code as we pass you the needed parameter to apply your computation
+    
+problems:
+    student_shape:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the CODE of your ``Shape`` class:
+
+
+    student_circle:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the BODY of your ``Circle`` class:
+
+
+    student_square:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the BODY of your ``Square`` class:
+
+environment: java8scala
