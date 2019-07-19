@@ -1,5 +1,5 @@
 author: "Yakoub J, Rucquoy A"
-name: 'PostScript Interpreter [group]'
+name: '[TESTABLE] PostScript Interpreter [group]'
 accessible: true
 context: |-
     You are asked to write a mini-PostScript interpreter as described in the *pdf* ( Mission_ ) of the mission. Precisely, you must implement the following interface :
@@ -29,3 +29,5 @@ problems:
         language: java
         header: |-
             Paste here the **body** of your Interpreter class:
+
+environment: java8scala
