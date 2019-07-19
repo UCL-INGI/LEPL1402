@@ -1,2 +1,11 @@
 has_feedback: True
 feedback_kind: JavaGrading
+prohibited:
+  "student_enqueue":
+    - System.arraycopy
+  "student_remove":
+    - System.arraycopy
+  "student_utils":
+    - System.arraycopy
+  "student_constructor":
+    - System.arraycopy
