@@ -2,7 +2,7 @@ author: "Yakoub J, Rucquoy A"
 accessible: true
 name: "[TESTABLE] Abstract Class"
 context: |-
-    In this task, you have to implement the following code represented as this UML diagram :
+    In this task, you have to implement the following code represented by this UML diagram :
 
     .. figure:: /course/LEPL1402/AbstractClass/AbstractClass.jpg
        :scale: 100 %
@@ -14,6 +14,7 @@ context: |-
       - Shape and all its methods are abstract (since instantiating a Shape class doesn't make sense )
       - Don't forget every needed modifier, keywords, etc (abstract, public, ...)
       - No need of not-static variables in your code as we pass you the needed parameter to apply your computation
+      - Use Math.PI in your Circle
     
 problems:
     student_shape:

@@ -68,6 +68,9 @@ public class InginiousTests {
             // should be public only
             assertTrue(modifier_of_class == Modifier.PUBLIC);
 
+            // should extends the Square class
+            assertTrue(class_array[i].isAssignableFrom(Square.class));
+
             try {
 
                 Method my_method = class_array[i].getDeclaredMethod("getArea", new Class[1]{Double.class});
@@ -104,7 +107,7 @@ public class InginiousTests {
             double random_double = rng.get();
             assertEquals(random_double * random_double * Math.PI, c.getArea(random_double));
             assertEquals(random_double * random_double, s.getArea(random_double));
-            assertEquals(random_double * random_double, c.getPerimeter(random_double));
+            assertEquals(Math.PI * 2 * random_double, c.getPerimeter(random_double));
             assertEquals(random_double * 4, s.getPerimeter(random_double));
         }
     }
