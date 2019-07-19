@@ -2,7 +2,7 @@ author: "Yakoub J, Rucquoy A"
 name: 'PostScript Interpreter [group]'
 accessible: true
 context: |-
-    You are asked to write a mini-PostScript interpreter as described in the *pdf* of the mission. Precisely, you must implement the following interface :
+    You are asked to write a mini-PostScript interpreter as described in the *pdf* ( Mission_ ) of the mission. Precisely, you must implement the following interface :
 
     .. code-block:: java
 
@@ -20,6 +20,8 @@ context: |-
     Don't forget to throw the different possible exceptions : EmptyStackException, ArithmeticException
 
     Note that [group] means that only one student must submit the code for the entire group.
+
+    .. _Mission: /course/LEPL1402/PostScript/Mission.pdf
 
 problems:
     student_code:
