@@ -9,5 +9,5 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public class StudentFunctions implements StudentStreamFunction {
-
+@   @student_code@@   
 }

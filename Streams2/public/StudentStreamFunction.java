@@ -5,8 +5,8 @@ import java.util.Comparator;
 
 public interface StudentStreamFunction {
 
-    // In order to test efficiently your code, we must a Map<String, Predicate<?>> structured like that :
-    //      Key : String that is one of the fields of Student ( "firstName", "lastName", "section", "courses_results")
+    // In order to test efficiently your code, we use a Map<String, Predicate<?>> structured like that :
+    //    Key : String that is one of the fields of Student ( "firstName", "lastName", "section", "courses_results")
     //    Value : Predicate bounded to the type of the field to perform a check condition
 
 
