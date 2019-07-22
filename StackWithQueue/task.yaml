@@ -1,0 +1,66 @@
+author: "Yakoub J, Rucquoy A"
+accessible: true
+name: "[TESTABLE] Stack with a Queue"
+context: |-
+    In this short exercise we will ask you to implement a LIFO stack using a queue (provided as a Java ``LinkedList<E>``). We need you to provide 4 methods : 
+    ``push``, ``pop``, ``peek``, ``empty``. You can't use the ``LinkedList`` API expect for the methods listed below:
+
+    - ``add``
+    - ``remove``
+    - ``peek``
+    - ``isEmpty``
+
+    .. code-block:: java
+
+        import java.util.LinkedList;
+
+        public class MyStack<E> {
+
+            private LinkedList<E> queue;
+
+            /*
+            * Constructor
+            */
+            public MyStack() {
+                this.queue = new LinkedList<>();
+            }
+
+            /*
+            * push an element at top (remember, a stack is "Last In First Out")
+            */
+            public void push(E elem) {
+                
+            }
+
+            /*
+            * Return the top of the stack AND remove the retrieved element
+            */
+            public E pop() {
+                
+            }
+
+            /*
+            * Return the top element of the stack, without removing it
+            */
+            public E peek() {
+                
+            }
+
+            /*
+            * Tells if the stack is empty or not
+            */
+            public boolean empty() {
+                
+            }
+
+    
+problems:
+
+    student_methods:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the bodies **and** signatures of your 4 methods:
+
+
+environment: java8scala
