@@ -1,9 +1,7 @@
-import java.util.Comparator;
 import java.util.Map;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
+import java.util.Comparator;
 
 public interface StudentStreamFunction {
 
@@ -14,7 +12,7 @@ public interface StudentStreamFunction {
 
     // Returns a student if any match the given conditions
     // if it is not possible, you must return null
-    public Student findOne(Stream<Student> studentsStream,
+    public Student findFirst(Stream<Student> studentsStream,
                            Map<String, Predicate<?>> conditions);
 
     // Returns a array of student(s) that match the given conditions
@@ -31,13 +29,5 @@ public interface StudentStreamFunction {
     public Student[] filterThenSort(Stream<Student> studentsStream,
                                     Map<String, Predicate<?>> conditions,
                                     Comparator<Student> comparator);
-
-
-    // Returns the result of a mapReduce operation
-    // For clarity, the identify and accumulator parameters must be used in your reduce call
-    public Double mapReduce(Stream<Student> studentsStream,
-                            Function<Student, Double> mapFunction,
-                            Double identity,
-                            BinaryOperator<Double> accumulator);
 
 }
