@@ -1,0 +1,15 @@
+has_feedback: True
+feedback_kind: JavaGrading
+prohibited:
+  "student_methods":
+    - new LinkedList
+    - queue.pop
+    - queue.push
+    - queue.poll
+    - queue.element
+    - queue.get
+    - queue.addFirst
+    - queue.addLast
+    - queue.offer
+    - queue.removeFirst
+    - queue.removeLast
