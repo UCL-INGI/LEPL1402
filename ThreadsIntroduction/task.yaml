@@ -23,8 +23,8 @@ context: |-
     
 
     In Java, a thread needs an entry point to know where to start when we want it to run : this entry point can be 
-    any object implementing the Runnable_ interface. For this exercise, we ask you to implement the Runnable_ interface on "Counter", a small class increasing
-    an int variable "rnd" times.
+    any object implementing the Runnable_ interface. For this exercise, we give you a small implementation of the Runnable_ interface : ``Counter``, a small class increasing
+    an int variable ``rnd`` times.
 
 
     .. code-block:: java
