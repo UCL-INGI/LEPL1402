@@ -12,12 +12,12 @@ context: |-
        public interface StudentStreamFunction {
 
           // Find the N°2 and N°3 top students for the given course name in parameter
-          public Stream<Student> find_second_and_third_top_student_for_given_course(Stream<Student> studentStream,
-                                                                                 String name);
+          public Stream<Student> find_second_and_third_top_student_for_given_course(
+              Stream<Student> studentStream, String name);
 
           // Compute for each student in the given section their average grade result,
           // sorted by their result (ascending) as an array of array structured like that :
-          // [ [ "Student FirstName1 LastName1", 7.5 ], [ "Student FirstName2 LastName2", 9.5 ]  ]
+          // [ ["Student FirstName1 LastName1", 7.5], ["Student FirstName2 LastName2", 9.5] ]
           public Object[] compute_average_for_student_in_section(Stream<Student> studentStream,
                                                               int section);
 
