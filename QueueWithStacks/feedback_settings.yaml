@@ -1,0 +1,5 @@
+has_feedback: True
+feedback_kind: JavaGrading
+prohibited:
+  "student_methods":
+    - new Stack
