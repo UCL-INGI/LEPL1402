@@ -4,26 +4,30 @@ package src;
 public class Fibonacci {
 
 
-    private static int count = 0;
+    private static int nCalls = 0;
 
     public static int getCount(){
-        return count;
+        return nCalls;
     }
 
     public static void resetCount(){
-        count = 0;
+        nCalls = 0;
     }
 
 
     public static int fiboRecursive(int index){
 
-        count++;
+        nCalls++;
 
     @   @student_recursive@@
     }
 
 
     public static int fiboIterative(int index){
+
+        nCalls++;
+
+        
     @   @student_iterative@@
     }
 

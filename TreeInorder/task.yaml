@@ -1,0 +1,64 @@
+author: "Yakoub J, Rucquoy A"
+accessible: true
+name: "[TESTABLE] Binary trees - Inorder traversal"
+context: |-
+    In this task, we ask you to implement two different version of an "inorder" tree traversal : a recursive version and 
+    an iterative version. Both function will take a ``Node`` representing the root of the tree itself and a ``List<Integer>`` that 
+    you have to fill with the tree nodes' ``val`` respecting the "inorder" traversal.
+    Here are the skeleton of the ``Node`` and ``Traversal`` classes: 
+
+    .. code-block:: java
+
+        public class Node {
+
+            public int val;
+
+            public Node left;
+            public Node right;
+
+            public Node(int val){
+                this.val = val;
+            }
+
+            public boolean isLeaf(){
+                return this.left == null && this.right == null;
+            }
+        }
+
+
+        import java.util.List;
+        import java.util.Stack; // this should give you a hint for the iterative version
+
+        public class Traversal {
+
+            public static void recursiveInorder(Node root, List<Integer> res) {
+                // YOUR CODE HERE
+            }
+
+
+            public static void iterativeInorder(Node root, List<Integer> res){
+                // YOUR CODE HERE
+            }
+
+        }
+
+
+
+
+    
+problems:
+
+    student_recursive:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your ``recursiveInorder(Node root, List<Integer> res)`` method:
+
+
+    student_iterative:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your ``iterativeInorder(Node root, List<Integer> res)`` method:
+
+environment: java8scala
