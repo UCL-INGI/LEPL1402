@@ -1,6 +1,6 @@
 author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "[NOT TESTABLE] Abstract Class"
+name: "[TESTABLE] Abstract Class"
 context: |-
     In this task, you have to implement the following code represented by this UML diagram :
 
