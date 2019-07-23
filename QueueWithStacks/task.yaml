@@ -1,0 +1,70 @@
+author: "Yakoub J, Rucquoy A"
+accessible: true
+name: "[TESTABLE] Queue with two stacks"
+context: |-
+    In this short exercise we will ask you to implement a FIFO queue using two stacks (provided as two Java ``Stack<E>``). We need you to provide 4 methods : 
+    ``enqueue``, ``dequeue``, ``peek``, ``empty``. You can use the ``Stack`` API_ , but you can't instantiate a new ``Stack``. Use ``s1`` and ``s2`` from the class 
+    skeleton below.
+
+    .. _API : https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html
+
+    .. code-block:: java
+
+        import java.util.Stack;
+
+        public class MyQueue<E> {
+
+            Stack<E> s1;
+            Stack<E> s2;
+
+            private E front;
+
+            /*
+            * Constructor
+            */
+            public MyQueue() {
+                s1 = new Stack<>();
+                s2 = new Stack<>();
+                this.front = null;
+            }
+
+            /*
+            * Push element x to the end of the queue (remember, a queue is FIFO)
+            */
+            public void enqueue(E elem) {
+                
+            }
+
+            /*
+            * Removes the front element of this queue
+            */
+            public E dequeue() {
+                
+            }
+
+            /*
+            * Get the first element of this list but does not remove it
+            */
+            public E peek() {
+                
+            }
+
+            /*
+            * Tells if the queue is empty or not.
+            */
+            public boolean empty() {
+                
+            }
+        }
+
+    
+problems:
+
+    student_methods:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the bodies **and** signatures of your 4 methods:
+
+
+environment: java8scala

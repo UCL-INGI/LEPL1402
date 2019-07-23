@@ -2,9 +2,24 @@ author: "Yakoub J, Rucquoy A"
 accessible: true
 name: "[TESTABLE] Binary trees - Inorder traversal"
 context: |-
-    In this task, we ask you to implement two different version of an "inorder" tree traversal : a recursive version and 
+    In this task, we ask you to implement two different version of an "in-order" tree traversal : a recursive version and 
     an iterative version. Both function will take a ``Node`` representing the root of the tree itself and a ``List<Integer>`` that 
-    you have to fill with the tree nodes' ``val`` respecting the "inorder" traversal.
+    you have to fill with the tree nodes' ``val`` respecting the "in-order" traversal.
+    
+    **Example**:  the following tree, when explored in an in-order fashion, will give
+    ``A,B,C,D,E,F,G,H,I``. This type of tree traversal is thus very useful to retrieve all nodes from a tree as an ordered list,
+    provided that the tree itself is "sorted", i.e, for each node, its left subtree only contain "smaller" nodes and its right
+    subtree only contain "greater" nodes (which is the case in the example, considering the alphabetical order).
+
+
+    .. image:: /course/LEPL1402/TreeInorder/inorder.png
+       :scale: 100%
+       :align: center
+       :height: 218px
+       :width: 240 px
+
+
+
     Here are the skeleton of the ``Node`` and ``Traversal`` classes: 
 
     .. code-block:: java
