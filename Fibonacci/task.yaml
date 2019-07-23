@@ -1,6 +1,6 @@
 author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "[TESTABLE] Fibonacci"
+name: "[TESTABLE] Introduction to recursion in Java - Fibonacci"
 context: |-
     In this task, we will ask you to implement two different versions of the Fibonacci sequence number: a recursive one and an iterative one. 
     The objective of this exercise is to make you aware of what a call stack is and what problem could occur. We strongly suggest you to 
@@ -32,7 +32,7 @@ context: |-
 
     .. math::
 
-         f(n) =\begin{cases}0 & n = 0\\1 & n = 1\\ f(n-1) + f(n-2) & n > 1\end{cases} 
+         f(n) =\begin{cases}1 & n <= 1\\ f(n-1) + f(n-2) & n > 1\end{cases} 
 
 
 
