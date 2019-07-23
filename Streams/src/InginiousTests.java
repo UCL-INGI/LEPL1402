@@ -201,14 +201,14 @@ public class InginiousTests {
 
             double expected = Stream
                     .of(random_students)
-                    .reduce(0.0,
-                            ( accumulator, student) ->
-                                    student
-                                            .getCourses_results()
-                                            .values()
-                                            .stream()
-                                            .reduce( accumulator, Double::sum)
-                    );
+                    .map(
+                            student -> student
+                                    .getCourses_results()
+                                    .values()
+                                    .stream()
+                                    .reduce(0.0, Double::sum)
+                    )
+                    .reduce(0.0, Double::sum);
 
             double result = streamFunction.get_full_sum(Stream.of(random_students));
             assertTrue(Double.compare(expected, result) == 0);
