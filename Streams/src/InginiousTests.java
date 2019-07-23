@@ -169,7 +169,7 @@ public class InginiousTests {
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "find_last_in_lexicographic_order() didn't work\n", onFail = true, onTimeout = true)})
     public void test4() {
-        for(int i = 0; i < 10; i++) {
+        for(int i = 0; i < 1000; i++) {
 
             Student[] random_students = generate_random_students(section_rng.get()).toArray(Student[]::new);
 
