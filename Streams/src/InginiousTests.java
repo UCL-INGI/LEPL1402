@@ -178,8 +178,9 @@ public class InginiousTests {
                     .sorted(
                             (o1, o2) ->
                                     Comparator
-                                            .comparing(Student::getLastName, Comparator.reverseOrder())
-                                            .thenComparing(Student::getFirstName, Comparator.reverseOrder())
+                                            .comparing(Student::getLastName)
+                                            .thenComparing(Student::getFirstName)
+                                            .reversed()
                                             .compare(o1, o2)
                     )
                     .limit(1)
