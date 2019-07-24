@@ -92,12 +92,14 @@ def generate_java_command_string(files_input, command="java", libs=librairies(),
         # If we use a jar file for coverage
         ("-jar ", "{}.jar".format(files) if is_jar else None),
         # If javac , stores classes into one folder
-        ("-d ", PATH_CLASSES if command == "javac" else None)
+        ("-d ", PATH_CLASSES if command == "javac" else None),
+        # enable assertions
+        ("-ea", "" if command == "java" else None)
     ]
 
     # only include not null options values
     str_options = ' '.join(
-        ["{}{}".format(option, value) for (option, value) in options if value]
+        ["{}{}".format(option, value) for (option, value) in options if value is not None]
     )
 
     # If jar, no need to format the last argument
