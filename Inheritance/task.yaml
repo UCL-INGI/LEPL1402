@@ -1,0 +1,34 @@
+author: "Yakoub J, Rucquoy A"
+name: '[TESTABLE] Dealing with Streams'
+accessible: true
+context: |-
+
+    Will you be able to fill the gaps inside these three source files ( Animal_ , Cat_ , SuperCat_ ) so that it compiles and passes our tests ?
+
+    .. _Animal: /course/LEPL1402/Inheritance/Animal.java
+    .. _Cat: /course/LEPL1402/Inheritance/Cat.java
+    .. _SuperCat: /course/LEPL1402/Inheritance/SuperCat.java
+
+problems:
+    act_code:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of the **act** method of the Animal class:
+    cat_constructor:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of the Cat constructor:
+    cat_test_act:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of the **act_forTestMethod** method of the Cat class:
+    super_cat_log:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of the **clear_log** method of the SuperCat class:
+
+environment: java8scala
