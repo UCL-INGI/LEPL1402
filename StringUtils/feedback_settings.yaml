@@ -1,0 +1,9 @@
+has_feedback: True
+feedback_kind: JavaGrading
+prohibited: 
+  "student_split":
+    - .split
+  "student_indexof":
+    - .indexOf
+  "student_tolowercase":
+    - str.toLowercase()

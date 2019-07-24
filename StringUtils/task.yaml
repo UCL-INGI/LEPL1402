@@ -1,0 +1,98 @@
+author: "Yakoub J, Rucquoy A"
+accessible: true
+name: "[TESTABLE] Strings"
+context: |-
+    In this task, we ask you to implement several common methods inspired from java's String_ API. The objective of this task is to get you used 
+    to String manipulation in java. In order to succeed this task, you will have to implement four different methods from a class we called ``StringUtils`` : 
+
+    - ``split(String str, char marker)`` : separate a String into fragments each time a specific character ``marker`` is encountered. Note that, for simplicity, marker is a ``char`` whereas in java's String_ it is a ``String``. For example, calling your method with "Here. I. Go." with marker '.' should return an array of size three with "Here", "I" and "Go" in its cells.
+    - ``indexOf(String str, String sub)`` : returns the index of the first occurrence of the ``String`` sub in the ``String`` str. For example ``indexOf("Hello", "ell")`` should return 1, ``indexOf("Hello", "o")`` should return 4. If there is no occurrence of sub in str, return -1.
+    - ``toLowerCase(String str)`` : returns a String with the same characters as 'str' except that all upper case characters have been replaced by their lower case equivalent.
+    - ``palindrome(String str)`` : Returns true if the string 'str' is a palindrome : a string that reads the same from left to right AND from right to left (for example, "kayak"). Note that this method does not exist in java's String_ API because it's not very useful. But it is still a good exercise to train yourself to manipulate String objects in java.
+
+
+    .. _String: https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#subSequence-int-int-
+
+
+
+    Here is the skeleton of the ``StringUtils`` (downloadable here_):
+
+    .. _here: /course/LEPL1402/StringUtils/StringUtils.java 
+
+    .. code-block:: java
+
+        public class StringUtils {
+
+
+            /*
+            * Split the input string 'str' w.r.t the character 'marker' in an array of String
+            * for example split("test-test", '-') => {"test", "test"}
+            * Must return null if there is no occurrence of 'marker' in 'str'
+            */
+            public static String [] split(String str, char marker){
+                // YOUR CODE HERE
+            }
+
+
+            /*
+            * Returns the index of the first occurrence of sub in str
+            * or -1 if there is no occurrence of sub in str at all.
+            * Be careful, we ask you to make CASE SENSITIVE comparison between str and sub.
+            */
+            public static int indexOf(String str, String sub){
+                // YOUR CODE HERE
+            }
+
+            /*
+            * Returns a String with the same characters as 'str' except that
+            * all upper case characters have been replaced by their lower case equivalent.
+            */
+            public static String toLowerCase(String str){
+                // YOUR CODE HERE
+            }
+
+
+            /*
+            * Returns true if the string 'str' is a palindrome (a string that reads the same from
+            * left to right AND from right to left).
+            */
+            public static boolean palindrome(String str){
+                // YOUR CODE HERE
+            }
+
+
+        }
+
+    
+problems:
+
+    student_split:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your ``split`` method. Note that you can't use ``split`` from ``String`` API :
+
+
+    student_indexof:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your ``indexOf`` method. Note that you can't use ``indexOf`` from ``String`` API :
+
+
+
+    student_tolowercase:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your ``toLowerCase`` method. Note that you can't use ``toLowerCase`` from ``String`` API :
+
+
+    student_palindrome:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your ``palindrome`` method :
+
+
+environment: java8scala
