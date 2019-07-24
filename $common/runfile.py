@@ -10,7 +10,7 @@ from fragments import helper, feedback
 from fragments.constants import *
 
 
-# For extreme usage only XD
+# For extreme usage only
 # Dynamically load modules we need
 # Credits to https://stackoverflow.com/a/67692/6149867
 # And for the explanation : http://www.blog.pythonlibrary.org/2016/05/27/python-201-an-intro-to-importlib/
@@ -34,7 +34,7 @@ def main():
     #####################################
 
     feedback.handle_prohibited_statments(feedback_settings)
-    print("NO PROHIBITED STATMENT(S) DETECTED")
+    print("NO PROHIBITED STATEMENT(S) DETECTED")
 
     #####################################
     #       Apply templates             #
