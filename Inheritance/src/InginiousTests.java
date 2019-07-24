@@ -19,8 +19,8 @@ public class InginiousTests {
     @Grade
     @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
             @GradeFeedback(onFail = true, message = "Your act method in animal didn't work as expected")})
-    private void test_act_animal() {
-        Animal a1 = new Animal("Unkown annimal");
+    public void test_act_animal() {
+        Animal a1 = new Animal("Unknown animal");
         Animal a2 = new Cat();
         String[] acttions = new String[] {"EAT", "SLEEP", "CODE"};
         StringBuilder expected = new StringBuilder();
@@ -28,11 +28,11 @@ public class InginiousTests {
         for(String action : acttions) {
             a1.act(action);
             a2.act(action);
-            expected.append("%s is performing the following action: "+ action + "\n");
+            expected.append("%s is performing the following action: ").append(action).append("\n");
         }
 
-        assertEquals(String.format(expected.toString(), "Unkown annimal"), a1.logs());
-        assertEquals(String.format(expected.toString(), "Cat"), a2.logs());
+        assertEquals(expected.toString().replaceAll("%s", "Unknown animal"), a1.logs());
+        assertEquals(expected.toString().replaceAll("%s", "Cat"), a2.logs());
 
     }
 
@@ -40,7 +40,7 @@ public class InginiousTests {
     @Grade
     @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
             @GradeFeedback(onFail = true, message = "Your constructor for Cat didn't work as expected")})
-    private void test_constructor_cat() {
+    public void test_constructor_cat() {
         Animal a1 = new Cat();
         assertEquals("Cat", a1.getName());
     }
@@ -49,7 +49,7 @@ public class InginiousTests {
     @Grade
     @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
             @GradeFeedback(onFail = true, message = "Your act_forTestMethod method in Cat didn't work as expected")})
-    private void test_act_forTestMethod() {
+    public void test_act_forTestMethod() {
         Cat a1 = new Cat();
         a1.act_forTestMethod();
         assertEquals("Cat is performing the following action: Thinking\n", a1.logs());
@@ -59,7 +59,7 @@ public class InginiousTests {
     @Grade
     @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
             @GradeFeedback(onFail = true, message = "Your clear_log method in SuperCat didn't work as expected")})
-    private void test_clear_log() {
+    public void test_clear_log() {
         SuperCat a1 = new SuperCat();
         a1.clear_log();
         assertTrue(a1.logs().isEmpty());
