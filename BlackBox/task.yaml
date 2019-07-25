@@ -48,7 +48,7 @@ limits:
     time: '60'
     output: '2'
     memory: '100'
-name: BlackBox Testing - Binary Search
+name: '[TESTABLE] BlackBox Testing - Binary Search'
 network_grading: false
 problems:
     student_code:
