@@ -117,23 +117,44 @@ public class InginiousTests {
             @GradeFeedback(onFail = true, message = "post-condition(s) check on partition method: FAIL")})
     public void test7() {
 
+        int size;
+        Integer[] test;
+        int left;
+        int right;
+        int pivot;
+        boolean firstcheck;
+        boolean secondcheck;
+
         for (int i = 0; i < 1000; i++) {
 
             try {
-                int size = rng.get();
-                Integer[] test = new Random()
+                size = rng.get();
+                test = new Random()
                         .ints(size, -25, 25)
                         .boxed()
                         .toArray(Integer[]::new);
-                int left = new Random().nextInt(size / 2);
-                int right = new Random().ints(1, left, size - 1).sum();
-                int pivot = QuickSort.partition(test, left, right);
+                left = new Random().nextInt(size);
+                // Random throws a IllegalArgument exception if we don't check bounds
+                right = (left == size-1) ? left : new Random().ints(1, left, size-1).sum();
+                pivot = QuickSort.partition(test, left, right);
                 int pivot_value = test[pivot];
 
-                int before = pivot - left + 1;
+                // because we can get duplicated values, we must use <= or >= everywhere
 
-                assertTrue(Arrays.stream(test).limit(before).allMatch(value -> value <= pivot_value));
-                assertTrue(Arrays.stream(test).skip(before).allMatch(value -> value > pivot_value));
+                firstcheck = Arrays
+                        .stream(test)
+                        .skip(left)
+                        .limit(pivot-left+1)
+                        .allMatch(value -> value <= pivot_value);
+
+                secondcheck = Arrays
+                        .stream(test)
+                        .skip(pivot+1)
+                        .limit(right-pivot)
+                        .allMatch(value -> value >= pivot_value);
+
+                assertTrue(firstcheck);
+                assertTrue(secondcheck);
 
             } catch (AssertionError error) {
                 fail("Precondition is hold");
