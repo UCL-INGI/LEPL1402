@@ -64,15 +64,20 @@ public class InginiousTests {
     }
 
 
-    @Test
+    @Test(expected = IllegalAccessException.class)
     @Grade
     @GradeFeedbacks({ @GradeFeedback(message = "Your factory is not a singleton.", onFail = true),
                        @GradeFeedback(message = "", onSuccess = true)})
-    public void testSingleton(){
+    public void testSingleton() throws IllegalAccessException, InstantiationException {
+
         ElementFactory factory = ElementFactory.getInstance();
         ElementFactory factoryBis = ElementFactory.getInstance();
-
         assertTrue(factory == factoryBis);
+
+        Class cls = ElementFactory.class;
+        cls.newInstance(); // shouldn't be possible to instantiate the factory
+
     }
+
 
 }
