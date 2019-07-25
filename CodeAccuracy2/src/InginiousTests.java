@@ -194,25 +194,12 @@ public class InginiousTests {
         }
     }
 
-    @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
-            @GradeFeedback(onFail = true, message = "Calling sort with index out of range should fail")})
-    public void test9() {
-        try {
-            QuickSort.sort(new Integer[]{1, 2}, 0, 42);
-        } catch (AssertionError error) {
-            assertTrue(true);
-        } catch (Exception err) {
-            fail("Unexpected error");
-        }
-    }
 
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
             @GradeFeedback(onFail = true, message = "post-condition(s) check on partition(Comparable[] a, int left, int right) method: FAIL")})
-    public void test10() {
+    public void test9() {
 
         for (int i = 0; i < 100; i++) {
 
