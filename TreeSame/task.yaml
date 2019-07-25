@@ -3,7 +3,7 @@ accessible: true
 name: "[TESTABLE] Binary trees - equals"
 context: |-
     In this task, we will ask you to implement the mehtod ``equals(Object o)`` for both classes ``Tree`` and ``Node``. Two instances of ``Tree`` are considered
-    equal when they both have the exact same structure (same number of nodes at the same place) and when every node has the same ``val``.
+    equal when they both have the exact same structure (same number of nodes, each node at the same place in **both** trees) and when every node has the same ``val``.
     Here are the skeleton of both classes: 
 
     .. code-block:: java
