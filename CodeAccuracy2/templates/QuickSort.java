@@ -18,7 +18,7 @@ public class QuickSort {
         @   @exch_code@@
     }
 
-    public static void partition(Comparable[] a, int left, int right) {
+    public static int partition(Comparable[] a, int left, int right) {
         @   @partition_code@@
     }
 

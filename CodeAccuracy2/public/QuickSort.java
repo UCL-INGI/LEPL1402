@@ -19,7 +19,8 @@ public class QuickSort {
         // TODO DON'T FORGET ASSERTIONS
     }
 
-    public static void partition(Comparable[] a, int left, int right) {
+    // should return the index of the pivot
+    public static int partition(Comparable[] a, int left, int right) {
         // TODO TO BE COMPLETED
         // TODO DON'T FORGET ASSERTIONS
     }
