@@ -1,0 +1,51 @@
+author: "Yakoub J, Rucquoy A"
+name: '[NOT TESTABLE] Code accuracy - Practial exercise'
+accessible: true
+context: |-
+    
+    In order to discover the importance of pre/post conditions and invariants in your programs, we will take the example of QuickSort.
+
+    Quicksort is a divide-and-conquer method for sorting. It works by partitioning an array into two parts, then sorting the parts independently.
+
+    .. figure:: /course/LEPL1402/CodeAccuracy2/quicksort-overview.png
+       :scale: 100 %
+       :alt: alternate text
+       :align: center
+       :figclass: align-center
+
+    The crux of the method is the partitioning process , which can be summarized as follows :
+
+    .. figure:: /course/LEPL1402/CodeAccuracy2/partitioning-overview.png
+       :scale: 100 %
+       :alt: alternate text
+       :align: center
+       :figclass: align-center
+
+    Even with this simple algorithm, mistakes can occur and that is why we ask you to complete the implementation
+    contained in this file_ , without forgetting to add assert statements in each method (as they will be tested separately in INGINIOUS).
+
+    .. _file : /course/LEPL1402/CodeAccuracy2/QuickSort.java
+
+problems:
+    exch_code:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your **swap(Object[] a, int i, int j)** method:
+    partition_code:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your **partition(Comparable[] a, int left, int right)** method:
+    sort_code:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your **sort(Comparable[] a)** method:
+    sort_code2:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **body** of your **sort(Comparable[] a, int left, int right)** method:
+
+environment: java8scala
