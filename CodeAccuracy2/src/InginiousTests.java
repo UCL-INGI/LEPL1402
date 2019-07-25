@@ -98,7 +98,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
-            @GradeFeedback(onFail = true, message = "precondition check on partition method: FAIL")})
+            @GradeFeedback(onFail = true, message = "precondition(s) check on partition method: FAIL")})
     public void test6() {
         try {
             Integer[] test = new Integer[]{1, 2};
@@ -113,7 +113,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
-            @GradeFeedback(onFail = true, message = "post-condition check on partition method: FAIL")})
+            @GradeFeedback(onFail = true, message = "post-condition(s) check on partition method: FAIL")})
     public void test7() {
 
         for (int i = 0; i < 1000; i++) {
@@ -142,4 +142,79 @@ public class InginiousTests {
 
         }
     }
+
+    @Test
+    @Grade
+    @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
+            @GradeFeedback(onFail = true, message = "post-condition(s) check on sort(Comparable[] a) method: FAIL")})
+    public void test8() {
+
+        for (int i = 0; i < 100; i++) {
+
+            try {
+                int size = rng.get();
+                Integer[] test = new Random()
+                        .ints(size, -25, 25)
+                        .boxed()
+                        .toArray(Integer[]::new);
+
+                Integer[] expected = Arrays.stream(test).sorted().toArray(Integer[]::new);
+                QuickSort.sort(test);
+
+                assertTrue(Arrays.deepEquals(expected, test));
+
+            } catch (AssertionError error) {
+                fail("Precondition is hold");
+            } catch (Exception err) {
+                fail("Unexpected error");
+            }
+
+        }
+    }
+
+    @Test
+    @Grade
+    @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
+            @GradeFeedback(onFail = true, message = "Calling sort with index out of range should fail")})
+    public void test9() {
+        try {
+            QuickSort.sort(new Integer[]{1, 2}, 0, 42);
+        } catch (AssertionError error) {
+            assertTrue(true);
+        } catch (Exception err) {
+            fail("Unexpected error");
+        }
+    }
+
+    @Test
+    @Grade
+    @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
+            @GradeFeedback(onFail = true, message = "post-condition(s) check on partition(Comparable[] a, int left, int right) method: FAIL")})
+    public void test10() {
+
+        for (int i = 0; i < 100; i++) {
+
+            try {
+                int size = rng.get();
+                Integer[] test = new Random()
+                        .ints(size, -25, 25)
+                        .boxed()
+                        .toArray(Integer[]::new);
+                int right = new Random().nextInt(size);
+                int limit = right + 1;
+
+                Integer[] expected = Arrays.stream(test).limit(limit).sorted().toArray(Integer[]::new);
+                QuickSort.sort(test, 0, right);
+
+                assertTrue(Arrays.deepEquals(expected, test));
+
+            } catch (AssertionError error) {
+                fail("Precondition is hold");
+            } catch (Exception err) {
+                fail("Unexpected error");
+            }
+
+        }
+    }
+
 }
