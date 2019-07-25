@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 import templates.*;
 
@@ -203,7 +204,9 @@ public class InginiousTests {
                 int right = new Random().nextInt(size);
                 int limit = right + 1;
 
-                Integer[] expected = Arrays.stream(test).limit(limit).sorted().toArray(Integer[]::new);
+                Stream<Integer> integerStream = Arrays.stream(test).limit(limit).sorted();
+                integerStream = Stream.concat(integerStream, Arrays.stream(test).skip(limit));
+                Integer[] expected = integerStream.toArray(Integer[]::new);
                 QuickSort.sort(test, 0, right);
 
                 assertTrue(Arrays.deepEquals(expected, test));
