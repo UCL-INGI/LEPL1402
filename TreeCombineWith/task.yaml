@@ -1,11 +1,14 @@
 author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "[TESTABLE] Binary trees - equals"
+name: "[TESTABLE] Binary trees - combineWith"
 context: |-
   Write a method combineWith that could be added to the Tree_ class (Node class can be found here_).
+
   The method accepts another binary tree of integers as a parameter and combines the two trees into a new third tree which is returned.
   The new tree's structure should be a union of the structures of the two original trees.
+
   It should have a node in any location where there was a node in either of the original trees (or both).
+
   The nodes of the new tree should store an integer indicating the sum of the values at that position of the original trees if possible.
   (else only the value of the not null node)
 
@@ -35,9 +38,9 @@ context: |-
 
   (This exercise was partialy inspired by this source_)
 
-  :: _source: https://practiceit.cs.washington.edu/problem/view/cs2/exams/finals/final4/combineWith
-  :: _Tree : /course/LEPL1402/TreeCombineWith/Tree.java
-  :: _here : /course/LEPL1402/TreeCombineWith/Node.java
+  .. _here: /course/LEPL1402/TreeCombineWith/Node.java
+  .. _Tree: /course/LEPL1402/TreeCombineWith/Tree.java
+  .. _source: https://practiceit.cs.washington.edu/problem/view/cs2/exams/finals/final4/combineWith
 
 
 problems:
