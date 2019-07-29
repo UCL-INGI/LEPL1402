@@ -1,6 +1,6 @@
 author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "[NOT TESTABLE] Generics 3"
+name: "[TESTABLE] Generics 3"
 context: |-
     In this task, you have to implement the solver of this well-known logic circuit :
 
