@@ -1,0 +1,48 @@
+author: "Yakoub J, Rucquoy A"
+accessible: true
+name: "[NOT TESTABLE] Generics 3"
+context: |-
+    In this task, you have to implement the solver of this well-known logic circuit :
+
+    .. figure:: /course/LEPL1402/Generics3/full-adder-circuit.png
+       :scale: 100 %
+       :alt: alternate text
+       :align: center
+       :figclass: align-center
+
+    Instead of directly using a chain of logical operators ( that can lead you to a error prone code sometimes),
+    we will be using BiFunction_ and Function_ to implement the logic gates.
+    Your task is thus to implement the following class : Evaluator_ .
+
+    .. _Function: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+    .. _BiFunction: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+    .. _Evaluator: /course/LEPL1402/Generics3/Evaluator.java
+    
+problems:
+    student_evaluate:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **BODY** of your **evaluate_circuit** method
+    student_gate_and:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **BODY** of your **and_gate** method
+    student_gate_or:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **BODY** of your **or_gate** method
+    student_gate_not:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **BODY** of your **not_gate** method
+    student_gate_xor:
+        type: "code"
+        language: java
+        header: |-
+            Paste here the **BODY** of your **xor_gate** method
+
+environment: java8scala
