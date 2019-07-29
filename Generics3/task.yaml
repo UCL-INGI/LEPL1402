@@ -14,8 +14,8 @@ context: |-
     we will be using BiFunction_ and Function_ to implement the logic gates.
     Your task is thus to implement the following class : Evaluator_ .
 
-    .. _Function: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
-    .. _BiFunction: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+    .. _Function: https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html
+    .. _BiFunction: https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html
     .. _Evaluator: /course/LEPL1402/Generics3/Evaluator.java
     
 problems:
