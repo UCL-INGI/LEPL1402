@@ -89,12 +89,12 @@ def generate_java_command_string(files_input, command="java", libs=librairies(),
         # Include libraries if not a jar file
         # See N°2 : https://javarevisited.blogspot.com/2012/10/5-ways-to-add-multiple-jar-to-classpath-java.html
         ("-cp ", libs if not is_jar else None),
+        # enable assertions
+        ("-ea", "" if command == "java" else None),
         # If we use a jar file for coverage
         ("-jar ", "{}.jar".format(files) if is_jar else None),
         # If javac , stores classes into one folder
-        ("-d ", PATH_CLASSES if command == "javac" else None),
-        # enable assertions
-        ("-ea", "" if command == "java" else None)
+        ("-d ", PATH_CLASSES if command == "javac" else None)
     ]
 
     # only include not null options values

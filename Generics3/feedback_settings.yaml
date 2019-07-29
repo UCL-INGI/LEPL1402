@@ -1,0 +1,11 @@
+has_feedback: True
+feedback_kind: JavaGrading
+prohibited:
+  "student_evaluate":
+    - "^"
+    - "|"
+    - "!"
+    - "&"
+    - "Boolean.logicalXor"
+    - "Boolean.logicalOr"
+    - "Boolean.logicalAnd"
