@@ -21,7 +21,7 @@ context: |-
 
     Note that [group] means that only one student must submit the code for the entire group.
 
-    .. _Mission: /course/LEPL1402/PostScript/Mission.pdf
+    .. _Mission: /course/LEPL1402/PostScript/mission.pdf
 
 problems:
     student_code:
