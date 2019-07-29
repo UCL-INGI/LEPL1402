@@ -1,0 +1,72 @@
+author: Yakoub J, Rucquoy A
+accessible: true
+name: '[NEED REVIEW BEFORE OPENING THIS TASK TO STUDENTS] Threads - Producer/Consumer with locks'
+context: |-
+    In this task we will ask you to solve the producer/consumer problem, represented here as a concurrent bounded FIFO queue. We will run simultaneously two different types of threads on your queue : 
+    
+        - Consumers, consuming (= dequeuing) elements from the queue.
+        - Producers, producing (= enqueuing) elements to the queue.
+    
+    Your queue needs to be thread-safe : it must be able to operate in a concurrent environment. It also means that threads must wait if necessary.
+    A producer can't progress if there's no space left in the queue. A consumer can't take element from the queue if it is empty. 
+    For this exercise, you will need to implement ``enqueue`` and ``dequeue``, using all the instance variables that are in 
+    the class skeleton below. We strongly suggest you to look at await_ and signal_ (or ``signalAll``) methods. You are not allowed to instantiate new locks or condition objects.
+
+    .. _await: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html#await--
+    .. _signal: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html#signal--
+
+    .. code-block:: java
+
+        import java.util.concurrent.locks.Condition;
+        import java.util.concurrent.locks.ReentrantLock;
+
+        public class LockQueue {
+
+            public final static int SIZE = 100;
+
+            private final ReentrantLock lock = new ReentrantLock();
+            private final Condition notFull = lock.newCondition();
+            private final Condition notEmpty = lock.newCondition();
+
+            public int head = 0;
+            public int tail = 0;
+            public final Integer [] cells = new Integer[SIZE];
+            public int count = 0;
+
+
+
+            public Integer dequeue() {
+                // YOUR CODE HERE
+            }
+
+
+            public void enqueue(Integer i) {
+                // YOUR CODE HERE
+            }
+
+            public boolean full(){
+                return this.count == SIZE;
+            }
+
+            public boolean empty(){
+                return this.head == this.tail;
+            }
+
+            public int size() { return this.tail - this.head; }
+
+        }
+
+
+
+problems:
+    student_enqueue:
+        type: code
+        language: java
+        header: 'Paste here the **body** of your ``enqueue`` method.'
+
+    student_dequeue:
+        type: code
+        language: java
+        header: 'Paste here the **body** of your ``dequeue`` method.'
+
+environment: java8scala
