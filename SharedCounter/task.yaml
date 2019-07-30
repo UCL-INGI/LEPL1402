@@ -1,6 +1,6 @@
 author: Yakoub J, Rucquoy A
 accessible: true
-name: '[NEED REVIEW BEFORE OPENING THIS TASK TO STUDENTS] Threads - Shared counter with monitors'
+name: '[TESTABLE] Threads - Shared counter with monitors'
 context: |-
     In this task we will ask you to use monitors for a thread-shared counter. When threads are executed concurrently and they share some piece of memory, unexpected/wrong results
     are very likely to happen. For example, if you run four threads on the same counter, each thread incrementing ten thousands times the counter, you would of course expect that the 
