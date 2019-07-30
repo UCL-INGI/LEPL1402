@@ -1,8 +1,35 @@
-author: "Yakoub J, Rucquoy A"
-name: '[TESTABLE] PostScript Interpreter [group]'
 accessible: true
+author: Yakoub J, Rucquoy A
+categories: []
 context: |-
-    You are asked to write a mini-PostScript interpreter as described in the *pdf* ( Mission_ ) of the mission. Precisely, you must implement the following interface :
+    You are asked to write a mini-PostScript interpreter as described in the *pdf* (Mission_) of the mission. Precisely, you must implement the following interface :
+
+    +--------------------+-----------+---------------------------------------+
+    |       Before       | After     | Description                           |
+    +--------------------+-----------+---------------------------------------+
+    | any **pstack**     | pstack    | print the top element                 |
+    |                    |           | of the pile to the standard output    |
+    +--------------------+-----------+---------------------------------------+
+    | any1 any2 **exch** | any2 any1 | Swap the two top most element of      |
+    |                    |           | the stack                             |
+    +--------------------+-----------+---------------------------------------+
+    | any **pop**        |           | Pop the top most element of the stack |
+    +--------------------+-----------+---------------------------------------+
+    | any **dup**        | any any   | Duplicate the top most element of the |
+    |                    |           | stack                                 |
+    +--------------------+-----------+---------------------------------------+
+    | any1 any2 **add**  | any1+any2 | Pop two elements from the stack,      |                                   
+    |                    |           | compute their sum and push the result |                               
+    +--------------------+-----------+---------------------------------------+
+    | any1 any2 **sub**  | any1-any2 | Same, but with a subtraction          |
+    +--------------------+-----------+---------------------------------------+
+    | any1 any2 **mul**  | any1*any2 | Same, but with a multiplication       |
+    +--------------------+-----------+---------------------------------------+
+    | any1 any2 **div**  | any1/any2 | Same, but with a division             |
+    +--------------------+-----------+---------------------------------------+
+    | any1 any2 **idiv** | any3      |  Compute the quotient of an integer   |                                     
+    |                    |           |  result to the stack                  |                                   
+    +--------------------+-----------+---------------------------------------+
 
     .. code-block:: java
 
@@ -17,17 +44,31 @@ context: |-
             public String interpret(String instructions);
         }
 
-    Don't forget to throw the different possible exceptions : EmptyStackException, ArithmeticException
+    Don't forget to throw the different possible exceptions : ``EmptyStackException``, ``ArithmeticException`` when specified !
 
-    Note that [group] means that only one student must submit the code for the entire group.
 
     .. _Mission: /course/LEPL1402/PostScript/mission.pdf
-
+    
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Postscript interpreter
+network_grading: false
 problems:
     student_code:
-        type: "code"
+        header: 'Paste here the **body** of your Interpreter class:'
+        name: ''
         language: java
-        header: |-
-            Paste here the **body** of your Interpreter class:
-
-environment: java8scala
+        default: ''
+        type: code
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
