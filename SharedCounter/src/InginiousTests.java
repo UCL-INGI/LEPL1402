@@ -1,4 +1,4 @@
-package SharedCounter;
+package src;
 
 import com.github.guillaumederval.javagrading.Grade;
 import com.github.guillaumederval.javagrading.GradeFeedback;
@@ -15,12 +15,17 @@ import static org.junit.Assert.*;
 @RunWith(GradingRunner.class)
 public class InginiousTests {
 
+    private AssertionError ae;
+
     @Grade(cpuTimeout = 3000, customPermissions = ThreadPermissionFactory.class)
     @Test
+    @GradeFeedbacks({@GradeFeedback(onTimeout = true, message = "There is probably a deadlock in your code."),
+            @GradeFeedback(onFail = true, message = ""),
+            @GradeFeedback(onSuccess = true, message = "")})
     public void BasicConcurrencyTest(){
 
         int nThreads = 100;
-        int nOps = 10000;
+        int nOps = 100;
         Thread[] threads = new Thread[nThreads];
         SharedCounter counter = new SharedCounter();
         CountDownLatch latch = new CountDownLatch(1);
@@ -29,10 +34,13 @@ public class InginiousTests {
             threads[i] = new Thread(new Runnable() {
                 public void run() {
                     try { latch.await(); }
-                    catch (InterruptedException e) { e.printStackTrace(); }
+                    catch (InterruptedException e) {}
                     for (int j=0;j<nOps;j++) {
-                        if (ThreadLocalRandom.current().nextDouble()<0.25) counter.dec();
-                        else counter.inc();
+                        try{
+                            if (ThreadLocalRandom.current().nextDouble()<0.25) counter.dec();
+                            else counter.inc();
+                            assertTrue(counter.get() >= 0);
+                        } catch (AssertionError e) { ae = e; }
                     }
                 }
             });
@@ -46,6 +54,8 @@ public class InginiousTests {
             catch (InterruptedException e) {}
         }
         assertTrue(counter.get() >= 0);
+
+        if(ae != null) throw ae;
     }
 
 
@@ -88,59 +98,76 @@ public class InginiousTests {
         assertEquals(0, counter.get());
     }
 
-    @Grade(cpuTimeout = 5000, customPermissions = ThreadPermissionFactory.class)
+    @Grade(cpuTimeout = 3000, customPermissions = ThreadPermissionFactory.class)
     @Test
     @GradeFeedbacks({@GradeFeedback(onTimeout = true, message = "There is probably a deadlock in your code."),
-    @GradeFeedback(onFail = true, message = "Either your counter went below 0 or it was not equal to 0 when performing " +
-            "the same number of inc() and dec()"), @GradeFeedback(onSuccess = true, message = "")})
-    public void testPositivity(){
+            @GradeFeedback(onFail = true, message = "Either your counter went below 0 at some point or your counter" +
+                    "is not exactly equal to 0 after performing the same number of inc() and dec()..."),
+            @GradeFeedback(onSuccess = true, message = "")})
+    public void waitingThreadsTest(){
 
-        for(int times = 0; times < 500; times++) {
+        for(int times = 0; times < 500; times++ ) {
 
-            // rerun this whole test 500 times, as faulty code may not always fail
-            // (non-determinism induced by threads, all that stuff...)
-            // 500 times may be overkilled, but i don't want to leave things to fate.
+            int nDecs = 2;
 
             SharedCounter counter = new SharedCounter();
-            int nThreads = 10;
-            int nOps = 1000;
+            CountDownLatch latch = new CountDownLatch(1);
 
-            Thread[] incs = new Thread[nThreads];
-            Thread[] decs = new Thread[nThreads];
+            for (int i = 0; i < 1000; i++) {
+                counter.inc();
+            }
 
-            for (int i = 0; i < nThreads; i++) {
+            Thread[] decs = new Thread[nDecs];
 
-                incs[i] = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        for (int i = 0; i < nOps; i++) {
-                            assertTrue(counter.get() >= 0);
-                            counter.inc();
-                        }
-                    }
-                });
+            for (int i = 0; i < nDecs; i++) {
 
                 decs[i] = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        for (int i = 0; i < nOps; i++) {
-                            counter.dec();
-                            assertTrue(counter.get() >= 0);
+                        try {
+                            latch.await();
+                        } catch (InterruptedException e) {}
+                        for (int i = 0; i < 1000; i++) {
+                            try {
+                                counter.dec();
+                                assertTrue(counter.get() >= 0);
+                            } catch (AssertionError e) { ae = e; }
                         }
                     }
                 });
 
-                incs[i].start();
                 decs[i].start();
             }
 
-            for (int i = 0; i < nThreads; i++) {
+            Thread inc = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        latch.await();
+                    } catch (InterruptedException e) {
+                    }
+                    for (int i = 0; i < 1000; i++) {
+                        counter.inc();
+                    }
+                }
+            });
+
+            inc.start();
+
+            latch.countDown();
+
+            for (int i = 0; i < nDecs; i++) {
                 try {
-                    incs[i].join();
                     decs[i].join();
-                } catch (InterruptedException e) {}
+                } catch (InterruptedException e) {
+                }
             }
 
+            try {
+                inc.join();
+            } catch (InterruptedException e) {}
+
+            if (ae != null) throw ae;
             assertEquals(0, counter.get());
         }
 

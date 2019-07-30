@@ -1,4 +1,4 @@
-package SharedCounter;
+package src;
 
 import com.github.guillaumederval.javagrading.GradingListener;
 import org.junit.runner.JUnitCore;

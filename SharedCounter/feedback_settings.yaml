@@ -1,0 +1,7 @@
+has_feedback: True
+feedback_kind: JavaGrading
+prohibited:
+  "student_class":
+    - Lock
+    - lock()
+    - unlock()

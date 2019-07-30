@@ -1,4 +1,4 @@
-package SharedCounter;
+package src;
 
 
 public class SharedCounter {
