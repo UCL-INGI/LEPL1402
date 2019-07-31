@@ -17,6 +17,7 @@ install:
   - pip3 install colored
 before_script:
   - python3 travis_setup.py
+  - chmod +x check_requirements.py
 script:
   - inginious-autotest . LEPL1402 -l
   # check consistance
