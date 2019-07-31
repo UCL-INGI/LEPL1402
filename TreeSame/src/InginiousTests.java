@@ -1,6 +1,7 @@
 package src;
 
 import com.github.guillaumederval.javagrading.Grade;
+import com.github.guillaumederval.javagrading.GradeFeedback;
 import com.github.guillaumederval.javagrading.GradingRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -72,8 +73,10 @@ public class InginiousTests {
 
     @Test
     @Grade
+    @GradeFeedback(onFail = true, message = "think about when both trees are null, only one of them is null, are they" +
+     "both instances of the same class, etc...")
     public void cornerCasesTest(){
-
+        
         Tree tree = new Tree(null);
         Tree tree2 = new Tree(null);
 
