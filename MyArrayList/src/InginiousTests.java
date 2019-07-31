@@ -45,8 +45,7 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
-            @GradeFeedback(onFail = true, message = "Enqueuing more elements than \"initSize\" and/or does not work in your code. You need to resize ! ")})
+    @GradeFeedback(onFail = true, message = "Enqueuing more elements than \"initSize\" and/or does not work in your code. You need to resize ! ")
     public void testResize(){
 
         int init = rng.get();
@@ -66,8 +65,7 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
-            @GradeFeedback(onFail = true, message = "You should not leave \"blanks\" in your array when you remove an element")})
+    @GradeFeedback(onFail = true, message = "You should not leave \"blanks\" in your array when you remove an element")
     public void testRemove(){
 
         MyArrayList<Integer> simple = new MyArrayList<Integer>(3);
@@ -105,11 +103,10 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
-            @GradeFeedback(onFail = true, message = "The iterator does not give all elements from the list and/or gives " +
-                    "wrong informations about remaining items in the list")})
+    @GradeFeedback(onFail = true, message = "The iterator does not give all elements from the list and/or gives " +
+                    "wrong informations about remaining items in the list")
     public void testIterator(){
-
+        
         MyArrayList<Integer> list = new MyArrayList<Integer>(30);
         Integer[] elements = Stream.generate(rng).limit(30).toArray(Integer[]::new);
         Arrays.stream(elements).forEach(list::enqueue);
@@ -128,8 +125,7 @@ public class InginiousTests {
 
     @Test(expected = IndexOutOfBoundsException.class)
     @Grade
-    @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
-            @GradeFeedback(onFail = true, message = "Your code does not throw IndexOutOfBoundsException when it should. Read the exercise again")})
+    @GradeFeedback(onFail = true, message = "Your code does not throw IndexOutOfBoundsException when it should. Read the exercise again")
     public void testOutOfBoundsConstructor(){
         MyArrayList<Integer> list = new MyArrayList<Integer>(-1);
     }
@@ -137,8 +133,7 @@ public class InginiousTests {
 
     @Test(expected = IndexOutOfBoundsException.class)
     @Grade
-    @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
-            @GradeFeedback(onFail = true, message = "Your code does not throw IndexOutOfBoundsException when it should. Read the exercise again")})
+    @GradeFeedback(onFail = true, message = "Your code does not throw IndexOutOfBoundsException when it should. Read the exercise again")
     public void testOutOfBoundsRemove(){
         MyArrayList<Integer> list = new MyArrayList<Integer>(2);
         list.enqueue(1);
@@ -148,8 +143,7 @@ public class InginiousTests {
 
     @Test(expected = ConcurrentModificationException.class)
     @Grade
-    @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
-            @GradeFeedback(onFail = true, message = "Your code does not throw ConcurrentModificationException when it should. Read the exercise again")})
+    @GradeFeedback(onFail = true, message = "Your code does not throw ConcurrentModificationException when it should. Read the exercise again")
     public void testConcurrentModification(){
         MyArrayList<Integer> list = new MyArrayList<Integer>(2);
         list.enqueue(1);

@@ -52,7 +52,7 @@ def result_feedback(result, feedback_settings):
                 message_index = 0 if score_ratio >= feedback_settings["quorum"] else 1
                 msg2 = "{}\n".format(return_messages.get(message_index, "Uncommon Failure")) 
                 feedback.set_global_feedback(msg2, True) 
-                feedback.set_global_feedback(msg, True)
+                feedback.set_global_feedback(rst.get_codeblock("java", msg), True)
             else:
                 feedback.set_global_feedback(msg, True)
                 feedback_result(0.0, feedback_settings)

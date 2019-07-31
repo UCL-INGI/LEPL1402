@@ -14,8 +14,7 @@ public class InginiousTests {
 
     @Test
     @Grade(customPermissions = ThreadPermissionFactory.class)
-    @GradeFeedbacks({@GradeFeedback(onFail = true, onTimeout = true, message = "Your threads did not ran properly"),
-    @GradeFeedback(onSuccess = true, message = "")})
+    @GradeFeedback(onFail = true, onTimeout = true, message = "Your threads did not ran properly")
     public void testThreads(){
 
         Thread[] t = new Thread[4];
@@ -34,10 +33,9 @@ public class InginiousTests {
 
     @Test
     @Grade(customPermissions = ThreadPermissionFactory.class)
-    @GradeFeedbacks({@GradeFeedback(onFail = true, onTimeout = true, message = "You did not give proper names to your threads"),
-            @GradeFeedback(onSuccess = true, message = "")})
+    @GradeFeedback(onFail = true, onTimeout = true, message = "You did not give proper names to your threads")
     public void testName(){
-
+        
         Thread[] t = new Thread[4];
 
         Counter [] r = Launcher.init(t);
