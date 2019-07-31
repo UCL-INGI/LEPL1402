@@ -2,8 +2,25 @@ accessible: true
 author: Yakoub J, Rucquoy A
 categories: []
 context: |-
+
+
     You are asked to write a mini-PostScript interpreter as described in the *pdf* (Mission_) of the mission. Precisely, you must implement the following interface :
 
+    .. code-block:: java
+
+        public interface InterpreterInterface {
+            /**
+             * @pre: 'instructions' is a valid chain of PostScript instructions
+             * @post: returns a String representing the state of the stack when a 'pstack' instruction is encountered.
+             *    If several 'pstack' instructions are present in the chain, a concatenation of the corresponding states (when 'pstack' is encountered) must be returned, separated by whitespaces.
+             *    If several elements are still on the stack, separate them with whitespaces.
+             *    If there is no element on the stack or no 'pstack' instruction, return the empty string ("").
+             */
+            public String interpret(String instructions);
+        }
+
+    We expect your interpreter to be able to handle all of the following specified operations: 
+    
     +--------------------+-----------+---------------------------------------+
     |       Before       | After     | Description                           |
     +--------------------+-----------+---------------------------------------+
@@ -28,23 +45,16 @@ context: |-
     | any1 any2 **div**  | any1/any2 | Same, but with a division             |
     +--------------------+-----------+---------------------------------------+
     | any1 any2 **idiv** | any3      |  Compute the quotient of an integer   |                                     
-    |                    |           |  result to the stack                  |                                   
+    |                    |           |  division of any1 by any2, then       |
+    |                    |           |  push the result to the stack         |                                   
     +--------------------+-----------+---------------------------------------+
 
-    .. code-block:: java
-
-        public interface InterpreterInterface {
-            /**
-             * @pre: 'instructions' is a valid chain of PostScript instructions
-             * @post: returns a String representing the state of the stack when a 'pstack' instruction is encountered.
-             *    If several 'pstack' instructions are present in the chain, a concatenation of the corresponding states (when 'pstack' is encountered) must be returned, separated by whitespaces.
-             *    If several elements are still on the stack, separate them with whitespaces.
-             *    If there is no element on the stack or no 'pstack' instruction, return the empty string ("").
-             */
-            public String interpret(String instructions);
-        }
-
-    Don't forget to throw the different possible exceptions : ``EmptyStackException``, ``ArithmeticException`` when specified !
+    The element of the stack could be:
+        - Operators - any operators from the array above.
+        - Operands - any integer, double or boolean (true, false)
+    
+    Don't forget to throw exceptions : ``EmptyStackException`` if there's not enough operand left on the stack, ``ArithmeticException`` when an illegal computation
+    is submitted to your interpreter, ``IllegalArgumentException`` when a bad operand is found (for example, a boolean instead of an integer when performing a mathematical operation)
 
 
     .. _Mission: /course/LEPL1402/PostScript/mission.pdf
