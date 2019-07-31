@@ -90,6 +90,9 @@ for folder in task_folders:
             except yaml.YAMLError as exc:
                 problem += text_with_color("Parsing error in feedback_settings.yaml\n", colored.fg(196))
 
+        if problem != "":
+            table.append_row([folder.name, problem])
+
 # if there is errors(s), tell Travis
 if len(table) > 0:
     print(table)
