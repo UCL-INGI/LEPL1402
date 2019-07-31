@@ -15,9 +15,9 @@ import java.util.function.Supplier;
 import static org.junit.Assert.*;
 
 /*
- * Most of the code of this test suite it taken (and adapted) from an exercise of LSINF1121 course.
+ * Most of the code of this test suite is taken (and adapted) from an exercise of LSINF1121 course.
  * Original authors : Pierre Schaus, John Aoga
- * Modified by : Rucquoy Alexandre, Yakoub Jacques
+ * Modified by : Alexandre Rucquoy, Jacques Yakoub
  */
 @RunWith(GradingRunner.class)
 public class InginiousTests {
@@ -49,10 +49,8 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(onFail=true, message = "The Node reference \"last\" is not pointing to the expected node"),
-            @GradeFeedback(onSuccess = true, message = "")})
+    @GradeFeedback(onFail=true, message = "The Node reference \"last\" is not pointing to the expected node")
     public void testLastReference(){
-
         CircularLinkedList<Integer> list = new CircularLinkedList<>();list.enqueue(1);
         assertEquals(1, (int) list.getItem(list.getLast()));
         list.enqueue(2);
@@ -66,8 +64,6 @@ public class InginiousTests {
 
     @Test
     @Grade()
-    @GradeFeedbacks({@GradeFeedback(onFail=true, message = ""),
-            @GradeFeedback(onSuccess = true, message = "")})
     public void testIteratorList() {
 
         for (int i = 0; i < 20; i++) {
@@ -92,8 +88,7 @@ public class InginiousTests {
 
     @Test(expected = IndexOutOfBoundsException.class)
     @Grade()
-    @GradeFeedbacks({@GradeFeedback(onFail=true, message = "Your code does not throw an IndexOutOfBoundsException when it should"),
-                     @GradeFeedback(onSuccess = true, message = "")})
+    @GradeFeedback(onFail=true, message = "Your code does not throw an IndexOutOfBoundsException when it should")
     public void testOutOfBound() {
         CircularLinkedList<Integer> a = new CircularLinkedList<>();
         a.enqueue(3);
@@ -103,8 +98,7 @@ public class InginiousTests {
 
     @Test(expected = ConcurrentModificationException.class)
     @Grade()
-    @GradeFeedbacks({@GradeFeedback(onFail=true, message = "Your code does not throw a ConcurrentModificationException when it should"),
-                     @GradeFeedback(onSuccess = true, message = "")})
+    @GradeFeedback(onFail=true, message = "Your code does not throw a ConcurrentModificationException when it should")
     public void testConcurrentModificationNext() {
         CircularLinkedList<Integer> a = new CircularLinkedList<>();
         Iterator iter = a.iterator();
@@ -115,8 +109,6 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(onFail=true, message = ""),
-            @GradeFeedback(onSuccess = true, message = "")})
     public void testRandom(){
 
         for (int i = 0; i < 50; i++) {
