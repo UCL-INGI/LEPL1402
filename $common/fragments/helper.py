@@ -16,7 +16,7 @@ def librairies():
     
     # Current folder (not really used but why not)
     libs = '.'
-    libs_to_include = ["junit-4.12.jar", "hamcrest-core-1.3.jar", "JavaGrading-0.3.2.jar"]
+    libs_to_include = ["junit-4.12.jar", "hamcrest-core-1.3.jar", "JavaGrading.jar"]
 
     # other librarires if provided
     libs += ":{}".format(

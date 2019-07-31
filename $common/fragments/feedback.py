@@ -38,10 +38,11 @@ def result_feedback(result, feedback_settings):
         # JavaGrading
         if feedback_settings["feedback_kind"] == "JavaGrading":
             score_ratio, msg = extract_java_grading_result(result)
+            print(repr(msg))
             # To prevent some genius to have success grade with a probited
             score_ratio = 0.0 if result.returncode == 2 else score_ratio 
             feedback_result(score_ratio, feedback_settings)
-            feedback.set_global_feedback(rst.get_codeblock("java", msg), True)
+            feedback.set_global_feedback(msg, True) 
         
         # JaCoCo
         if feedback_settings["feedback_kind"] == "JaCoCo":
@@ -51,7 +52,7 @@ def result_feedback(result, feedback_settings):
                 message_index = 0 if score_ratio >= feedback_settings["quorum"] else 1
                 msg2 = "{}\n".format(return_messages.get(message_index, "Uncommon Failure")) 
                 feedback.set_global_feedback(msg2, True) 
-                feedback.set_global_feedback(rst.get_codeblock("java", msg), True)
+                feedback.set_global_feedback(msg, True)
             else:
                 feedback.set_global_feedback(msg, True)
                 feedback_result(0.0, feedback_settings)
