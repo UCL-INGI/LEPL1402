@@ -76,12 +76,20 @@ def feedback_result(score_ratio, feedback_settings):
 def extract_java_grading_result(result):
     # we have a feedback from JavaGrading
     # Fetch total for INGInious
-    # example : text = "\nTOTAL 5/10\n"
 
     # WARNING : there could be multiple TOTAL in the stdout
     # So we must merge everything
 
-    regex = "\nTOTAL (\d*[.]?\d*\/\d*[.]?\d*)"
+    # Strips not useful things of JavaGrading
+    result_string = result.stdout.replace("--- GRADE ---", "").replace("--- END GRADE ---", "")
+    regex_strip = r"TOTAL \d*[.]?\d*\/\d*[.]?\d*"
+    regex_strip2 = r"TOTAL WITHOUT IGNORED \d*[.]?\d*\/\d*[.]?\d*"
+    
+    # Remove match
+    result_string = re.sub(regex_strip, '', result_string)
+    result_string = re.sub(regex_strip2, '', result_string)
+
+    regex = '\*\*TOTAL\*\*",,\*\*(\d*[.]?\d*\/\d*[.]?\d*)\*\*'
     matches = re.findall(regex, result.stdout)
 
     # convert everything in float
@@ -95,7 +103,7 @@ def extract_java_grading_result(result):
     
     student_result, total_result = [sum(i) for i in zip(*converted_results)]
 
-    return student_result / total_result, result.stdout
+    return student_result / total_result, result_string
 
 
 # Using a yaml file, we can extract the kind of exercise/feedback
