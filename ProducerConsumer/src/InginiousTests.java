@@ -23,7 +23,7 @@ public class InginiousTests {
 
     /*
      * @TODO : This test suite should be improved, as there is currently no way to verify that the student put his/her
-     *   unlock instructions in a 'finally { }' block.
+     *   unlock() instructions in a 'finally { }' block.
      */
 
     @Grade(cpuTimeout = 2000, customPermissions = ThreadPermissionFactory.class)
@@ -95,7 +95,10 @@ public class InginiousTests {
 
     @Grade(customPermissions = ThreadPermissionFactory.class)
     @Test
+    @GradeFeedback(onFail = true, message = "a problem occurred when producers threads were waiting for a consumer thread to " +
+            "remove an element from the queue")
     public void testNotFullCondition(){
+    
         LockQueue q = new LockQueue();
         Thread t = new Thread(new Producer(q, 100));
         t.start();
@@ -115,8 +118,7 @@ public class InginiousTests {
             Thread.sleep(1500);
         } catch (InterruptedException e) {}
 
-        assertTrue(waiter.isAlive()); // Means it is blocked (as it should)
-        assertTrue(other.isAlive());
+        assertTrue(waiter.isAlive() && other.isAlive()); // Means it is blocked (as it should)
 
         Thread cons = new Thread(new Consumer(q, 1));
         cons.start();
@@ -128,12 +130,14 @@ public class InginiousTests {
 
         assertFalse(!waiter.isAlive() && !other.isAlive());
         assertFalse(waiter.isAlive() && other.isAlive()); // now the other producer should be able to enqueue since one element
-        // has been consumed, so the thread "waiter" should be dead, because its job is finished.
+        // has been consumed, so the thread "waiter" XOR "other" should be dead, because its job is finished.
     }
 
 
     @Grade(customPermissions = ThreadPermissionFactory.class)
     @Test
+    @GradeFeedback(onFail = true, message = "a problem occurred when consumer threads were waiting for a producer thread to " +
+            "add a new element to the queue")
     public void testNotEmptyCondition(){
         LockQueue q = new LockQueue();
         assertTrue(q.empty());

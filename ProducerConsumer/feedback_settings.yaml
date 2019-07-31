@@ -5,11 +5,9 @@ prohibited:
     - newCondition
     - new ReentrantLock
     - synchronize
-    - wait
     - notify
   "student_dequeue":
     - newCondition
     - new ReentrantLock
     - synchronize
-    - wait
     - notify

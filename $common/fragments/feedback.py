@@ -9,7 +9,7 @@ from fragments import coverage, helper
 # Throw a fatal error if the given code doesn't compile
 def compilation_feedback(result):
     if result.returncode != 0:
-        msg = "Your file did not compile : INGINIOUS is not your IDE ..."
+        msg = "Your file did not compile : please don't use INGINIOUS as an IDE ..."
         print(result.stderr)
         feedback.set_global_feedback(msg)
         feedback.set_global_result("failed")
@@ -21,7 +21,7 @@ def compilation_feedback(result):
 return_messages = {
     0: "Your code has successfully passed all tests for this mission.",
     1: "Your code failed all tests for this mission.",
-    2: "You used prohibited instructions ( such as System.exit(127) ) : This incident will be reported.",
+    2: "You used prohibited instructions (such as System.exit) : read carefully the assignment.",
     252: "The memory limit of your program is exceeded.",
     253: "The time limit for running your program has been exceeded."
 }
