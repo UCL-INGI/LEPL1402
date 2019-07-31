@@ -22,8 +22,7 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(message="", onSuccess = true),
-            @GradeFeedback(message = "Your code couldn't handle a simple expression of type (a operand b)", onFail = true)})
+    @GradeFeedback(message = "Your code couldn't handle a simple expression of type (a operand b)", onFail = true)
     public void testBasicTrees(){
 
         Visitor calculator = new Evaluation();
@@ -71,8 +70,7 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(message="", onSuccess = true),
-        @GradeFeedback(message = "You should not be able to divide by 0, read the assignment about what we expect from your code in that specific case", onFail = true)})
+    @GradeFeedback(message = "You should not be able to divide by 0, read the assignment about what we expect from your code in that specific case", onFail = true)
     public void testDivByZero(){
 
         Visitor calculator = new Evaluation();

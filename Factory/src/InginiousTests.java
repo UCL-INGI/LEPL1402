@@ -35,8 +35,7 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback( message= "There is a problem in your level construction. Check your factory and your level class", onFail = true),
-                    @GradeFeedback(message = "", onSuccess = true)})
+    @GradeFeedback( message= "There is a problem in your level construction. Check your factory and your level class", onFail = true)
     public void testFactory(){
 
         // Test with 3 random levels
@@ -66,8 +65,7 @@ public class InginiousTests {
 
     @Test(expected = IllegalAccessException.class)
     @Grade
-    @GradeFeedbacks({ @GradeFeedback(message = "Your factory is not a singleton.", onFail = true),
-                       @GradeFeedback(message = "", onSuccess = true)})
+    @GradeFeedback(message = "Your factory is not a singleton.", onFail = true)
     public void testSingleton() throws IllegalAccessException, InstantiationException {
 
         ElementFactory factory = ElementFactory.getInstance();
