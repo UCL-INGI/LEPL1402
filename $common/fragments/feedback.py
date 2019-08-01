@@ -81,6 +81,10 @@ def extract_java_grading_result(result):
     # So we must merge everything
 
     # Strips not useful things of JavaGrading
+
+    # Display array of test suite results only if student didn't use prohib' instruction
+    display = False if result.returncode == 2 else True  
+
     result_string = result.stdout.replace("--- GRADE ---", "").replace("--- END GRADE ---", "")
     regex_strip = r"TOTAL \d*[.]?\d*\/\d*[.]?\d*"
     regex_strip2 = r"TOTAL WITHOUT IGNORED \d*[.]?\d*\/\d*[.]?\d*"
@@ -103,7 +107,7 @@ def extract_java_grading_result(result):
     
     student_result, total_result = [sum(i) for i in zip(*converted_results)]
 
-    return student_result / total_result, result_string
+    return student_result / total_result, result_string if display else return_messages[result.returncode]
 
 
 # Using a yaml file, we can extract the kind of exercise/feedback
