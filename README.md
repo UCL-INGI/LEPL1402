@@ -5,7 +5,7 @@ This repo contains a set of INGInious tasks that could be used as practical exer
 
 ## Documentation
 
-Don't hesitate to read the INGInious documentation and the wiki to get more familiar with the system and learn how to make your own tasks and exercises: [wiki](https://github.com/jy95/LEPL1402/wiki).
+Don't hesitate to read the INGInious documentation and the wiki to get more familiar with the system and learn how to make your own tasks and exercises: [wiki](https://github.com/UCL-INGI/LEPL1402/wiki).
 
 ## Authors
 
