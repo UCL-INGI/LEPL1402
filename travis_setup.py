@@ -11,8 +11,8 @@ items = [item.name
 
 # Copy tasks to create folder
 for item in items:
-    os.mkdir(os.path.join(item, 'test'))
     shutil.copytree('./' + item, "{}/".format(folder_dir) + item)
+    os.mkdir(os.path.join("{}/{}/".format(folder_dir, item),'test'))
 
 # Copy course.yaml
 shutil.copy2('./course.yaml', "{}/course.yaml".format(folder_dir))
