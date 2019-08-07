@@ -1,5 +1,11 @@
 has_feedback: True
 feedback_kind: JavaGrading
 prohibited:
-  "student_methods":
+  "enqueue":
+    - new Stack
+  "dequeue":
+    - new Stack
+  "peek":
+    - new Stack
+  "empty":
     - new Stack

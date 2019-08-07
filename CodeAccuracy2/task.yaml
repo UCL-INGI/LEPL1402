@@ -1,8 +1,7 @@
-author: "Yakoub J, Rucquoy A"
-name: '[TESTABLE] Code accuracy - Practical exercise'
 accessible: true
+author: Yakoub J, Rucquoy A
+categories: []
 context: |-
-    
     In order to discover the importance of pre/post conditions and invariants in your programs, we will take the example of QuickSort.
 
     Quicksort is a divide-and-conquer method for sorting. It works by partitioning an array into two parts, then sorting the parts independently.
@@ -25,27 +24,48 @@ context: |-
     contained in this file_ , without forgetting to add assert statements in each method (as they will be tested separately in INGINIOUS).
 
     .. _file : /course/LEPL1402/CodeAccuracy2/QuickSort.java
-
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[TESTABLE] Code accuracy - Practical exercise'
+network_grading: false
 problems:
     exch_code:
-        type: "code"
+        header: 'Paste here the **body** of your **swap(Object[] a, int i, int j)**
+            method:'
+        type: code
+        default: ''
         language: java
-        header: |-
-            Paste here the **body** of your **swap(Object[] a, int i, int j)** method:
+        name: ''
     partition_code:
-        type: "code"
+        type: code
+        name: ''
         language: java
-        header: |-
-            Paste here the **body** of your **partition(Comparable[] a, int left, int right)** method:
+        default: ''
+        header: 'Paste here the **body** of your **partition(Comparable[] a, int left,
+            int right)** method:'
     sort_code:
-        type: "code"
+        header: 'Paste here the **body** of your **sort(Comparable[] a)** method:'
+        name: ''
         language: java
-        header: |-
-            Paste here the **body** of your **sort(Comparable[] a)** method:
+        default: ''
+        type: code
     sort_code2:
-        type: "code"
+        default: ''
+        header: 'Paste here the **body** of your **sort(Comparable[] a, int left,
+            int right)** method:'
+        name: ''
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of your **sort(Comparable[] a, int left, int right)** method:
-
-environment: java8scala
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
+order: 7

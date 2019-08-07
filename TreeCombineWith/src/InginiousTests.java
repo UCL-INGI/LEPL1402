@@ -69,8 +69,9 @@ public class InginiousTests {
     }
 
     @Test
-    @Grade
+    @Grade(cpuTimeout = 500)
     @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
+            @GradeFeedback(onTimeout = true, message = "This test timed out, watch for an infinite loop"),
             @GradeFeedback(onFail = true, message = "Your implementation doesn't hold against the given example")})
     public void test1() {
         Tree t1 = new Tree(
@@ -112,8 +113,10 @@ public class InginiousTests {
     }
 
     @Test
-    @Grade
+    @Grade(cpuTimeout = 500)
     @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
+            @GradeFeedback(onTimeout = true, message = "This test timed out, watch for an infinite loop"),
+            
             @GradeFeedback(onFail = true, message = "Your implementation doesn't hold against random input")})
     public void test2() {
         for (int i = 0; i < 100; i++) {
@@ -125,6 +128,26 @@ public class InginiousTests {
             Tree expected = geneateRandomTree(result);
             assertEquals(expected.root, t1.combineWith(t2).root);
         }
+    }
+
+    @Test
+    @Grade(cpuTimeout = 500)
+    @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
+            @GradeFeedback(onTimeout = true, message = "This test timed out, watch for an infinite loop"),
+            
+            @GradeFeedback(onFail = true, message = "Think about empty trees")})
+    public void test_null_tree(){
+      Tree t2 = null;
+      Tree t3 = new Tree(null);
+      for (int i = 0; i < 100; i++) {
+          int[] data1 = generateIntArray();
+          Tree t1 = geneateRandomTree(data1);
+          assertEquals(t1.root, t1.combineWith(t2).root); // passed tree is null
+          assertEquals(t1.root, t3.combineWith(t1).root); // root of actual tree is null
+          assertEquals(t1.root, t1.combineWith(t3).root); // root of passed tree is null
+      }
+
+
     }
 
 }

@@ -1,10 +1,10 @@
-author: "Yakoub J, Rucquoy A"
+author: Yakoub J, Rucquoy A
 accessible: true
-name: "[TESTABLE] Binary trees - equals"
+name: '[TESTABLE] Binary trees - equals'
 context: |-
     In this task, we will ask you to implement the mehtod ``equals(Object o)`` for both classes ``Tree`` and ``Node``. Two instances of ``Tree`` are considered
     equal when they both have the exact same structure (same number of nodes, each node at the same place in **both** trees) and when every node has the same ``val``.
-    Here are the skeleton of both classes: 
+    Here are the skeleton of both classes:
 
     .. code-block:: java
 
@@ -42,21 +42,14 @@ context: |-
             }
 
         }
-
-    
 problems:
-
     student_eqtree:
-        type: "code"
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of your ``equals`` method from class ``Tree``:
-
-
+        header: 'Paste here the **body** of your ``equals`` method from class ``Tree``:'
     student_eqnode:
-        type: "code"
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of your ``equals`` method from class ``Node``:
-
+        header: 'Paste here the **body** of your ``equals`` method from class ``Node``:'
 environment: java8scala
+order: 29

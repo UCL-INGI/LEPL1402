@@ -31,7 +31,7 @@ public class Animal {
          *   You must create the following string to be added to event_recorder :
          *   "AnimalName is performing the following action: Action"
          *       Example : "Cat is performing the following action: Sleep"
-         *   Warning : Use addStringToLogger method
+         *   Hint : Use the addStringToLogger method
          **/
     }
 

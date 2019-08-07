@@ -13,5 +13,12 @@ public class Cons {
         this.v = v;
         this.next = next;
     }
-@   @student_generic@@    
+
+    public Cons map(F f) {
+      @@map@@
+    }
+
+    public Cons filter(P p){
+      @@filter@@
+    } 
 }

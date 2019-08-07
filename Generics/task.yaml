@@ -1,6 +1,6 @@
-author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "[TESTABLE] Generics 1"
+author: Yakoub J, Rucquoy A
+categories: []
 context: |-
     In this task, you have to implement the map / filter functions of the following class :
 
@@ -25,9 +25,9 @@ context: |-
                 this.next = next;
             }
         }
-    
-    Here are the interfaces for the object parameter for filter/map 
-    
+
+    Here are the interfaces for the object parameter for filter/map
+
     .. code-block:: java
 
         interface F {
@@ -39,16 +39,37 @@ context: |-
         }
 
     ( You can find all the required files here :  Cons_ , Function_ , Predicate_ )
-    
+
     .. _Cons: /course/LEPL1402/Generics/Cons.java
     .. _Function: /course/LEPL1402/Generics/F.java
     .. _Predicate: /course/LEPL1402/Generics/P.java
-    
-problems:
-    student_generic:
-        type: "code"
-        language: java
-        header: |-
-            Paste here the map/filter functions of your Cons class:
-
 environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[TESTABLE] Generics 1'
+network_grading: false
+order: 12
+problems:
+    map:
+        default: ''
+        language: java
+        header: 'Paste here the **body** of your ``map`` method :'
+        type: code
+        name: ''
+    filter:
+        header: 'Paste here the **body** of your ``filter`` method :'
+        type: code
+        language: java
+        default: ''
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

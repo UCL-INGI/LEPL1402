@@ -54,7 +54,7 @@ public class InginiousTests {
 
     // Test for build_from
     @Test
-    @Grade
+    @Grade(value=1, cpuTimeout=100)
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
     @GradeFeedback(message = "build_from(String s) does not work\n", onFail = true, onTimeout = true)})
     public void testBuildFrom() {
@@ -94,7 +94,7 @@ public class InginiousTests {
 
     // Test for sum
     @Test
-    @Grade
+    @Grade(value=1, cpuTimeout=100)
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
     @GradeFeedback(message = "sum(int[][] array) does not work\n", onFail = true, onTimeout = true)})
     public void testSum() {
@@ -123,7 +123,7 @@ public class InginiousTests {
 
     // Test for transpose
     @Test
-    @Grade
+    @Grade(value=1, cpuTimeout=100)
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
     @GradeFeedback(message = "int[][] transpose(int[][] matrix) does not work\n", onFail = true, onTimeout = true)})
     public void testTranspose() {
@@ -156,7 +156,7 @@ public class InginiousTests {
 
     // Test for product
     @Test
-    @Grade
+    @Grade(value=1, cpuTimeout=100)
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
     @GradeFeedback(message = "int[][] product(int[][] matrix1, int[][] matrix2) does not work\n", onFail = true, onTimeout = true)})
     public void testProduct() {

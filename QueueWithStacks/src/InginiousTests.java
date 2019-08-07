@@ -2,6 +2,7 @@ package src;
 
 import com.github.guillaumederval.javagrading.Grade;
 import com.github.guillaumederval.javagrading.GradingRunner;
+import com.github.guillaumederval.javagrading.GradeFeedback;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -18,8 +19,9 @@ public class InginiousTests {
     Supplier<Integer> rnd = () -> (int) (Math.random() * 100);
 
 
-    @Grade
     @Test
+    @Grade
+    @GradeFeedback(message = "Order in the queue is not respected", onFail = true, onTimeout = true)
     public void testFIFO(){
 
         MyQueue<Integer> queue = new MyQueue<>();
@@ -33,8 +35,9 @@ public class InginiousTests {
     }
 
 
-    @Grade
     @Test
+    @Grade
+    @GradeFeedback(message = "Order in the queue is not respected", onFail = true, onTimeout = true)
     public void testEnqueueAndPeek(){
 
         MyQueue<Integer> queue = new MyQueue<>();
@@ -47,8 +50,9 @@ public class InginiousTests {
     }
 
 
-    @Grade
     @Test
+    @Grade
+    @GradeFeedback(message = "Order in the queue is not respected", onFail = true, onTimeout = true)
     public void testEmpty(){
 
         MyQueue<Integer> queue = new MyQueue<>();

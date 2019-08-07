@@ -1,19 +1,19 @@
-author: "Yakoub J, Rucquoy A"
+author: Yakoub J, Rucquoy A
 accessible: true
-name: "[TESTABLE] Circular Linked list"
+name: '[TESTABLE] Circular Linked list'
 context: |-
     In this task, you have to implement a Circular linked list : a list where the last element points to the first element. In this exercise, the list must maintain a reference
-    to the last of its elements. Each time you want to add an element, you must append it at the end of the list. Removing an element is a bit different: you need to specify 
-    an index to choose which element of the list you want to remove (``remove(0)`` for the first ... ``remove(size()-1)`` for the last). **Pay attention**: your ``remove`` method 
+    to the last of its elements. Each time you want to add an element, you must append it at the end of the list. Removing an element is a bit different: you need to specify
+    an index to choose which element of the list you want to remove (``remove(0)`` for the first ... ``remove(size()-1)`` for the last). **Pay attention**: your ``remove`` method
     must throw an ``IndexOutOfBoundsException`` if the index parameter is smaller than ``0`` or greater than ``size()-1``
 
     .. figure:: /course/LEPL1402/CircularLL/CircularLinkedList.png
        :scale: 100 %
        :alt: alternate text
        :align: center
-       :figclass: align-center 
+       :figclass: align-center
 
-    
+
     You also need to implement the ``ListIterator`` class.
     Iterator_ is an interface you have to implement in order to make the class implementing it able to enumerate/browse/iterate over an object : here, we want you to implement a FIFO order iterator
     over your ``CircularLinkedList``. **Pay attention**:
@@ -24,7 +24,7 @@ context: |-
     .. _Iterator : https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
 
 
-    Here is the class (downloadable here_) where we will insert your code : 
+    Here is the class (downloadable here_) where we will insert your code :
 
     .. _here : /course/LEPL1402/CircularLL/CircularLinkedList.java
 
@@ -111,29 +111,18 @@ context: |-
 
 
         }
-
-
-
-    
 problems:
     student_enqueue:
-        type: "code"
+        type: code
         language: java
-        header: |-
-            Paste here the BODY of your ``enqueue`` method:
-
-
+        header: 'Paste here the BODY of your ``enqueue`` method:'
     student_remove:
-        type: "code"
+        type: code
         language: java
-        header: |-
-            Paste here the BODY of your ``remove(int index)`` method:
-
-
+        header: 'Paste here the BODY of your ``remove(int index)`` method:'
     student_iterator:
-        type: "code"
+        type: code
         language: java
-        header: |-
-            Paste here the BODY of your ``ListIterator`` class:
-
+        header: 'Paste here the BODY of your ``ListIterator`` class:'
 environment: java8scala
+order: 5

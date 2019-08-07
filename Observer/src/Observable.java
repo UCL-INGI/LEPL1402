@@ -1,7 +1,6 @@
 package src;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public abstract class Observable {
@@ -9,9 +8,8 @@ public abstract class Observable {
     // An Observable object is the object that will broadcast informations/states/messages to
     // other specifics objects : its observers
 
-    // The key (Integer) is the zone where the Observable is.
-    // The value (String) is the meteo alert related to the zone.
-    protected HashMap<Integer, String> zones = new HashMap<>();
+    // String is the meteo alert, Integer is the zone id
+    protected List<Pair<String, Integer>> zones = new ArrayList<>();
 
     protected List<Observer> subscribers = new ArrayList<>();
 
@@ -23,7 +21,7 @@ public abstract class Observable {
     /*
      * Send a message to APPROPRIATE subscribers.
      */
-    abstract public void broadcast(int zone, String alert);
+    abstract public void broadcast(Pair<String, Integer> pair);
 
     /*
      * Add an observer to the subscribers of the station
@@ -37,7 +35,9 @@ public abstract class Observable {
 
     /*
      * Set the current alert for a given zone. Note that
-     * there must be AT MOST one alert for each zone.
+     * there must be AT MOST one alert for each zone and
+     * when an alert is set, subscribers of the zone must
+     * receive a message
      */
     abstract public void setAlert(String alert, int zone);
 

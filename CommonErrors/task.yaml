@@ -1,365 +1,389 @@
 accessible: true
-author: "Yakoub J, Rucquoy A"
+author: Yakoub J, Rucquoy A
+categories: []
+context: ''
 environment: mcq
-error_message: "Try again!"
-success_message: "Good job!"
-name: "[TESTABLE] Game of 9 common Java programming errors"
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: '[TESTABLE] Game of 9 common Java programming errors'
+network_grading: false
 problems:
-  mcq1:
-    type: multiple_choice
-    name: Confusing object comparison (== instead of .equals)
-    header: |-
+    mcq1:
+        success_message: Prefer to use i1.equals(i2) or s1.equals(s2) , which compares
+            the values and not == that only check the references.
+        limit: 0
+        choices:
+        -   text: |-
+                .. code-block::
 
-      Suppose you run the following code, what will you on STDOUT ?
+                  i1 is not equal to i2
+                  i3 is equal to i4
+                  s1 is not equal to s2
+            valid: true
+        -   feedback: Java cached only some Integers (from -127 to 127) references
+                so == will returns false whereas .equals() give true
+            text: |-
+                .. code-block::
 
-      .. code-block:: java
+                  i1 is equal to i2
+                  i3 is equal to i4
+                  s1 is not equal to s2
+        -   text: |-
+                .. code-block::
 
-        public static void main(String... args) {
-          Integer i1 = 128;
-          Integer i2 = 128;
-          Integer i3 = 42;
-          Integer i4 = 42;
-          String s1 = "EPL";
-          String s2 = new String("EPL");
-          if (i1 == i2) {
-            System.out.println("i1 is equal to i2");
-          } else {
-            System.out.println("i1 is not equal to i2");
-          }
-          if (i3 == i4) {
-            System.out.println("i3 is equal to i4");
-          } else {
-            System.out.println("i3 is not equal to i4");
-          }
-          if (s1 == s2) {
-            System.out.println("s1 is equal to s2");
-          } else {
-            System.out.println("s1 is not equal to s2");
-          }
-        }
-    choices: 
-      -
-        text: |-
-          .. code-block::
-          
-            i1 is not equal to i2
-            i3 is equal to i4
-            s1 is not equal to s2
-        valid: true
-      -
-        text: |-
-          .. code-block::
+                  i1 is not equal to i2
+                  i3 is equal to i4
+                  s1 is equal to s2
+            feedback: s1 is a String constant which is stored in memory inside the
+                java String pool, s2 is a String object which is stored in the heap
+                but not inside the pool. If you compare them with ==, you will always
+                get a false result because you compare the references (one is pointing
+                to the string pool and the other to the heap). But if you compare
+                them with .equals(), it will compare the values.
+        name: Confusing object comparison (== instead of .equals)
+        type: multiple_choice
+        header: |4-
 
-            i1 is equal to i2
-            i3 is equal to i4
-            s1 is not equal to s2      
-        feedback: "Java cached only soms Integers (from -127 to 127) references so == will returns false whereas .equals() give true"
-      -
-        text: |-
-          .. code-block::
+            Suppose you run the following code, what will you on STDOUT ?
 
-            i1 is not equal to i2
-            i3 is equal to i4
-            s1 is equal to s2
-        feedback: "String constants (s1) and String object (s2) aren't the same kind of object , even thought they represent the 'same' string"
-  mcq2:
-    type: multiple_choice
-    header: "Arrays start at :"
-    name: "Confusing about 0-based or 1-based index"
-    choices:
-      -
-        text: "0"
-        valid: true
-      -
-        text: "1"
-        feedback: "Java is not an 1-based array index language like MathLab or R"
-  mcq3:
-    type: multiple_choice
-    name: Modifying a collection while iterating it
-    header: |-
-      What is the problem in this code ?
-      
-      .. code-block:: java
+            .. code-block:: java
 
-        List<String> fixedList = Arrays.asList("Apple", "Banana", "Carrot", "Grape");
-        List<String> listFruit = new ArrayList<>(fixedList);
- 
-        for (String fruit : listFruit) {
-          if (fruit.contains("e")) {
-            listFruit.remove(fruit);
-          }
-        }
-    choices:
-      -
-        text: "This code throw a ConcurrentModificationException but only on multi thread programs"
-        feedback: "Even in single thread programs, it causes the iteration to behalve unpredictably as the content of the list get changed"
-      -
-        text: "This code throw a ConcurrentModificationException"
-        valid: true
-  mcq4:
-    type: multiple_choice
-    multiple: true
-    name: Confusing about object reference
-    header: Which code sample(s) produce a problem ?
-    choices:
-      -
-        text: |-
-          .. code-block:: java
-
-            String ptr = null;
-            if (ptr.equals("EPL")) {
-              System.out.println("SAME");
-            }
-        valid: true
-        feedback: You identified the NullPointerException
-      -
-        text: |-
-          .. code-block:: java
-
-            String s;
-            if (s.equals("EPL")) {
-              System.out.println("SAME");
-            }
-        valid: true
-        feedback: You identified the "variable s might not have been initialized error"
-      -
-        text: |-
-          .. code-block:: java
-            
-            // a random boolean
-            Random r = new Random();
-            boolean value = r.nextBoolean();
-            
-            String s = (value) ? "EPL" : null;
-            if (s.equals("EPL")) {
-              System.out.println("SAME");
-            }
-        feedback: "There is not always a problem here : it depends on the random boolean value"
-  mcq5:
-    type: multiple_choice
-    name: Enumeration
-    header: |-
-      
-      What could be a problem here ?
-
-      .. code-block:: java
-        
-        public static void main(String args[]) {
-          Hashtable sampleMap = new Hashtable();
-          Enumeration enumeration = sampleMap.elements();
-          enumeration.nextElement();
-        }
-    choices:
-      -
-        text: |-
-          A NoSuchElementException will occur as we have no element in the hashtable. 
-        valid: true
-        feedback: Thereby we must call "enumeration.hasMoreElements()" each time before any call of enumeration.nextElement();
-      -
-        text: |-
-          A RuntimeException will occur as we have no element in the hashtable.
-        feedback: NoSuchElementException extends RuntimeException
-  mcq6:
-    type: multiple_choice
-    name: Forgetting to free resources
-    multiple: true
-    header: |-
-
-      Select correct code sample(s) that does the same thing that this unsafe code sample :
-
-      .. code-block:: java
-
-        PrintWriter writer = null;
-
-        try {
-          writer = new PrintWriter(new File("EPL.txt"));
-          writer.write("WhateverStringIWant");
-        } catch (Exception err) {
-          err.printStackTrace();
-        }
-    choices:
-      -
-        text: |-
-          .. code-block:: java
-
-            PrintWriter writer = null;
-
-            try {
-              writer = new PrintWriter(new File("EPL.txt"));
-              writer.write("WhateverStringIWant");
-              writer.close();
-            } catch (Exception err) {
-              err.printStackTrace();
-            }
-        feedback: "Not safe as it is still possible to leak the file ressource in the catch part"
-      -
-        text: |-
-          .. code-block:: java
-
-            PrintWriter writer = null;
-
-            try {
-              writer = new PrintWriter(new File("EPL.txt"));
-              writer.write("WhateverStringIWant");
-            } catch (Exception err) {
-              err.printStackTrace();
-            } finally {
-              if ( writer != null ) {
-                writer.close();
+              public static void main(String... args) {
+                Integer i1 = 128;
+                Integer i2 = 128;
+                Integer i3 = 42;
+                Integer i4 = 42;
+                String s1 = "EPL";
+                String s2 = new String("EPL");
+                if (i1 == i2) {
+                  System.out.println("i1 is equal to i2");
+                } else {
+                  System.out.println("i1 is not equal to i2");
+                }
+                if (i3 == i4) {
+                  System.out.println("i3 is equal to i4");
+                } else {
+                  System.out.println("i3 is not equal to i4");
+                }
+                if (s1 == s2) {
+                  System.out.println("s1 is equal to s2");
+                } else {
+                  System.out.println("s1 is not equal to s2");
+                }
               }
-            }
-        valid: true
-        feedback: "The try-catch-finally works to deal with this problem but it takes many lines, no ?"
-      -
-        text: |-
-          .. code-block:: java
+    mcq2:
+        name: Confusing about 0-based or 1-based index
+        header: 'Arrays start at :'
+        choices:
+        -   text: '0'
+            valid: true
+        -   text: '1'
+            feedback: Java is not an 1-based array index language like MathLab or
+                R
+        type: multiple_choice
+        limit: 0
+    mcq3:
+        limit: 0
+        choices:
+        -   text: This code throw a ConcurrentModificationException but only on multi
+                thread programs
+            feedback: |
+                Even in single thread programs, it causes the iteration to behalve unpredictably as the content of the list get changed
+        -   text: This code throw a ConcurrentModificationException
+            valid: true
+        header: |-
+            What is the problem in this code ? (documentation about thread_ )
 
-            try (PrintWriter writer = new PrintWriter(new File("EPL.txt"))) {
-              writer.write("WhateverStringIWant");
-            } catch(Exception err) {
-              err.printStackTrace();
-            }
-        valid: true
-        feedback: "Always prefer the try-with-resources notation as it takes much less code lines"
-  mcq7:
-    type: multiple_choice
-    name: Static / Not Static context on fields / methods call
-    header: |-
-       Does it work ?
 
-       .. code-block:: java
+            .. code-block:: java
 
-        public class StaticTest {
-          private int count=0;
-          public static void main(String args[]) {
-            count++;
-          }
-        }
-    choices:
-      -
-        text: |-
-          No as we get the following compiler error "non-static variable count cannot be referenced from a static context"
-        valid: true
-      -
-        text: "Yes"
-  mcq8:
-    type: multiple_choice
-    name: Pass by value or by reference
-    header: |-
+              List<String> fixedList = Arrays.asList("Apple", "Banana", "Carrot", "Grape");
+              List<String> listFruit = new ArrayList<>(fixedList);
 
-      Can you correctly predict what would be the STDOUT of the following code ?
-      
-      .. code-block:: java
+              for (String fruit : listFruit) {
+                if (fruit.contains("e")) {
+                  listFruit.remove(fruit);
+                }
+              }
 
-        // A user defined class to illustrate
-        public class Student {
-          private double grade;
-          private String name;
-          public Student(String name, double grade) {
-            this.name = name;
-            this.grade = grade;
-          }
-          public double getGrade() {
-            return this.grade;
-          }
-          public String getName() {
-            return this.name;
-          }
-          public void setGrade(double grade) {
-            this.grade = grade;
-          }
-        }
-        
-        public class Test {
+            .. _Thread: https://en.wikipedia.org/wiki/Thread_(computing)#Multithreading
+        name: Modifying a collection while iterating it
+        type: multiple_choice
+    mcq4:
+        type: multiple_choice
+        choices:
+        -   valid: true
+            feedback: You identified the NullPointerException
+            text: |-
+                .. code-block:: java
 
-          //Generic swap method
-          public static void swap(Object o1, Object o2){
-            Object temp = o1;
-            o1 = o2;
-            o2 = temp;
-          }
+                  String ptr = null;
+                  if (ptr.equals("EPL")) {
+                    System.out.println("SAME");
+                  }
+        -   valid: true
+            text: |-
+                .. code-block:: java
 
-          // Common functions that illustrate external modification of a Object 
+                  String s;
+                  if (s.equals("EPL")) {
+                    System.out.println("SAME");
+                  }
+            feedback: You identified the "variable s might not have been initialized
+                error"
+        -   feedback: 'There is not always a problem here : it depends on the random
+                boolean value'
+            text: |-
+                .. code-block:: java
 
-          public static void setGrade(Student std) {
-            std = new Student(std.getName(), std.getGrade() * 2 );
-            std.setGrade( std.getGrade() * 2 );    
-          }
+                  // a random boolean
+                  Random r = new Random();
+                  boolean value = r.nextBoolean();
 
-          public static void setGrade2(Student std) {
-            std.setGrade(0);    
-          }
+                  String s = (value) ? "EPL" : null;
+                  if (s.equals("EPL")) {
+                    System.out.println("SAME");
+                  }
+        limit: 0
+        multiple: true
+        header: Which code sample(s) **always** produce a problem ?
+        name: Confusing about object reference
+    mcq5:
+        choices:
+        -   feedback: Thereby we must call "enumeration.hasMoreElements()" each time
+                before any call of enumeration.nextElement();
+            valid: true
+            text: 'A NoSuchElementException will occur as we have no element in the
+                hashtable. '
+        -   text: A RuntimeException will occur as we have no element in the hashtable.
+            feedback: NoSuchElementException extends RuntimeException
+        name: Enumeration
+        limit: 0
+        type: multiple_choice
+        header: |4-
 
-          // Let's see if you can correctly predict the STDOUT
-        
-          public static void main(String[] args) {
-          
-            int mean_of_life = 42;
-            int random_int = 2048;
-            swap(mean_of_life, random_int);
-            String s1 = "After swapping call, MEAN OF LIFE is equal to "+ mean_of_life;
-            System.out.println(s1);
+            What could be a problem here ?
 
-            Student std = new Student("Noel", 10);
-            String s_part = "Student " + std.getName() + " has the grade ";
+            .. code-block:: java
 
-            setGrade(std);
-            String s2 = s_part + std.getGrade();
-            System.out.println(s2);
+              public static void main(String args[]) {
+                Hashtable sampleMap = new Hashtable();
+                Enumeration enumeration = sampleMap.elements();
+                enumeration.nextElement();
+              }
+    mcq6:
+        choices:
+        -   text: |-
+                .. code-block:: java
 
-            setGrade2(std);
-            String s3 = s_part + std.getGrade();
-            System.out.println(s3);
-          }
-        }
+                  PrintWriter writer = null;
 
-    choices:
-      -
-        text: |-
-          .. code-block::
-          
-            After swapping call, MEAN OF LIFE is equal to 42
-            Student Noel has the grade 10.0
-            Student Noel has the grade 0.0
+                  try {
+                    writer = new PrintWriter(new File("EPL.txt"));
+                    writer.write("WhateverStringIWant");
+                    writer.close();
+                  } catch (Exception err) {
+                    err.printStackTrace();
+                  }
+            feedback: Not safe as it is still possible to leak the file ressource
+                in the catch part
+        -   feedback: The try-catch-finally works to deal with this problem but it
+                takes many lines, no ?
+            text: |-
+                .. code-block:: java
 
-        valid: true
-      -
-        text: |-
-          .. code-block::
-          
-            After swapping call, MEAN OF LIFE is equal to 2048
-            Student Noel has the grade 10.0
-            Student Noel has the grade 0.0
-        feedback: "Even for primitives (like int), the swap method will not work"
-      -
-        text: |-
-          .. code-block::
-          
-            After swapping call, MEAN OF LIFE is equal to 42
-            Student Noel has the grade 40.0
-            Student Noel has the grade 0.0
-        feedback: "Just because we first change the value of the reference to the object in setGrade(), futher operations will be without effect"
-  mcq9:
-    type: multiple_choice
-    multiple: true
-    name: Forgetting something ...
-    header: |-
-      What are the problems here ?
+                  PrintWriter writer = null;
 
-      .. code-block:: java
+                  try {
+                    writer = new PrintWriter(new File("EPL.txt"));
+                    writer.write("WhateverStringIWant");
+                  } catch (Exception err) {
+                    err.printStackTrace();
+                  } finally {
+                    if ( writer != null ) {
+                      writer.close();
+                    }
+                  }
+            valid: true
+        -   feedback: Always prefer the try-with-resources notation as it takes much
+                less code lines
+            valid: true
+            text: |-
+                .. code-block:: java
 
-        public class Wrong {
-          public static compute_something(int v) {
-            v * 3,14
-          }
-        }
-    choices:
-      -
-        text: "Missing a semicolon after v * 3,14 : Each statement must finish by a semicolon"
-        valid: true
-      -
-        text: "Missing a double modifier in the method declaration of compute_something"
-        valid: true
-      -
-        text: "Missing a return in compute_something as Java is not Python"
-        valid: true
+                  try (PrintWriter writer = new PrintWriter(new File("EPL.txt"))) {
+                    writer.write("WhateverStringIWant");
+                  } catch(Exception err) {
+                    err.printStackTrace();
+                  }
+        limit: 0
+        name: Forgetting to free resources
+        header: |4-
+
+            Select correct code sample(s) that does the same thing that this unsafe code sample :
+
+            .. code-block:: java
+
+              PrintWriter writer = null;
+
+              try {
+                writer = new PrintWriter(new File("EPL.txt"));
+                writer.write("WhateverStringIWant");
+              } catch (Exception err) {
+                err.printStackTrace();
+              }
+        multiple: true
+        type: multiple_choice
+    mcq7:
+        limit: 0
+        choices:
+        -   text: No as we get the following compiler error "non-static variable count
+                cannot be referenced from a static context"
+            valid: true
+        -   text: 'Yes'
+            feedback: Non-static variable count cannot be referenced from a static
+                context
+        name: Static / Not Static context on fields / methods call
+        header: |-
+            Does it work ?
+
+            .. code-block:: java
+
+             public class StaticTest {
+               private int count=0;
+               public static void main(String args[]) {
+                 count++;
+               }
+             }
+        type: multiple_choice
+    mcq8:
+        limit: 0
+        choices:
+        -   valid: true
+            text: |-
+                .. code-block::
+
+                  After swapping call, MEAN OF LIFE is equal to 42
+                  Student Noel has the grade 10.0
+                  Student Noel has the grade 0.0
+        -   text: |-
+                .. code-block::
+
+                  After swapping call, MEAN OF LIFE is equal to 2048
+                  Student Noel has the grade 10.0
+                  Student Noel has the grade 0.0
+            feedback: Even for primitives (like int), the swap method will not work
+        -   text: |-
+                .. code-block::
+
+                  After swapping call, MEAN OF LIFE is equal to 42
+                  Student Noel has the grade 40.0
+                  Student Noel has the grade 0.0
+            feedback: Just because we first change the value of the reference to the
+                object in setGrade(), futher operations will be without effect
+        header: |4-
+
+            Can you correctly predict what would be the STDOUT of the following code ?
+
+            .. code-block:: java
+
+              // A user defined class to illustrate
+              public class Student {
+                private double grade;
+                private String name;
+                public Student(String name, double grade) {
+                  this.name = name;
+                  this.grade = grade;
+                }
+                public double getGrade() {
+                  return this.grade;
+                }
+                public String getName() {
+                  return this.name;
+                }
+                public void setGrade(double grade) {
+                  this.grade = grade;
+                }
+              }
+
+              public class Test {
+
+                //Generic swap method
+                public static void swap(Object o1, Object o2){
+                  Object temp = o1;
+                  o1 = o2;
+                  o2 = temp;
+                }
+
+                // Common functions that illustrate external modification of a Object
+
+                public static void setGrade(Student std) {
+                  std = new Student(std.getName(), std.getGrade() * 2 );
+                  std.setGrade( std.getGrade() * 2 );
+                }
+
+                public static void setGrade2(Student std) {
+                  std.setGrade(0);
+                }
+
+                // Let's see if you can correctly predict the STDOUT
+
+                public static void main(String[] args) {
+
+                  int mean_of_life = 42;
+                  int random_int = 2048;
+                  swap(mean_of_life, random_int);
+                  String s1 = "After swapping call, MEAN OF LIFE is equal to "+ mean_of_life;
+                  System.out.println(s1);
+
+                  Student std = new Student("Noel", 10);
+                  String s_part = "Student " + std.getName() + " has the grade ";
+
+                  setGrade(std);
+                  String s2 = s_part + std.getGrade();
+                  System.out.println(s2);
+
+                  setGrade2(std);
+                  String s3 = s_part + std.getGrade();
+                  System.out.println(s3);
+                }
+              }
+        name: Pass by value or by reference
+        type: multiple_choice
+    mcq9:
+        name: Forgetting something ...
+        choices:
+        -   text: 'Missing a semicolon after v * 3.14 : Each statement must finish
+                by a semicolon'
+            valid: true
+        -   text: Missing a double modifier in the method declaration of compute_something
+            valid: true
+        -   feedback: You can multiply a floating point number with an integer but
+                it's not a good habit
+            text: You can't multiply a floating point number with an integer in Java.
+        limit: 0
+        header: |-
+            What are the problems here ?
+
+            .. code-block:: java
+
+              public class Wrong {
+                public static compute_something(int v) {
+                  return v * 3.14
+                }
+              }
+        error_message: Don't forget to select all the answers
+        multiple: true
+        type: multiple_choice
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
+order: 8

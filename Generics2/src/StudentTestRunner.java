@@ -41,7 +41,7 @@ public class StudentTestRunner {
         if(flag) {
             System.exit(2); // The student used a forbidden instruction
         } else {
-            System.exit(1); // There's an error in your code etc etc...
+            System.exit(4); // There's an error in your code etc etc...
         }
     }
 

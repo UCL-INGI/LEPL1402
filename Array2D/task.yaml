@@ -1,23 +1,94 @@
-author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "[TESTABLE] Arrays 2D and Matrix"
-context: |-
-    In order to understand the differences between a matrix and a multidimensional array, 
-    you have to implement the functions of the following class that implements the Array2DBuilderInterface_:
+author: Yakoub J, Rucquoy A
+categories: []
+context: |+
+    In order to understand the differences between a matrix and a multidimensional array,
+    you have to implement the functions of the following class that implements the Array2DBuilderInterface:
+
+    .. code-block:: java
+
+        package src;
+
+        public interface Array2DBuilderInterface {
+        // from a String of int, build and return a array of 2D
+        // integers are separated by spaces ; lines by the \n character
+        // As array 2d aren't always regular matrix, you may build a Irregular matrix with the given input
+        // Example :
+        //      String s = "1 2 3 \n 4 5 \n 42";
+        // Gives :
+        //      int[][] array2d = { {1, 2, 3}, {4, 5}, {42} };
+        // hint: there is a method in java that removes space at the start and end of a string
+        public int[][] build_from(String s);
+
+        // Compute the sum of all integers in the 2d array (not necessarily a regular matrix )
+        public int sum(int[][] array);
+
+        // return the transpose of the matrix (the given parameter is a regular matrix)
+        public int[][] transpose(int[][] matrix);
+
+        // return the product of : matrix1 X matrix2
+        // (row1 X column1) X (row2 X column2) doesn't meet that row1 and column2 are the same
+        public int[][] product(int[][] matrix1, int[][] matrix2);
+        }
+
+    Your job:
 
     .. code-block:: java
 
         public class MyBuilder implements Array2DBuilderInterface {
-            // TODO
+            public int[][] build_from(String s){
+                //TODO
+            }
+            public int sum(int[][] array){
+                //TODO
+            }
+            public int[][] transpose(int[][] matrix){
+                //TODO
+            }
+            public int[][] product(int[][] matrix1, int[][] matrix2){
+                //TODO
+            }
         }
-    
-    .. _Array2DBuilderInterface: /course/LEPL1402/Array2D/Array2DBuilderInterface.java
-    
-problems:
-    student_code:
-        type: "code"
-        language: java
-        header: |-
-            Paste here the BODY of your MyBuilder class:
 
 environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[TESTABLE] Arrays 2D and Matrix'
+network_grading: false
+problems:
+    build_from:
+        type: code
+        header: 'Paste the body of the ``build_from`` method:'
+        language: java
+        default: ''
+        name: ''
+    sum:
+        language: java
+        type: code
+        default: ''
+        name: ''
+        header: 'Paste the body of the ``sum`` method:'
+    transpose:
+        language: java
+        name: ''
+        type: code
+        default: ''
+        header: 'Paste the body of the ``transpose`` method:'
+    product:
+        type: code
+        default: ''
+        name: ''
+        language: java
+        header: 'Paste the body of the ``product`` method:'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
+order: 2

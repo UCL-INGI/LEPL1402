@@ -1,11 +1,11 @@
-author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "[TESTABLE] Binary trees - Inorder traversal"
+author: Yakoub J, Rucquoy A
+categories: []
 context: |-
-    In this task, we ask you to implement two different version of an "in-order" tree traversal : a recursive version and 
-    an iterative version. Both function will take a ``Node`` representing the root of the tree itself and a ``List<Integer>`` that 
+    In this task, we ask you to implement two different version of an "in-order" tree traversal : a recursive version and
+    an iterative version. Both function will take a ``Node`` representing the root of the tree itself and a ``List<Integer>`` that
     you have to fill with the tree nodes' ``val`` respecting the "in-order" traversal.
-    
+
     **Example**:  the following tree, when explored in an in-order fashion, will give
     ``A,B,C,D,E,F,G,H,I``. This type of tree traversal is thus very useful to retrieve all nodes from a tree as an ordered list,
     provided that the tree itself is "sorted", i.e, for each node, its left subtree only contain "smaller" nodes and its right
@@ -20,7 +20,7 @@ context: |-
 
 
 
-    Here are the skeleton of the ``Node`` and ``Traversal`` classes: 
+    Here are the skeleton of the Node_ and Traversal_ classes:
 
     .. code-block:: java
 
@@ -57,23 +57,37 @@ context: |-
 
         }
 
-
-
-
-    
-problems:
-
-    student_recursive:
-        type: "code"
-        language: java
-        header: |-
-            Paste here the **body** of your ``recursiveInorder(Node root, List<Integer> res)`` method:
-
-
-    student_iterative:
-        type: "code"
-        language: java
-        header: |-
-            Paste here the **body** of your ``iterativeInorder(Node root, List<Integer> res)`` method:
-
+    .. _Node: /course/LEPL1402/TreeInorder/Node.java
+    .. _Traversal: /course/LEPL1402/TreeInorder/Traversal.java
 environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[TESTABLE] Binary trees - Inorder traversal'
+network_grading: false
+order: 28
+problems:
+    student_recursive:
+        name: ''
+        header: 'Paste here the **body** of your ``recursiveInorder(Node root, List<Integer>
+            res)`` method:'
+        language: java
+        default: ''
+        type: code
+    student_iterative:
+        language: java
+        type: code
+        default: ''
+        header: 'Paste here the **body** of your ``iterativeInorder(Node root, List<Integer>
+            res)`` method:'
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,9 +1,9 @@
-author: "Yakoub J, Rucquoy A"
+author: Yakoub J, Rucquoy A
 accessible: true
-name: "[TESTABLE] Strings"
+name: '[TESTABLE] Strings'
 context: |-
-    In this task, we ask you to implement several common methods inspired from java's String_ API. The objective of this task is to get you used 
-    to String manipulation in java. In order to succeed this task, you will have to implement four different methods from a class we called ``StringUtils`` : 
+    In this task, we ask you to implement several common methods inspired from java's String_ API. The objective of this task is to get you used
+    to String manipulation in java. In order to succeed this task, you will have to implement four different methods from a class we called ``StringUtils`` :
 
     - ``split(String str, char marker)`` : separate a String into fragments each time a specific character ``marker`` is encountered. Note that, for simplicity, marker is a ``char`` whereas in java's String_ it is a ``String``. For example, calling your method with "Here. I. Go." with marker '.' should return an array of size three with "Here", "I" and "Go" in its cells.
     - ``indexOf(String str, String sub)`` : returns the index of the first occurrence of the ``String`` sub in the ``String`` str. For example ``indexOf("Hello", "ell")`` should return 1, ``indexOf("Hello", "o")`` should return 4. If there is no occurrence of sub in str, return -1.
@@ -17,7 +17,7 @@ context: |-
 
     Here is the skeleton of the ``StringUtils`` (downloadable here_):
 
-    .. _here: /course/LEPL1402/StringUtils/StringUtils.java 
+    .. _here: /course/LEPL1402/StringUtils/StringUtils.java
 
     .. code-block:: java
 
@@ -62,37 +62,25 @@ context: |-
 
 
         }
-
-    
 problems:
-
     student_split:
-        type: "code"
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of your ``split`` method. Note that you can't use ``split`` from ``String`` API :
-
-
+        header: 'Paste here the **body** of your ``split`` method. Note that you can''t
+            use ``split`` from ``String`` API :'
     student_indexof:
-        type: "code"
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of your ``indexOf`` method. Note that you can't use ``indexOf`` from ``String`` API :
-
-
-
+        header: 'Paste here the **body** of your ``indexOf`` method. Note that you
+            can''t use ``indexOf`` from ``String`` API :'
     student_tolowercase:
-        type: "code"
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of your ``toLowerCase`` method. Note that you can't use ``toLowerCase`` from ``String`` API :
-
-
+        header: 'Paste here the **body** of your ``toLowerCase`` method. Note that
+            you can''t use ``toLowerCase`` from ``String`` API :'
     student_palindrome:
-        type: "code"
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of your ``palindrome`` method :
-
-
+        header: 'Paste here the **body** of your ``palindrome`` method :'
 environment: java8scala
+order: 25

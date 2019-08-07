@@ -1,27 +1,31 @@
 accessible: true
 author: Yakoub J, Rucquoy A
+categories: []
 context: |-
     In this task, you will need to provide a JUnit4 TestSuite for the **static method** ``binarySearch`` located in the **class** ``Exercise``  :
 
     .. code-block:: java
 
         /*
-         * This method returns the index of the "arr" table between the
-         * "low" and "high" indexes. where is the element "elem" OR -1
-         * if "elem" is not there OR -2 if the parameters do not respect the preconditions.
+         * This method returns:
+         *             index of elem if it is between the "low" and "high" indexes.
+         *             -1 if elem is not the there
+         *             -2 if the parameters do not respect the preconditions.
          *
          * @pre low >= 0, high <= |arr|, low <= high, sorted(arr[low...high]) == true
-         * @post returns the index in which the searched element is located,
-         * -1 if it is not present.
+         * @post returns :
+         *            index in which the searched element is located,
+         *            -1 if it is not present.
+         *            -2 if it does not respect @pre
          */
         public static int binarySearch(int [] arr, int low, int high, int elem) {
             ...
         }
 
-    Based on the specifications provided, create test cases for different input and possible outputs. We strongly suggest you to read the Junit4_ asserts documentation. Here is a signature 
-    to start your test suite: 
+    Based on the specifications provided, create test cases for different input and possible outputs. We strongly suggest you to read the Junit4_ asserts documentation. Here is a signature
+    to start your test suite:
 
-    .. code-block:: java 
+    .. code-block:: java
 
         import org.junit.Test;
         import static org.junit.Assert.*;
@@ -39,28 +43,27 @@ context: |-
 
 
     .. _Junit4: https://junit.org/junit4/javadoc/4.12/org/junit/Assert.html
-
 environment: java8scala
 evaluate: best
+file: ''
 groups: false
 input_random: '0'
 limits:
-    time: '60'
-    output: '2'
     memory: '100'
+    output: '2'
+    time: '60'
 name: '[TESTABLE] BlackBox Testing - Binary Search'
 network_grading: false
 problems:
     student_code:
+        header: 'Insert here the **body** of your test suite:'
         name: ''
-        type: code
         language: java
         default: ''
-        header: |-
-            Insert here the **body** of your test suite:
+        type: code
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
-tags: {}
 weight: 1.0
+order: 3

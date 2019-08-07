@@ -2,7 +2,7 @@ package flavour;
 
 public class BigDecimal {
     /*
-     * parse exponent
+     * parse exponent   
      */
     public static long parseExp(char[] in, int offset, int len){
         long exp = 0;

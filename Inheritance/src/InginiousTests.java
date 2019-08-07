@@ -22,7 +22,7 @@ public class InginiousTests {
     public void test_act_animal() {
         Animal a1 = new Animal("Unknown animal");
         Animal a2 = new Cat();
-        String[] acttions = new String[] {"EAT", "SLEEP", "CODE"};
+        String[] acttions = new String[] {"EAT", "SLEEP", "CODE", "REPEAT"};
         StringBuilder expected = new StringBuilder();
 
         for(String action : acttions) {

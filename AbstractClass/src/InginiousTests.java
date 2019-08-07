@@ -34,17 +34,17 @@ public class InginiousTests {
         assertTrue(Modifier.isPublic(modifier_of_class));
         // Now check if they respected given implementation ; will throw exception if not the case
         try {
-            
+
             Method my_method = c.getDeclaredMethod("getArea", double.class);
             int modifier_of_method = my_method.getModifiers();
-            
+
             assertTrue(Modifier.isAbstract(modifier_of_method));
             assertTrue(Modifier.isPublic(modifier_of_method));
             assertTrue(my_method.getReturnType().equals(double.class));
-            
+
             my_method = c.getDeclaredMethod("getPerimeter", double.class);
             modifier_of_method = my_method.getModifiers();
-            
+
             assertTrue(Modifier.isAbstract(modifier_of_method));
             assertTrue(Modifier.isPublic(modifier_of_method));
             assertTrue(my_method.getReturnType().equals(double.class));
@@ -77,13 +77,13 @@ public class InginiousTests {
                 // should be only public
                 assertTrue(modifier_of_method == Modifier.PUBLIC);
                 assertTrue(my_method.getReturnType().equals(double.class));
-                
+
                 // should also be only public
                 my_method = class_array[i].getDeclaredMethod("getPerimeter", new Class[]{double.class});
                 modifier_of_method = my_method.getModifiers();
 
                 assertTrue(modifier_of_method == Modifier.PUBLIC);
-                assertTrue(my_method.getReturnType().equals(double.class));                
+                assertTrue(my_method.getReturnType().equals(double.class));
                 i++;
 
             } catch (Exception e) {
@@ -95,20 +95,20 @@ public class InginiousTests {
     }
 
     @Test
-    @Grade
+    @Grade(value=1, cpuTimeout=100)
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
     @GradeFeedback(message = "Not the expected result for getArea / getPerimeter\n", onFail = true, onTimeout = true)})
     public void testImplementationCorrectness() {
         Circle c = new Circle();
         Square s = new Square();
-        
+
         for(int i = 0; i < 10; i++) {
             double random_double = rng.get();
-            assertEquals(random_double * random_double * Math.PI, c.getArea(random_double), 0);
-            assertEquals(random_double * random_double, s.getArea(random_double), 0);
-            assertEquals(Math.PI * 2 * random_double, c.getPerimeter(random_double), 0);
-            assertEquals(random_double * 4, s.getPerimeter(random_double), 0);
+            assertEquals(random_double * random_double * Math.PI, c.getArea(random_double), Math.pow(10, -10));
+            assertEquals(random_double * random_double, s.getArea(random_double), Math.pow(10, -10));
+            assertEquals(Math.PI * 2 * random_double, c.getPerimeter(random_double), Math.pow(10, -10));
+            assertEquals(random_double * 4, s.getPerimeter(random_double), Math.pow(10, -10));
         }
     }
-    
+
 }

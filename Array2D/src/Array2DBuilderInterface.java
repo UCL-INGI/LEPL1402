@@ -8,6 +8,7 @@ public interface Array2DBuilderInterface {
     //      String s = "1 2 3 \n 4 5 \n 42"; 
     // Gives :
     //      int[][] array2d = { {1, 2, 3}, {4, 5}, {42} };
+    // hint: there
     public int[][] build_from(String s);
     
     // Compute the sum of all integers in the 2d array (not necessarily a regular matrix )

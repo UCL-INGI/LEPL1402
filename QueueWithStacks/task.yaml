@@ -1,9 +1,9 @@
-author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "[TESTABLE] Queue with two stacks"
+author: Yakoub J, Rucquoy A
+categories: []
 context: |-
-    In this short exercise we will ask you to implement a FIFO queue using two stacks (provided as two Java ``Stack<E>``). We need you to provide 4 methods : 
-    ``enqueue``, ``dequeue``, ``peek``, ``empty``. You can use the ``Stack`` API_ , but you can't instantiate a new ``Stack``. Use ``s1`` and ``s2`` from the class 
+    In this short exercise we will ask you to implement a FIFO queue using two stacks (provided as two Java ``Stack<E>``). We need you to provide 4 methods :
+    ``enqueue``, ``dequeue``, ``peek``, ``empty``. You can use the ``Stack`` API_ , but you can't instantiate a new ``Stack``. Use ``s1`` and ``s2`` from the class
     skeleton below.
 
     .. _API : https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html
@@ -32,39 +32,69 @@ context: |-
             * Push element x to the end of the queue (remember, a queue is FIFO)
             */
             public void enqueue(E elem) {
-                
+
             }
 
             /*
             * Removes the front element of this queue
             */
             public E dequeue() {
-                
+
             }
 
             /*
             * Get the first element of this list but does not remove it
             */
             public E peek() {
-                
+
             }
 
             /*
             * Tells if the queue is empty or not.
             */
             public boolean empty() {
-                
+
             }
         }
-
-    
-problems:
-
-    student_methods:
-        type: "code"
-        language: java
-        header: |-
-            Paste here the bodies **and** signatures of your 4 methods:
-
-
 environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[TESTABLE] Queue with two stacks'
+network_grading: false
+order: 20
+problems:
+    enqueue:
+        type: code
+        language: java
+        header: 'Paste here the **body** of your ``enqueue`` method:'
+        default: ''
+        name: ''
+    dequeue:
+        language: java
+        default: ''
+        name: ''
+        type: code
+        header: 'Paste here the **body** of your ``dequeue`` method:'
+    peek:
+        type: code
+        default: ''
+        header: 'Paste here the **body** of your ``peek`` method:'
+        name: ''
+        language: java
+    empty:
+        header: 'Paste here the **body** of your ``empty`` method:'
+        name: ''
+        type: code
+        language: java
+        default: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

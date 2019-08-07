@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 public class InginiousTests {
 
     // generate random number
-    private Supplier<Integer> rng = () -> (int) ((Math.random()*100) + 2); // never generate 0 or 1 
+    private Supplier<Integer> rng = () -> (int) ((Math.random()*100) + 2); // never generate 0 or 1
 
     // function to collect elements
     private ArrayList<Integer> collectCons(Cons<Integer> student) {
@@ -41,7 +41,7 @@ public class InginiousTests {
 
         for(int i=0; i < 100; i++){
             Integer [] seeds = Stream.generate(rng).limit(3).toArray(Integer[]::new);
-            
+
             Cons<Integer> list = new Cons(seeds[0], new Cons(seeds[1], new Cons(seeds[2], null)));
 
             // result
@@ -67,9 +67,9 @@ public class InginiousTests {
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
     @GradeFeedback(message = "Map does not work\n", onFail = true, onTimeout = true)})
     public void testMap(){
-        
+
         Integer [] seeds = Stream.generate(rng).limit(3).toArray(Integer[]::new);
-        
+
         Cons<Integer> list = new Cons(seeds[0], new Cons(seeds[1], new Cons(seeds[2], null)));
 
         // results

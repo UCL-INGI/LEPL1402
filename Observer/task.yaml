@@ -1,47 +1,57 @@
-author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "[TESTABLE] Observer design pattern"
+author: Yakoub J, Rucquoy A
+categories: []
 context: |-
     In this task, you have to implement the Observer design pattern for the case of a meteo station:
 
     .. code-block:: java
 
         public class MeteoStation extends Observable {
-
             // YOUR CODE HERE
-
         }
 
 
         public class Client extends Observer {
-
             // YOUR CODE HERE
-
         }
 
     Note that Observable_ and Observer_ are two abstract classes containing abstract methods.
-    Therefore, check and read them carefully in order to implement things correctly. Note that your observers start
-    to receive messages at the moment they subscribe but they should not see messages that were broadcast before they 
+    Therefore, check and read them carefully in order to implement things correctly. For your ``Client`` class you have to extend the observer class and implement a constructor (do not forget instance variables).
+    For the ``MeteoStation`` class, extend the Observable abstract class, you will need to use Pair_ for this one.
+
+    Note that your observers start to receive messages at the moment they subscribe but they should not see messages that were broadcast before they
     subscribed.
 
     .. _Observable: /course/LEPL1402/Observer/Observable.java
     .. _Observer: /course/LEPL1402/Observer/Observer.java
     .. _Pair: /course/LEPL1402/Observer/Pair.java
-
-
-    
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[TESTABLE] Observer design pattern'
+network_grading: false
+order: 17
 problems:
     student_client:
-        type: "code"
+        name: ''
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of your Client class:
-
-
+        default: ''
+        header: 'Paste here the **body** of your ``Client`` class:'
     student_station:
-        type: "code"
         language: java
-        header: |-
-            Paste here the **body** of your MeteoStation class:
-
-environment: java8scala
+        header: 'Paste here the **body** of your ``MeteoStation`` class:'
+        name: ''
+        default: ''
+        type: code
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

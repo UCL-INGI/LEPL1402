@@ -1,3 +1,3 @@
 package templates;
 
-@   @student_circle@@ 
+@@student_circle@@ 

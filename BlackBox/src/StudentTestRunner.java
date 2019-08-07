@@ -70,7 +70,7 @@ public class StudentTestRunner {
         if(!flag) {
             System.exit(0);
         } else {
-            System.exit(1);
+            System.exit(3);
         }
 
     }

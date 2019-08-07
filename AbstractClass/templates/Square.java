@@ -1,3 +1,3 @@
 package templates;
 
-@   @student_square@@ 
+@@student_square@@ 

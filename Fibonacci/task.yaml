@@ -1,11 +1,11 @@
-author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "[TESTABLE] Introduction to recursion in Java - Fibonacci"
+author: Yakoub J, Rucquoy A
+categories: []
 context: |-
-    In this task, we will ask you to implement two different versions of the Fibonacci sequence number: a recursive one and an iterative one. 
-    The objective of this exercise is to make you aware of what a call stack is and what problem could occur. We strongly suggest you to 
+    In this task, we will ask you to implement two different versions of the Fibonacci sequence number: a recursive one and an iterative one.
+    The objective of this exercise is to make you aware of what a call stack is and what problem could occur. We strongly suggest you to
     test your code with various input : what will happen if you test your recursive implementation with a very large index. Why ? Will the same
-    thing happen with your iterative implementation ? Why ? 
+    thing happen with your iterative implementation ? Why ?
 
     .. code-block:: java
 
@@ -26,29 +26,40 @@ context: |-
             }
 
         }
-    
-    
+
+
     Reminder : Fibonacci's sequence is computed as follows
 
     .. math::
 
-         f(n) =\begin{cases}1 & n <= 1\\ f(n-1) + f(n-2) & n > 1\end{cases} 
-
-
-
-    
+         f(n) =\begin{cases}0 & n=0 \\1 & n = 1\\ f(n-1) + f(n-2) & n > 1\end{cases}
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[TESTABLE] Introduction to recursion in Java - Fibonacci'
+network_grading: false
 problems:
     student_recursive:
-        type: "code"
+        name: ''
+        header: 'Paste here the **body** of your ``fiboRecursive(int index)`` method:'
         language: java
-        header: |-
-            Paste here the **body** of your ``fiboRecursive(int index)`` method:
-
-
+        default: ''
+        type: code
     student_iterative:
-        type: "code"
         language: java
-        header: |-
-            Paste here the **body** of your ``fiboIterative(int index)`` method:
-
-environment: java8scala
+        type: code
+        default: ''
+        header: 'Paste here the **body** of your ``fiboIterative(int index)`` method:'
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
+order: 11

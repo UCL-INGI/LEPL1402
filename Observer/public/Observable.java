@@ -33,7 +33,9 @@ abstract class Observable {
 
     /*
      * Set the current alert for a given zone. Note that
-     * there must be AT MOST one alert for each zone.
+     * there must be AT MOST one alert for each zone and
+     * when an alert is set, subscribers of the zone must
+     * receive a message
      */
     abstract public void setAlert(String alert, int zone);
 

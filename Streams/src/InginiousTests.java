@@ -54,6 +54,31 @@ public class InginiousTests {
         return my_list.stream();
     }
 
+    private Map<String, Predicate<?>> generateConditions(int limit) {
+
+        // some predicates inside
+        Map<String, Predicate<?>> conditions = new HashMap<>();
+        String randomName = studentNames[new Random().nextInt(studentNames.length)];
+        Predicate<String> p1 = (s) -> s.equalsIgnoreCase(randomName);
+
+        int randomInt = section_rng.get();
+        Predicate<Integer> p2 = (i) -> i == randomInt;
+        String courseRandom = courses[new Random().nextInt(courses.length)];
+        Double d = grade_rng.get();
+
+        Predicate<Map<String, Double>> p3 = (m) -> m.get(courseRandom) >= d;
+        conditions.put("firstName", p1);
+        conditions.put("lastName", p1);
+        conditions.put("section", p2);
+        conditions.put("courses_results", p3);
+
+        return conditions
+                .entrySet()
+                .stream()
+                .limit(limit)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+    }
 
     @Before
     public void setUp(){

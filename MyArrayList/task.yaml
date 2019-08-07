@@ -1,19 +1,19 @@
-author: "Yakoub J, Rucquoy A"
+author: Yakoub J, Rucquoy A
 accessible: true
-name: "[TESTABLE] MyArrayList"
+name: '[TESTABLE] MyArrayList'
 context: |-
-    In this task, you have to implement your own version of the famous java's ``ArrayList<E>`` : a dynamic sized array. Each time you want to add an element, you must check that the item can fit and then append it at the end of the list. 
-    If the array is too small, you need to resize it so that new items can be added in the future. To remove an element you need to specify 
-    an index to choose which element of the list you want to remove (``remove(0)`` for the first ... ``remove(size()-1)`` for the last). **Never** leave "blanks" in your array. 
-    When you remove an element at some ``index``, **all subsequents** elements must be "shifted". 
-    
+    In this task, you have to implement your own version of the famous java's ``ArrayList<E>`` : a dynamic sized array. Each time you want to add an element, you must check that the item can fit and then append it at the end of the list.
+    If the array is too small, you need to resize it so that new items can be added in the future. To remove an element you need to specify
+    an index to choose which element of the list you want to remove (``remove(0)`` for the first ... ``remove(size()-1)`` for the last). **Never** leave "blanks" in your array.
+    When you remove an element at some ``index``, **all subsequents** elements must be "shifted".
+
     So if your list look like this:
 
     .. figure:: /course/LEPL1402/MyArrayList/before.png
        :scale: 100 %
        :alt: alternate text
        :align: center
-       :figclass: align-center 
+       :figclass: align-center
 
     Then after the call ``remove(1)`` it should look like this:
 
@@ -21,13 +21,13 @@ context: |-
        :scale: 100 %
        :alt: alternate text
        :align: center
-       :figclass: align-center 
+       :figclass: align-center
 
-    
+
     You also need to implement the ``MyArrayListIterator`` class.
     Iterator_ is an interface you have to implement in order to make the class implementing it able to enumerate/browse/iterate over an object : here, we want you to implement a FIFO order iterator
     over your ``MyArrayList``.
-    
+
      **Pay attention**, we add some constraints for this task:
 
         - Your iterator don't have to implement the ``remove`` method from Iterator_.
@@ -42,7 +42,7 @@ context: |-
     .. _ArrayList: https://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html
 
 
-    Here is the class (downloadable here_) where we will insert your code : 
+    Here is the class (downloadable here_) where we will insert your code :
 
     .. _here : /course/LEPL1402/MyArrayList/MyArrayList.java
 
@@ -63,7 +63,7 @@ context: |-
 
 
             /*
-            * Checks if 'list' needs to be resized then add the element at the end 
+            * Checks if 'list' needs to be resized then add the element at the end
             * of the list.
             */
             public void enqueue(Item item){
@@ -73,7 +73,7 @@ context: |-
 
             /*
             * Removes the element at the specified position in this list.
-            * Returns the element that was removed from the list. You dont need to 
+            * Returns the element that was removed from the list. You dont need to
             * resize when removing an element.
             */
             public Item remove(int index){
@@ -97,43 +97,28 @@ context: |-
             }
 
         }
-
-    
 problems:
-
     student_constructor:
-        type: "code"
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of your constructor ``MyArrayList(int initSize)``:
-
-
+        header: 'Paste here the **body** of your constructor ``MyArrayList(int initSize)``:'
     student_enqueue:
-        type: "code"
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of your ``enqueue`` method:
-
-
+        header: 'Paste here the **body** of your ``enqueue`` method:'
     student_remove:
-        type: "code"
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of your ``remove(int index)`` method:
-
-
+        header: 'Paste here the **body** of your ``remove(int index)`` method:'
     student_iterator:
-        type: "code"
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of your ``ListIterator`` class:
-
-
+        header: 'Paste here the **body** of your ``ListIterator`` class:'
     student_utils:
-        type: "code"
-        language: "java"
-        header: |-
-            Paste here (if needed) auxiliary methods (body **and** signatures) for your ``MyArrayList`` class:
+        type: code
+        language: java
+        header: 'Paste here (if needed) auxiliary methods (body **and** signatures)
+            for your ``MyArrayList`` class:'
         optional: true
-
 environment: java8scala
+order: 16

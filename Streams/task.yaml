@@ -1,9 +1,8 @@
-author: "Yakoub J, Rucquoy A"
-name: '[TESTABLE] Dealing with Streams'
 accessible: true
+author: Yakoub J, Rucquoy A
+categories: []
 context: |-
-
-    Given the Student_ class, You are asked to write the implementation of the StudentFunctions class ( that implements the StudentStreamFunction_ interface ) :
+    Given the Student_ class, You are asked to write the implementation of the StudentFunctions_ class ( that implements the StudentStreamFunction_ interface ) :
 
     .. code-block:: java
 
@@ -36,12 +35,56 @@ context: |-
 
     .. _StudentStreamFunction: /course/LEPL1402/Streams/StudentStreamFunction.java
     .. _Student: /course/LEPL1402/Streams/Student.java
-
-problems:
-    student_code:
-        type: "code"
-        language: java
-        header: |-
-            Paste here the **body** of your StudentFunctions class:
-
+    .. _StudentFunctions: /course/LEPL1402/Streams/StudentFunctions.java
 environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[TESTABLE] Dealing with Streams'
+network_grading: false
+order: 23
+problems:
+    student_find_second_and_third_top_student_for_given_course:
+        type: code
+        default: ''
+        name: ''
+        header: 'Paste here the **body** of your ``find_second_and_third_top_student_for_given_course``
+            method : '
+        language: java
+    student_compute_average_for_student_in_section:
+        default: ''
+        language: java
+        type: code
+        header: 'Paste here the **body** of your ``compute_average_for_student_in_section``
+            method : '
+        name: ''
+    student_get_number_of_successful_students:
+        language: java
+        type: code
+        header: 'Paste here the **body** of your ``get_number_of_successful_students``
+            method : '
+        default: ''
+        name: ''
+    student_find_last_in_lexicographic_order:
+        name: ''
+        header: 'Paste here the **body** of your ``find_last_in_lexicographic_order``
+            method : '
+        language: java
+        default: ''
+        type: code
+    student_get_full_sum:
+        language: java
+        default: ''
+        name: ''
+        header: 'Paste here the **body** of your ``get_full_sum`` method : '
+        type: code
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

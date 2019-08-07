@@ -1,301 +1,317 @@
 accessible: true
-author: "Yakoub J, Rucquoy A"
+author: Yakoub J, Rucquoy A
+categories: []
+context: ''
 environment: mcq
-error_message: "Try again!"
-success_message: "Good job!"
-name: "[TESTABLE] Access Modifiers / Scopes"
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: '[TESTABLE] Access Modifiers / Scopes'
+network_grading: false
 problems:
-  mcq1:
-    choices: 
-      -
-        text: |-
-          .. list-table::
-            :header-rows: 1
+    mcq1:
+        choices:
+        -   text: |4-
 
-            * - Modifier
-              - Class
-              - Package
-              - Subclass
-              - Everywhere
-            * - public
-              - True
-              - True
-              - True
-              - True
-        valid: true
-      -
-        text: |-
-          .. list-table::
-            :header-rows: 1
 
-            * - Modifier
-              - Class
-              - Package
-              - Subclass
-              - Everywhere
-            * - private
-              - True
-              - True
-              - False
-              - False
-        feedback: "Even in the same package, we cannot access private field(s) / method(s) "
-      -
-        text: |-
-          .. list-table::
-            :header-rows: 1
+                .. list-table::
+                  :header-rows: 1
 
-            * - Modifier
-              - Class
-              - Package
-              - Subclass
-              - Everywhere
-            * - private
-              - True
-              - False
-              - False
-              - False
-        valid: true
-      -
-        text: |-
-          .. list-table::
-            :header-rows: 1
+                  * - Modifier
+                    - Class
+                    - Package
+                    - Subclass
+                    - Everywhere
+                  * - public
+                    - True
+                    - True
+                    - True
+                    - True
+            valid: true
+        -   feedback: 'Even in the same package, we cannot access private field(s)
+                / method(s) '
+            text: |4-
 
-            * - Modifier
-              - Class
-              - Package
-              - Subclass
-              - Everywhere
-            * - protected
-              - True
-              - True
-              - False
-              - False
-        feedback: "Even inside another package, protected methods of a class are available to subclasses that extend them"
-      -
-        text: |-
-          .. list-table::
-            :header-rows: 1
 
-            * - Modifier
-              - Class
-              - Package
-              - Subclass
-              - Everywhere
-            * - protected
-              - True
-              - True
-              - True
-              - False
-        valid: true
-      -
-        text: |-
-          .. list-table::
-            :header-rows: 1
+                .. list-table::
+                  :header-rows: 1
 
-            * - Modifier
-              - Class
-              - Package
-              - Subclass
-              - Everywhere
-            * - default
-              - True
-              - True
-              - False
-              - False
-        valid: true
-      -
-        text: |-
-          .. list-table::
-            :header-rows: 1
+                  * - Modifier
+                    - Class
+                    - Package
+                    - Subclass
+                    - Everywhere
+                  * - private
+                    - True
+                    - True
+                    - False
+                    - False
+        -   text: |4-
 
-            * - Modifier
-              - Class
-              - Package
-              - Subclass
-              - Everywhere
-            * - default
-              - True
-              - True
-              - True
-              - False
-        feedback: "If a class has no modifier (the default, also known as package-private), it is visible only within its own package "
-    header: |-
 
-      Select the right statements to fill this table
+                .. list-table::
+                  :header-rows: 1
 
-      +------------+------------+------------+--------------+--------------+
-      |            |          Access Levels                                |
-      +------------+------------+------------+--------------+--------------+
-      |  Modifier  |  Class     | Package    |  Subclass    | Everywhere   |
-      +============+============+============+==============+==============+
-      |  private   |     ?      |      ?     |      ?       |     ?        |
-      +------------+------------+------------+--------------+--------------+
-      |  default   |     ?      |      ?     |      ?       |     ?        |
-      +------------+------------+------------+--------------+--------------+
-      |  protected |     ?      |      ?     |      ?       |     ?        |
-      +------------+------------+------------+--------------+--------------+
-      |  public    |     ?      |      ?     |      ?       |     ?        |
-      +------------+------------+------------+--------------+--------------+
+                  * - Modifier
+                    - Class
+                    - Package
+                    - Subclass
+                    - Everywhere
+                  * - private
+                    - True
+                    - False
+                    - False
+                    - False
+            valid: true
+        -   feedback: Even inside another package, protected methods of a class are
+                available to subclasses that extend them
+            text: |-
+                .. list-table::
+                  :header-rows: 1
 
-    type: multiple_choice
-    multiple: true
-  mcq2:
-    type: multiple_choice
-    multiple: true
-    choices:
-      -
-        text: |-
-          .. code-block:: java
-          
-            package two;
-            import one.*;
+                  * - Modifier
+                    - Class
+                    - Package
+                    - Subclass
+                    - Everywhere
+                  * - protected
+                    - True
+                    - True
+                    - False
+                    - False
+        -   text: |-
+                .. list-table::
+                  :header-rows: 1
 
-            public class Test {
-              public static void main(String... args) {
-                System.out.println(Beta.RANDOM_QUOTE);
-              }
-            }
-        feedback: "Wrong as you cannot access the Beta class outside the package one due to the default modifier"
-      -
-        text: |-
-          .. code-block:: java
-          
-            package two;
-            import one.*;
-            public class AlphaPrime extends Alpha {
-              @override
-              protected int give_random_number() {
-                return Alpha.MEAN_OF_LIFE * ( (int) Math.random() * 2 );
-              }
-            }
-            public class Test {
-              public static void main(String... args) {
-                AlphaPrime a = new AlphaPrime();
-                System.out.println(a.give_random_number());
-              }
-            }
-        valid: true
-      -
-        valid: true
-        text: |-
-          .. code-block:: java
+                  * - Modifier
+                    - Class
+                    - Package
+                    - Subclass
+                    - Everywhere
+                  * - protected
+                    - True
+                    - True
+                    - True
+                    - False
+            valid: true
+        -   text: |-
+                .. list-table::
+                  :header-rows: 1
 
-            package one;
-            class Test {
-              public static void main(String... args) {
-                System.out.println(Beta.RANDOM_QUOTE);
-              }
-            }
-    header: |-
+                  * - Modifier
+                    - Class
+                    - Package
+                    - Subclass
+                    - Everywhere
+                  * - default
+                    - True
+                    - True
+                    - False
+                    - False
+            valid: true
+        -   text: |-
+                .. list-table::
+                  :header-rows: 1
 
-      With the following code, which situation(s) is / are possible ?
+                  * - Modifier
+                    - Class
+                    - Package
+                    - Subclass
+                    - Everywhere
+                  * - default
+                    - True
+                    - True
+                    - True
+                    - False
+            feedback: 'If a class has no modifier (the default, also known as package-private),
+                it is visible only within its own package '
+        limit: 0
+        name: ''
+        multiple: true
+        type: multiple_choice
+        header: |4+
 
-      .. code-block:: java
+            Select the right scope for each modifier!
 
-        package one;
+            +------------+------------+------------+--------------+--------------+
+            |            |          Access Levels                                |
+            +------------+------------+------------+--------------+--------------+
+            |  Modifier  |  Class     | Package    |  Subclass    | Everywhere   |
+            +============+============+============+==============+==============+
+            |  private   |     ?      |      ?     |      ?       |     ?        |
+            +------------+------------+------------+--------------+--------------+
+            |  default   |     ?      |      ?     |      ?       |     ?        |
+            +------------+------------+------------+--------------+--------------+
+            |  protected |     ?      |      ?     |      ?       |     ?        |
+            +------------+------------+------------+--------------+--------------+
+            |  public    |     ?      |      ?     |      ?       |     ?        |
+            +------------+------------+------------+--------------+--------------+
 
-        public class Alpha {
-            static final int MEAN_OF_LIFE = 42;
-            private final String SOME_STRING = "EPL UCLouvain";
-            protected int give_random_number() {
-                return 42;
-            }
-        }
 
-        class Beta {
-            final static String RANDOM_QUOTE = "You shall not pass";
-        }
-  mcq3:
-    type: multiple_choice
-    multiple: true
-    header: |-
-      Which following examples of inner class are correct ?
-    choices:
-      -
-        text: |-
-          .. code-block:: java
+    mcq2:
+        name: ''
+        header: |4-
 
-            public class OuterClass {
-              private String classAlias = "outer alias";
+            With the following code, which situation(s) is / are possible ?
 
-              class InnerClass {
-                String classAlias = "inner alias";
+            .. code-block:: java
 
-                public void printAlias() {
-                  System.out.println("Outer: " + OuterClass.this.classAlias);
-                  System.out.println("Inner: " + this.classAlias);
-                }
+              package one;
+
+              public class Alpha {
+                  static final int MEAN_OF_LIFE = 42;
+                  private final String SOME_STRING = "EPL UCLouvain";
+                  protected int give_random_number() {
+                      return 42;
+                  }
               }
 
-              public static void main(String... args) {
-                InnerClass innerClass = new OuterClass().new InnerClass();
-                innerClass.printAlias();
+              class Beta {
+                  final static String RANDOM_QUOTE = "You shall not pass";
               }
-            }
-        valid: true
-      
-      -
-        text: |-
-          .. code-block:: java
+        choices:
+        -   feedback: Wrong as you cannot access the Beta class outside the package
+                one due to the default modifier
+            text: |-
+                .. code-block:: java
 
-            public class OuterClass {
-              private String classAlias = "outer alias";
+                  package two;
+                  import one.*;
 
-              class InnerClass {
-                String classAlias = "inner alias";
+                  public class Test {
+                    public static void main(String... args) {
+                      System.out.println(Beta.RANDOM_QUOTE);
+                    }
+                  }
+        -   text: |-
+                .. code-block:: java
 
-                public void printAlias() {
-                  System.out.println("Outer: " + OuterClass.classAlias);
-                  System.out.println("Inner: " + this.classAlias);
-                }
-              }
+                  package two;
+                  import one.*;
+                  public class AlphaPrime extends Alpha {
+                    @override
+                    protected int give_random_number() {
+                      return Alpha.MEAN_OF_LIFE * ( (int) Math.random() * 2 );
+                    }
+                  }
+                  public class Test {
+                    public static void main(String... args) {
+                      AlphaPrime a = new AlphaPrime();
+                      System.out.println(a.give_random_number());
+                    }
+                  }
+            valid: true
+        -   text: |-
+                .. code-block:: java
 
-              public static void main(String... args) {
-                InnerClass innerClass = new OuterClass().new InnerClass();
-                innerClass.printAlias();
-              }
-            }
-        feedback: "OuterClass isn't a static class so you must use this in printAlias()"
-      -
-        text: |-
-          .. code-block:: java
+                  package one;
+                  class Test {
+                    public static void main(String... args) {
+                      System.out.println(Beta.RANDOM_QUOTE);
+                    }
+                  }
+            valid: true
+        type: multiple_choice
+        limit: 0
+        multiple: true
+    mcq3:
+        choices:
+        -   text: |-
+                .. code-block:: java
 
-            public class MethodLocalInnerClassExample {
-                void printFromInner(final int a) {
-                    final int y = 10;
+                  public class OuterClass {
+                    private String classAlias = "outer alias";
 
-                    class MethodLocalInnerClass {
-                      int w = 5;
+                    class InnerClass {
+                      String classAlias = "inner alias";
 
-                      public void print(int z) {
-                        System.out.println("y - z + w + a = " + (y-z+w+a));
+                      public void printAlias() {
+                        System.out.println("Outer: " + OuterClass.this.classAlias);
+                        System.out.println("Inner: " + this.classAlias);
                       }
                     }
 
-                    MethodLocalInnerClass innerClass = new MethodLocalInnerClass();
-                    innerClass.print(5);
-                }
-            }
-        valid: true
-      -
-        text: |-
-          .. code-block:: java
+                    public static void main(String... args) {
+                      InnerClass innerClass = new OuterClass().new InnerClass();
+                      innerClass.printAlias();
+                    }
+                  }
+            valid: true
+        -   feedback: OuterClass isn't a static class so you must use "this" in printAlias()
+            text: |-
+                .. code-block:: java
 
-            public class MethodLocalInnerClassExample {
-                void printFromInner(final int a) {
-                    final int y = 10;
+                  public class OuterClass {
+                    private String classAlias = "outer alias";
 
-                    class MethodLocalInnerClass {
-                      int w = 5;
+                    class InnerClass {
+                      String classAlias = "inner alias";
 
-                      public void print(int z) {
-                        System.out.println("y - z + w + a = " + (y-z+w+a));
+                      public void printAlias() {
+                        System.out.println("Outer: " + OuterClass.classAlias);
+                        System.out.println("Inner: " + this.classAlias);
                       }
                     }
 
-                    MethodLocalInnerClassExample.MethodLocalInnerClass innerClass = new MethodLocalInnerClass();
-                    innerClass.print(5);
-                }
-            }
-        feedback: |-
-          You will get a "cannot find symbol" as you don't need here to put the outer class for initialisation
+                    public static void main(String... args) {
+                      InnerClass innerClass = new OuterClass().new InnerClass();
+                      innerClass.printAlias();
+                    }
+                  }
+        -   valid: true
+            text: |-
+                .. code-block:: java
+
+                  public class MethodLocalInnerClassExample {
+                      void printFromInner(final int a) {
+                          final int y = 10;
+
+                          class MethodLocalInnerClass {
+                            int w = 5;
+
+                            public void print(int z) {
+                              System.out.println("y - z + w + a = " + (y-z+w+a));
+                            }
+                          }
+
+                          MethodLocalInnerClass innerClass = new MethodLocalInnerClass();
+                          innerClass.print(5);
+                      }
+                  }
+        -   text: |-
+                .. code-block:: java
+
+                  public class MethodLocalInnerClassExample {
+                      void printFromInner(final int a) {
+                          final int y = 10;
+
+                          class MethodLocalInnerClass {
+                            int w = 5;
+
+                            public void print(int z) {
+                              System.out.println("y - z + w + a = " + (y-z+w+a));
+                            }
+                          }
+
+                          MethodLocalInnerClassExample.MethodLocalInnerClass innerClass = new MethodLocalInnerClass();
+                          innerClass.print(5);
+                      }
+                  }
+            feedback: You will get a "cannot find symbol" as you don't need here to
+                put the outer class for initialisation
+        limit: 0
+        header: Which following examples of inner class are correct ?
+        name: ''
+        multiple: true
+        type: multiple_choice
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
+order: 0

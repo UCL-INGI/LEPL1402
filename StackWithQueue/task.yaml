@@ -1,8 +1,8 @@
-author: "Yakoub J, Rucquoy A"
 accessible: true
-name: "[TESTABLE] Stack with a Queue"
+author: Yakoub J, Rucquoy A
+categories: []
 context: |-
-    In this short exercise we will ask you to implement a LIFO stack using a queue (provided as a Java ``LinkedList<E>``). We need you to provide 4 methods : 
+    In this short exercise we will ask you to implement a LIFO stack using a queue (provided as a Java ``LinkedList<E>``). We need you to provide 4 methods :
     ``push``, ``pop``, ``peek``, ``empty``. You can't use the ``LinkedList`` API expect for the methods listed below:
 
     - ``add``
@@ -29,38 +29,68 @@ context: |-
             * push an element at top (remember, a stack is "Last In First Out")
             */
             public void push(E elem) {
-                
+
             }
 
             /*
             * Return the top of the stack AND remove the retrieved element
             */
             public E pop() {
-                
+
             }
 
             /*
             * Return the top element of the stack, without removing it
             */
             public E peek() {
-                
+
             }
 
             /*
             * Tells if the stack is empty or not
             */
             public boolean empty() {
-                
+
             }
-
-    
-problems:
-
-    student_methods:
-        type: "code"
-        language: java
-        header: |-
-            Paste here the bodies **and** signatures of your 4 methods:
-
-
 environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[TESTABLE] Stack with a Queue'
+network_grading: false
+order: 22
+problems:
+    student_add:
+        default: ''
+        name: ''
+        language: java
+        type: code
+        header: Paste here the **body** of your method ``push()``
+    student_remove:
+        language: java
+        default: ''
+        name: ''
+        type: code
+        header: Paste here the **body** of your method ``pop()``
+    student_peek:
+        language: java
+        header: Paste here the **body** of your method ``peek()``
+        name: ''
+        type: code
+        default: ''
+    student_isEmpty:
+        language: java
+        default: ''
+        header: Paste here the **body** of your method ``empty()``
+        type: code
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

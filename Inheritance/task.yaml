@@ -1,34 +1,53 @@
-author: "Yakoub J, Rucquoy A"
-name: '[TESTABLE] Inheritance : Fill the gaps (Small Exercise)'
 accessible: true
+author: Yakoub J, Rucquoy A
+categories: []
 context: |-
-
     Will you be able to fill the gaps inside these three source files ( Animal_ , Cat_ , SuperCat_ ) so that it compiles and passes our tests ?
 
     .. _Animal: /course/LEPL1402/Inheritance/Animal.java
     .. _Cat: /course/LEPL1402/Inheritance/Cat.java
     .. _SuperCat: /course/LEPL1402/Inheritance/SuperCat.java
-
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[TESTABLE] Inheritance : Fill the gaps (Small Exercise)'
+network_grading: false
+order: 15
 problems:
     act_code:
-        type: "code"
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of the **act** method of the Animal class:
+        name: ''
+        default: ''
+        header: 'Paste here the **body** of the **act** method of the Animal class:'
     cat_constructor:
-        type: "code"
         language: java
-        header: |-
-            Paste here the **body** of the Cat constructor:
+        default: ''
+        name: ''
+        type: code
+        header: 'Paste here the **body** of the Cat constructor:'
     cat_test_act:
-        type: "code"
+        default: ''
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of the **act_forTestMethod** method of the Cat class:
+        header: 'Paste here the **body** of the **act_forTestMethod** method of the
+            Cat class:'
+        name: ''
     super_cat_log:
-        type: "code"
+        header: 'Paste here the **body** of the **clear_log** method of the SuperCat
+            class:'
+        name: ''
+        type: code
         language: java
-        header: |-
-            Paste here the **body** of the **clear_log** method of the SuperCat class:
-
-environment: java8scala
+        default: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -77,5 +77,13 @@ public class InginiousTests {
 
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    @Grade
+    @GradeFeedback(message = "You are not checking the input.", onFail = true)
+    public void testExceptionBadInput() throws IllegalArgumentException {
+      String input  = levels.get().replaceFirst("#", "9").replaceFirst("D", "A");
+      Level level = new Level(input);
+    }
+
 
 }

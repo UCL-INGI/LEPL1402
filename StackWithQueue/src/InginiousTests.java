@@ -2,6 +2,7 @@ package src;
 
 import com.github.guillaumederval.javagrading.Grade;
 import com.github.guillaumederval.javagrading.GradingRunner;
+import com.github.guillaumederval.javagrading.GradeFeedback;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -17,8 +18,9 @@ public class InginiousTests {
     Supplier<Integer> rnd = () -> (int) (Math.random() * 100);
 
 
-    @Grade
+    @Grade(value=1 , cpuTimeout=500)
     @Test
+    @GradeFeedback(message = "Order in the queue is not respected", onFail = true, onTimeout = true)
     public void testLIFO(){
 
         MyStack<Integer> stack = new MyStack<>();
@@ -34,6 +36,7 @@ public class InginiousTests {
 
     @Grade
     @Test
+    @GradeFeedback(message = "Peek is not working as it should", onFail = true, onTimeout = true)
     public void testPushAndPeek(){
 
         MyStack<Integer> stack = new MyStack<>();
@@ -48,6 +51,7 @@ public class InginiousTests {
 
     @Grade
     @Test
+    @GradeFeedback(message = "Empty is not working as expected", onFail = true, onTimeout = true)
     public void testEmpty(){
 
         MyStack<Integer> stack = new MyStack<>();

@@ -18,6 +18,20 @@ public class MyQueue<E> {
         this.front = null;
     }
 
-@   @student_methods@@
+    public void enqueue(E elem) {
+      @@enqueue@@
+    }
+
+    public E dequeue() {
+      @@dequeue@@
+    }
+
+    public E peek() {
+      @@peek@@
+    }
+
+    public boolean empty() {
+      @@empty@@
+    }
 
 }

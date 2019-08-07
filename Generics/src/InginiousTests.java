@@ -38,10 +38,12 @@ public class InginiousTests {
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
     @GradeFeedback(message = "Filter does not work\n", onFail = true, onTimeout = true)})
     public void testFilter(){
-        
+
         for(int i=0; i<100; i++){
+
+
             Integer [] seeds = Stream.generate(rng).limit(3).toArray(Integer[]::new);
-            
+
             Cons list = new Cons(seeds[0], new Cons(seeds[1], new Cons(seeds[2], null)));
 
             // result
@@ -68,9 +70,8 @@ public class InginiousTests {
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
     @GradeFeedback(message = "Map does not work\n", onFail = true, onTimeout = true)})
     public void testMap(){
-        
         Integer [] seeds = Stream.generate(rng).limit(3).toArray(Integer[]::new);
-        
+
         Cons list = new Cons(seeds[0], new Cons(seeds[1], new Cons(seeds[2], null)));
 
         // results
@@ -83,6 +84,6 @@ public class InginiousTests {
         ArrayList<Integer> collectedResult = collectCons(mapResult);
         ArrayList<Integer> expectedResult = collectCons(expectedList);
         assertEquals(expectedResult, collectedResult);
-    }
+      }
 
 }

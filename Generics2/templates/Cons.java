@@ -13,5 +13,12 @@ public class Cons<E> {
         this.v = v;
         this.next = next;
     }
-@   @student_generic@@  
+
+    public <R> Cons <R> map(Function <E,R> function) {
+      @@map@@
+    }
+
+    public Cons <E> filter(Predicate <E> predicate) {
+      @@filter@@
+    } 
 }
