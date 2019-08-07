@@ -1,6 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
-categories: []
+categories:
+- module2
 context: |-
     In order to discover the importance of pre/post conditions and invariants in your programs, we will take the example of QuickSort.
 
@@ -35,6 +36,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Code accuracy - Practical exercise'
 network_grading: false
+order: 5
 problems:
     exch_code:
         header: 'Paste here the **body** of your **swap(Object[] a, int i, int j)**
@@ -68,4 +70,3 @@ submission_limit:
     amount: -1
     period: -1
 weight: 1.0
-order: 7

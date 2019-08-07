@@ -1,6 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
-categories: []
+categories:
+- module4
 context: |-
     In this task, you have to implement the Observer design pattern for the case of a meteo station:
 
@@ -36,7 +37,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Observer design pattern'
 network_grading: false
-order: 17
+order: 23
 problems:
     student_client:
         name: ''

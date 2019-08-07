@@ -1,7 +1,7 @@
-author: Yakoub J, Rucquoy A
 accessible: true
-name: '[NEED REVIEW BEFORE OPENING THIS TASK TO STUDENTS] Threads - Producer/Consumer
-    with locks'
+author: Yakoub J, Rucquoy A
+categories:
+- module6
 context: |-
     In this task we will ask you to solve the producer/consumer problem, represented here as a concurrent bounded FIFO queue. We will run simultaneously two different types of threads on your queue :
 
@@ -11,10 +11,11 @@ context: |-
     Your queue needs to be thread-safe : it must be able to operate in a concurrent environment. It also means that threads must wait if necessary.
     A producer can't progress if there's no space left in the queue. A consumer can't take element from the queue if it is empty.
     For this exercise, you will need to implement ``enqueue`` and ``dequeue``, using all the instance variables that are in
-    the class skeleton below. We strongly suggest you to look at await_ and signal_ (or ``signalAll``) methods. You are not allowed to instantiate new locks or condition objects.
+    the LockQueue_ class below. We strongly suggest you to look at await_ and signal_ (or ``signalAll``) methods. You are not allowed to instantiate new locks or condition objects.
 
     .. _await: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html#await--
     .. _signal: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html#signal--
+    .. _LockQueue: /course/LEPL1402/ProducerConsumer/LockQueue.java
 
     .. code-block:: java
 
@@ -56,14 +57,34 @@ context: |-
             public int size() { return this.tail - this.head; }
 
         }
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[NEED REVIEW BEFORE OPENING THIS TASK TO STUDENTS] Threads - Producer/Consumer
+    with locks'
+network_grading: false
+order: 31
 problems:
     student_enqueue:
-        type: code
+        default: ''
         language: java
+        type: code
+        name: ''
         header: Paste here the **body** of your ``enqueue`` method.
     student_dequeue:
-        type: code
+        name: ''
         language: java
+        default: ''
+        type: code
         header: Paste here the **body** of your ``dequeue`` method.
-environment: java8scala
-order: 19
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

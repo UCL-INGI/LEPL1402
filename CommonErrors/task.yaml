@@ -1,6 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
-categories: []
+categories:
+- module1
 context: ''
 environment: mcq
 evaluate: best
@@ -13,6 +14,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Game of 9 common Java programming errors'
 network_grading: false
+order: 2
 problems:
     mcq1:
         success_message: Prefer to use i1.equals(i2) or s1.equals(s2) , which compares
@@ -386,4 +388,3 @@ submission_limit:
     amount: -1
     period: -1
 weight: 1.0
-order: 8

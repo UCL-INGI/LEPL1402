@@ -1,6 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
-categories: []
+categories:
+- module3
 context: |-
     In this task, you have to implement the generic map / filter functions of the following class :
 
@@ -29,9 +30,14 @@ context: |-
             }
         }
 
-    To help you understand how Predicate and Function works, check the documentation : Doc_
+    To help you understand how Predicate and Function works, check the documentation_.
 
-    .. _Doc: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+    (You can find here all documents : Cons_, Function_, Predicate_)
+
+    .. _documentation: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+    .. _Cons: /course/LEPL1402/Generics2/Cons.java
+    .. _Function: /course/LEPL1402/Generics2/F.java
+    .. _Predicate: /course/LEPL1402/Generics2/P.java
 environment: java8scala
 evaluate: best
 file: ''

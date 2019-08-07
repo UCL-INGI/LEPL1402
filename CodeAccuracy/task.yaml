@@ -1,6 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
-categories: []
+categories:
+- module2
 context: ''
 environment: mcq
 evaluate: best
@@ -13,6 +14,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Code accuracy - Pre, Post conditions and Invariants'
 network_grading: false
+order: 4
 problems:
     mcq1:
         multiple: true
@@ -98,4 +100,3 @@ submission_limit:
     amount: -1
     period: -1
 weight: 1.0
-order: 6

@@ -1,6 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
-categories: []
+categories:
+- module2
 context: |-
     In this task, we ask you to implement two different version of an "in-order" tree traversal : a recursive version and
     an iterative version. Both function will take a ``Node`` representing the root of the tree itself and a ``List<Integer>`` that
@@ -20,7 +21,7 @@ context: |-
 
 
 
-    Here are the skeleton of the ``Node`` and ``Traversal`` classes:
+    Here are the skeleton of the Node_ and Traversal_ classes:
 
     .. code-block:: java
 
@@ -56,6 +57,9 @@ context: |-
             }
 
         }
+
+    .. _Node: /course/LEPL1402/TreeInorder/Node.java
+    .. _Traversal: /course/LEPL1402/TreeInorder/Traversal.java
 environment: java8scala
 evaluate: best
 file: ''
@@ -67,7 +71,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Binary trees - Inorder traversal'
 network_grading: false
-order: 28
+order: 7
 problems:
     student_recursive:
         name: ''

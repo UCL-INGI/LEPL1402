@@ -2,6 +2,7 @@ package src;
 
 import com.github.guillaumederval.javagrading.Grade;
 import com.github.guillaumederval.javagrading.GradingRunner;
+import com.github.guillaumederval.javagrading.GradeFeedback;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -60,6 +61,80 @@ public class InginiousTests {
 
             }
         }
+    }
+
+    @Test
+    @Grade
+    @GradeFeedback(message = "Your VisitorList didn't work\n", onFail = true)
+    public void VisitorTest(){
+      for(Class c : cls) {
+
+          for (int n = 0; n < 10; n++) { // repeat 10 times the test, in case of luck.
+
+
+              Object[] random = new Object[30];
+
+              for (int i = 0; i < random.length; i++) {
+                  random[i] = suppliers[rng.get()].get();
+              }
+
+              Visitable list = new VisitableList2(random);
+              Visitor visitor = new VisitorList(c);
+
+              visitor.visit(list);
+
+              List<Object> result = visitor.getFiltered();
+
+              for (int i = 0; i < random.length; i++) {
+
+                  if (random[i].getClass().equals(c)) {
+                      assertTrue(result.contains(random[i]));
+                  }
+              }
+
+              for (int i = 0; i < result.size(); i++) {
+                  assertEquals(c, result.get(i).getClass());
+              }
+
+          }
+      }
+    }
+
+    @Test
+    @Grade
+    @GradeFeedback(message = "Your VisitableList didn't work\n", onFail = true)
+    public void VisitableTest(){
+      for(Class c : cls) {
+
+          for (int n = 0; n < 10; n++) { // repeat 10 times the test, in case of luck.
+
+
+              Object[] random = new Object[30];
+
+              for (int i = 0; i < random.length; i++) {
+                  random[i] = suppliers[rng.get()].get();
+              }
+
+              Visitable list = new VisitableList(random);
+              Visitor visitor = new VisitorList2(c);
+
+              visitor.visit(list);
+
+              List<Object> result = visitor.getFiltered();
+
+              for (int i = 0; i < random.length; i++) {
+
+                  if (random[i].getClass().equals(c)) {
+                      assertTrue(result.contains(random[i]));
+                  }
+              }
+
+              for (int i = 0; i < result.size(); i++) {
+                  assertEquals(c, result.get(i).getClass());
+              }
+
+          }
+      }
     }
 
 }

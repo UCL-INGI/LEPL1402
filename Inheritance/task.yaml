@@ -1,6 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
-categories: []
+categories:
+- module3
 context: |-
     Will you be able to fill the gaps inside these three source files ( Animal_ , Cat_ , SuperCat_ ) so that it compiles and passes our tests ?
 

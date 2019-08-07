@@ -1,6 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
-categories: []
+categories:
+- module5
 context: |-
     In order to understand why the Stream class could be useful for genericity, we purpose you this small exercise that merged casting and streams.
 
@@ -62,7 +63,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Dealing with Streams - 2'
 network_grading: false
-order: 24
+order: 28
 problems:
     student_findFirst:
         header: 'Paste here the **body** of your ``findFirst`` method:'

@@ -1,36 +1,52 @@
 accessible: true
 author: Yakoub J, Rucquoy A
+categories:
+- module3
+context: ''
 environment: mcq
-error_message: Try again!
-success_message: Good job!
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
 name: '[TESTABLE] Type Casting - theoretical questions'
+network_grading: false
+order: 10
 problems:
     mcq1:
         choices:
         -   text: Everything works as expected
-        -   text: We got an error as boolean cannot be converted to int
-            valid: true
+        -   valid: true
+            text: We got an error as boolean cannot be converted to int
+        type: multiple_choice
         header: |-
             .. code-block:: java
 
                 int d = (int) true;
         name: What happens if you try to run the following code ?
-        type: multiple_choice
+        limit: 0
     mcq2:
-        type: match
         name: What contains b ?
-        answer: 97
+        type: match
+        answer: '97'
         header: |-
             .. code-block:: java
 
                 int b = (int) 'a';
     mcq3:
-        type: match
+        answer: '44'
         name: What contains b ?
-        answer: 44
         header: |-
             .. code-block:: java
 
                 int a = 300;
                 byte b = (byte)a;
-order: 4
+        type: match
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,6 +1,7 @@
-author: Yakoub J, Rucquoy A
 accessible: true
-name: '[TESTABLE] Threads - Shared counter with monitors'
+author: Yakoub J, Rucquoy A
+categories:
+- module6
 context: |-
     In this task we will ask you to use monitors for a thread-shared counter. When threads are executed concurrently and they share some piece of memory, unexpected/wrong results
     are very likely to happen. For example, if you run four threads on the same counter, each thread incrementing ten thousands times the counter, you would of course expect that the
@@ -9,10 +10,10 @@ context: |-
     monitors. We ask you to implement the three following methods:
 
         - void inc() : increment once the counter.
-        - void dec() : decrement the counter **if and only if** its current value is positive. In fact, the counter we ask you to implement must **always** be positive. If a thread wants to decrementthe counter but its value is 0, it has to wait.
+        - void dec() : decrement the counter **if and only if** its current value is positive. In fact, the counter we ask you to implement must **always** be positive. If a thread wants to decrement the counter but its value is 0, it has to wait.
         - int get() : returns the current value of the counter.
 
-    Pay attention, you are not allowed to use ``Lock`` for this mission, only built-in monitors.
+    Pay attention, you are not allowed to use ``Lock`` for this mission, only built-in monitors_. You might also face a deadlock_ problem.
 
     .. code-block:: java
 
@@ -23,11 +24,31 @@ context: |-
             // YOUR CODE HERE
 
         }
+
+    .. _monitors: https://www.artima.com/insidejvm/ed2/threadsynch.html
+    .. _deadlock: https://en.wikipedia.org/wiki/Deadlock
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[TESTABLE] Threads - Shared counter with monitors'
+network_grading: false
+order: 30
 problems:
     student_class:
-        type: code
-        language: java
+        name: ''
         header: Paste here the bodies **and** signatures of your three methods for
             the ``SharedCounter`` class.
-environment: java8scala
-order: 21
+        type: code
+        default: ''
+        language: java
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

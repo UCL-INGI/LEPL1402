@@ -1,6 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
-categories: []
+categories:
+- module5
 context: |-
     Given the Student_ class, You are asked to write the implementation of the StudentFunctions_ class ( that implements the StudentStreamFunction_ interface ) :
 
@@ -47,7 +48,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Dealing with Streams'
 network_grading: false
-order: 23
+order: 27
 problems:
     student_find_second_and_third_top_student_for_given_course:
         type: code

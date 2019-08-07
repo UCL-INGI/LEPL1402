@@ -1,6 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
-categories: []
+categories:
+- module2
 context: |-
     Write a method combineWith that could be added to the Tree_ class (Node class can be found here_).
 
@@ -52,7 +53,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Binary trees - combineWith'
 network_grading: false
-order: 27
+order: 8
 problems:
     student_combineWith:
         default: ''

@@ -1,4 +1,3 @@
-package public;
 
 public class Node {
 

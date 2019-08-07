@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class InginiousTests {
 
     @Test
-    @Grade(customPermissions = ThreadPermissionFactory.class)
+    @Grade(cpuTimeout = 3000, customPermissions = ThreadPermissionFactory.class)
     @GradeFeedback(onFail = true, onTimeout = true, message = "Your threads did not ran properly")
     public void testThreads(){
 
@@ -32,7 +32,7 @@ public class InginiousTests {
 
 
     @Test
-    @Grade(customPermissions = ThreadPermissionFactory.class)
+    @Grade(cpuTimeout = 3000, customPermissions = ThreadPermissionFactory.class)
     @GradeFeedback(onFail = true, onTimeout = true, message = "You did not give proper names to your threads")
     public void testName(){
         

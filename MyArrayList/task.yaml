@@ -1,6 +1,7 @@
-author: Yakoub J, Rucquoy A
 accessible: true
-name: '[TESTABLE] MyArrayList'
+author: Yakoub J, Rucquoy A
+categories:
+- module3
 context: |-
     In this task, you have to implement your own version of the famous java's ``ArrayList<E>`` : a dynamic sized array. Each time you want to add an element, you must check that the item can fit and then append it at the end of the list.
     If the array is too small, you need to resize it so that new items can be added in the future. To remove an element you need to specify
@@ -97,28 +98,53 @@ context: |-
             }
 
         }
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[TESTABLE] MyArrayList'
+network_grading: false
+order: 16
 problems:
     student_constructor:
         type: code
-        language: java
+        default: ''
         header: 'Paste here the **body** of your constructor ``MyArrayList(int initSize)``:'
-    student_enqueue:
-        type: code
+        name: ''
         language: java
+    student_enqueue:
+        default: ''
+        language: java
+        type: code
+        name: ''
         header: 'Paste here the **body** of your ``enqueue`` method:'
     student_remove:
-        type: code
         language: java
+        default: ''
+        name: ''
+        type: code
         header: 'Paste here the **body** of your ``remove(int index)`` method:'
     student_iterator:
-        type: code
-        language: java
         header: 'Paste here the **body** of your ``ListIterator`` class:'
-    student_utils:
         type: code
         language: java
+        name: ''
+        default: ''
+    student_utils:
+        name: ''
+        type: code
+        optional: 'on'
         header: 'Paste here (if needed) auxiliary methods (body **and** signatures)
             for your ``MyArrayList`` class:'
-        optional: true
-environment: java8scala
-order: 16
+        language: java
+        default: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

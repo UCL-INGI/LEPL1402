@@ -1,6 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
-categories: []
+categories:
+- module3
 context: |-
     In this task, you have to implement the map / filter functions of the following class :
 

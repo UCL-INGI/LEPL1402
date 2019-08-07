@@ -1,5 +1,3 @@
-package templates;
-
 import src.Student;
 import src.StudentStreamFunction;
 import java.util.Comparator;

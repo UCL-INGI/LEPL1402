@@ -28,6 +28,8 @@ public class InginiousTests {
 
     @Grade(cpuTimeout = 2000, customPermissions = ThreadPermissionFactory.class)
     @Test
+    @GradeFeedback(onFail = true, message = "Your code have failed the test")
+    @GradeFeedback(onTimeout = true, message = "There is probably a deadlock in your code.")
     public void testOverlappingThreads(){
 
         LockQueue queue = new LockQueue();
@@ -93,8 +95,9 @@ public class InginiousTests {
     }
 
 
-    @Grade(customPermissions = ThreadPermissionFactory.class)
+    @Grade(cpuTimeout = 2000, customPermissions = ThreadPermissionFactory.class)
     @Test
+    @GradeFeedback(onTimeout = true, message = "There is probably a deadlock in your code.")
     @GradeFeedback(onFail = true, message = "a problem occurred when producers threads were waiting for a consumer thread to " +
             "remove an element from the queue")
     public void testNotFullCondition(){
@@ -134,8 +137,9 @@ public class InginiousTests {
     }
 
 
-    @Grade(customPermissions = ThreadPermissionFactory.class)
+    @Grade(cpuTimeout = 2000, customPermissions = ThreadPermissionFactory.class)
     @Test
+    @GradeFeedback(onTimeout = true, message = "There is probably a deadlock in your code.")
     @GradeFeedback(onFail = true, message = "a problem occurred when consumer threads were waiting for a producer thread to " +
             "add a new element to the queue")
     public void testNotEmptyCondition(){
@@ -168,8 +172,9 @@ public class InginiousTests {
     }
 
 
-    @Grade(customPermissions = ThreadPermissionFactory.class)
+    @Grade(cpuTimeout = 2000, customPermissions = ThreadPermissionFactory.class)
     @Test
+    @GradeFeedback(onTimeout = true, message = "There is probably a deadlock in your code.")
     @GradeFeedbacks({@GradeFeedback(onFail = true, message = "Don't forget to update count variable !"),
     @GradeFeedback(onSuccess = true, message = "")})
     public void testCount(){

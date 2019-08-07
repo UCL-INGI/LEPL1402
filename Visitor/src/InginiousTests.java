@@ -43,6 +43,7 @@ public class InginiousTests {
 
     @Test
     @Grade
+    @GradeFeedback(message = "Your code couldn't handle a more complex expression", onFail = true)
     public void testTrees(){
 
         Visitor calculator = new Evaluation();

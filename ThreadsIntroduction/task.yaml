@@ -1,8 +1,9 @@
-author: Yakoub J, Rucquoy A
 accessible: true
-name: '[TESTABLE] Small introduction to threads - Counters'
+author: Yakoub J, Rucquoy A
+categories:
+- module6
 context: |-
-    In this task, we will ask you to implement the following method :
+    In this task, we will ask you to implement the ``init`` method of this Launcher_ class :
 
 
     .. code-block:: java
@@ -23,7 +24,7 @@ context: |-
 
 
     In Java, a thread needs an entry point to know where to start when we want it to run : this entry point can be
-    any object implementing the Runnable_ interface. For this exercise, we give you a small implementation of the Runnable_ interface : ``Counter``, a small class increasing
+    any object implementing the Runnable_ interface. For this exercise, we give you a small implementation of the Runnable_ interface : Counter_, a small class increasing
     an int variable ``rnd`` times.
 
 
@@ -58,10 +59,29 @@ context: |-
 
 
     .. _Runnable : https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html
+    .. _Counter: /course/LEPL1402/ThreadsIntroduction/Counter.java
+    .. _Launcher: /course/LEPL1402/ThreadsIntroduction/Launcher.java
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[TESTABLE] Small introduction to threads - Counters'
+network_grading: false
+order: 29
 problems:
     student_init:
         type: code
+        name: ''
         language: java
+        default: ''
         header: 'Paste here the **body** of your init **method**:'
-environment: java8scala
-order: 26
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
