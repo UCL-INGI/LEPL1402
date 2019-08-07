@@ -70,9 +70,9 @@ public class InginiousTests {
 
     @Test
     @Grade(cpuTimeout = 500)
+    @GradeFeedback(onTimeout = true, message = "This test timed out, watch for an infinite loop")
     @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
-            @GradeFeedback(onTimeout = true, message = "This test timed out, watch for an infinite loop"),
-            @GradeFeedback(onFail = true, message = "Your implementation doesn't hold against the given example")})
+                     @GradeFeedback(onFail = true, message = "Your implementation doesn't hold against the given example")})
     public void test1() {
         Tree t1 = new Tree(
                 new Node(
@@ -114,10 +114,9 @@ public class InginiousTests {
 
     @Test
     @Grade(cpuTimeout = 500)
+    @GradeFeedback(onTimeout = true, message = "This test timed out, watch for an infinite loop")
     @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
-            @GradeFeedback(onTimeout = true, message = "This test timed out, watch for an infinite loop"),
-            
-            @GradeFeedback(onFail = true, message = "Your implementation doesn't hold against random input")})
+                     @GradeFeedback(onFail = true, message = "Your implementation doesn't hold against random input")})
     public void test2() {
         for (int i = 0; i < 100; i++) {
             int[] data1 = generateIntArray();
@@ -132,9 +131,8 @@ public class InginiousTests {
 
     @Test
     @Grade(cpuTimeout = 500)
+    @GradeFeedback(onTimeout = true, message = "This test timed out, watch for an infinite loop")
     @GradeFeedbacks({@GradeFeedback(onSuccess = true, message = ""),
-            @GradeFeedback(onTimeout = true, message = "This test timed out, watch for an infinite loop"),
-            
             @GradeFeedback(onFail = true, message = "Think about empty trees")})
     public void test_null_tree(){
       Tree t2 = null;

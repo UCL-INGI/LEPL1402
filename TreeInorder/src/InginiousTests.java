@@ -30,7 +30,7 @@ public class InginiousTests {
 
     @Grade(cpuTimeout = 2000)
     @Test
-    @GradeFeedback(onFail = true, message = "Your recursive implementation did not produce expected results")
+    @GradeFeedback(onFail = true, message = "Your recursive implementation did not produce expected results, or it is not recursive")
     @GradeFeedback(onTimeout = true, message = "It looks like your recursion is infinite, check your base case")
     public void test1(){
 
@@ -59,7 +59,7 @@ public class InginiousTests {
 
     @Grade
     @Test
-    @GradeFeedback(onFail = true, message = "Your iterative implementation did not produce expected results")
+    @GradeFeedback(onFail = true, message = "Your iterative implementation did not produce expected results, or it is not iterative")
     public void test2(){
         Traversal.nCalls = 0;
 

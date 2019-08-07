@@ -20,7 +20,7 @@ context: |-
 
 
 
-    Here are the skeleton of the Node_ and Traversal_ classes:
+    Here are the skeleton of the ``Node`` and ``Traversal`` classes:
 
     .. code-block:: java
 
@@ -56,9 +56,6 @@ context: |-
             }
 
         }
-
-    .. _Node: /course/LEPL1402/TreeInorder/Node.java
-    .. _Traversal: /course/LEPL1402/TreeInorder/Traversal.java
 environment: java8scala
 evaluate: best
 file: ''
