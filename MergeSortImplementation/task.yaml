@@ -1,0 +1,70 @@
+accessible: true
+author: ''
+categories: []
+context: |
+    In this exercise we ask you to implement merge sort algorithm on an array of integer. You have to use **2 methods**:
+
+        - Sort, this method has to divide the array and apply merge.
+        - Merge, this method has to merge the array given the 2 index, it receives from sort 3 index, lower bound, middle and high. It also receives a copy of the first array.
+
+    The tests are build to make you able to test the two methods separly but we **recommand** you to test them by yourself.
+
+    Here is the class MergeSort_:
+
+    .. code-block:: java
+
+        public class MergeSort {
+
+            /**
+             * Merge the array from lo to hi
+             */
+            private static void merge(int[] a, int lo, int mid, int hi) {
+                // TODO By Student
+            }
+            /**
+             *  Split the array and call merge
+             */
+            public static void sort(int[] a) {
+                // TODO By Student
+            }
+
+            //TODO Optionnal additionnal method
+        }
+
+    .. _MergeSort: /course/LEPL1402/MergeSortImplementation/MergeSort.java
+environment: pyjavacpp
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Merge Sort Implementation
+network_grading: false
+problems:
+    student_sort:
+        language: java
+        name: Sort
+        type: code
+        header: Paste here the **body** of your method sort
+        default: //
+    student_merge:
+        name: Merge
+        type: code
+        default: //
+        language: java
+        header: 'Paste here the **body** of your method merge:'
+    student_additionnal:
+        optional: 'on'
+        type: code
+        name: Additionnal method
+        default: ''
+        header: 'Paste here your additionnal method, **including their signature**:'
+        language: java
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

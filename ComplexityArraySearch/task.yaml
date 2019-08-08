@@ -1,0 +1,44 @@
+accessible: true
+author: Bastin J, Piron H
+categories:
+- module2
+context: |-
+    In this task, you have to implement a method ``search`` that looks for an element in an ascending sorted array. Your method must return the **index** of the element in the array or **-1**.
+
+    We'll test the complexity of your code so try to find the best possible algorithm.
+
+    .. code-block:: java
+
+        public class Search {
+
+            /**
+             * @param tab is an ordered array of int.
+             * @return index of elem or -1
+             */
+            public static int search(int[] tab, int elem){
+                //TODO YOUR CODE HERE
+            }
+        }
+environment: pyjavacpp
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Array Search
+network_grading: false
+problems:
+    student_code:
+        header: 'Paste here the **body** of your method :'
+        name: ''
+        language: java
+        default: ''
+        type: code
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

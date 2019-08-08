@@ -1,0 +1,39 @@
+accessible: true
+author: ''
+categories: []
+context: |-
+    Given the array [-2,1,-3,4,-1,2,1,-5,4]
+
+    the contiguous subarray [4,-1,2,1] has the largest sum = 6.
+
+    Your goal is to write the method ``maxSubArray`` that solves this problem.
+
+    .. code-block:: java
+
+        /*
+        *    Given the array [-2,1,-3,4,-1,2,1,-5,4]
+        *    The contiguous subarray that produces the best result is [4,-1,2,1]
+        *    For this array your method should return 6
+        */
+        public static int maxSubArray(int[] a){
+
+            //TODO By Student
+
+        }
+environment: pyjavacpp
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Largest Sum Contiguous Subarray
+network_grading: false
+problems: {}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

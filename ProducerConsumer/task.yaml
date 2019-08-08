@@ -66,8 +66,7 @@ limits:
     memory: '100'
     output: '2'
     time: '30'
-name: '[NEED REVIEW BEFORE OPENING THIS TASK TO STUDENTS] Threads - Producer/Consumer
-    with locks'
+name: '[TESTABLE] Threads - Producer/Consumer with locks'
 network_grading: false
 order: 31
 problems:

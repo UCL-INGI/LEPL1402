@@ -1,0 +1,71 @@
+accessible: true
+author: Bastin J, Piron H
+categories:
+- module2
+context: |-
+    The three first questions are gonne be complexity questions about trees, the trees we are talking about is a complete ordered binary tree. Like the example you see here under:
+
+    .. image:: /course/LEPL1402/complexityMCQ2/binaryTree.png
+       :scale: 60%
+       :align: center
+       :height: 375px
+       :width: 653px
+
+    The rest of the questions are harder question about complexity.
+environment: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: 'Complexity : harder MCQ'
+network_grading: false
+problems:
+    mcq:
+        header: In what complexity can you determine the depth of a tree? (Choose
+            the most precise answer)
+        choices:
+        -   text: :math:`\Theta(n)`
+        -   text: :math:`\mathcal{O}(n)`
+        -   text: :math:`\mathcal{O}(nlog(n))`
+        -   valid: true
+            feedback: GOOD JOB
+            text: :math:`\Theta(log(n))`
+        limit: 0
+        type: multiple_choice
+        name: Depth
+    mcq2:
+        choices:
+        -   text: :math:`\mathcal{O}(n)`
+        -   text: :math:`\Omega(log(n))`
+        -   valid: true
+            text: :math:`\mathcal{O}(log(n))`
+        -   text: :math:`\Theta(log(n))`
+        -   text: :math:`\Omega(1)`
+            valid: true
+        -   text: :math:`\Theta(n)`
+        name: Find
+        type: multiple_choice
+        multiple: true
+        header: 'The tree is still a complete ordered binary tree, in what complexity(ies)
+            can you find an element? '
+        limit: 0
+    mcq3:
+        choices:
+        -   text: :math:`\Theta(n)`
+            valid: true
+        -   text: :math:`\Theta(nlog(n))`
+        -   text: :math:`\mathcal{O}(nlog(n))`
+        -   text: :math:`\Theta(n^2)`
+        name: Traversal
+        header: 'What is the complexity of in order traversal? '
+        limit: 0
+        type: multiple_choice
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

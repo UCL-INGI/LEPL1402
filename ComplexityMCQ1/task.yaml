@@ -1,0 +1,160 @@
+accessible: true
+author: Bastin J, Piron H
+categories:
+- module2
+context: ''
+environment: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: 'Complexity : simple MCQ'
+network_grading: false
+problems:
+    mcq5:
+        choices:
+        -   feedback: Execution time is very different than complexity
+            text: Its complexity is :math:`\mathcal{O}(1)`
+        -   text: Its complexity is :math:`\mathcal{O}(n)`
+            feedback: Execution time is very different than complexity
+        -   text: I can't say anything about its complexity because i don't have the
+                size of the problem
+        -   text: I can't say anything about complexity because i don't know the algorithm
+            valid: true
+        name: Complexity vs Execution Time
+        limit: 0
+        type: multiple_choice
+        header: If an algorithm ran in less than a miscrosecond on my computer, what
+            can I conclude?
+    mcq1:
+        choices:
+        -   text: :math:`\Theta(n^3)`
+            feedback: Good job! The matrix has 3 dimensions and the algorithm go through
+                every cell.
+            valid: true
+        -   feedback: There are 3 loops!
+            text: :math:`\Theta(n^2)`
+        -   text: :math:`\mathcal{O}(n^3)`
+            feedback: Are worst and best cases different?
+        -   feedback: Did you go to the lecture? It is supposed to be the easiest
+                question
+            text: :math:`\mathcal{O}(n^2)`
+        limit: 0
+        name: Nested loops
+        type: multiple_choice
+        header: |-
+            What is the complexity of this algorithm? (Select the best possible answer)
+
+            .. code-block:: java
+
+                public static int max(int[][][] array){
+
+                    int r= array[0][0][0];
+
+                    for(int i = 0 ; i < array.length ; i++){
+                        for(int j = 0 ; j< array[0].length ; j++){
+                            for(int k =0 ; k<array[0][0].length; k++){
+
+                                r = Math.max(r , array[i][j][k]);
+
+                            }
+                        }
+                    }
+                    return r;
+                }
+
+            Consider that the matrix is cubic
+    mcq2:
+        choices:
+        -   text: :math:`\Omega(1)`
+        -   text: :math:`\mathcal{O}(n^2)`
+        -   text: :math:`\Theta(1)`
+        -   text: :math:`\mathcal{O}(n)`
+        -   text: :math:`\Theta(n)`
+            valid: true
+        -   text: :math:`\Omega(n)`
+        name: Finding Maximum
+        header: |+
+            What complexity does it take to find the maximum in a list? (Select the best answer(s))
+
+        type: multiple_choice
+        limit: 0
+        multiple: true
+    mcq3:
+        choices:
+        -   text: :math:`\mathcal{O}(n^2)`
+            valid: true
+        -   text: :math:`\mathcal{O}(n^3)`
+        -   valid: true
+            text: :math:`\Omega(1)`
+        -   text: :math:`\Omega(n)`
+        -   text: :math:`\Theta(n^2)`
+        -   text: :math:`\Theta(n)`
+        limit: 0
+        header: You iterate through a 2 dimensional array to find a value. What is
+            (are) the most precise complexity(ies)?
+        name: Find value
+        multiple: true
+        type: multiple_choice
+    mcq4:
+        choices:
+        -   valid: true
+            text: :math:`\mathcal{O}(n)`
+        -   text: :math:`\mathcal{O}(n^2)`
+        -   text: :math:`\Theta(n)`
+        -   text: :math:`\Theta(log(n))`
+        -   text: :math:`\Omega(1)`
+            valid: true
+        -   text: :math:`\Omega(log(n))`
+        type: multiple_choice
+        limit: 0
+        multiple: true
+        header: You write a function to verify if a list is ordered or not, this function
+            returns true if it is and false if it is'nt. What is (are) the most precise
+            complexity(ies)?
+        name: Ordered List
+    mcq6:
+        choices:
+        -   text: 'True because for :math:`c = 3` and :math:`cn^2 > 3n^2 -100n + 6
+                \: , \: \forall n > 0` '
+            valid: true
+        -   text: True because for any :math:`c > 0 ` and :math:`cn < 3n^2` when :math:`n
+                > c`
+        -   text: 'False because for :math:`c = 3` and :math:`cn^2 > 3n^2 -100n +
+                6 \: , \: \forall n > 0` '
+        -   text: False because for any :math:`c > 0 ` and :math:`cn < 3n^2` when
+                :math:`n > c`
+        limit: 0
+        name: Polynomial complexity
+        header: |+
+            Is this proposition true? :math:`3n^2 -100n + 6 \in \mathcal{O}(n^2)`
+
+
+        multiple: true
+        type: multiple_choice
+    mcq7:
+        choices:
+        -   text: :math:`1000n^2 + 0.001n^3 \in \Theta(n^3)`
+            valid: true
+        -   valid: true
+            text: :math:`n^2 \in \Omega(n)`
+        -   valid: true
+            text: :math:`0.00001 \in \Theta(1)`
+        -   valid: true
+            text: :math:`2^{2n} \in \mathcal{O}(2^n)`
+        -   text: :math:`3^n \in \mathcal{O}(2^n)`
+        -   text: :math:`n log(n) \in \mathcal{O}(n)`
+        limit: 0
+        name: Mathematical Functions and Complexity
+        multiple: true
+        header: 'Select the right proposition(s) :'
+        type: multiple_choice
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
