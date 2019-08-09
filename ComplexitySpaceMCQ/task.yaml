@@ -1,0 +1,122 @@
+accessible: true
+author: Bastin J, Piron H
+categories:
+- module2
+context: Multiple choice questions about space complexity
+environment: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: Space Complexity MCQ
+network_grading: false
+problems:
+    mcq1:
+        choices:
+        -   text: :math:`\Theta(1)`
+            valid: true
+        -   text: :math:`\Theta(i)`
+        -   text: :math:`\Theta(j)`
+        -   text: :math:`\Theta(i*j)`
+        limit: 0
+        name: Basic Method
+        type: multiple_choice
+        header: |+
+            What is the space complexity of this method?
+
+            .. code-block:: java
+
+                public static int multiply(int i, int j){
+                    return i*j;
+                }
+
+
+
+
+
+
+
+
+    mcq2:
+        name: Max Method
+        header: |+
+            What is the space complexity of this method? (where **n** is the size of the array)
+
+            .. code-block:: java
+
+                public static int maximum(int[] a){
+                    int maxi=a[0];
+                    for(int i = 0 ; i < a.length ; i++)
+                        Math.max(maxi, a[i] );
+                    return maxi;
+                }
+
+
+
+        choices:
+        -   text: :math:`\Theta(n)`
+            valid: true
+        -   text: :math:`\mathcal{O}(1)`
+        -   text: :math:`\mathcal{O}(n)`
+        -   text: :math:`\Theta(1)`
+        type: multiple_choice
+        limit: 0
+    mcq3:
+        choices:
+        -   text: :math:`\Theta(square)`
+            valid: true
+        -   text: :math:`\Theta(1)`
+        -   text: :math:`\mathcal{O}(square)`
+        -   text: :math:`\mathcal{O}(1)`
+        limit: 0
+        header: |+
+            What is the space complexity of this method?
+
+            .. code-block:: java
+
+                public static int[] squareArray(int square){
+                    int[] result = new int[square+1];
+                    for(int i = 0 ; i <= square;i++){
+                        result[i]= i*i;
+                    }
+                    return result;
+                }
+
+
+        name: Array of square
+        type: multiple_choice
+    mcq4:
+        choices:
+        -   valid: true
+            text: :math:`\Theta(n*m)`
+        -   text: :math:`\Theta(n)`
+        -   text: :math:`\Theta(m)`
+        -   text: :math:`\mathcal{O}(n)`
+        -   text: :math:`\mathcal{O}(n*m)`
+        -   text: :math:`\mathcal{O}(m)`
+        type: multiple_choice
+        limit: 0
+        header: |-
+            What is the space complexity of this method?
+
+            .. code-block:: java
+
+                public static int[][] multiplicationTable(int n, int m) {
+                    int[][] table = new int[n][m];
+                    for (int i = 0; i < n; i++) {
+                        for (int j = 0; j < m; j++) {
+                            table[i][j] = (i + 1) * (j + 1);
+                        }
+                    }
+                    return table;
+                }
+        name: Multiplication table
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,5 +1,3 @@
-package public;
-
 public class MergeSort {
 
     /**

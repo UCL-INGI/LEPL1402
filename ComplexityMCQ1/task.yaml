@@ -18,14 +18,15 @@ problems:
     mcq5:
         choices:
         -   feedback: Execution time is very different than complexity
-            text: Its complexity is :math:`\mathcal{O}(1)`
-        -   text: Its complexity is :math:`\mathcal{O}(n)`
+            text: Its time complexity is :math:`\mathcal{O}(1)`
+        -   text: Its time complexity is :math:`\mathcal{O}(n)`
             feedback: Execution time is very different than complexity
-        -   text: I can't say anything about its complexity because i don't have the
-                size of the problem
-        -   text: I can't say anything about complexity because i don't know the algorithm
+        -   text: I can't say anything about its time complexity because i don't have
+                the size of the problem
+        -   text: I can't say anything about time complexity because i don't know
+                the algorithm
             valid: true
-        name: Complexity vs Execution Time
+        name: Time Complexity vs Execution Time
         limit: 0
         type: multiple_choice
         header: If an algorithm ran in less than a miscrosecond on my computer, what
@@ -47,7 +48,7 @@ problems:
         name: Nested loops
         type: multiple_choice
         header: |-
-            What is the complexity of this algorithm? (Select the best possible answer)
+            What is the time complexity of this algorithm? (Select the best possible answer)
 
             .. code-block:: java
 
@@ -67,7 +68,7 @@ problems:
                     return r;
                 }
 
-            Consider that the matrix is cubic
+            Consider that the matrix is cubic of length **n**.
     mcq2:
         choices:
         -   text: :math:`\Omega(1)`
@@ -79,7 +80,7 @@ problems:
         -   text: :math:`\Omega(n)`
         name: Finding Maximum
         header: |+
-            What complexity does it take to find the maximum in a list? (Select the best answer(s))
+            What time complexity does it take to find the maximum in a list of length **n**? (Select the best answer(s))
 
         type: multiple_choice
         limit: 0
@@ -95,8 +96,8 @@ problems:
         -   text: :math:`\Theta(n^2)`
         -   text: :math:`\Theta(n)`
         limit: 0
-        header: You iterate through a 2 dimensional array to find a value. What is
-            (are) the most precise complexity(ies)?
+        header: You iterate through a quared 2 dimensional array of length **n** to
+            find a value. What is (are) the most precise time complexity(ies)?
         name: Find value
         multiple: true
         type: multiple_choice
@@ -113,9 +114,9 @@ problems:
         type: multiple_choice
         limit: 0
         multiple: true
-        header: You write a function to verify if a list is ordered or not, this function
-            returns true if it is and false if it is'nt. What is (are) the most precise
-            complexity(ies)?
+        header: You write a function to verify if a list of length **n** is ordered
+            or not, this function returns true if it is and false if it is'nt. What
+            is (are) the most precise time complexity(ies)?
         name: Ordered List
     mcq6:
         choices:
@@ -129,7 +130,7 @@ problems:
         -   text: False because for any :math:`c > 0 ` and :math:`cn < 3n^2` when
                 :math:`n > c`
         limit: 0
-        name: Polynomial complexity
+        name: Polynomial Time Complexity
         header: |+
             Is this proposition true? :math:`3n^2 -100n + 6 \in \mathcal{O}(n^2)`
 
@@ -149,9 +150,49 @@ problems:
         -   text: :math:`3^n \in \mathcal{O}(2^n)`
         -   text: :math:`n log(n) \in \mathcal{O}(n)`
         limit: 0
-        name: Mathematical Functions and Complexity
+        name: Mathematical Functions and Time Complexity
         multiple: true
         header: 'Select the right proposition(s) :'
+        type: multiple_choice
+    mcq8:
+        choices:
+        -   text: :math:`\Theta(n+m)`
+        -   text: :math:`\Theta(n*m)`
+            valid: true
+        -   text: :math:`\mathcal{O}(n+m)`
+        -   text: :math:`\mathcal{O}(n^2*m)`
+        -   text: :math:`\Theta(n^2+m)`
+        -   text: :math:`\Theta(n+m^2)`
+        -   text: :math:`\mathcal{O}(n*m^2)`
+        limit: 0
+        header: |-
+            What is the time complexity of this algorithm taking into account the complexity of ``findMax`` and ``findMin``?
+
+            .. code-block:: java
+
+                public static int[][] byLineMaxAndMin(int[][] tab){
+                    int n = tab.length;
+                    int m = tab[0].length;
+                    int[][] r = new int[n][2];
+                    for(int i = 0; i < n; i++){
+                        r[i][0] = findMax(tab[i]); //method time complexity in Theta(m)
+                        r[i][1] = findMin(tab[i]); //method time complexity in Theta(m)
+                    }
+                    return r;
+                }
+        name: Complexity of algorithm
+        type: multiple_choice
+    mcq9:
+        name: Merging two ordered arrays
+        choices:
+        -   text: :math:`\Theta(n*m)`
+        -   text: :math:`\mathcal{O}(n*m)`
+        -   text: :math:`\Theta(n+m)`
+            valid: true
+        -   text: :math:`\mathcal{O}(n+m)`
+        limit: 0
+        header: What time complexity does it take to merge two ordered arrays into
+            a third ordered one? The two arrays have a size of **n** and **m** respectively.
         type: multiple_choice
 stored_submissions: 0
 submission_limit:

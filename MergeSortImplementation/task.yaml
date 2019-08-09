@@ -2,7 +2,7 @@ accessible: true
 author: ''
 categories: []
 context: |
-    In this exercise we ask you to implement merge sort algorithm on an array of integer. You have to use **2 methods**:
+    In this exercise we ask you to implement the top-down_ merge sort  algorithm on an array of integer. You have to use **2 methods**:
 
         - Sort, this method has to divide the array and apply merge.
         - Merge, this method has to merge the array given the 2 index, it receives from sort 3 index, lower bound, middle and high. It also receives a copy of the first array.
@@ -32,6 +32,8 @@ context: |
         }
 
     .. _MergeSort: /course/LEPL1402/MergeSortImplementation/MergeSort.java
+
+    .. _top-down: /course/LEPL1402/MergeSortImplementation/topdown.png
 environment: pyjavacpp
 evaluate: best
 file: ''

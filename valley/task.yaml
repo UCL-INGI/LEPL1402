@@ -1,0 +1,80 @@
+accessible: true
+author: Bastin J, Piron H
+categories:
+- module2
+context: |
+    A geologist is trying to find the deepest valley and the biggest mountain between 2 locations and he thinks you can help him! He'll give you an array of integer like this one:
+
+    .. image:: /course/LEPL1402/valley/arraytest.png
+       :scale: 35%
+       :align: center
+       :height: 184px
+       :width: 1771px
+
+
+    The negative values mean the slope is negative and the positive ones mean it's positive. Thus previous array looks like this:
+
+    .. image:: /course/LEPL1402/valley/schema.png
+       :scale: 35%
+       :align: center
+       :height: 912px
+       :width: 1771px
+
+    Your method will return an array containing the depth of the deepest valley at index 0 and the biggest mountain at index 1. In this example, the depth is 5 and the summit is at 3.
+
+    \
+    We can define a valley by saying it is sequence of negative number followed by a sequence of positive number with the same amount of numbers. The depth is the length of the sequence.
+
+    \
+    We can define a mountain by saying it is sequence of positive number followed by a sequence of negative number with the same amount of numbers. The height is the length of the sequence.
+
+    Consider that the array is never gonna be empty.
+    \
+
+    Here is the class you have to fill:
+
+    .. code-block:: java
+
+        public class Valley{
+            /*
+             * Example:
+             * [1, 1, 1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, -1, -1]
+             * Should return
+             * [5, 3]
+             */
+
+             public static int[] valley ( int[] array){
+             //TODO By Student
+
+            }
+        }
+environment: pyjavacpp
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Longest Valley
+network_grading: false
+problems:
+    student_code:
+        header: Paste here the **body** of your methode ``valley``
+        name: ''
+        language: java
+        default: ''
+        type: code
+    student_additionnal:
+        optional: 'on'
+        type: code
+        name: ''
+        default: ''
+        header: Paste here your additionnal methods
+        language: java
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
