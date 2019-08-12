@@ -35,7 +35,7 @@ stdout: |
     GENERATING JAR : jar -cmvfe /task/MANIFEST.MF /task/task_evaluation.jar src.StudentTestRunner .
     RUNNING CODE : java -javaagent:/course/common/libs/jacocoagent.jar -jar /task/task_evaluation.jar
     GENERATING THE EXEC FILE : java -jar /course/common/libs/jacococli.jar report /task/jacoco.exec --classfiles /task/classes/flavour --xml /task/coverage_result.xml
-    [{'type': 'INSTRUCTION', 'missed': 0, 'covered': 4}, {'type': 'BRANCH', 'missed': 0, 'covered': 2}]
+    [{'type': 'INSTRUCTION', 'missed': 3, 'covered': 6}, {'type': 'BRANCH', 'missed': 0, 'covered': 2}]
 submitted_on: 2019-07-23 20:56:59.584000
 taskid: exampleCoverage
 tests: {}
@@ -45,7 +45,7 @@ text: |+
 
     .. code-block:: java
 
-        INSTRUCTION:    4/4
+        INSTRUCTION:    6/9
         BRANCH:    2/2
 
 username:

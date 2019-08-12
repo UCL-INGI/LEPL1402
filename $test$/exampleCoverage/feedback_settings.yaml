@@ -1,5 +1,5 @@
 has_feedback: true
-quorum: 0.85
+quorum: 0.65
 feedback_kind: JaCoCo
 coverage_stats:
   - INSTRUCTION
