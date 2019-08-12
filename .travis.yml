@@ -18,12 +18,10 @@ before_script:
   - python3 travis_setup.py
   - chmod +x check_requirements.py
 script:
-  - echo "Inginious Testing on your tasks"
+  - echo "Inginious Testing on your tasks + (Integration Testing on the generic runscript)"
   - inginious-autotest . LEPL1402 -l
   - echo "Consistence Testing on your tasks"
   - ./check_requirements.py
-  - echo "Integration Testing on the generic runscript"
-  - inginious-autotest . \$test\$ -l
 notifications:
   slack:
       on_success: change

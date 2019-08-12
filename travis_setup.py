@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import shutil
+from pathlib import Path
 
 folder_dir = 'LEPL1402'
 os.mkdir(folder_dir)
@@ -17,6 +18,6 @@ for item in items:
 # Copy course.yaml
 shutil.copy2('./course.yaml', "{}/course.yaml".format(folder_dir))
 
-# Prepare the $test$ folder for unit test of feedback
-shutil.copytree('./$common', "$test$/$common")
-shutil.copy2('./course.yaml', "$test$/course.yaml")
+# Set up some example tasks for Integration testing
+for item in [item.name for item in Path("$test$").iterdir() if item.is_dir()]:
+    shutil.copytree('$test$/' + item, "{}/".format(folder_dir) + item)

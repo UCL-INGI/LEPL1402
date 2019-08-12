@@ -13,7 +13,7 @@ limits:
     memory: '100'
     output: '2'
     time: '30'
-name: 'Example of Coverage Testing'
+name: '[Example] Coverage Testing'
 network_grading: false
 order: 28
 problems:
