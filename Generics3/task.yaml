@@ -29,7 +29,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Generics 3'
 network_grading: false
-order: 14
+order: 21
 problems:
     student_gate_xor:
         language: java

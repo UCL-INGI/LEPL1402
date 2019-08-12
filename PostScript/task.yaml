@@ -69,7 +69,7 @@ limits:
     time: '30'
 name: Postscript interpreter
 network_grading: false
-order: 17
+order: 24
 problems:
     student_code:
         header: 'Paste here the **body** of your Interpreter class:'

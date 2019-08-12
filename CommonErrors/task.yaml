@@ -338,10 +338,10 @@ problems:
 
                 public static void main(String[] args) {
 
-                  int mean_of_life = 42;
-                  int random_int = 2048;
-                  swap(mean_of_life, random_int);
-                  String s1 = "After swapping call, MEAN OF LIFE is equal to "+ mean_of_life;
+                  int meanOfLife = 42;
+                  int randomInt = 2048;
+                  swap(meanOfLife, randomInt);
+                  String s1 = "After swapping call, MEAN OF LIFE is equal to "+ meanOfLife;
                   System.out.println(s1);
 
                   Student std = new Student("Noel", 10);
@@ -364,7 +364,7 @@ problems:
         -   text: 'Missing a semicolon after v * 3.14 : Each statement must finish
                 by a semicolon'
             valid: true
-        -   text: Missing a double modifier in the method declaration of compute_something
+        -   text: Missing a double modifier in the method declaration of computeSomething
             valid: true
         -   feedback: You can multiply a floating point number with an integer but
                 it's not a good habit
@@ -376,7 +376,7 @@ problems:
             .. code-block:: java
 
               public class Wrong {
-                public static compute_something(int v) {
+                public static computeSomething(int v) {
                   return v * 3.14
                 }
               }

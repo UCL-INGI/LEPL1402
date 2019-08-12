@@ -55,7 +55,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Generics 1'
 network_grading: false
-order: 12
+order: 19
 problems:
     map:
         default: ''

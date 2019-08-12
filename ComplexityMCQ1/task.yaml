@@ -14,6 +14,7 @@ limits:
     time: '30'
 name: 'Complexity : simple MCQ'
 network_grading: false
+order: 4
 problems:
     mcq5:
         choices:
@@ -68,7 +69,7 @@ problems:
                     return r;
                 }
 
-            Consider that the matrix is cubic of length **n**.
+            Consider that the matrix is cubic of length :math:`n`.
     mcq2:
         choices:
         -   text: :math:`\Omega(1)`
@@ -80,7 +81,7 @@ problems:
         -   text: :math:`\Omega(n)`
         name: Finding Maximum
         header: |+
-            What time complexity does it take to find the maximum in a list of length **n**? (Select the best answer(s))
+            What time complexity does it take to find the maximum in a list of length :math:`n`? (Select the best answer(s))
 
         type: multiple_choice
         limit: 0
@@ -96,8 +97,8 @@ problems:
         -   text: :math:`\Theta(n^2)`
         -   text: :math:`\Theta(n)`
         limit: 0
-        header: You iterate through a quared 2 dimensional array of length **n** to
-            find a value. What is (are) the most precise time complexity(ies)?
+        header: You iterate through a quared 2 dimensional array of length :math:`n`
+            to find a value. What is (are) the most precise time complexity(ies)?
         name: Find value
         multiple: true
         type: multiple_choice
@@ -114,7 +115,7 @@ problems:
         type: multiple_choice
         limit: 0
         multiple: true
-        header: You write a function to verify if a list of length **n** is ordered
+        header: You write a function to verify if a list of length :math:`n` is ordered
             or not, this function returns true if it is and false if it is'nt. What
             is (are) the most precise time complexity(ies)?
         name: Ordered List
@@ -192,7 +193,8 @@ problems:
         -   text: :math:`\mathcal{O}(n+m)`
         limit: 0
         header: What time complexity does it take to merge two ordered arrays into
-            a third ordered one? The two arrays have a size of **n** and **m** respectively.
+            a third ordered one? The two arrays have a size of :math:`n` and :math:`m`
+            respectively.
         type: multiple_choice
 stored_submissions: 0
 submission_limit:

@@ -63,7 +63,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Factory design pattern - Level generator'
 network_grading: false
-order: 22
+order: 29
 problems:
     student_factory:
         language: java

@@ -47,6 +47,30 @@ public class InginiousTests {
         assertEquals(3, result[1]);
 
     }
+    
+    @Test()
+    @Grade(value=1, cpuTimeout=100)
+    @GradeFeedback(onFail=true, message = "The height is not correct when the mountain covers the entire array")
+    public void testHeightEqualsArraySize(){
+
+        int[] example = new int[]{1,1,1,1,1,-1,-1,-1,-1,-1};
+
+        int[] result = Valley.valley(example);
+
+        assertEquals(5, result[1]);
+    }
+
+    @Test()
+    @Grade(value=1, cpuTimeout=100)
+    @GradeFeedback(onFail=true, message = "The depth is not correct when the valley covers the entire array")
+    public void testDepthEqualsArraySize(){
+
+        int[] example = new int[]{-1,-1,-1,-1,-1,1,1,1,1,1};
+
+        int[] result = Valley.valley(example);
+
+        assertEquals(5, result[0]);
+    }
 
     @Test()
     @Grade(value=2, cpuTimeout=100)
@@ -92,7 +116,7 @@ public class InginiousTests {
     }
     
     @Test()
-    @Grade(value=10, cpuTimeout=100)
+    @Grade(value=8, cpuTimeout=100)
     @GradeFeedback(onFail=true, message = "Your code is not working as it should on a big array")
     @GradeFeedback(onTimeout=true, message = "Your algorithm is too slow")
     public void testComplexity(){
@@ -111,22 +135,25 @@ public class InginiousTests {
 
         int cmoun=0,mmoun=0,cval=0,mval=0;
         boolean up = true;
-        if(array[0]<0)
-            up=false;
+
+        if(array[0]<0) up=false;
+
         for(int i = 0 ; i < array.length; i++){
-            if(up && array[i]>0){
-                cmoun++;
-            }else if(!up && array[i]<0){
-                cval++;
-            }else if(up && array[i]<0){
+
+            if(up && array[i]>0) cmoun++;
+            else if(!up && array[i]<0) cval++;
+            else if(up && array[i]<0){
                 up=false;
-                mval = Math.max(Math.min(cval, cmoun), mval);
                 cval = 1;
             }else{ //!up && array[i]>0
                 up=true;
-                mmoun = Math.max(Math.min(cval, cmoun), mmoun);
                 cmoun=1;
             }
+
+            int cmin = Math.min(cmoun, cval);
+            if(cmin> mval && up) mval = cmin;
+            else if(cmin > mmoun && !up) mmoun = cmin;
+
         }
         return new int[]{mval, mmoun};
 

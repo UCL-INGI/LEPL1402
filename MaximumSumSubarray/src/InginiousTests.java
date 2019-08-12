@@ -4,6 +4,8 @@ import com.github.guillaumederval.javagrading.Grade;
 import com.github.guillaumederval.javagrading.GradeFeedback;
 import com.github.guillaumederval.javagrading.GradeFeedbacks;
 import com.github.guillaumederval.javagrading.GradingRunner;
+import com.github.guillaumederval.javagrading.CustomGradingResult;
+import com.github.guillaumederval.javagrading.TestStatus;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -116,14 +118,35 @@ public class InginiousTests {
     }
 
     @Test
-    @Grade(cpuTimeout=3000, value = 10)
-    @GradeFeedbacks({@GradeFeedback(message = "Your algorithm has not the expected time complexity !!", onTimeout = true),
-    @GradeFeedback(message = "Your maxSubArray does not work!\n", onFail = true)})
-    public void testComplexity(){
-      for(int i = 0; i < 10; i++){
-        int[] tab = generate_random_tab(10000);
-        assertArrayEquals(MaximumSubArray.maxSubArray(tab), good_search(tab));
+    @Grade(cpuTimeout=5000, value = 10, custom=true)
+    public void testComplexity() throws CustomGradingResult{
+      int[] tab = generate_random_tab(2000);
+      int[] tab2 = generate_random_tab(50000);
+      long[] exec = new long[2];
+      //try cubic complexity
+      exec[0] = System.currentTimeMillis();
+      MaximumSubArray.maxSubArray(tab);
+      exec[1] = System.currentTimeMillis();
+
+
+      if((exec[1]-exec[0]) > 1000) {
+        throw new CustomGradingResult(TestStatus.TIMEOUT, 0, "The time complexity of your algorithm is approximatively O(n^3). A solution is possible in time complexity O(n^2) " +
+        "with partial sums.");
       }
+      else { //if not cubic test square of linear
+        exec[0] = System.currentTimeMillis();
+        MaximumSubArray.maxSubArray(tab2);
+        exec[1] = System.currentTimeMillis();
+
+        if((exec[1]-exec[0]) > 1000){
+          throw new CustomGradingResult(TestStatus.TIMEOUT, 4, "The time complexity of your algorithm is approximatively O(n^2). A solution is possible in time complexity O(n) : " +
+          "either the maximum subarray sum ending at position i+1 includes the maximum subarray sum ending at position i as prefix, or it doesn't.");
+        }
+        else {
+          throw new CustomGradingResult(TestStatus.SUCCESS, 10, "Good! You find the way to have a time complexity in O(n)");
+        }
+      }
+
     }
 
 }

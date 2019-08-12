@@ -109,7 +109,7 @@ limits:
     time: '30'
 name: '[TESTABLE] MyArrayList'
 network_grading: false
-order: 16
+order: 23
 problems:
     student_constructor:
         type: code

@@ -28,7 +28,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Abstract Class'
 network_grading: false
-order: 9
+order: 16
 problems:
     student_shape:
         header: 'Paste here your ``Shape`` class:'

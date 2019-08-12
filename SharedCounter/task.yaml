@@ -38,7 +38,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Threads - Shared counter with monitors'
 network_grading: false
-order: 30
+order: 37
 problems:
     student_class:
         name: ''

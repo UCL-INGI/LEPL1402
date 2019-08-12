@@ -68,7 +68,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Stack with a Queue'
 network_grading: false
-order: 18
+order: 25
 problems:
     student_add:
         default: ''

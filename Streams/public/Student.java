@@ -6,10 +6,10 @@ public class Student implements Comparable<Student> {
     private String firstName;
     private String lastName;
     private int section;
-    private Map<String, Double> courses_results = new HashMap<>();
+    private Map<String, Double> coursesResults = new HashMap<>();
 
-    public Student(String firstName, String lastName, int section, Map<String, Double> courses_results) {
-        this.courses_results = courses_results;
+    public Student(String firstName, String lastName, int section, Map<String, Double> coursesResults) {
+        this.coursesResults = coursesResults;
         this.firstName = firstName;
         this.lastName = lastName;
         this.section = section;
@@ -27,22 +27,22 @@ public class Student implements Comparable<Student> {
         return section;
     }
 
-    public Map<String, Double> getCourses_results() {
-        return courses_results;
+    public Map<String, Double> getCoursesResults() {
+        return coursesResults;
     }
 
     @Override
     public int compareTo(Student student) {
         // Advanced sorting
-        Comparator<Student> my_comparator = Comparator
+        Comparator<Student> myComparator = Comparator
                 .comparing(Student::getSection)
                 .thenComparing(Student::getFirstName)
                 .thenComparing(Student::getLastName)
                 .thenComparing(
-                        (s) -> s.getCourses_results().values().stream().reduce(0.0, Double::sum),
+                        (s) -> s.getCoursesResults().values().stream().reduce(0.0, Double::sum),
                         Comparator.reverseOrder()
                 );
-        return my_comparator.compare(this, student);
+        return myComparator.compare(this, student);
     }
 
     @Override

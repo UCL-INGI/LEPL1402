@@ -63,7 +63,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Dealing with Streams - 2'
 network_grading: false
-order: 28
+order: 35
 problems:
     student_findFirst:
         header: 'Paste here the **body** of your ``findFirst`` method:'

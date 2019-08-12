@@ -168,7 +168,7 @@ problems:
               public class Alpha {
                   static final int MEAN_OF_LIFE = 42;
                   private final String SOME_STRING = "EPL UCLouvain";
-                  protected int give_random_number() {
+                  protected int giveRandomNumber() {
                       return 42;
                   }
               }
@@ -197,14 +197,14 @@ problems:
                   import one.*;
                   public class AlphaPrime extends Alpha {
                     @override
-                    protected int give_random_number() {
+                    protected int giveRandomNumber() {
                       return Alpha.MEAN_OF_LIFE * ( (int) Math.random() * 2 );
                     }
                   }
                   public class Test {
                     public static void main(String... args) {
                       AlphaPrime a = new AlphaPrime();
-                      System.out.println(a.give_random_number());
+                      System.out.println(a.giveRandomNumber());
                     }
                   }
             valid: true

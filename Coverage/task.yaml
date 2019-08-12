@@ -73,7 +73,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Coverage Testing'
 network_grading: false
-order: 21
+order: 28
 problems:
     student_code:
         header: 'Paste here your JUnit test methods :'

@@ -47,7 +47,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Visitor design pattern - List Filtering'
 network_grading: false
-order: 25
+order: 32
 problems:
     student_visitable:
         name: ''

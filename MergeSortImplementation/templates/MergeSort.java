@@ -13,12 +13,9 @@ public class MergeSort {
         return counter;
     }
 
-    public static void merge(int[] a, int lo, int mid, int hi) {
+    public static void merge(int[] a, int[] aux, int lo, int mid, int hi) {
 
         counter++;
-
-        int s = a.length;
-        int[] aux = new int[s];
 
         for (int k = lo; k <= hi; k++) {
             aux[k] = a[k];
@@ -42,18 +39,19 @@ public class MergeSort {
 
     public static void sort(int[] a) {
         int s = a.length;
+        int[] aux = new int[s];
 
         for(int n = 1 ; n< s ; n = n+n){
             for(int i = 0 ; i< s-n ; i += n+n){
                 int lo= i;
                 int mid = i+n-1;
                 int hi = Math.min(i+n+n-1, s-1);
-                studentMerge(a , lo , mid , hi);
+                studentMerge(a, aux , lo , mid , hi);
             }
         }
     }
 
-    public static void studentMerge(int[] a, int lo, int mid, int hi) {
+    public static void studentMerge(int[] a, int[] aux, int lo, int mid, int hi) {
 
 
 

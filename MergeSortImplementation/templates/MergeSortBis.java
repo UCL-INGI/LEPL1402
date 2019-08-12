@@ -17,7 +17,7 @@ public class MergeSortBis {
      * Pre-conditions: a[lo..mid] and a[mid+1..hi] are sorted
      * Post-conditions: a[lo..hi] is sorted
      */
-    public static void merge(int[] a, int lo, int mid, int hi) {
+    public static void merge(int[] a, int[] aux, int lo, int mid, int hi) {
 
         counter++;
 

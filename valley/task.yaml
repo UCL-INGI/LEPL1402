@@ -59,6 +59,7 @@ limits:
     time: '30'
 name: Longest Valley
 network_grading: false
+order: 10
 problems:
     student_code:
         header: Paste here the **body** of your methode ``valley``

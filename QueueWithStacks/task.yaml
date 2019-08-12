@@ -68,7 +68,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Queue with two stacks'
 network_grading: false
-order: 19
+order: 26
 problems:
     enqueue:
         type: code

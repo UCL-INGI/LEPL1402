@@ -1,6 +1,7 @@
 accessible: true
-author: ''
-categories: []
+author: Bastin J, Piron H
+categories:
+- module2
 context: |-
     In this exercise you must write a method  ``maxSubArray`` that finds the largest sum in a contiguous subarray. What it means is that given an array, your program should find the **first** subbarray that produces the maximum result.
 
@@ -21,6 +22,8 @@ context: |-
             //TODO By Student
 
         }
+
+    Note that the length of the array **a** is strictly greater than 0.
 environment: pyjavacpp
 evaluate: best
 file: ''
@@ -32,6 +35,7 @@ limits:
     time: '30'
 name: Largest Sum Contiguous Subarray
 network_grading: false
+order: 9
 problems:
     student_subarray:
         header: Paste here the **body** of your method ``maxSubArray``

@@ -9,7 +9,8 @@ admins:
 - raminsadre
 - pironhe
 - bastinjul
-tutors: []
+tutors:
+- ogoletti
 groups_student_choice: false
 use_classrooms: true
 allow_unregister: true

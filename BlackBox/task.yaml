@@ -55,7 +55,7 @@ limits:
     time: '60'
 name: '[TESTABLE] BlackBox Testing - Binary Search'
 network_grading: false
-order: 20
+order: 27
 problems:
     student_code:
         header: 'Insert here the **body** of your test suite:'

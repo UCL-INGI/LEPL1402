@@ -8,23 +8,23 @@ import java.util.stream.Stream;
 
 public class StudentFunctions implements StudentStreamFunction {
 
-  public Stream<Student> find_second_and_third_top_student_for_given_course(Stream<Student> studentStream, String name){
+  public Stream<Student> findSecondAndThirdTopStudentForGivenCourse(Stream<Student> studentStream, String name){
     //TODO YOUR CODE HERE
   }
 
-  public Object[] compute_average_for_student_in_section(Stream<Student> studentStream, int section){
+  public Object[] computeAverageForStudentInSection(Stream<Student> studentStream, int section){
     //TODO YOUR CODE HERE
   }
 
-  public int get_number_of_successful_students(Stream<Student> studentStream){
+  public int getNumberOfSuccessfulStudents(Stream<Student> studentStream){
     //TODO YOUR CODE HERE
   }
 
-  public Student find_last_in_lexicographic_order(Stream<Student> studentStream){
+  public Student findLastInLexicographicOrder(Stream<Student> studentStream){
     //TODO YOUR CODE HERE
   }
 
-  public double get_full_sum(Stream<Student> studentStream){
+  public double getFullSum(Stream<Student> studentStream){
     //TODO YOUR CODE HERE
   }
 }

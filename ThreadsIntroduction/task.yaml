@@ -72,7 +72,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Small introduction to threads - Counters'
 network_grading: false
-order: 29
+order: 36
 problems:
     student_init:
         type: code

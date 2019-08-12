@@ -19,7 +19,7 @@ context: |-
         // Gives :
         //      int[][] array2d = { {1, 2, 3}, {4, 5}, {42} };
         // hint: there is a method in java that removes space at the start and end of a string
-        public int[][] build_from(String s);
+        public int[][] buildFrom(String s);
 
         // Compute the sum of all integers in the 2d array (not necessarily a regular matrix )
         public int sum(int[][] array);
@@ -37,7 +37,7 @@ context: |-
     .. code-block:: java
 
         public class MyBuilder implements Array2DBuilderInterface {
-            public int[][] build_from(String s){
+            public int[][] buildFrom(String s){
                 //TODO
             }
             public int sum(int[][] array){
@@ -68,7 +68,7 @@ order: 0
 problems:
     build_from:
         type: code
-        header: 'Paste the body of the ``build_from`` method:'
+        header: 'Paste the body of the ``buildFrom`` method:'
         language: java
         default: ''
         name: ''

@@ -12,41 +12,25 @@ limits:
     memory: '100'
     output: '2'
     time: '30'
-name: '[TESTABLE] Code accuracy - Pre, Post conditions and Invariants'
+name: '[Module 2] Code accuracy - Pre, Post conditions and Invariants'
 network_grading: false
-order: 4
+order: 11
 problems:
     mcq1:
         multiple: true
         choices:
         -   valid: true
-            text: |-
-                .. math::
-                 @I\ left + 1 <= k <= right
+            text: ':math: `@I\ left + 1 <= k <= right`'
         -   valid: true
-            text: |-
-                .. math::
-                  @post\ \forall k\ |\ left <= k <= pivot,\ a[k] <= a[pivot]
+            text: :math:`@post\ \forall k\ |\ left <= k <= pivot,\ a[k] <= a[pivot]`
         -   valid: true
-            text: |-
-                .. math::
-                  @post\ \forall k\ |\ pivot < k <= right,\ a[pivot] < a[k]
+            text: :math:`@post\ \forall k\ |\ pivot < k <= right,\ a[pivot] < a[k]`
         -   valid: true
-            text: |-
-                .. math::
-                  @pre\ left <= right
-        -   text: |-
-                .. math::
-                  @pre\ left < right
-        -   text: |-
-                .. math::
-                  @post\ \forall k\ |\ left <= k <= pivot,\ a[k] < a[pivot]
-        -   text: |-
-                .. math::
-                  @post\ \forall k\ |\ pivot < k <= right,\ a[pivot] <= a[k]
-        -   text: |-
-                .. math::
-                  @I\ left + 1 <= k < right
+            text: :math:`@pre\ left <= right`
+        -   text: :math:`@pre\ left < right`
+        -   text: :math:`@post\ \forall k\ |\ left <= k <= pivot,\ a[k] < a[pivot]`
+        -   text: :math:`@post\ \forall k\ |\ pivot < k <= right,\ a[pivot] <= a[k]`
+        -   text: :math:`@I\ left + 1 <= k < right`
         type: multiple_choice
         header: |4-
 

@@ -3,7 +3,7 @@ author: Bastin J, Piron H
 categories:
 - module2
 context: |
-    The three first questions are gonne be time complexity questions about trees, the trees we are talking about is a complete ordered binary tree. Like the example you see here under:
+    The three first questions will be time complexity questions about trees, the trees we are talking about is a complete ordered binary tree. Like the example you see here under:
 
     .. image:: /course/LEPL1402/complexityMCQ2/binaryTree.png
        :scale: 60%
@@ -13,26 +13,6 @@ context: |
 
 
     The rest of the questions are harder question about the time complexity of operations on list and arrays. Some questions will be about simple linked list, other about double linked list and some about circular linked list.
-
-
-    .. image:: /course/LEPL1402/complexityMCQ2/doublylinkedlist.png
-       :scale: 20%
-       :align: center
-       :height: 129px
-       :width: 1920px
-
-
-    .. image:: /course/LEPL1402/complexityMCQ2/circularlinkedlist.png
-       :scale: 20%
-       :align: center
-       :height: 329px
-       :width: 1920px
-
-    .. image:: /course/LEPL1402/complexityMCQ2/singlylinkedlist.png
-       :scale: 20%
-       :align: center
-       :height: 193px
-       :width: 1920px
 environment: mcq
 evaluate: best
 file: ''
@@ -44,6 +24,7 @@ limits:
     time: '30'
 name: 'Time Complexity : harder MCQ'
 network_grading: false
+order: 6
 problems:
     mcq:
         choices:
@@ -82,7 +63,7 @@ problems:
         -   text: :math:`\mathcal{O}(nlog(n))`
         -   text: :math:`\Theta(n^2)`
         limit: 0
-        header: 'What is the complexity of in order traversal? '
+        header: 'What is the complexity of an in-order traversal? '
         name: Traversal
         type: multiple_choice
     mcq4:
@@ -95,7 +76,7 @@ problems:
         type: multiple_choice
         limit: 0
         header: What is the time complexity of finding the maximum in a sorted array?
-            (Where n is the size of the array)
+            (Where :math:`n` is the size of the array)
         name: Sorted Array
     mcq5:
         choices:
@@ -108,7 +89,7 @@ problems:
         limit: 0
         type: multiple_choice
         header: |-
-            Consider a simple linked list like the one you see on the image, we only have a reference to the head of the list.  What is the complexity of finding the size **n** of the list
+            Consider a simple linked list like the one you see on the image, we only have a reference to the head of the list.  What is the complexity of finding the size :math:`n` of the list
 
             .. image:: /course/LEPL1402/complexityMCQ2/singlylinkedlist.png
                :scale: 20%
@@ -127,7 +108,7 @@ problems:
         limit: 0
         name: ''
         header: |+
-            Consider the following ordered simple linked list, we only have a reference to the head of the list. What is the complexity of finding the **maximum** of the list? (Where **n** is the size)
+            Consider the following ordered simple linked list, we only have a reference to the head of the list. What is the complexity of finding the **maximum** of the list? (Where :math:`n` is the size)
 
             .. image:: /course/LEPL1402/complexityMCQ2/orderedsinglylinkedlist.png
                :scale: 20%
@@ -148,7 +129,7 @@ problems:
         -   text: :math:`\mathcal{O}(n)`
         name: ''
         header: |
-            Consider the following ordered simple linked list, we only have a reference to the head of the list. What is the complexity of finding the **minimum** of the list? (Where **n** is the size)
+            Consider the following ordered simple linked list, we only have a reference to the head of the list. What is the complexity of finding the **minimum** of the list? (Where :math:`n` is the size)
 
             .. image:: /course/LEPL1402/complexityMCQ2/orderedsinglylinkedlist.png
                :scale: 20%
@@ -197,8 +178,45 @@ problems:
                     }
                 }
 
-            Give the time complexity(ies) of ``replaceValue`` knowing that the linked list has a size of **n**.
+            Give the time complexity(ies) of ``replaceValue`` knowing that the linked list has a size of :math:`n`.
         name: ''
+        type: multiple_choice
+    mcq9:
+        choices:
+        -   text: :math:`\mathcal{O}(n^3)`
+        -   text: :math:`\mathcal{O}(2^n)`
+        -   text: :math:`\mathcal{O}(n^2)`
+        -   text: :math:`\mathcal{O}(3^n)`
+        -   valid: true
+            text: :math:`\mathcal{O}(n!)`
+        name: Travelling Salesman Problem
+        limit: 0
+        header: |-
+            Here is the *Travelling Salesman Problem* : "Given a list of cities and the distance between each pair of cities, what is the shortest path that travels each city and returns to the origin city?".
+
+            The picture bellow is a graph_ that represents cities and the distance between them :
+
+            .. image:: /course/LEPL1402/complexityMCQ2/Weighted_K4.png
+               :scale: 50%
+               :align: center
+               :height: 500px
+               :width: 600px
+
+            This graph can be translated into an adjacency matrix :
+
+            .. code-block:: java
+
+                int[][] matrix = {
+                    {0, 20, 42, 35},
+                    {20, 0, 30, 34},
+                    {42, 30, 0, 12},
+                    {35, 34, 12, 0}};
+
+            A simple solution to this problem is to test all possible permutations in the order in which the cities are crossed. A possible permutation is {A, B, C, D} : the path starts in the city A, then crosses B, C and D and finally returns to A. Here is another permutation : {B, D, C, A}.
+
+            In your opinion, what is the time complexity of the solution described above? Consider :math:`n` is the number of city
+
+            .. _graph: https://en.wikipedia.org/wiki/Graph_theory
         type: multiple_choice
 stored_submissions: 0
 submission_limit:

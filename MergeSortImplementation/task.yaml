@@ -1,6 +1,7 @@
 accessible: true
 author: ''
-categories: []
+categories:
+- module2
 context: |
     In this exercise we ask you to implement the top-down_ merge sort  algorithm on an array of integer. You have to use **2 methods**:
 
@@ -18,7 +19,7 @@ context: |
             /**
              * Merge the array from lo to hi
              */
-            private static void merge(int[] a, int lo, int mid, int hi) {
+            private static void merge(int[] a, int[] aux, int lo, int mid, int hi) {
                 // TODO By Student
             }
             /**
@@ -45,6 +46,7 @@ limits:
     time: '30'
 name: Merge Sort Implementation
 network_grading: false
+order: 8
 problems:
     student_sort:
         language: java

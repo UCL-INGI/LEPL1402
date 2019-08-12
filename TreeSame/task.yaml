@@ -55,9 +55,9 @@ limits:
     memory: '100'
     output: '2'
     time: '30'
-name: '[TESTABLE] Binary trees - equals'
+name: '[Module 2] Binary trees - equals'
 network_grading: false
-order: 6
+order: 13
 problems:
     student_eqtree:
         name: ''

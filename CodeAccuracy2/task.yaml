@@ -34,9 +34,9 @@ limits:
     memory: '100'
     output: '2'
     time: '30'
-name: '[TESTABLE] Code accuracy - Practical exercise'
+name: '[Module 2] Code accuracy - Practical exercise'
 network_grading: false
-order: 5
+order: 12
 problems:
     exch_code:
         header: 'Paste here the **body** of your **swap(Object[] a, int i, int j)**

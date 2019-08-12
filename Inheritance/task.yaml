@@ -19,7 +19,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Inheritance : Fill the gaps (Small Exercise)'
 network_grading: false
-order: 15
+order: 22
 problems:
     act_code:
         type: code

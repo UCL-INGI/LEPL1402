@@ -51,9 +51,9 @@ limits:
     memory: '100'
     output: '2'
     time: '30'
-name: '[TESTABLE] Binary trees - combineWith'
+name: '[Module 2] Binary trees - combineWith'
 network_grading: false
-order: 8
+order: 15
 problems:
     student_combineWith:
         default: ''
