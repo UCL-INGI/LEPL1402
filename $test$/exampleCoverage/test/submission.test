@@ -26,16 +26,7 @@ result: success
 state: ''
 status: done
 stderr: ''
-stdout: |
-    FEEDBACK SETTINGS LOADED
-    NO PROHIBITED STATMENT(S) DETECTED
-    TEMPLATE(S) APPLIED
-    SET UP CLASSES FOLDER FOR COMPILATION
-    COMPILING CODE : javac -cp .:/course/common/libs/junit-4.12.jar:/course/common/libs/hamcrest-core-1.3.jar:/course/common/libs/JavaGrading-0.3.2.jar -d /task/classes src/*.java templates/*.java flavour/*.java
-    GENERATING JAR : jar -cmvfe /task/MANIFEST.MF /task/task_evaluation.jar src.StudentTestRunner .
-    RUNNING CODE : java -javaagent:/course/common/libs/jacocoagent.jar -jar /task/task_evaluation.jar
-    GENERATING THE EXEC FILE : java -jar /course/common/libs/jacococli.jar report /task/jacoco.exec --classfiles /task/classes/flavour --xml /task/coverage_result.xml
-    [{'type': 'INSTRUCTION', 'missed': 3, 'covered': 6}, {'type': 'BRANCH', 'missed': 0, 'covered': 2}]
+stdout: ''
 submitted_on: 2019-07-23 20:56:59.584000
 taskid: exampleCoverage
 tests: {}
