@@ -121,7 +121,8 @@ def config_file_to_dict(file_path):
         "quorum": 1.0,
         "feedback_kind": None,
         "coverage_stats": None,
-        "prohibited": {}
+        "prohibited": {},
+        "plagiarism": False
     }
 
     # no config file so use basic settings
