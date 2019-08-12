@@ -11,4 +11,5 @@ Don't hesitate to read the INGInious documentation and the wiki to get more fami
 
 - Yakoub Jacques
 - Rucquoy Alexandre
-- ...
+- Bastin Julien
+- Piron Henri
