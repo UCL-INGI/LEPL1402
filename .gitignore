@@ -195,3 +195,7 @@ dmypy.json
 
 course\.yaml
 course.yaml
+
+\$test\/\$common
+\$test\/\course\.yaml
+\$test\/\course.yaml
