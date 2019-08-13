@@ -30,8 +30,11 @@ def librairies():
 
 
 # Wrapper to execute system commands and easily get stdout, stderr steams and return code
-def run_command(cmd, cwd=None):
-    proc = subprocess.Popen(cmd, cwd=cwd ,shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+def run_command(cmd, cwd=None, universal_newlines=None):
+    proc = subprocess.Popen(cmd, cwd=cwd, shell=True,
+                            stderr=subprocess.PIPE,
+                            stdout=subprocess.PIPE,
+                            universal_newlines=universal_newlines)
     proc.wait()  # waiting the child process to finish
 
     stdout = proc.stdout.read().decode('utf-8')
@@ -54,6 +57,7 @@ def store_uploaded_file(problem_id, base_path):
 
     return filename_with_path
 
+
 # Find all java packages folder inside path recursively ( useful for javac )
 def find_files_folder_in_path(path):
     base_folder = Path(path)
@@ -62,6 +66,17 @@ def find_files_folder_in_path(path):
         str(Path(relative_path(file)).parent)
         for file in files
     }
+
+
+# Find all java files
+def find_files_in_path(path):
+    base_folder = Path(path)
+    files = Path(path).rglob("*{}".format(FILE_EXTENSION)) if base_folder.exists() else []
+    return {
+        relative_path(file)
+        for file in files
+    }
+
 
 # Apply parse_template on each file stored in base_path
 def apply_templates(base_path):
@@ -137,6 +152,7 @@ def create_manifest():
 def generate_jar_file(main_class=RUNNER_JAVA_NAME, dst=JAR_FILE, manifest=MANIFEST_FILE):
     return "jar -cmvfe {} {} {} {}".format(manifest, dst, without_extension(main_class), ".")
 
+
 # Check out if any statment of the prohibited array is contained in the @problem input
 def contains_prohibited_statement_in_input(prohibited_array, problem_id):
     student_upload = input.get_input(problem_id)
@@ -149,6 +165,7 @@ def contains_prohibited_statement_in_input(prohibited_array, problem_id):
         prohibited_statment.strip().replace(" ", '') in source_code_as_string 
         for prohibited_statment in prohibited_array
     )
+
 
 # Main method that will be invoked by runfile.py to check all given problem inputs for prohibited instructions
 def contains_prohibited_statment(feedback_settings):

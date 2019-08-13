@@ -1,6 +1,6 @@
 #!/bin/python3
-import importlib.util
 import os
+from inginious import input
 
 #####################################
 # Our import for common function    #
@@ -10,22 +10,12 @@ from fragments import helper, feedback
 from fragments.constants import *
 
 
-# For extreme usage only XD
-# Dynamically load modules we need
-# Credits to https://stackoverflow.com/a/67692/6149867
-# And for the explanation : http://www.blog.pythonlibrary.org/2016/05/27/python-201-an-intro-to-importlib/
-# "/course/common/{}.py" as path ; module is the filename
-def dynamically_load_module(module, path):
-    spec = importlib.util.spec_from_file_location(module, path)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
 def main():
+
     #####################################
     #   Load feedback task settings     #
     #####################################
+
     feedback_settings = feedback.config_file_to_dict(FEEDBACK_REVIEW_PATH)
     print("FEEDBACK SETTINGS LOADED")
 
@@ -47,6 +37,7 @@ def main():
     #####################################
     #   CREATE A CLASSES FOLDER         #
     #####################################
+
     os.makedirs(PATH_CLASSES, exist_ok=True)
     print("SET UP CLASSES FOLDER FOR COMPILATION")
 
@@ -57,8 +48,8 @@ def main():
     # Possible paths where we could keep source code : src, templates and flavour (optional)
     folders_to_compile = [PATH_SRC, PATH_TEMPLATES, PATH_FLAVOUR]
     
-    # Need that for custom structure, for example many packages in folders_to_compile
-    # the functions calls will provide us only the one that exists
+    # For custom structure, for example many packages in folders_to_compile
+    # we need a generic way to find all files to compiles
     all_folders_to_compile = [
         item 
         for sublist in 
@@ -92,8 +83,10 @@ def main():
     # Create a jar file
     create_jar = helper.generate_jar_file()
     print("GENERATING JAR : {}".format(create_jar))
+
     # WARNING ; JUST FOR JAVA TO NOT MISUNDERSTAND OUR STRUCTURE, we have to change the CWD in the command
     result = helper.run_command(create_jar, PATH_CLASSES)
+
     # For debug the jar construction
     # print(result.stdout)
 
@@ -116,6 +109,21 @@ def main():
     #   Show and handle results         #
     #####################################
     feedback.result_feedback(result, feedback_settings)
+
+    #####################################
+    #   Prepare archive for JPlag       #
+    #####################################
+    if feedback_settings["plagiarism"]:
+
+        student_name = input.get_input("@username")
+
+        # The files filled by the student are all inside PATH_TEMPLATES
+        files_to_be_tested = helper.find_files_in_path(PATH_TEMPLATES)
+
+        # Creates the archive like expected by JPlag
+        for student_file in files_to_be_tested:
+            command = "archive -a {} -o {}".format(student_file, student_name)
+            helper.run_command(command, universal_newlines=True)
 
 
 if __name__ == "__main__":
