@@ -14,7 +14,7 @@ print("CHECK THAT ALL TASKS FOLLOWS THE EXPLAINED STRUCTURE IN DOC")
 
 # As inginious-autotest required a folder where everything is stored, use that
 path = Path("LEPL1402")
-task_folders = [x for x in path.iterdir() if x.is_dir() and x.name != "$common"]
+task_folders = [x for x in path.iterdir() if x.is_dir() and x.name not in {"$common", "$test$"}]
 
 # Creates a table
 table = BeautifulTable()
