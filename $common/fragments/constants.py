@@ -53,3 +53,6 @@ JACOCO_RESULT_FILE = str(CWD / "coverage_result.xml")
 
 # Libraries folder
 LIBS_FOLDER = "/course/common/libs"
+
+# Default Libraries used in the runscript ( stored in LIBS_FOLDER )
+DEFAULT_LIBRARIES = ["junit-4.12.jar", "hamcrest-core-1.3.jar", "JavaGrading.jar"]

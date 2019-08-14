@@ -1,0 +1,4 @@
+has_feedback: true
+feedback_kind: JavaGrading
+external_libraries:
+  - "commons-math3-3.6.1.jar"
