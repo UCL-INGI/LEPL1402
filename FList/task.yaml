@@ -1,0 +1,154 @@
+accessible: true
+author: Bastin J, Piron H
+categories:
+- module5
+context: |-
+    Functional programming_ is an increasingly important programming paradigm. In this paradigm, data structures are immutable_. You are asked to implement an immutable list called FList that can be used in functionnal programming.
+
+    You should first make sure that you understood the code that is given to you and what is asked to you before trying any implementation.
+
+    Here is the API of an FList_ and the FList class_ you have to implement:
+
+    .. code-block:: java
+
+        public abstract class FList<A> implements Iterable<A> {
+
+            // creates an empty list
+            public static <A> FList<A> nil();
+
+            // prepend a to the list and return the new list
+            public final FList<A> cons(final A a);
+
+            public final boolean isNotEmpty();
+
+            public final boolean isEmpty();
+
+            public final int length();
+
+            // return the head element of the list
+            public abstract A head();
+
+            // return the tail of the list
+            public abstract FList<A> tail();
+
+            // return a list on which each element has been applied function f
+            public final <B> FList<B> map(Function<A,B> f);
+
+            // return a list on which only the elements that satisfies predicate are kept
+            public final FList<A> filter(Predicate<A> f);
+
+            // return an iterator on the element of the list
+            public Iterator<A> iterator();
+
+        }
+
+
+    Here is an example of how we could test your code:
+
+    .. code-block:: java
+
+        FList<Integer> list = FList.nil();
+
+        for (int i = 0; i < 10; i++) {
+            list = list.cons(i);
+        }
+
+        list = list.map(i -> i+1);
+        // will print 1,2,...,11
+        for (Integer i: list) {
+            System.out.println(i);
+        }
+
+        list = list.filter(i -> i%2 == 0);
+        // will print 2,4,6,...,10
+        for (Integer i: list) {
+            System.out.println(i);
+        }
+
+
+    Since you know how your code should work, we **strongly** recommend you to test it on your computer before trying any submission. The iterator is the most critical part, if it doesn't work, most of the test will not work.
+
+    .. _programming: https://en.wikipedia.org/wiki/Functional_programming
+    .. _immutable: https://en.wikipedia.org/wiki/Purely_functional_data_structure
+    .. _FList: /course/LEPL1402/FList/FList.java
+    .. _class: /course/LEPL1402/FList/FListClass.java
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Functional list implementation
+network_grading: true
+order: 35
+problems:
+    student_length:
+        language: java
+        name: Length implementation
+        header: 'Paste here the **body** of you method length:'
+        default: ''
+        type: code
+    student_map:
+        type: code
+        language: java
+        header: 'Paste here the **body** of you map method:'
+        default: ''
+        name: Map implementation
+    student_filter:
+        name: Filter implementation
+        language: java
+        default: ''
+        header: 'Paste here the **body** of you filter implementation:'
+        type: code
+    student_iterator:
+        header: |-
+            Paste here the **body** of your iterator:
+
+            .. code-block:: java
+
+                public Iterator<A> iterator(){
+                    return new iterator<A>{
+                        //your code
+                    };
+                }
+        type: code
+        language: java
+        name: Iterator
+        default: ''
+    student_nil:
+        default: ''
+        type: code
+        language: java
+        name: Nil implementation
+        header: |-
+            Paste the **body** of your class Nil
+
+            .. code-block:: java
+
+                private static final class Nil<A> extends FList<A> {
+                    public static final Nil<Object> INSTANCE = new Nil();
+
+                    // Your code
+
+                }
+    student_cons:
+        default: ''
+        type: code
+        header: |-
+            Paste here the **body** of you class Cons
+
+            .. code-block:: java
+
+                private static final class Cons<A> extends FList<A> {
+                    // Your code
+                }
+        name: Cons Implementation
+        language: java
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
