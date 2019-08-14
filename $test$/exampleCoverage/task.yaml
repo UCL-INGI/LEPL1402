@@ -1,0 +1,30 @@
+accessible: true
+author: Yakoub J, Rucquoy A
+categories:
+- module4
+context: |-
+    Example of Task using Coverage testing
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[Example] Coverage Testing'
+network_grading: false
+order: 28
+problems:
+    student_code:
+        header: 'Paste here your JUnit test methods :'
+        name: ''
+        language: java
+        default: ''
+        type: code
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

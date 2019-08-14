@@ -1,0 +1,43 @@
+_id: 5d37587b6779dd77745f8f1c
+archive: 5d37587e6779dd77745f8f1d
+courseid: LEPL1402
+custom: {}
+grade: 100.0
+input:
+    '@lang': en
+    '@random': []
+    '@state': ''
+    '@username': jyakoub
+    student_code: |4-
+            @Test
+            public void test1(){
+                int x = SomeClass.someMethod(true);
+                assertEquals(1, x);
+            }
+
+            @Test
+            public void test2(){
+                int x = SomeClass.someMethod(false);
+                assertEquals(0, x);
+            }
+problems: {}
+response_type: rst
+result: success
+state: ''
+status: done
+stderr: ''
+stdout: ''
+submitted_on: 2019-07-23 20:56:59.584000
+taskid: exampleCoverage
+tests: {}
+text: |+
+    Your code has successfully passed all tests for this mission.
+
+
+    .. code-block:: java
+
+        INSTRUCTION:    6/9
+        BRANCH:    2/2
+
+username:
+- jyakoub
