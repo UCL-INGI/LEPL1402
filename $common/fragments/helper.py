@@ -12,7 +12,7 @@ ProcessOutput = namedtuple('ProcessOutput', ['returncode', 'stdout', 'stderr'])
 
 
 # Libraries to be add to run/compile via option -cp of java(c)
-def librairies():
+def libraries(external_libraries):
     
     # Current folder (not really used but why not)
     libs = '.'
@@ -25,6 +25,15 @@ def librairies():
             for lib in libs_to_include
         ])
     ) if libs_to_include else ""
+
+    # We want to include specific libraries for this task
+    if external_libraries:
+        libs += ":{}".format(
+            ':'.join([
+                str(CWD / lib)
+                for lib in external_libraries
+            ])
+        )
 
     return libs
 
@@ -92,7 +101,7 @@ def apply_templates(base_path):
 # the files_input argument is either an array of string or a string :
 # 1. If it is a string, it means we want to run "java" command with only one file
 # 2. Else , it means we want to run "javac" command (possible to use globing characters * )
-def generate_java_command_string(files_input, command="java", libs=librairies(), coverage=False, is_jar=False):
+def generate_java_command_string(files_input, libs, command="java", coverage=False, is_jar=False):
     # file(s) to compile or to execute
     files = ' '.join([str(v) for v in files_input]) if command == "javac" else without_extension(files_input)
 
@@ -140,9 +149,9 @@ def relative_path(path, base_path=CWD):
 
 
 # Since using a jar simply ignore -cp option, we have no other choice to create a manifest to add the libraries
-def create_manifest():
+def create_manifest(librairies):
     with open(MANIFEST_FILE, 'w+') as manifest:
-        libs = librairies().split(":")
+        libs = librairies.split(":")
         libs_str = "{} {}\n".format("Class-Path:", ' '.join(libs))
         manifest.write(libs_str)
         manifest.close()

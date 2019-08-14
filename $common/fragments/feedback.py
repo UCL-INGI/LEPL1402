@@ -122,7 +122,8 @@ def config_file_to_dict(file_path):
         "feedback_kind": None,
         "coverage_stats": None,
         "prohibited": {},
-        "plagiarism": False
+        "plagiarism": False,
+        "external_libraries": None
     }
 
     # no config file so use basic settings
@@ -133,7 +134,7 @@ def config_file_to_dict(file_path):
         with open(file_path, "r") as stream:
             # File must not be empty
             load_config = yaml.load(stream)
-            # Merge dictionnaries
+            # Merge dictionaries
             return default_values if load_config is None else {**default_values, **load_config}
 
 
@@ -170,6 +171,7 @@ def extract_jacoco_result(feedback_settings):
         ratio = covered / total if total > 0 else 0.0
 
         return ratio, msg
+
 
 def handle_prohibited_statments(feedback_settings):
     result = helper.contains_prohibited_statment(feedback_settings)

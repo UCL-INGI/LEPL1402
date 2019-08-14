@@ -42,6 +42,12 @@ def main():
     print("SET UP CLASSES FOLDER FOR COMPILATION")
 
     #####################################
+    #  EXTERNAL LIBRARIES TO USE  ?     #
+    #####################################
+
+    libs = helper.libraries(feedback_settings["external_libraries"])
+
+    #####################################
     #   COMPILE ALL CODE IN SRC         #
     #####################################
 
@@ -66,7 +72,7 @@ def main():
         for folder in all_folders_to_compile
     ]
     
-    compile_cmd = helper.generate_java_command_string(files_to_compile, "javac")
+    compile_cmd = helper.generate_java_command_string(files_to_compile, libs, "javac")
     print("COMPILING CODE : {}".format(compile_cmd))
     result = helper.run_command(compile_cmd)
 
@@ -78,7 +84,7 @@ def main():
     #####################################
 
     # We need a manifest in order to make the created jar runnable
-    helper.create_manifest()
+    helper.create_manifest(libs)
     
     # Create a jar file
     create_jar = helper.generate_jar_file()
@@ -101,7 +107,7 @@ def main():
     # in the case of code coverage ( Jacoco ) , we need to generate also the report file (exec ) by the JaCoco agent
     coverage_required = True if feedback_settings["feedback_kind"] == "JaCoCo" else False
 
-    run_code = helper.generate_java_command_string(JAR_FILE, coverage=coverage_required, is_jar=True)
+    run_code = helper.generate_java_command_string(JAR_FILE, libs, coverage=coverage_required, is_jar=True)
     print("RUNNING CODE : {}".format(run_code))
     result = helper.run_command(run_code)
 
