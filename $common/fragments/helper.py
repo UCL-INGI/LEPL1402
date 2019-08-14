@@ -16,15 +16,14 @@ def libraries(external_libraries):
     
     # Current folder (not really used but why not)
     libs = '.'
-    libs_to_include = ["junit-4.12.jar", "hamcrest-core-1.3.jar", "JavaGrading.jar"]
 
     # other librarires if provided
     libs += ":{}".format(
         ':'.join([
             str(Path(LIBS_FOLDER) / lib)
-            for lib in libs_to_include
+            for lib in DEFAULT_LIBRARIES
         ])
-    ) if libs_to_include else ""
+    ) if DEFAULT_LIBRARIES else ""
 
     # We want to include specific libraries for this task
     if external_libraries:
@@ -181,4 +180,4 @@ def contains_prohibited_statment(feedback_settings):
     return any(
         contains_prohibited_statement_in_input(statments, problem_id)
         for (problem_id, statments) in feedback_settings["prohibited"].items()
-    )    
+    )
