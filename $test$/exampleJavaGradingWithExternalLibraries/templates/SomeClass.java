@@ -1,6 +1,6 @@
 package templates;
 
-import org.apache.commons.math3.stat.descriptive;
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 public class SomeClass {
     public static int someMethod(boolean flag){
