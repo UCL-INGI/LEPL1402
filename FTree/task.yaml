@@ -1,0 +1,63 @@
+accessible: true
+author: Bastin J, Piron H
+categories:
+- module5
+context: |
+    In this exercise you have to complete the class FTree_, Node_ and Leaf_. Ftree_ is an abstract class that represents a binary true, it is extended by Node and Leaf. A Node_ is a FTree_ with two children (left and right) and a value. A Leaf_ is terminal, so it has no value and no children.
+
+    In the FTree_ class you must implement:
+        - depth : returns the depth of the tree (we assume that the tree is balanced)
+        - map : receives a function as argument and apply it to all the values contained in the tree
+
+    To complete the Node_ class you must:
+        - implement the constructor
+        - extend FTree_
+
+    To complete the Leaf_ class you must :
+        - extend FTree_
+
+
+    .. _FTree: /course/LEPL1402/FTree/FTree.java
+    .. _Node: /course/LEPL1402/FTree/Node.java
+    .. _Leaf: /course/LEPL1402/FTree/Leaf.java
+environment: pyjavacpp
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: Functional immutable tree
+network_grading: false
+problems:
+    studentDepth:
+        type: code
+        name: Depth Implementation
+        language: java
+        default: ''
+        header: 'Paste here the **body** of your depth method:'
+    studentMap:
+        header: 'Paste here the **body** of your map method:'
+        type: code
+        language: java
+        default: ''
+        name: Map Implementation
+    studentNode:
+        name: Node Implementation
+        header: 'Paste here the **body** of your class Node class:'
+        default: ''
+        language: java
+        type: code
+    studentLeaf:
+        name: Leaf Implementation
+        header: 'Paste here the **body** of your Leaf class:'
+        default: ''
+        language: java
+        type: code
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

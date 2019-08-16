@@ -1,0 +1,273 @@
+accessible: true
+author: Bastin J. , Piron H.
+categories:
+- module5
+context: |-
+    The Stream_ interface of java allows to create infinite streams. In order to understand how it works, we will create our own infinite streams.
+
+    For this task we give you an incomplete interface named IStream_ that represents an infinite stream. You first have to complete the three default methods of this interface. Since IStream is an interface, you have to complete the class Cons_ that implements IStream_.
+
+    Since an infinite stream is not always usefull, we give you the class Empty_ that implements IStream_ and marks the end of a stream.
+
+    Finally you will use all of it to create different finite and infinite streams in the class PlayWithStreams_.
+
+    There may seem like a lot to do, but most functions can be implemented in one line.
+
+    Note that you will need to use the Supplier_ object in order to make the creation of your stream (so the tail of a Cons) lazy.
+
+    .. _Stream: https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html
+    .. _IStream: /course/LEPL1402/InfiniteStreams/IStream.java
+    .. _Cons: /course/LEPL1402/InfiniteStreams/Cons.java
+    .. _Empty: /course/LEPL1402/InfiniteStreams/Empty.java
+    .. _PlayWithStreams: /course/LEPL1402/InfiniteStreams/PlayWithStreams.java
+    .. _Supplier: https://docs.oracle.com/javase/8/docs/api/java/util/function/Supplier.html
+environment: pyjavacpp
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: Infinite Steams
+network_grading: false
+problems:
+    student_variables_constructor:
+        header: |-
+            For this class, we do all imports you need for you.
+
+            .. code-block:: java
+
+                public class Cons<T> implements IStream<T> {
+
+                    //TODO one variable called head and one variable called tail
+                    // and the constructor
+
+                    @Override
+                    public T head() {
+                        //HIDDEN TO YOU
+                    }
+
+                    @Override
+                    public IStream<T> tail() {
+                        //HIDDEN TO YOU
+                    }
+
+                    @Override
+                    public boolean isEmpty() {
+                        //HIDDEN TO YOU
+                    }
+                }
+
+            Paste here your two instance variable **head** and **tail** and the constructor of this class :
+        type: code
+        name: ''
+        default: ''
+        language: java
+    student_createWhile:
+        name: ''
+        type: code
+        header: |-
+            First finish the IStream interface.
+
+            .. code-block:: java
+
+                import java.util.function.Consumer;
+                import java.util.function.Function;
+                import java.util.function.Predicate;
+
+                public interface IStream<T> {
+
+                    /**
+                     * return the head of the stream
+                     */
+                    T head();
+
+                    /**
+                     * return the tail of the stream
+                     */
+                    IStream<T> tail();
+
+                    /**
+                     * return true if the stream is empty
+                     */
+                    boolean isEmpty();
+
+                    /**
+                     * Create a finite IStream respecting the predicate.
+                     * The IStream is composed of Cons objects and the end of this stream is an Empty object.
+                     */
+                    default IStream<T> createWhile(Predicate<? super T> predicate){
+                        //TODO
+                    }
+
+                    /**
+                     * Apply function on each element of the stream.
+                     * Can be apply on infinite and finite stream.
+                     */
+                    default IStream<T> map(Function<? super T, T> function){
+                        //TODO
+                    }
+
+                    /**
+                     * Filter the steam according to predicate.
+                     * Can be apply on infinite and finite stream.
+                     */
+                    default IStream<T> filter(Predicate<? super T> predicate){
+                        //TODO
+                    }
+                }
+
+
+            Paste here the **body** of the method ``createWhile`` :
+        language: java
+        default: ''
+    student_map:
+        name: ''
+        language: java
+        header: 'Paste here the **body** of the method ``map`` :'
+        type: code
+        default: ''
+    student_filter:
+        name: ''
+        language: java
+        type: code
+        default: ''
+        header: 'Paste here the **body** of the method ``filter`` :'
+    student_fromInteger:
+        default: ''
+        type: code
+        header: |-
+            The next questions will concern **PlayWithStreams**.
+
+            .. code-block:: java
+
+                /**
+                 * Generate an infinite stream that starts at from
+                 * and increments by one at each element.
+                 */
+                public static IStream<Integer> fromInteger(int from){
+                    //TODO
+                }
+
+            Paste here the body of the method ``fromInteger`` :
+        name: ''
+        language: java
+    student_alternateBoolean:
+        type: code
+        default: ''
+        language: java
+        header: |-
+            .. code-block:: java
+
+                /**
+                 * Generate an infinite stream of Boolean.
+                 * The current element is false if a mod b == 1
+                 * or true if a mod b == 0.
+                 * The next element of the stream is generate from a+2 and b+1.
+                 */
+                public static IStream<Boolean> booleanFromModulo(int a, int b){
+                    //TODO
+                }
+
+            Paste here the body of the method ``booleanFromModulo`` :
+        name: ''
+    student_finiteStream:
+        language: java
+        default: ''
+        header: |-
+            .. code-block:: java
+
+                /**
+                 * Generate a finite stream of Integer that starts at from
+                 * and ends at to.
+                 */
+                public static IStream<Integer> finiteStream(int from, int to){
+                    //TODO
+                }
+
+            Paste here the body of the method ``finiteStream`` :
+        type: code
+        name: ''
+    student_sieve:
+        type: code
+        name: ''
+        language: java
+        default: ''
+        header: |-
+            .. code-block:: java
+
+                /**
+                 * Use recursively the Sieve of Eratosthenes algorithm to generate prime numbers.
+                 * https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+                 */
+                public static IStream<Integer> sieve(IStream<Integer> s){
+                    //TODO
+                }
+
+            Paste here the body of the method ``sieve`` :
+    student_primeStream:
+        default: ''
+        header: |-
+            .. code-block:: java
+
+                /**
+                 * Generate an infinite stream of prime numbers.
+                 * Use the helper function sieve in your implementation
+                 */
+                public static IStream<Integer> primeStream(){
+                    //TODO
+                }
+
+            Paste here the body of the method ``primeStream`` :
+        name: ''
+        language: java
+        type: code
+    student_infiniteModulo:
+        default: ''
+        type: code
+        language: java
+        header: |-
+            .. code-block:: java
+
+                /**
+                 * return an infinite stream with all elements of s mod n
+                 */
+                public static IStream<Integer> infiniteModulo(IStream<Integer> s, int n){
+                    //TODO
+                }
+
+            Paste here the body of the method ``infiniteModulo`` :
+        name: ''
+    student_fibonacci:
+        header: |-
+            .. code-block:: java
+
+                /**
+                 * Generate an infinite stream of Fibonacci numbers.
+                 * You can use an additional function for your implementation.
+                 */
+                public static IStream<Integer> fibonacci(){
+                    //TODO
+                }
+
+            Paste here the body of the method ``fibonacci`` :
+        type: code
+        default: ''
+        language: java
+        name: ''
+    student_helpers:
+        language: java
+        name: ''
+        type: code
+        header: 'Paste here the **body** and the **signature** of your additional
+            methods :'
+        default: ''
+        optional: 'on'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
+order: 37

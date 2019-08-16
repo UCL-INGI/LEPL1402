@@ -79,24 +79,24 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: Functional list implementation
 network_grading: true
-order: 35
+order: 36
 problems:
     student_length:
+        default: ''
         language: java
-        name: Length implementation
+        type: code
         header: 'Paste here the **body** of you method length:'
-        default: ''
-        type: code
+        name: Length implementation
     student_map:
-        type: code
-        language: java
         header: 'Paste here the **body** of you map method:'
-        default: ''
+        type: code
         name: Map implementation
+        language: java
+        default: ''
     student_filter:
         name: Filter implementation
         language: java
@@ -104,6 +104,8 @@ problems:
         header: 'Paste here the **body** of you filter implementation:'
         type: code
     student_iterator:
+        language: java
+        default: ''
         header: |-
             Paste here the **body** of your iterator:
 
@@ -114,15 +116,9 @@ problems:
                         //your code
                     };
                 }
-        type: code
-        language: java
         name: Iterator
-        default: ''
-    student_nil:
-        default: ''
         type: code
-        language: java
-        name: Nil implementation
+    student_nil:
         header: |-
             Paste the **body** of your class Nil
 
@@ -134,8 +130,12 @@ problems:
                     // Your code
 
                 }
-    student_cons:
         default: ''
+        type: code
+        language: java
+        name: Nil implementation
+    student_cons:
+        language: java
         type: code
         header: |-
             Paste here the **body** of you class Cons
@@ -146,7 +146,7 @@ problems:
                     // Your code
                 }
         name: Cons Implementation
-        language: java
+        default: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

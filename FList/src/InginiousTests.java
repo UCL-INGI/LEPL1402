@@ -123,7 +123,7 @@ public class InginiousTests {
 
     }
 
-	
+
     @Test()
     @Grade(value=10, cpuTimeout=100)
     @GradeFeedback(message="Your filter function don't work as expected", onFail=true)
@@ -173,8 +173,8 @@ public class InginiousTests {
             FList<Integer> fl = FList.nil();
             Iterator it = fl.iterator();
             fl = fl.cons(1);
-            it.next();
-        }catch(ConcurrentModificationException e){
+            it.remove();
+        }catch(UnsupportedOperationException e){
             concurr = true;
         }
 
@@ -182,7 +182,7 @@ public class InginiousTests {
             throw new CustomGradingResult(TestStatus.FAILED, 0 , "You forgot about the exceptions");
         }
         if(!concurr){
-            throw new CustomGradingResult(TestStatus.FAILED, 3, "You forgot about the ConcurrentModificationException");
+            throw new CustomGradingResult(TestStatus.FAILED, 3, "You forgot about the UnsupportedOperationException");
         }
         if(!noSuch){
             throw new CustomGradingResult(TestStatus.FAILED, 3 , "You forgot about the NoSuchElementException");

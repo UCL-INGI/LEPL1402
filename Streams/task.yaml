@@ -48,7 +48,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Dealing with Streams'
 network_grading: false
-order: 36
+order: 38
 problems:
     student_find_second_and_third_top_student_for_given_course:
         type: code

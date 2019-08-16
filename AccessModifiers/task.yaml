@@ -1,7 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
 categories:
-- module1
+- module3
 context: ''
 environment: mcq
 evaluate: best
@@ -18,7 +18,8 @@ order: 1
 problems:
     mcq1:
         choices:
-        -   text: |4-
+        -   valid: true
+            text: |4-
 
 
                 .. list-table::
@@ -34,7 +35,6 @@ problems:
                     - True
                     - True
                     - True
-            valid: true
         -   feedback: 'Even in the same package, we cannot access private field(s)
                 / method(s) '
             text: |4-
@@ -53,7 +53,8 @@ problems:
                     - True
                     - False
                     - False
-        -   text: |4-
+        -   valid: true
+            text: |4-
 
 
                 .. list-table::
@@ -69,7 +70,6 @@ problems:
                     - False
                     - False
                     - False
-            valid: true
         -   feedback: Even inside another package, protected methods of a class are
                 available to subclasses that extend them
             text: |-
@@ -101,7 +101,8 @@ problems:
                     - True
                     - False
             valid: true
-        -   text: |-
+        -   valid: true
+            text: |-
                 .. list-table::
                   :header-rows: 1
 
@@ -115,27 +116,22 @@ problems:
                     - True
                     - False
                     - False
-            valid: true
-        -   text: |-
-                .. list-table::
-                  :header-rows: 1
-
-                  * - Modifier
-                    - Class
-                    - Package
-                    - Subclass
-                    - Everywhere
-                  * - default
-                    - True
-                    - True
-                    - True
-                    - False
-            feedback: 'If a class has no modifier (the default, also known as package-private),
+        -   feedback: 'If a class has no modifier (the default, also known as package-private),
                 it is visible only within its own package '
-        limit: 0
-        name: ''
-        multiple: true
-        type: multiple_choice
+            text: |-
+                .. list-table::
+                  :header-rows: 1
+
+                  * - Modifier
+                    - Class
+                    - Package
+                    - Subclass
+                    - Everywhere
+                  * - default
+                    - True
+                    - True
+                    - True
+                    - False
         header: |4+
 
             Select the right scope for each modifier!
@@ -155,31 +151,13 @@ problems:
             +------------+------------+------------+--------------+--------------+
 
 
-    mcq2:
+        limit: 0
+        multiple: true
+        type: multiple_choice
         name: ''
-        header: |4-
-
-            With the following code, which situation(s) is / are possible ?
-
-            .. code-block:: java
-
-              package one;
-
-              public class Alpha {
-                  static final int MEAN_OF_LIFE = 42;
-                  private final String SOME_STRING = "EPL UCLouvain";
-                  protected int giveRandomNumber() {
-                      return 42;
-                  }
-              }
-
-              class Beta {
-                  final static String RANDOM_QUOTE = "You shall not pass";
-              }
+    mcq2:
         choices:
-        -   feedback: Wrong as you cannot access the Beta class outside the package
-                one due to the default modifier
-            text: |-
+        -   text: |-
                 .. code-block:: java
 
                   package two;
@@ -190,6 +168,8 @@ problems:
                       System.out.println(Beta.RANDOM_QUOTE);
                     }
                   }
+            feedback: Wrong as you cannot access the Beta class outside the package
+                one due to the default modifier
         -   text: |-
                 .. code-block:: java
 
@@ -218,8 +198,28 @@ problems:
                     }
                   }
             valid: true
-        type: multiple_choice
+        header: |4-
+
+            With the following code, which situation(s) is / are possible ?
+
+            .. code-block:: java
+
+              package one;
+
+              public class Alpha {
+                  static final int MEAN_OF_LIFE = 42;
+                  private final String SOME_STRING = "EPL UCLouvain";
+                  protected int giveRandomNumber() {
+                      return 42;
+                  }
+              }
+
+              class Beta {
+                  final static String RANDOM_QUOTE = "You shall not pass";
+              }
         limit: 0
+        type: multiple_choice
+        name: ''
         multiple: true
     mcq3:
         choices:
@@ -306,11 +306,11 @@ problems:
                   }
             feedback: You will get a "cannot find symbol" as you don't need here to
                 put the outer class for initialisation
-        limit: 0
-        header: Which following examples of inner class are correct ?
-        name: ''
-        multiple: true
         type: multiple_choice
+        multiple: true
+        limit: 0
+        name: ''
+        header: Which following examples of inner class are correct ?
 stored_submissions: 0
 submission_limit:
     amount: -1

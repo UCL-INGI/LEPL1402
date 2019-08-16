@@ -68,7 +68,7 @@ limits:
     time: '30'
 name: '[TESTABLE] Threads - Producer/Consumer with locks'
 network_grading: false
-order: 40
+order: 42
 problems:
     student_enqueue:
         default: ''

@@ -3,7 +3,16 @@ author: Bastin J, Piron H
 categories:
 - module2
 context: |-
-    In this exercise you must write a method  ``maxSubArray`` that finds the largest sum in a contiguous subarray. What it means is that given an array, your program should find the **first** subbarray that produces the maximum result.
+    In this exercise you must write a method  ``maxSubArray`` that finds the largest sum in a contiguous subarray :
+
+    Given:
+        - an array :math:`s`,
+        - :math:`(i, j)`, two indexes defining the start and the end of a subarray :math:`sub` such that :math:`0 \leq i \leq j < s.length`
+        - :math:`sum(sub)` the sum of all elements of the subarray :math:`sub`.
+
+    :math:`\forall sub \in s` such that :math:`sub \neq sub_{optimal}`; :math:`sub_{optimal}` is the maximum subarray of :math:`s` if and only if :math:`sum(sub_{optimal}) > sum(sub)`.
+
+    What it means is that given an array, your program should find the **first** subarray that produces the maximum result.
 
     Your method must return an array of three integers :
         - The sum of the subarray
@@ -31,24 +40,24 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: Largest Sum Contiguous Subarray
 network_grading: false
 order: 9
 problems:
     student_subarray:
+        type: code
         header: Paste here the **body** of your method ``maxSubArray``
         language: java
-        type: code
-        name: ''
         default: ''
+        name: ''
     student_functions:
-        type: code
         optional: 'on'
+        language: java
         header: 'Paste here you eventual additional methods (**signature** and **body**):'
         name: ''
-        language: java
+        type: code
         default: ''
 stored_submissions: 0
 submission_limit:
