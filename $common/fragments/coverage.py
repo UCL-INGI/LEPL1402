@@ -1,4 +1,3 @@
-import shutil
 from xml.etree import ElementTree as ET
 from fragments.constants import *
 

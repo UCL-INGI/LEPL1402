@@ -1,5 +1,5 @@
 #!/bin/python3
-import os
+from pathlib import Path
 from inginious import input
 
 #####################################
@@ -38,7 +38,7 @@ def main():
     #   CREATE A CLASSES FOLDER         #
     #####################################
 
-    os.makedirs(PATH_CLASSES, exist_ok=True)
+    Path(PATH_CLASSES).mkdir(parents=True, exist_ok=True)
     print("SET UP CLASSES FOLDER FOR COMPILATION")
 
     #####################################
