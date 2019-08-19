@@ -41,7 +41,7 @@ for folder in task_folders:
             problem += text_with_color("Missing any of these critical folder(s) : src / templates", 196) + "\n"
         else:
             if not (folder / "src").rglob(".java") or not (folder / "templates").rglob(".java"):
-                problem += text_with_color("No java files any of these critical folder(s) : src / templates",
+                problem += text_with_color("No java files inside any of these critical folder(s) : src / templates",
                                            196) + "\n"
 
         with open(feedback_path, "r") as stream:
