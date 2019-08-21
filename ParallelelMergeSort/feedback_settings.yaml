@@ -1,0 +1,19 @@
+has_feedback: True
+feedback_kind: JavaGrading
+prohibited:
+  "studentConstructor":
+    - Arrays.sort
+    - Arrays.copy
+    - ArrayList
+  "studentCompute":
+    - Arrays.sort
+    - Arrays.copy
+    - ArrayList
+  "studentSort":
+    - Arrays.sort
+    - Arrays.copy
+    - ArrayList
+  "studentMerge":
+    - Arrays.sort
+    - Arrays.copy
+    - ArrayList

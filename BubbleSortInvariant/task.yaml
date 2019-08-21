@@ -1,0 +1,101 @@
+accessible: true
+author: ''
+categories: []
+context: |-
+    In this exercise, the questions will be about the bubble sort algorithm, its complexities and invariant.
+
+    Here its implementation in java:
+
+    .. code-block:: java
+
+        public static void bubbleSort(Comparable[] array){
+            int n = array.length;
+            Comparable temp = 0;
+            for(int i=0; i < n; i++){
+                for(int j=1; j < (n-i); j++){
+                    if(array[j-1].compareTo(array[j])>0){
+                        //swap elements
+                        temp = array[j-1];
+                        array[j-1] = array[j];
+                        array[j] = temp;
+                    }
+                }
+            }
+        }
+environment: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: Bubble Sort Invariant (MCQ)
+network_grading: false
+problems:
+    complexity:
+        limit: 0
+        choices:
+        -   valid: true
+            text: :math:`\Theta(n^2)`
+        -   text: :math:`\Theta(nlog(n))`
+        -   text: :math:`\mathcal{O}(n^2)`
+        -   text: :math:`\mathcal{O}(nlog(n))`
+        type: multiple_choice
+        name: Time Complexity
+        header: What is the most precise **time** complexity of this algorithm? (:math:`n`
+            is the size of the array)
+    space:
+        name: Space Complexity
+        choices:
+        -   text: :math:`\Theta(n^2)`
+        -   text: :math:`\Theta(n)`
+            valid: true
+        -   text: :math:`\Theta(n^3)`
+        -   text: :math:`\Theta(nlog(n))`
+        limit: 0
+        type: multiple_choice
+        header: What is the most precise **space** complexity of this algorithm? (:math:`n`
+            is the size of the array)
+    invar1:
+        choices:
+        -   valid: true
+            text: ':math:`1\leq i\leq n` '
+        -   text: :math:`a[j]<a[n]`
+        -   text: :math:`a[i..n]` :math:`is` :math:`sorted`
+            valid: true
+        -   text: if :math:`i < n` then :math:`a[1..i] \leq a[i+1]`
+            valid: true
+        -   text: :math:`a[1..i]` :math:`is` :math:`sorted`
+        limit: 0
+        header: What are the correct invariant for the first loop?
+        multiple: true
+        name: Invariant First Loop
+        type: multiple_choice
+    invar2:
+        name: Invariant Second Loop
+        choices:
+        -   text: :math:`a[1..i]` :math:`is` :math:`sorted`
+        -   text: ':math:`1\leq i\leq n` '
+            valid: true
+        -   valid: true
+            text: if :math:`i < n` then :math:`a[1..i] \leq a[i+1]`
+        -   text: :math:`a[j]<a[n]`
+        -   valid: true
+            text: :math:`a[i..n]` :math:`is` :math:`sorted`
+        -   text: :math:`a[1..j] \leq a[j]`
+            valid: true
+        -   text: :math:`1 \leq j \leq i`
+            valid: true
+        -   text: :math:`a[1..i] \leq a[i+1]`
+        -   text: :math:`a[j..i]` :math:`is` :math:`sorted`
+        type: multiple_choice
+        limit: 0
+        header: What are the correct invariant for the second loop?
+        multiple: true
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

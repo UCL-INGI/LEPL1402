@@ -1,0 +1,64 @@
+accessible: true
+author: Bastin J, Piron H
+categories:
+- module2
+context: |-
+    The tower of Hanoi is a mathematical puzzle, it consists of three rods and a number of disk of different size which can slide onto any rod. The game starts with all the disks in an ascending order forming a stack on the first rod. The objective of this puzzle is to move the entire stack to another rod. We know, it sounds easy, but there are 3 simple rules that make the game harder than you think.
+
+    Here they are :
+        - You can only move one disk at a time.
+        - Each move consists of taking the upper disk from one stack and moving it to another stack or on an empty rod.
+        - No larger disk may be placed on top of a smaller disk.
+
+    To help you a little bit, here is an example of how you can solve the problem with a stack of size 3.
+
+    .. image:: /course/LEPL1402/HanoiTower/tower-of-hanoi.png
+       :scale: 100%
+       :align: center
+       :height: 384px
+       :width: 684 px
+
+    In this exercise, you are asked to solve this puzzle for any size of stack by implementing this method and this method only! We are using Stack_, to get the first element of a stack, use the method ``pop``, and to add an element use the method ``push``. The object Disk_ is here to make sure you will not solve the exercise by just creating another stack.
+
+    Here is the class TowerOfHanoi_ you must implement, you can create disk by yourself to test your method but it will not compile on Inginious if you try to do it.
+
+    **hint:** you can call ``towerOfHanoi`` inside itself
+
+    .. _Stack: https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html
+    .. _TowerOfHanoi: /course/LEPL1402/HanoiTower/TowerOfHanoi.java
+    .. _Disk: /course/LEPL1402/HanoiTower/Disk.java
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: Hanoi Tower
+network_grading: false
+problems:
+    studentCode:
+        type: code
+        default: ''
+        language: java
+        name: Hanoi Tower implementation
+        header: 'Paste here the **body** of the method ``towerOfHanoi``:'
+    studentNumber:
+        default: ''
+        header: |-
+            Implement this function that returns the minimum number of times you have to move a disk to solve this problem
+
+            .. code-block:: java
+
+                public static int numberOfMoves(int stackSize){
+                    //TODO by student
+                }
+        type: code_single_line
+        name: Number of moves
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

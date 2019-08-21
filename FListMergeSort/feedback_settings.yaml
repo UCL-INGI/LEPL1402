@@ -1,0 +1,9 @@
+has_feedback: True
+feedback_kind: JavaGrading
+prohibited: 
+  "studentMergeSort":
+    - Arrays.sort
+    - ArrayList
+  "studentClass":
+    - Arrays.sort
+    - ArrayList

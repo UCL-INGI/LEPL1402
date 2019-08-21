@@ -1,0 +1,24 @@
+accessible: true
+author: Bastin J, Piron H
+categories:
+- module5
+context: |+
+    In this exercise you will learn to use basic lambda expression. Since you are going to use them later, they are worth a small introduction exercise.
+
+environment: pyjavacpp
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: Lambda Expression in Java
+network_grading: false
+problems: {}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

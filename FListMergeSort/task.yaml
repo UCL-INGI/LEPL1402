@@ -1,0 +1,61 @@
+accessible: true
+author: Bastin J, Piron H
+categories:
+- module5
+context: |-
+    To complete this task you must implement a mergesort for FList using only FList. Arrays, ArrayList, etc. are prohibited for this exercise.
+
+    Here is the class FList_ you will be using. Try first to implement the FList by yourself in this exercise_ before starting this one.
+
+    And here is the method you must implement: note that you have to implement merge recursivly and you are allowed to create other methods
+
+    .. code-block:: java
+
+        public class FListMerge {
+
+
+            /*
+            * This method receives an FList and returns the FList containing the same values but sorted with the smallest value to the highest one.
+            *
+            */
+            public static FList<Integer> mergeSort(FList<Integer> fList){
+                //TODO By Student
+            }
+
+            //TO Complete if needed
+        }
+
+
+    .. _FList: /course/LEPL1402/FListMergeSort/FList.java
+    .. _exercise: https://inginious.info.ucl.ac.be/course/LEPL1402/FList
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: FList MergeSort
+network_grading: false
+problems:
+    studentMergeSort:
+        default: ''
+        header: 'Paste here the **body** of you method mergesort:'
+        type: code
+        language: java
+        name: MergeSort implementation
+    studentClass:
+        type: code
+        default: ''
+        optional: 'on'
+        header: 'Paste here the other methods you have implemented if you have, **SIGNATURE**
+            and **BODY** :'
+        language: java
+        name: Other methods
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
