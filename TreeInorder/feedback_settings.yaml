@@ -1,6 +1,6 @@
 has_feedback: True
 feedback_kind: JavaGrading
-prohibited: 
+prohibited:
   "student_iterative":
     - nCalls
   "student_recursive":

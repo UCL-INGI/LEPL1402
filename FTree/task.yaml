@@ -3,9 +3,9 @@ author: Bastin J, Piron H
 categories:
 - module5
 context: |
-    In this exercise you have to complete the class FTree_, Node_ and Leaf_. Ftree_ is an abstract class that represents a binary true, it is extended by Node and Leaf. A Node_ is a FTree_ with two children (left and right) and a value. A Leaf_ is terminal, so it has no value and no children.
+    In this exercise you have to complete the class FTree_, Node_ and Leaf_. Ftree_ is an abstract class that represents a binary true, it is extended by Node and Leaf. A Node_ is a FTree_ with two children (left and right) and a value. A Leaf_ is terminal, so it has a value but no children.
 
-    In the FTree_ class you must implement:
+    In the FTree_ class you must *recursivly* implement:
         - depth : returns the depth of the tree (we assume that the tree is balanced)
         - map : receives a function as argument and apply it to all the values contained in the tree
 
@@ -14,6 +14,7 @@ context: |
         - extend FTree_
 
     To complete the Leaf_ class you must :
+        - implement the constructor
         - extend FTree_
 
 
@@ -37,22 +38,58 @@ problems:
         name: Depth Implementation
         language: java
         default: ''
-        header: 'Paste here the **body** of your depth method:'
+        header: |-
+            Paste here the **body** of your depth method:
+
+            .. code-block:: java
+
+                public final int depth() {
+                    //Your code
+                }
     studentMap:
-        header: 'Paste here the **body** of your map method:'
+        header: |-
+            Paste here the **body** of your map method:
+
+            .. code-block:: java
+
+                public final <B> FTree<B> map(Function<A,B> f){
+                    //Your code
+                }
         type: code
         language: java
         default: ''
         name: Map Implementation
     studentNode:
         name: Node Implementation
-        header: 'Paste here the **body** of your class Node class:'
+        header: |-
+            Paste here the **body** of your class Node class, including every method **signature** and their **implementation**:
+
+            .. code-block:: java
+
+                public class Node<A> extends FTree<A> {
+
+                    private final A value;
+                    private final FTree<A> left, right;
+
+                    //TODO by student
+                }
         default: ''
         language: java
         type: code
     studentLeaf:
         name: Leaf Implementation
-        header: 'Paste here the **body** of your Leaf class:'
+        header: |
+            Paste here the **body** of your class Leaf class, including every method **signature** and their **implementation**:
+
+            .. code-block:: java
+
+                public class Leaf<A> extends FTree<A> {
+
+                    private final A value;
+
+                    //TODO by student
+
+                }
         default: ''
         language: java
         type: code

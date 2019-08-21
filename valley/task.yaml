@@ -25,8 +25,21 @@ context: |
     \
     We can define a valley by saying it is sequence of negative number followed by a sequence of positive number with the same amount of numbers. The depth is the length of the sequence.
 
+    Here is the mathematical definition:
+
+    Given :math:`A` an Array of integer :math:`\forall i, 0\leq i < |A|, A[i]\neq 0`,
+    Given :math:`v` the length of the longest valley,
+    :math:`\exists ! i,j` with :math:`0\leq i < j \leq |A|` so that :math:`\forall m` , :math:`i \leq m < (j-i)/2` , :math:`A[m]<0` and :math:`\forall n` , :math:`(j-i)/2 < m \leq j` , :math:`A[n]>0` , :math:`j-i > v*2`
+
+
     \
     We can define a mountain by saying it is sequence of positive number followed by a sequence of negative number with the same amount of numbers. The height is the length of the sequence.
+
+    Here is the mathematical definition:
+
+    Given :math:`A` an Array of integer :math:`\forall i, 0\leq i < |A|, A[i]\neq 0`,
+    Given :math:`v` the length of the longest valley,
+    :math:`\exists ! i,j` with :math:`0\leq i < j \leq |A|` so that :math:`\forall m` , :math:`i \leq m < (j-i)/2` , :math:`A[m]>0` and :math:`\forall n` , :math:`(j-i)/2 < m \leq j` , :math:`A[n]<0` , :math:`j-i > v*2`
 
     Consider that the array is never gonna be empty.
     \
@@ -55,25 +68,25 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: Longest Valley
 network_grading: false
 order: 10
 problems:
     student_code:
-        header: Paste here the **body** of your methode ``valley``
-        name: ''
-        language: java
-        default: ''
         type: code
+        name: ''
+        default: ''
+        header: Paste here the **body** of your methode ``valley``
+        language: java
     student_additionnal:
-        optional: 'on'
+        language: java
         type: code
         name: ''
         default: ''
         header: Paste here your additionnal methods
-        language: java
+        optional: 'on'
 stored_submissions: 0
 submission_limit:
     amount: -1

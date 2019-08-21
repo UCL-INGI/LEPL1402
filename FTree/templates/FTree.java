@@ -1,16 +1,18 @@
+package templates;
+
 import java.util.function.Function;
 
 public abstract class FTree<A> {
 
-    public final boolean isNotEmpty() {
-        return this instanceof Node;
-    }
+    public static int counter=0;
 
-    public final boolean isEmpty() {
-        return this instanceof Leaf;
+    public static void resetCounter(){
+        counter=0;
+
     }
 
     public final int depth() {
+        counter++;
         @@studentDepth@@
     }
 
@@ -19,6 +21,8 @@ public abstract class FTree<A> {
     public abstract FTree<A> right();
 
     public final <B> FTree<B> map(Function<A,B> f) {
+        counter++;
+
         @@studentMap@@
     }
 

@@ -3,91 +3,103 @@ author: Bastin J. , Piron H.
 categories:
 - module6
 context: |-
-    For this task you will learn to make some asynchronous calculation using Future_, ExecutorService_ and Callable_.
-    You will implement two methods of the class AsyncTask_ : ``indexOf`` and ``createFutures``.
+    For this task you will learn use Future_ and ExecutorService_ in order to load a web page with images asynchronously. Indeed html is lightweight compared to the images so we want the images to be downloaded asynchronously while the html is displayed without the images.
+
+    In this task we give you the WebPage_ class to complete and three other class to use : URL_, Image_ and HTML_.
 
     .. code-block:: java
 
         import java.util.ArrayList;
         import java.util.List;
-        import java.util.concurrent.Callable;
         import java.util.concurrent.ExecutionException;
         import java.util.concurrent.ExecutorService;
         import java.util.concurrent.Executors;
         import java.util.concurrent.Future;
 
-        public class AsyncTask {
+        public class WebPage {
 
-            private static ExecutorService executor = Executors.newFixedThreadPool(10);
+            private ExecutorService executor;
+            private HTML html;
 
-            /**
-             * Return a Future that return the first index of elem inside longArray or -1.
-             * longArray is a non ordered random array.
-             * You have to use executor to success this task. Don't hesite to read the
-             * documentation of Future and ExecutorService in order to understand what
-             * you are supposed to do.
+            /*
+             * Bound executor to a fixed thread pool size
              */
-            public static Future<Integer> indexOf(int[] longArray, int elem){
+            public WebPage(int threadNumber, HTML html){
                 //TODO
             }
 
-            /**
-             * Do some usefull calculation
+            /*
+             * submit the download of the image specified by the url
+             * to be executed by thread pool
              */
-            public static Integer someCalculations(int[] longArray, int i){
-                //HIDDEN to you
-            }
-
-            /**
-             * Once all thread are finished, do another very usefull calculation.
-             */
-            public static void someOtherCalculations(List<Integer> results, Integer calculated){
-                //HIDDEN TO YOU
-            }
-
-            /**
-             * Return a list of Future that try to find the index of all elements
-             * inside array.
-             * Each Future must run in a new thread
-             */
-            public static List<Future<Integer>> createFutures(int[] array, int[] elements){
+            public Future<Image> loadImage(URL url){
                 //TODO
             }
 
-            /**
-             * This code must work thanks to your implementation of the to functions above.
+            /*
+             * Download the image specified by the url
              */
-            public static void test(int[] array, int[] elements, int randomNumber){
-                //get the list of all futures that runs inside different threads
-                List<Future<Integer>> futures = createFutures(array, elements);
-                //while the threads are executing asynchronously, we can perform
-                //some usefull tasks
-                Integer calc = someCalculations(array, randomNumber);
+            public Image downloadImageFromURL(URL url){
+                //HIDDEN
+            }
 
-                //Then we need the result of the threads
-                List<Integer> res = new ArrayList<>(futures.size());
-                try {
-                    for(int i = 0; i< futures.size(); i++){
-                        res.add(futures.get(i).get());
+            /*
+             * Load all images of the page
+             */
+            public List<Future<Image>> loadImages(List<URL> urls){
+                //TODO
+            }
+
+            /*
+             * Load the page while images are being downloaded
+             */
+            private void displayPageWithoutImage(){
+                //HIDDEN
+            }
+
+            /*
+             * Display all images on the page
+             */
+            private void displayImages(List<Image> images){
+                //HIDDEN
+            }
+
+            /*
+             * load the page
+             */
+            public void loadPage(){
+                // First the image are downloaded asynchronously
+                List<Future<Image>> futures = loadImages(this.html.getUrls());
+                // While the image are being downloaded, we display the page without them
+                displayPageWithoutImage();
+                // Then we need all images to display them
+                List<Image> images = new ArrayList<Image>(futures.size());
+                try{
+                    for(Future<Image> future : futures){
+                        // the "get()" function is waiting for the result of the future task (here download the images)
+                        images.add(future.get());
                     }
                 } catch(InterruptedException e){
 
-                } catch(ExecutionException e){
+                } catch (ExecutionException e){
 
                 }
-
-                //finally we perform other calculation with the results of the threads
-                //and the other calculation we made
-                SomeOtherCalculations(res, calc);
+                // we can display now images on the page
+                displayImages(images);
+                // shut down the executor service now
+                executor.shutdown();
 
             }
 
         }
 
+
     .. _Future: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html
     .. _ExecutorService: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html
-    .. _Callable: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html
-    .. _AsyncTask: /course/LEPL1402/Future/AsyncTask.java
+    .. _WebPage: /course/LEPL1402/Future/WebPage.java
+    .. _Image: /course/LEPL1402/Future/Image.java
+    .. _URL: /course/LEPL1402/Future/URL.java
+    .. _HTML: /course/LEPL1402/Future/HTML.java
 environment: pyjavacpp
 evaluate: best
 file: ''
@@ -100,18 +112,23 @@ limits:
 name: Future
 network_grading: false
 problems:
-    student_indexOf:
-        default: ''
-        header: 'Paste here the **body** of the method ``indexOf`` :'
-        name: ''
+    student_constructor:
         language: java
+        default: ''
         type: code
-    student_createFutures:
+        header: 'Paste here the **body** of the ``constructor`` :'
+        name: ''
+    student_loadImage:
+        default: ''
+        type: code_single_line
+        header: 'Paste here the **body** of ``loadImage`` :'
+        name: ''
+    student_loadImages:
+        header: 'Paste here the **body** of ``loadImages`` :'
+        type: code
+        language: java
         default: ''
         name: ''
-        type: code
-        header: 'Paste here the **body** of the method ``createFutures`` :'
-        language: java
 stored_submissions: 0
 submission_limit:
     amount: -1

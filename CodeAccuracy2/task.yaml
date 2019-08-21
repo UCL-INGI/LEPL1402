@@ -5,7 +5,7 @@ categories:
 context: |-
     In order to discover the importance of pre/post conditions and invariants in your programs, we will take the example of QuickSort.
 
-    Quicksort is a divide-and-conquer method for sorting. It works by partitioning an array into two parts, then sorting the parts independently.
+    Quicksort is a divide-and-conquer method for sorting. It works by partitioning an array into two parts, then sorting the parts independently. It takes the first element of the Array, then it determines its position in the array by iterating through it. If an element is lower, it moves the element to its left and increment its own position. Then it recursivly do the same operation for each sub array (left and right of the pivot).
 
     .. figure:: /course/LEPL1402/CodeAccuracy2/quicksort-overview.png
        :scale: 100 %
@@ -32,39 +32,39 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: '[Module 2] Code accuracy - Practical exercise'
 network_grading: false
 order: 12
 problems:
     exch_code:
+        name: ''
         header: 'Paste here the **body** of your **swap(Object[] a, int i, int j)**
             method:'
-        type: code
         default: ''
         language: java
-        name: ''
+        type: code
     partition_code:
-        type: code
         name: ''
         language: java
-        default: ''
         header: 'Paste here the **body** of your **partition(Comparable[] a, int left,
             int right)** method:'
-    sort_code:
-        header: 'Paste here the **body** of your **sort(Comparable[] a)** method:'
-        name: ''
-        language: java
+        type: code
         default: ''
+    sort_code:
+        name: ''
+        header: 'Paste here the **body** of your **sort(Comparable[] a)** method:'
+        default: ''
+        language: java
         type: code
     sort_code2:
-        default: ''
         header: 'Paste here the **body** of your **sort(Comparable[] a, int left,
             int right)** method:'
-        name: ''
+        default: ''
         type: code
         language: java
+        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

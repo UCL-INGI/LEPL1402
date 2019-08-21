@@ -10,8 +10,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.function.Supplier;
-import java.util.stream.Stream;
-import java.util.Optional;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 import java.util.*;
 import templates.*;
@@ -21,91 +21,70 @@ import static org.junit.Assert.*;
 @RunWith(GradingRunner.class) // classic "jail runner" from Guillaume's library
 public class InginiousTests {
 
-    private OptionalTest test = new OptionalTest();
+    private Supplier<Integer> rng = () -> (int) (Math.random()*100);
 
-    @Test
-    @Grade(cpuTimeout=100, value = 1, custom=true)
-    public void testCreateOptionalTeamLeader() throws CustomGradingResult{
-      TeamLeader tl = null;
-      try{
-        Optional<TeamLeader> teamLeader = test.createOptionalTeamLeader(tl);
-        if(teamLeader.equals(Optional.empty()) && test.createOptionalTeamLeader(new TeamLeader("Paul", 50)) instanceof Optional){
-          throw new CustomGradingResult(TestStatus.SUCCESS, 1, "You've used correctly \"ofNullable\"");
-        }
-      } catch(NullPointerException e){
-        throw new CustomGradingResult(TestStatus.FAILED, 0, "Another method than \"of\" exists and return an empty Optional instead of null");
+    private List<URL> generateURLList(){
+      int length = rng.get();
+      List<URL> urls = new ArrayList<URL>(length);
+      for(int i = 0; i<length; i++){
+        urls.add(new URL(new Image(rng.get())));
       }
-      throw new CustomGradingResult(TestStatus.FAILED, 0);
+      return urls;
     }
 
     @Test
-    @Grade(cpuTimeout=100, value = 1, custom=true)
-    public void testIncAge() throws CustomGradingResult{
-      Optional<TeamLeader> empty = Optional.empty();
-      Optional<TeamLeader> tl1 = Optional.ofNullable(new TeamLeader());
-      Optional<TeamLeader> tl2 = Optional.ofNullable(new TeamLeader("Paul", 30));
-      try{
-        test.incAge(empty); // must do nothing if well implemented or throw a NoSuchElementException
-        test.incAge(tl1);
-        test.incAge(tl2);
-        if(tl1.map(TeamLeader::getAge).orElse(0) == 1 && tl2.map(TeamLeader::getAge).orElse(0) == 31){
-          throw new CustomGradingResult(TestStatus.SUCCESS, 1, "You've used correctly ifPresent");
+    @Grade(value=1, cpuTimeout=1000, customPermissions = ThreadPermissionFactory.class)
+    @GradeFeedback(message = "Your loadImage function does not work. Is your constructor complete?", onFail = true, onTimeout = true)
+    public void testLoadImage(){
+      List<URL> urls = generateURLList();
+        WebPage webPage = new WebPage(10, new HTML(urls));
+        List<Future<Image>> futures = new ArrayList<Future<Image>>(urls.size());
+        for(URL url : webPage.getHtml().getUrls()){
+            futures.add(webPage.loadImage(url));
         }
-      } catch(NoSuchElementException e){
-        throw new CustomGradingResult(TestStatus.FAILED, 0, "Using get is not a good solution for this implementation. Look for a other method of Optional.");
-      }
-      throw new CustomGradingResult(TestStatus.FAILED, 0);
+
+        List<Image> images = new ArrayList<Image>(futures.size());
+        try{
+            for(Future<Image> future : futures){
+                images.add(future.get());
+            }
+        } catch(InterruptedException e){
+
+        } catch (ExecutionException e){
+
+        }
+
+        assertEquals(images.size(), urls.size());
+        for(int i = 0; i<images.size(); i++){
+            assertEquals(images.get(i).getNum(), urls.get(i).getImage().getNum());
+        }
+
+        webPage.getExecutor().shutdown();
     }
 
     @Test
-    @Grade(cpuTimeout=100, value = 1, custom=true)
-    public void testIncAgeIfMoreThanFifteen() throws CustomGradingResult{
-      Optional<TeamLeader> empty = Optional.empty();
-      Optional<TeamLeader> tl1 = Optional.ofNullable(new TeamLeader());
-      Optional<TeamLeader> tl2 = Optional.ofNullable(new TeamLeader("Paul", 30));
-      try{
-        test.incAgeIfMoreThanFifteen(empty); // must do nothing if well implemented or throw a NoSuchElementException
-        test.incAgeIfMoreThanFifteen(tl1);
-        test.incAgeIfMoreThanFifteen(tl2);
-        if(tl1.map(TeamLeader::getAge).orElse(-1) == 0 && tl2.map(TeamLeader::getAge).orElse(0) == 31){
-          throw new CustomGradingResult(TestStatus.SUCCESS, 1, "You've used correctly filter");
+    @Grade(value=1, cpuTimeout=1000, customPermissions = ThreadPermissionFactory.class)
+    @GradeFeedback(message="Your loadImages function does not work", onFail=true, onTimeout=true)
+    public void testLoadImages(){
+      List<URL> urls = generateURLList();
+        WebPage webPage = new WebPage(10, new HTML(urls));
+        List<Future<Image>> futures = webPage.loadImages(urls);
+        List<Image> images = new ArrayList<Image>(futures.size());
+        try{
+            for(Future<Image> future : futures){
+                images.add(future.get());
+            }
+        } catch(InterruptedException e){
+
+        } catch (ExecutionException e){
+
         }
-      } catch(NoSuchElementException e){
-        throw new CustomGradingResult(TestStatus.FAILED, 0, "Using get is not a good solution for this implementation. Look for a other method of Optional.");
-      }
-      throw new CustomGradingResult(TestStatus.FAILED, 0);
-    }
 
-    @Test
-    @Grade(cpuTimeout=100, value = 1, custom=true)
-    public void testGetName() throws CustomGradingResult{
-      Optional<TeamLeader> empty = Optional.empty();
-      Optional<TeamLeader> tl = Optional.ofNullable(new TeamLeader("Paul", 30));
-      try{
-        if(test.getName(empty).equals("No team leader") && test.getName(tl).equals("Paul")){
-          throw new CustomGradingResult(TestStatus.SUCCESS, 1, "You've used correctly map");
+        assertEquals(images.size(), urls.size());
+        for(int i = 0; i<images.size(); i++){
+            assertEquals(images.get(i).getNum(), urls.get(i).getImage().getNum());
         }
-      } catch(NoSuchElementException e){
-        throw new CustomGradingResult(TestStatus.FAILED, 0, "Using get is not a good solution for this implementation. Look for a other method of Optional.");
-      }
-      throw new CustomGradingResult(TestStatus.FAILED, 0);
+
+        webPage.getExecutor().shutdown();
     }
-
-    @Test
-    @Grade(cpuTimeout=100, value = 1, custom=true)
-    public void testGetNameOfTeamLeader() throws CustomGradingResult{
-      Optional<TeamLeader> empty = Optional.empty();
-      Optional<Person> personEmpty = Optional.ofNullable(new Person(Optional.ofNullable(new Team(empty))));
-      Optional<Person> person =  Optional.ofNullable(new Person(Optional.ofNullable(new Team(Optional.ofNullable(new TeamLeader("Paul", 30))))));
-      try{
-        if(test.getNameOfTeamLeader(personEmpty).equals("No team leader") && test.getNameOfTeamLeader(person).equals("Paul")){
-          throw new CustomGradingResult(TestStatus.SUCCESS, 1, "You've used correctly flatmap");
-        }
-      } catch(NoSuchElementException e){
-        throw new CustomGradingResult(TestStatus.FAILED, 0, "Using get is not a good solution for this implementation. Look for a other method of Optional.");
-      }
-      throw new CustomGradingResult(TestStatus.FAILED, 0);
-
-    }
-
 }

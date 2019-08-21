@@ -1,7 +1,10 @@
 
 public class Leaf<A> extends FTree<A> {
-    public static final Leaf<Object> INSTANCE = new Leaf<>();
-    
-    
+
+    private final A value;
+
+    public Leaf(A a){
+        
+    }
     //TODO by student
 }
