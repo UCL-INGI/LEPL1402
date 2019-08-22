@@ -1,7 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
 categories:
-- module3
+- module4
 context: |-
     In this task, you have to implement the following code represented by this UML diagram :
 
@@ -24,30 +24,30 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Abstract Class'
+    output: '2'
+name: '[Module 4] Abstract Class'
 network_grading: false
-order: 16
+order: 29
 problems:
     student_shape:
+        name: ''
+        language: java
+        default: ''
         header: 'Paste here your ``Shape`` class:'
-        name: ''
         type: code
-        language: java
-        default: ''
     student_circle:
+        language: java
+        default: ''
+        type: code
+        name: ''
         header: 'Paste here your ``Circle`` class:'
-        name: ''
-        type: code
-        language: java
-        default: ''
     student_square:
-        header: 'Paste here your ``Square`` class:'
-        language: java
-        name: ''
-        type: code
         default: ''
+        type: code
+        name: ''
+        language: java
+        header: 'Paste here your ``Square`` class:'
 stored_submissions: 0
 submission_limit:
     amount: -1

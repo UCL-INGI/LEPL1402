@@ -12,8 +12,7 @@ def text_with_color(text, color):
 
 print("CHECK THAT ALL TASKS FOLLOWS THE EXPLAINED STRUCTURE IN DOC")
 
-# As inginious-autotest required a folder where everything is stored (folder "LEPL1402"), use that ,
-# else use "." for local testing
+# As inginious-autotest required a folder where everything is stored, use that
 path = Path("LEPL1402")
 task_folders = [x for x in path.iterdir() if x.is_dir() and x.name not in {"$common", "$test$"}]
 
@@ -36,13 +35,9 @@ for folder in task_folders:
         feedback_path = str(folder / "feedback_settings.yaml")
         problem = ""
 
-        # check existence of folders src and templates
+        # check existence of folders src and templates (TODO maybe also check emptiness of folder )
         if "src" not in files_and_folder_in_task or "templates" not in files_and_folder_in_task:
             problem += text_with_color("Missing any of these critical folder(s) : src / templates", 196) + "\n"
-        else:
-            if not (folder / "src").rglob(".java") or not (folder / "templates").rglob(".java"):
-                problem += text_with_color("No java files inside any of these critical folder(s) : src / templates",
-                                           196) + "\n"
 
         with open(feedback_path, "r") as stream:
             try:
@@ -88,26 +83,10 @@ for folder in task_folders:
                                                    196) + "\n"
                     else:
                         if any([
-                            (not isinstance(problem_id, str)) or (not isinstance(statements, list)) or (not all([
-                                isinstance(statement, str)
-                                for statement in statements
-                            ]))
-                            for (problem_id, statements) in result["prohibited"].items()
+                            (not isinstance(problem_id, str)) or (not isinstance(statments, list))
+                            for (problem_id, statments) in result["prohibited"].items()
                         ]):
                             problem += text_with_color("prohibited is improperly constructed", 196) + "\n"
-
-                if "external_libraries" in result:
-
-                    if not isinstance(result["external_libraries"], list):
-                        problem += text_with_color("external_libraries should be a sequence of path string", 196) + "\n"
-                    else:
-                        if any([
-                            (not isinstance(lib, str)) or (not (folder / lib).exists())
-                            for lib in result["external_libraries"]
-                        ]):
-                            problem += text_with_color(
-                                "external_libraries is improperly constructed or a or more libraries is missing",
-                                196) + "\n"
 
             except yaml.YAMLError as exc:
                 problem += text_with_color("Parsing error in feedback_settings.yaml\n", 196)

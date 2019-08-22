@@ -2,8 +2,7 @@ accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module3
-context: |4-
-
+context: |-
     You are asked to write a mini-PostScript interpreter as described in the *pdf* (Mission_) of the mission. Precisely, you must implement the following interface :
 
     .. code-block:: java
@@ -65,18 +64,18 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: Postscript interpreter
+    output: '2'
+name: '[Module 3] Postscript interpreter'
 network_grading: false
 order: 24
 problems:
     student_code:
-        header: 'Paste here the **body** of your Interpreter class:'
-        name: ''
-        language: java
-        default: ''
         type: code
+        name: ''
+        default: ''
+        header: 'Paste here the **body** of your Interpreter class:'
+        language: java
 stored_submissions: 0
 submission_limit:
     amount: -1

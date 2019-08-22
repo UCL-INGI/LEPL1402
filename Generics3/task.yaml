@@ -25,42 +25,42 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Generics 3'
+    output: '2'
+name: '[Module 3] Generics 3'
 network_grading: false
 order: 21
 problems:
     student_gate_xor:
-        language: java
         default: ''
-        name: ''
         type: code
+        language: java
+        name: ''
         header: Paste here the **BODY** of your **xor_gate** method
     student_gate_or:
-        type: code
-        name: ''
-        default: ''
         header: Paste here the **BODY** of your **or_gate** method
         language: java
-    student_gate_and:
-        header: Paste here the **BODY** of your **and_gate** method
-        language: java
         name: ''
         default: ''
+        type: code
+    student_gate_and:
+        name: ''
+        language: java
+        default: ''
+        header: Paste here the **BODY** of your **and_gate** method
         type: code
     student_gate_not:
         default: ''
         header: Paste here the **BODY** of your **not_gate** method
-        language: java
         type: code
+        language: java
         name: ''
     student_evaluate:
-        default: ''
-        header: Paste here the **BODY** of your **evaluate_circuit** method
         type: code
-        language: java
         name: ''
+        header: Paste here the **BODY** of your **evaluate_circuit** method
+        language: java
+        default: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

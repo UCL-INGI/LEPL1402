@@ -69,18 +69,18 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Coverage Testing'
+    output: '2'
+name: '[Module 4] Coverage Testing'
 network_grading: false
 order: 28
 problems:
     student_code:
-        header: 'Paste here your JUnit test methods :'
-        name: ''
-        language: java
-        default: ''
         type: code
+        name: ''
+        default: ''
+        header: 'Paste here your JUnit test methods :'
+        language: java
 stored_submissions: 0
 submission_limit:
     amount: -1

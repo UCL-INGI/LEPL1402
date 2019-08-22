@@ -1,7 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
 categories:
-- module3
+- module1
 context: ''
 environment: mcq
 evaluate: best
@@ -12,7 +12,7 @@ limits:
     output: '2'
     memory: '100'
     time: '30'
-name: '[TESTABLE] Access Modifiers / Scopes'
+name: '[Module 1] Access Modifiers / Scopes'
 network_grading: false
 order: 1
 problems:

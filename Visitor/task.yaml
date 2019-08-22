@@ -39,47 +39,47 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Visitor design pattern - Calculator'
+    output: '2'
+name: '[Module 4] Visitor design pattern - Calculator'
 network_grading: false
-order: 31
+order: 32
 problems:
     student_add:
-        default: ''
-        name: ''
         language: java
-        type: code
         header: 'Paste here the **BODY** of your Add class:'
+        name: ''
+        default: ''
+        type: code
     student_mult:
+        type: code
         header: 'Paste here the **BODY** of your Mult class:'
-        type: code
-        language: java
-        name: ''
         default: ''
+        name: ''
+        language: java
     student_div:
+        default: ''
+        header: 'Paste here the **BODY** of your Div class:'
+        language: java
+        name: ''
+        type: code
+    student_sub:
         language: java
         type: code
-        header: 'Paste here the **BODY** of your Div class:'
-        name: ''
-        default: ''
-    student_sub:
-        name: ''
         header: 'Paste here the **BODY** of your Sub class:'
         default: ''
-        language: java
-        type: code
+        name: ''
     student_leaf:
         default: ''
-        type: code
         name: ''
-        language: java
+        type: code
         header: 'Paste here the **BODY** of your Leaf class:'
-    student_evaluation:
-        name: ''
-        type: code
         language: java
+    student_evaluation:
+        type: code
+        name: ''
         default: ''
+        language: java
         header: 'Paste here the **BODY** of your Evaluation class:'
 stored_submissions: 0
 submission_limit:

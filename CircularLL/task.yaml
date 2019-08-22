@@ -119,30 +119,30 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Circular Linked list'
+    output: '2'
+name: '[Module 3] Circular Linked list'
 network_grading: false
 order: 18
 problems:
     student_enqueue:
-        default: ''
-        language: java
-        type: code
         name: ''
         header: 'Paste here the BODY of your ``enqueue`` method:'
+        type: code
+        default: ''
+        language: java
     student_remove:
-        language: java
-        default: ''
-        name: ''
-        type: code
         header: 'Paste here the BODY of your ``remove(int index)`` method:'
-    student_iterator:
-        header: 'Paste here the BODY of your ``ListIterator`` class:'
         type: code
+        default: ''
         language: java
         name: ''
+    student_iterator:
+        language: java
         default: ''
+        header: 'Paste here the BODY of your ``ListIterator`` class:'
+        name: ''
+        type: code
 stored_submissions: 0
 submission_limit:
     amount: -1

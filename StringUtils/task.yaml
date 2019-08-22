@@ -70,39 +70,39 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Strings'
+    output: '2'
+name: '[Module 1] Strings'
 network_grading: false
 order: 3
 problems:
     student_split:
-        type: code
-        language: java
-        default: ''
-        name: ''
         header: 'Paste here the **body** of your ``split`` method. Note that you can''t
             use ``split`` from ``String`` API :'
+        default: ''
+        name: ''
+        type: code
+        language: java
     student_indexof:
+        default: ''
+        language: java
+        type: code
         header: 'Paste here the **body** of your ``indexOf`` method. Note that you
             can''t use ``indexOf`` from ``String`` API :'
-        language: java
-        default: ''
-        type: code
         name: ''
     student_tolowercase:
-        type: code
         default: ''
         header: 'Paste here the **body** of your ``toLowerCase`` method. Note that
             you can''t use ``toLowerCase`` from ``String`` API :'
-        language: java
         name: ''
-    student_palindrome:
         type: code
-        default: ''
         language: java
+    student_palindrome:
         header: 'Paste here the **body** of your ``palindrome`` method :'
+        type: code
         name: ''
+        language: java
+        default: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

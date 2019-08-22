@@ -64,36 +64,36 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Queue with two stacks'
+    output: '2'
+name: '[Module 3] Queue with two stacks'
 network_grading: false
 order: 26
 problems:
     enqueue:
         type: code
         language: java
-        header: 'Paste here the **body** of your ``enqueue`` method:'
         default: ''
+        header: 'Paste here the **body** of your ``enqueue`` method:'
         name: ''
     dequeue:
-        language: java
-        default: ''
-        name: ''
         type: code
         header: 'Paste here the **body** of your ``dequeue`` method:'
+        name: ''
+        default: ''
+        language: java
     peek:
+        name: ''
+        header: 'Paste here the **body** of your ``peek`` method:'
         type: code
         default: ''
-        header: 'Paste here the **body** of your ``peek`` method:'
-        name: ''
         language: java
     empty:
-        header: 'Paste here the **body** of your ``empty`` method:'
-        name: ''
         type: code
-        language: java
+        header: 'Paste here the **body** of your ``empty`` method:'
         default: ''
+        language: java
+        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

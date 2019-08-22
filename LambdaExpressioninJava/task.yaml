@@ -2,9 +2,16 @@ accessible: true
 author: Bastin J, Piron H
 categories:
 - module5
-context: |+
+context: |
     In this exercise you will learn to use basic lambda expression. Since you are going to use them later, they are worth a small introduction exercise.
 
+    Since we work with lambda, we have decided to block the ``return`` statement.
+
+    Here you can find the java documentation about Function_, Predicate_ and Comparator_.
+
+    .. _Function: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+    .. _Predicate: https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html
+    .. _Comparator: https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html
 environment: pyjavacpp
 evaluate: best
 file: ''
@@ -14,9 +21,60 @@ limits:
     memory: '100'
     time: '30'
     output: '2'
-name: Lambda Expression in Java
+name: '[Module 5] Lambda Expression in Java'
 network_grading: false
-problems: {}
+order: 36
+problems:
+    studentAdd:
+        header: |-
+            Write here a lambda expression that takes an integer and return a sum of the integer and two! *Don't forget the semicolon!*
+
+            .. code-block:: java
+
+                Function<Integer, Integer> f1 = //Your lambda
+        name: Add Integer
+        type: code_single_line
+        default: ''
+    studentStringLength:
+        header: |-
+            Write here a lambda expression that takes a String and return its length. *Don't forget the semicolon!*
+
+            .. code-block:: java
+
+                Function<String, Integer> mf = //Your lambda
+        type: code_single_line
+        name: String length
+        default: ''
+    studentPredicate:
+        name: Even Integer
+        default: ''
+        header: |-
+            Write here a lambda expression that takes an Integer and return true if its even and false if its odd. *Don't forget the semicolon!*
+
+            .. code-block:: java
+
+                Predicate<Integer> p1 = //Your lambda
+        type: code_single_line
+    studentComparator:
+        type: code_single_line
+        default: ''
+        name: String Comparator
+        header: |-
+            Write here a lambda expression that takes two Strings and compare them using compareTo. *Don't forget the semicolon!*
+
+            .. code-block:: java
+
+                Comparator<String> comp = //Your lambda
+    studentStringLengthComp:
+        header: |-
+            Write here a lambda expression that takes two Strings and compare them using their length, your comparator should return the difference between the first and the second String length. *Don't forget the semicolon!*
+
+            .. code-block:: java
+
+                Comparator<String> compLength = //Your lambda
+        type: code_single_line
+        default: ''
+        name: String Length Comparator
 stored_submissions: 0
 submission_limit:
     amount: -1

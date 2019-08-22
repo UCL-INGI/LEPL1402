@@ -57,7 +57,7 @@ limits:
     time: '30'
 name: '[Module 2] Binary trees - equals'
 network_grading: false
-order: 13
+order: 15
 problems:
     student_eqtree:
         name: ''

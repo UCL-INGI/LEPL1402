@@ -59,23 +59,23 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Factory design pattern - Level generator'
+    output: '2'
+name: '[Module 4] Factory design pattern - Level generator'
 network_grading: false
-order: 29
+order: 30
 problems:
     student_factory:
-        language: java
         header: 'Paste here the **body** of your ``ElementFactory`` class:'
-        type: code
-        default: ''
-        name: ''
-    student_level:
-        name: ''
         language: java
+        name: ''
         default: ''
+        type: code
+    student_level:
+        default: ''
+        name: ''
         header: 'Paste here the **body** of your ``Level`` class:'
+        language: java
         type: code
 stored_submissions: 0
 submission_limit:

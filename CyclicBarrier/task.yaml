@@ -1,0 +1,30 @@
+accessible: true
+author: Bastin J, Piron H
+categories:
+- module6
+context: |-
+    A Cyclic barrier in concurrent programming is a synchronization construct that helps you synchronize threads every once in a while. The idea is simple, after a thread finished executing a certain amount of operation, it waits until the barrier thread recover the result to restart. Note that the barrier recover this result when every thread is waiting, it thus recover all the results and then the threads can restart their computing before stopping at the next checkpoint.
+
+    In this exercise we ask you to compute the highest sum in a set of array. Imagine that you have a large set of 2D-arrays stored as one 3D-array. We ask you to use a fixed amount of threads, and a small buffer. Each thread is going to compute the sum of the values in a 2D-array and store this sum in the shared buffer. Once every thread has finished computing the sum of his array, the barrier recovers the maximum. When you don't need to compute sums the threads stop and the barrier returns the final result (the index of the maximal sum).
+
+    We give you the class MaxFinder_ that you must complete, read the code carefully before you start writing any line of code.
+
+
+    .. _MaxFinder: /course/LEPL1402/CyclicBarrier/MaxFinder.java
+environment: pyjavacpp
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: '[Module 6] Cyclic Barrier'
+network_grading: false
+problems: {}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -26,20 +26,20 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: Array Search
+    output: '2'
+name: '[Module 2] Array Search'
 network_grading: false
+order: 9
 problems:
     student_code:
-        header: 'Paste here the **body** of your method :'
-        name: ''
-        language: java
-        default: ''
         type: code
+        name: ''
+        default: ''
+        header: 'Paste here the **body** of your method :'
+        language: java
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 weight: 1.0
-order: 7

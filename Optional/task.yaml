@@ -21,13 +21,14 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: Optional - no more concerns about NullPointerException
+    output: '2'
+name: '[Module 5] Optional - no more concerns about NullPointerException'
 network_grading: false
+order: 38
 problems:
     student_of_nullable:
-        type: code_single_line
+        default: ''
         name: ''
         header: |-
             First, we want you to implement the ``createOptionalTeamLeader`` method that return a new ``Optional<TeamLeader>`` from ``teamLeader``.
@@ -44,10 +45,8 @@ problems:
                 TeamLeader teamLeader = ...; // can be null
                 Optional<TeamLeader> tl = optionalTest.createOptionalTeamLeader(teamLeader);
                 System.out.println(tl.equals(Optional.isEmpty())); //should not throw a NullPointerException
-        default: ''
-    student_if_present:
-        default: ''
         type: code_single_line
+    student_if_present:
         header: |-
             For this sub-task you have to implement the function ``incAge`` that increment by one the age of the ``optioanlTeamLeader``.
 
@@ -58,7 +57,9 @@ problems:
                 }
 
             Note that in the following questions ``optionalTeamLeader`` can't be **null** but can have the value **Optional.empty()**.
+        default: ''
         name: ''
+        type: code_single_line
     student_filter:
         name: ''
         default: ''
@@ -72,9 +73,8 @@ problems:
                 }
         type: code_single_line
     student_map_orelse:
-        default: ''
-        type: code_single_line
         name: ''
+        type: code_single_line
         header: |-
             Implements the ``getName`` method that return the name of the ``optionalTeamLeader`` or return **"No team leader"** if teamLeader is null.
 
@@ -83,7 +83,11 @@ problems:
                 public String getName(Optional<TeamLeader> optionalTeamLeader){
                     //TODO
                 }
+        default: ''
     student_flatmap:
+        type: code_single_line
+        default: ''
+        name: ''
         header: |-
             Implements the ``getNameOfTeamLeader`` method than returns the name of the team leader of the team in which the ``optionalPerson`` is, if the team has a team leader, or return **"No team leader"**.
 
@@ -94,12 +98,8 @@ problems:
                 }
 
             Note that ``optionalPerson`` can't be **null** but can have the value **Optional.empty()**.
-        name: ''
-        type: code_single_line
-        default: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 weight: 1.0
-order: 35

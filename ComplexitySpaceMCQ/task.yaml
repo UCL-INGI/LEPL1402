@@ -12,20 +12,17 @@ limits:
     output: '2'
     memory: '100'
     time: '30'
-name: Space Complexity MCQ
+name: '[Module 2] Space Complexity MCQ'
 network_grading: false
-order: 5
+order: 6
 problems:
     mcq1:
         choices:
-        -   text: :math:`\Theta(1)`
-            valid: true
+        -   valid: true
+            text: :math:`\Theta(1)`
         -   text: :math:`\Theta(i)`
         -   text: :math:`\Theta(j)`
         -   text: :math:`\Theta(i*j)`
-        limit: 0
-        name: Basic Method
-        type: multiple_choice
         header: |+
             What is the space complexity of this method?
 
@@ -42,8 +39,16 @@ problems:
 
 
 
+        limit: 0
+        type: multiple_choice
+        name: Basic Method
     mcq2:
-        name: Max Method
+        choices:
+        -   text: :math:`\Theta(n)`
+            valid: true
+        -   text: :math:`\mathcal{O}(1)`
+        -   text: :math:`\mathcal{O}(n)`
+        -   text: :math:`\Theta(1)`
         header: |+
             What is the space complexity of this method? (where :math:`n` is the size of the array)
 
@@ -58,14 +63,9 @@ problems:
 
 
 
-        choices:
-        -   text: :math:`\Theta(n)`
-            valid: true
-        -   text: :math:`\mathcal{O}(1)`
-        -   text: :math:`\mathcal{O}(n)`
-        -   text: :math:`\Theta(1)`
-        type: multiple_choice
         limit: 0
+        type: multiple_choice
+        name: Max Method
     mcq3:
         choices:
         -   text: :math:`\Theta(square)`
@@ -73,7 +73,9 @@ problems:
         -   text: :math:`\Theta(1)`
         -   text: :math:`\mathcal{O}(square)`
         -   text: :math:`\mathcal{O}(1)`
+        type: multiple_choice
         limit: 0
+        name: Array of square
         header: |+
             What is the space complexity of this method?
 
@@ -88,19 +90,16 @@ problems:
                 }
 
 
-        name: Array of square
-        type: multiple_choice
     mcq4:
         choices:
-        -   valid: true
-            text: :math:`\Theta(n*m)`
+        -   text: :math:`\Theta(n*m)`
+            valid: true
         -   text: :math:`\Theta(n)`
         -   text: :math:`\Theta(m)`
         -   text: :math:`\mathcal{O}(n)`
         -   text: :math:`\mathcal{O}(n*m)`
         -   text: :math:`\mathcal{O}(m)`
         type: multiple_choice
-        limit: 0
         header: |-
             What is the space complexity of this method?
 
@@ -115,22 +114,23 @@ problems:
                     }
                     return table;
                 }
+        limit: 0
         name: Multiplication table
     mcq5:
+        header: The time complexity of an algorithm is :math:`\Theta(n^2)` , what
+            is the maximum space complexity of this program?
+        name: Space vs Time
+        type: multiple_choice
         choices:
-        -   valid: true
-            text: :math:`\Theta(n^2)`
+        -   text: :math:`\Theta(n^2)`
+            valid: true
         -   text: :math:`\Theta(1)`
         -   text: :math:`\Theta(n)`
         -   text: :math:`\Theta(n)`
         -   text: :math:`\Theta(n^2)`
         -   text: It can be infinite
         success_message: The space complexity cannot be higher than the time complexity!
-        name: Space vs Time
         limit: 0
-        type: multiple_choice
-        header: The time complexity of an algorithm is :math:`\Theta(n^2)` , what
-            is the maximum space complexity of this program?
 stored_submissions: 0
 submission_limit:
     amount: -1

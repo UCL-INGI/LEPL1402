@@ -109,8 +109,9 @@ limits:
     memory: '100'
     time: '30'
     output: '2'
-name: Future
+name: '[Module 6] Future'
 network_grading: false
+order: 46
 problems:
     student_constructor:
         language: java

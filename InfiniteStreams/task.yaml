@@ -30,8 +30,9 @@ limits:
     output: '2'
     memory: '100'
     time: '30'
-name: Infinite Steams
+name: '[Module 5] Infinite Steams'
 network_grading: false
+order: 42
 problems:
     student_variables_constructor:
         header: |-
@@ -270,4 +271,3 @@ submission_limit:
     amount: -1
     period: -1
 weight: 1.0
-order: 37

@@ -70,9 +70,9 @@ limits:
     memory: '100'
     time: '30'
     output: '2'
-name: Longest Valley
+name: '[Module 2] Longest Valley'
 network_grading: false
-order: 10
+order: 12
 problems:
     student_code:
         type: code

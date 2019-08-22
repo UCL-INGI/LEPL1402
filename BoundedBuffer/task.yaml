@@ -1,0 +1,71 @@
+accessible: true
+author: ''
+categories: []
+context: |-
+    A bounded buffer is a way for multiple producers and consumers to synchronised. Indeed multiple producers are going to fill the buffer while consumers  are going to clear out this buffer.
+
+    You have to implement the class BoundedBuffer_. In a bounded buffer, the element window grows to the right, shrinks to the left and slides t the right on the buffer. Here is a little example about the fonctioning of a bounded buffer :
+
+    .. image:: /course/LEPL1402/BoundedBuffer/BoundedBuffer.png
+       :scale: 100%
+       :align: center
+       :height: 461px
+       :width: 801px
+
+    Before submitting don't hesitate to create a producer and a consumer and to test your code.
+
+    .. _BoundedBuffer: /course/LEPL1402/BoundedBuffer/BoundedBuffer.java
+environment: pyjavacpp
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: Bounded Buffer
+network_grading: false
+order: 49
+problems:
+    student_doPut:
+        language: java
+        header: 'Paste here the **body** of the method ``doPut`` :'
+        default: ''
+        type: code
+        name: ''
+    student_doTake:
+        header: 'Paste here the **body** of the method ``doTake`` :'
+        language: java
+        name: ''
+        type: code
+        default: ''
+    student_put:
+        language: java
+        type: code
+        default: ''
+        header: 'Paste here the **body** of the method ``put`` :'
+        name: ''
+    student_take:
+        language: java
+        name: ''
+        default: ''
+        type: code
+        header: 'Paste here the **body** of the method ``take`` :'
+    student_offer:
+        name: ''
+        type: code
+        header: 'Paste here the **body** of the method ``offer`` :'
+        language: java
+        default: ''
+    student_poll:
+        default: ''
+        header: 'Paste here the **body** of the method ``poll`` :'
+        language: java
+        type: code
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

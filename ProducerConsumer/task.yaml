@@ -64,24 +64,24 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Threads - Producer/Consumer with locks'
+    output: '2'
+name: '[Module 6] Threads - Producer/Consumer with locks'
 network_grading: false
-order: 42
+order: 48
 problems:
     student_enqueue:
-        default: ''
-        language: java
-        type: code
         name: ''
         header: Paste here the **body** of your ``enqueue`` method.
+        type: code
+        default: ''
+        language: java
     student_dequeue:
-        name: ''
         language: java
         default: ''
         type: code
         header: Paste here the **body** of your ``dequeue`` method.
+        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

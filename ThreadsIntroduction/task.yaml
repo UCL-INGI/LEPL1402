@@ -68,18 +68,18 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Small introduction to threads - Counters'
+    output: '2'
+name: '[Module 6] Small introduction to threads - Counters'
 network_grading: false
-order: 40
+order: 45
 problems:
     student_init:
-        type: code
         name: ''
-        language: java
         default: ''
         header: 'Paste here the **body** of your init **method**:'
+        type: code
+        language: java
 stored_submissions: 0
 submission_limit:
     amount: -1

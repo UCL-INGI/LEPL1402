@@ -59,43 +59,43 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Dealing with Streams - 2'
+    output: '2'
+name: '[Module 5] Dealing with Streams - 2'
 network_grading: false
-order: 39
+order: 44
 problems:
     student_findFirst:
-        header: 'Paste here the **body** of your ``findFirst`` method:'
-        type: code
+        default: ''
         language: java
         name: ''
-        default: ''
+        header: 'Paste here the **body** of your ``findFirst`` method:'
+        type: code
     student_findAll:
         default: ''
+        language: java
         header: 'Paste here the **body** of your ``findAll`` method:'
         type: code
-        language: java
         name: ''
     student_exists:
         type: code
-        header: 'Paste here the **body** of your ``exists`` method:'
         name: ''
         default: ''
         language: java
+        header: 'Paste here the **body** of your ``exists`` method:'
     student_filterThenSort:
         name: ''
-        type: code
-        default: ''
         language: java
+        default: ''
+        type: code
         header: 'Paste here the **body** of your ``filterThenSort`` method:'
     student_util:
-        header: 'You can paste here additional methods if you need :'
-        name: ''
-        language: java
-        optional: 'on'
         default: ''
         type: code
+        header: 'You can paste here additional methods if you need :'
+        optional: 'on'
+        language: java
+        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

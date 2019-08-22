@@ -1,7 +1,7 @@
 accessible: true
 author: Yakoub J, Rucquoy A
 categories:
-- module3
+- module1
 context: ''
 environment: mcq
 evaluate: best
@@ -10,41 +10,41 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Type Casting - theoretical questions'
+    output: '2'
+name: '[Module 1] Type Casting - theoretical questions'
 network_grading: false
-order: 17
+order: 4
 problems:
     mcq1:
         choices:
         -   text: Everything works as expected
-        -   valid: true
-            text: We got an error as boolean cannot be converted to int
-        type: multiple_choice
+        -   text: We got an error as boolean cannot be converted to int
+            valid: true
+        limit: 0
         header: |-
             .. code-block:: java
 
                 int d = (int) true;
+        type: multiple_choice
         name: What happens if you try to run the following code ?
-        limit: 0
     mcq2:
-        name: What contains b ?
-        type: match
-        answer: '97'
         header: |-
             .. code-block:: java
 
                 int b = (int) 'a';
+        type: match
+        name: What contains b ?
+        answer: '97'
     mcq3:
         answer: '44'
-        name: What contains b ?
+        type: match
         header: |-
             .. code-block:: java
 
                 int a = 300;
                 byte b = (byte)a;
-        type: match
+        name: What contains b ?
 stored_submissions: 0
 submission_limit:
     amount: -1

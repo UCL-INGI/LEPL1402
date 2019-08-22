@@ -12,32 +12,32 @@ limits:
     output: '2'
     memory: '100'
     time: '30'
-name: 'Complexity : simple MCQ'
+name: '[Module 2] Complexity : simple MCQ'
 network_grading: false
-order: 4
+order: 5
 problems:
     mcq5:
-        choices:
-        -   feedback: Execution time is very different than complexity
-            text: Its time complexity is :math:`\mathcal{O}(1)`
-        -   text: Its time complexity is :math:`\mathcal{O}(n)`
-            feedback: Execution time is very different than complexity
-        -   text: I can't say anything about its time complexity because i don't have
-                the size of the problem
-        -   text: I can't say anything about time complexity because i don't know
-                the algorithm
-            valid: true
-        name: Time Complexity vs Execution Time
-        limit: 0
-        type: multiple_choice
         header: If an algorithm ran in less than a miscrosecond on my computer, what
             can I conclude?
+        name: Time Complexity vs Execution Time
+        choices:
+        -   text: Its time complexity is :math:`\mathcal{O}(1)`
+            feedback: Execution time is very different than complexity
+        -   feedback: Execution time is very different than complexity
+            text: Its time complexity is :math:`\mathcal{O}(n)`
+        -   text: I can't say anything about its time complexity because i don't have
+                the size of the problem
+        -   valid: true
+            text: I can't say anything about time complexity because i don't know
+                the algorithm
+        type: multiple_choice
+        limit: 0
     mcq1:
         choices:
-        -   text: :math:`\Theta(n^3)`
+        -   valid: true
             feedback: Good job! The matrix has 3 dimensions and the algorithm go through
                 every cell.
-            valid: true
+            text: :math:`\Theta(n^3)`
         -   feedback: There are 3 loops!
             text: :math:`\Theta(n^2)`
         -   text: :math:`\mathcal{O}(n^3)`
@@ -45,9 +45,6 @@ problems:
         -   feedback: Did you go to the lecture? It is supposed to be the easiest
                 question
             text: :math:`\mathcal{O}(n^2)`
-        limit: 0
-        name: Nested loops
-        type: multiple_choice
         header: |-
             What is the time complexity of this algorithm? (Select the best possible answer)
 
@@ -70,6 +67,9 @@ problems:
                 }
 
             Consider that the matrix is cubic of length :math:`n`.
+        limit: 0
+        type: multiple_choice
+        name: Nested loops
     mcq2:
         choices:
         -   text: :math:`\Omega(1)`
@@ -79,12 +79,12 @@ problems:
         -   text: :math:`\Theta(n)`
             valid: true
         -   text: :math:`\Omega(n)`
-        name: Finding Maximum
         header: |+
             What time complexity does it take to find the maximum in a list of length :math:`n`? (Select the best answer(s))
 
-        type: multiple_choice
         limit: 0
+        type: multiple_choice
+        name: Finding Maximum
         multiple: true
     mcq3:
         choices:
@@ -96,16 +96,16 @@ problems:
         -   text: :math:`\Omega(n)`
         -   text: :math:`\Theta(n^2)`
         -   text: :math:`\Theta(n)`
+        type: multiple_choice
+        multiple: true
         limit: 0
+        name: Find value
         header: You iterate through a quared 2 dimensional array of length :math:`n`
             to find a value. What is (are) the most precise time complexity(ies)?
-        name: Find value
-        multiple: true
-        type: multiple_choice
     mcq4:
         choices:
-        -   valid: true
-            text: :math:`\mathcal{O}(n)`
+        -   text: :math:`\mathcal{O}(n)`
+            valid: true
         -   text: :math:`\mathcal{O}(n^2)`
         -   text: :math:`\Theta(n)`
         -   text: :math:`\Theta(log(n))`
@@ -113,13 +113,14 @@ problems:
             valid: true
         -   text: :math:`\Omega(log(n))`
         type: multiple_choice
-        limit: 0
-        multiple: true
         header: You write a function to verify if a list of length :math:`n` is ordered
             or not, this function returns true if it is and false if it is'nt. What
             is (are) the most precise time complexity(ies)?
+        limit: 0
+        multiple: true
         name: Ordered List
     mcq6:
+        limit: 0
         choices:
         -   text: 'True because for :math:`c = 3` and :math:`cn^2 > 3n^2 -100n + 6
                 \: , \: \forall n > 0` '
@@ -130,14 +131,13 @@ problems:
                 6 \: , \: \forall n > 0` '
         -   text: False because for any :math:`c > 0 ` and :math:`cn < 3n^2` when
                 :math:`n > c`
-        limit: 0
         name: Polynomial Time Complexity
+        type: multiple_choice
         header: |+
             Is this proposition true? :math:`3n^2 -100n + 6 \in \mathcal{O}(n^2)`
 
 
         multiple: true
-        type: multiple_choice
     mcq7:
         choices:
         -   text: :math:`1000n^2 + 0.001n^3 \in \Theta(n^3)`
@@ -150,22 +150,24 @@ problems:
             text: :math:`2^{2n} \in \mathcal{O}(2^n)`
         -   text: :math:`3^n \in \mathcal{O}(2^n)`
         -   text: :math:`n log(n) \in \mathcal{O}(n)`
-        limit: 0
-        name: Mathematical Functions and Time Complexity
         multiple: true
+        name: Mathematical Functions and Time Complexity
         header: 'Select the right proposition(s) :'
         type: multiple_choice
+        limit: 0
     mcq8:
         choices:
         -   text: :math:`\Theta(n+m)`
-        -   text: :math:`\Theta(n*m)`
-            valid: true
+        -   valid: true
+            text: :math:`\Theta(n*m)`
         -   text: :math:`\mathcal{O}(n+m)`
         -   text: :math:`\mathcal{O}(n^2*m)`
         -   text: :math:`\Theta(n^2+m)`
         -   text: :math:`\Theta(n+m^2)`
         -   text: :math:`\mathcal{O}(n*m^2)`
         limit: 0
+        name: Complexity of algorithm
+        type: multiple_choice
         header: |-
             What is the time complexity of this algorithm taking into account the complexity of ``findMax`` and ``findMin``?
 
@@ -181,20 +183,18 @@ problems:
                     }
                     return r;
                 }
-        name: Complexity of algorithm
-        type: multiple_choice
     mcq9:
-        name: Merging two ordered arrays
         choices:
         -   text: :math:`\Theta(n*m)`
         -   text: :math:`\mathcal{O}(n*m)`
-        -   text: :math:`\Theta(n+m)`
-            valid: true
+        -   valid: true
+            text: :math:`\Theta(n+m)`
         -   text: :math:`\mathcal{O}(n+m)`
-        limit: 0
         header: What time complexity does it take to merge two ordered arrays into
             a third ordered one? The two arrays have a size of :math:`n` and :math:`m`
             respectively.
+        limit: 0
+        name: Merging two ordered arrays
         type: multiple_choice
 stored_submissions: 0
 submission_limit:

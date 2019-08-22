@@ -60,35 +60,35 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Arrays 2D and Matrix'
+    output: '2'
+name: '[Module 1] Arrays 2D and Matrix'
 network_grading: false
 order: 0
 problems:
     build_from:
-        type: code
+        name: ''
         header: 'Paste the body of the ``buildFrom`` method:'
-        language: java
+        type: code
         default: ''
-        name: ''
+        language: java
     sum:
-        language: java
-        type: code
-        default: ''
         name: ''
+        language: java
+        default: ''
         header: 'Paste the body of the ``sum`` method:'
+        type: code
     transpose:
-        language: java
-        name: ''
         type: code
-        default: ''
         header: 'Paste the body of the ``transpose`` method:'
-    product:
-        type: code
+        name: ''
         default: ''
+        language: java
+    product:
         name: ''
         language: java
+        default: ''
+        type: code
         header: 'Paste the body of the ``product`` method:'
 stored_submissions: 0
 submission_limit:

@@ -42,9 +42,9 @@ limits:
     memory: '100'
     time: '30'
     output: '2'
-name: Largest Sum Contiguous Subarray
+name: '[Module 2] Largest Sum Contiguous Subarray'
 network_grading: false
-order: 9
+order: 11
 problems:
     student_subarray:
         type: code

@@ -15,38 +15,38 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Inheritance : Fill the gaps (Small Exercise)'
+    output: '2'
+name: '[Module 3] Inheritance : Fill the gaps (Small Exercise)'
 network_grading: false
 order: 22
 problems:
     act_code:
         type: code
-        language: java
-        name: ''
-        default: ''
         header: 'Paste here the **body** of the **act** method of the Animal class:'
-    cat_constructor:
         language: java
         default: ''
         name: ''
-        type: code
-        header: 'Paste here the **body** of the Cat constructor:'
-    cat_test_act:
-        default: ''
-        type: code
+    cat_constructor:
+        name: ''
         language: java
+        default: ''
+        header: 'Paste here the **body** of the Cat constructor:'
+        type: code
+    cat_test_act:
+        language: java
+        default: ''
         header: 'Paste here the **body** of the **act_forTestMethod** method of the
             Cat class:'
+        type: code
         name: ''
     super_cat_log:
+        language: java
+        name: ''
+        default: ''
+        type: code
         header: 'Paste here the **body** of the **clear_log** method of the SuperCat
             class:'
-        name: ''
-        type: code
-        language: java
-        default: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

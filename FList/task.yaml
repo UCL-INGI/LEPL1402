@@ -81,9 +81,9 @@ limits:
     memory: '100'
     time: '30'
     output: '2'
-name: Functional list implementation
+name: '[Module 5] Functional list implementation'
 network_grading: true
-order: 36
+order: 39
 problems:
     student_length:
         default: ''

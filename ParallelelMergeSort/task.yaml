@@ -37,8 +37,9 @@ limits:
     memory: '100'
     time: '30'
     output: '2'
-name: Parallel Merge Sort
+name: '[Module 6] Parallel Merge Sort'
 network_grading: false
+order: 50
 problems:
     studentConstructor:
         name: Constructor Implementation

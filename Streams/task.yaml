@@ -44,26 +44,26 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Dealing with Streams'
+    output: '2'
+name: '[Module 5] Dealing with Streams'
 network_grading: false
-order: 38
+order: 43
 problems:
     student_find_second_and_third_top_student_for_given_course:
-        type: code
-        default: ''
+        language: java
         name: ''
         header: 'Paste here the **body** of your ``findSecondAndThirdTopStudentForGivenCourse``
             method : '
-        language: java
-    student_compute_average_for_student_in_section:
-        default: ''
-        language: java
         type: code
+        default: ''
+    student_compute_average_for_student_in_section:
         header: 'Paste here the **body** of your ``computeAverageForStudentInSection``
             method : '
+        language: java
         name: ''
+        default: ''
+        type: code
     student_get_number_of_successful_students:
         language: java
         type: code
@@ -72,17 +72,17 @@ problems:
         default: ''
         name: ''
     student_find_last_in_lexicographic_order:
+        language: java
+        default: ''
         name: ''
         header: 'Paste here the **body** of your ``findLastInLexicographicOrder``
             method : '
-        language: java
-        default: ''
         type: code
     student_get_full_sum:
-        language: java
-        default: ''
         name: ''
         header: 'Paste here the **body** of your ``getFullSum`` method : '
+        language: java
+        default: ''
         type: code
 stored_submissions: 0
 submission_limit:

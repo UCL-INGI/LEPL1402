@@ -64,30 +64,30 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Stack with a Queue'
+    output: '2'
+name: '[Module 3] Stack with a Queue'
 network_grading: false
 order: 25
 problems:
     student_add:
-        default: ''
-        name: ''
         language: java
-        type: code
         header: Paste here the **body** of your method ``push()``
+        name: ''
+        default: ''
+        type: code
     student_remove:
-        language: java
-        default: ''
-        name: ''
-        type: code
         header: Paste here the **body** of your method ``pop()``
-    student_peek:
-        language: java
-        header: Paste here the **body** of your method ``peek()``
-        name: ''
         type: code
         default: ''
+        language: java
+        name: ''
+    student_peek:
+        default: ''
+        type: code
+        name: ''
+        header: Paste here the **body** of your method ``peek()``
+        language: java
     student_isEmpty:
         language: java
         default: ''

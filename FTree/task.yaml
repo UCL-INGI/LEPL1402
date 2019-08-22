@@ -30,8 +30,9 @@ limits:
     memory: '100'
     time: '30'
     output: '2'
-name: Functional immutable tree
+name: '[Module 5] Functional immutable tree'
 network_grading: false
+order: 41
 problems:
     studentDepth:
         type: code

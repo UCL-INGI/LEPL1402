@@ -33,24 +33,24 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Observer design pattern'
+    output: '2'
+name: '[Module 4] Observer design pattern'
 network_grading: false
-order: 30
+order: 31
 problems:
     student_client:
-        name: ''
+        default: ''
         type: code
         language: java
-        default: ''
         header: 'Paste here the **body** of your ``Client`` class:'
+        name: ''
     student_station:
+        default: ''
         language: java
+        type: code
         header: 'Paste here the **body** of your ``MeteoStation`` class:'
         name: ''
-        default: ''
-        type: code
 stored_submissions: 0
 submission_limit:
     amount: -1

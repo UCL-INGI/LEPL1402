@@ -34,17 +34,17 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Threads - Shared counter with monitors'
+    output: '2'
+name: '[Module 6] Threads - Shared counter with monitors'
 network_grading: false
-order: 41
+order: 47
 problems:
     student_class:
-        name: ''
         header: Paste here the bodies **and** signatures of your three methods for
             the ``SharedCounter`` class.
         type: code
+        name: ''
         default: ''
         language: java
 stored_submissions: 0

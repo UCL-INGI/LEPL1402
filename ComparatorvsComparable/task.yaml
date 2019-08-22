@@ -24,8 +24,9 @@ limits:
     memory: '100'
     time: '30'
     output: '2'
-name: Comparator vs Comparable
+name: '[Module 5] Comparator vs Comparable'
 network_grading: false
+order: 37
 problems:
     studentPlantComparable:
         name: Plant comparable
@@ -69,4 +70,3 @@ submission_limit:
     amount: -1
     period: -1
 weight: 1.0
-order: 34

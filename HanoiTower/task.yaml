@@ -1,7 +1,7 @@
 accessible: true
 author: Bastin J, Piron H
 categories:
-- module2
+- module5
 context: |-
     The tower of Hanoi is a mathematical puzzle, it consists of three rods and a number of disk of different size which can slide onto any rod. The game starts with all the disks in an ascending order forming a stack on the first rod. The objective of this puzzle is to move the entire stack to another rod. We know, it sounds easy, but there are 3 simple rules that make the game harder than you think.
 
@@ -36,8 +36,9 @@ limits:
     memory: '100'
     time: '30'
     output: '2'
-name: Hanoi Tower
+name: '[Module 5] Hanoi Tower'
 network_grading: false
+order: 35
 problems:
     studentCode:
         type: code

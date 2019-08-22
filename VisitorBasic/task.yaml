@@ -43,24 +43,24 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Visitor design pattern - List Filtering'
+    output: '2'
+name: '[Module 4] Visitor design pattern - List Filtering'
 network_grading: false
-order: 32
+order: 33
 problems:
     student_visitable:
-        name: ''
-        language: java
-        default: ''
-        type: code
         header: 'Paste here the **body** of your ``VisitableList`` class:'
-    student_visitor:
+        default: ''
+        language: java
         name: ''
         type: code
-        language: java
-        header: 'Paste here the **body** of your ``VisitorList`` class:'
+    student_visitor:
         default: ''
+        name: ''
+        header: 'Paste here the **body** of your ``VisitorList`` class:'
+        language: java
+        type: code
 stored_submissions: 0
 submission_limit:
     amount: -1

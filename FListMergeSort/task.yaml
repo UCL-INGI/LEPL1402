@@ -37,8 +37,9 @@ limits:
     memory: '100'
     time: '30'
     output: '2'
-name: FList MergeSort
+name: '[Module 5] FList MergeSort'
 network_grading: false
+order: 40
 problems:
     studentMergeSort:
         default: ''

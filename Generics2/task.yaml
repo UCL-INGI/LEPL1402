@@ -45,24 +45,24 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
-name: '[TESTABLE] Generics 2'
+    output: '2'
+name: '[Module 3] Generics 2'
 network_grading: false
 order: 20
 problems:
     map:
-        default: ''
+        type: code
         language: java
+        name: ''
         header: 'Paste here the **body** of your ``map`` method :'
-        type: code
-        name: ''
-    filter:
-        header: 'Paste here the **body** of your ``filter`` method :'
-        type: code
-        language: java
         default: ''
+    filter:
+        type: code
+        header: 'Paste here the **body** of your ``filter`` method :'
+        language: java
         name: ''
+        default: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
