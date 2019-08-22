@@ -1,4 +1,4 @@
-# LEPL1402
+# LEPL1402  [![Build Status](https://travis-ci.com/UCL-INGI/LEPL1402.svg?branch=master)](https://travis-ci.com/UCL-INGI/LEPL1402)
 INGInious tasks for LEPL1402 at EPL ( UCLouvain )
 
 This repo contains a set of INGInious tasks that could be used as practical exercises for the 2nd year of bachelor course "LEPL1402". Tasks will be tested by [JUnit 4](http://junit.org/junit4/).
