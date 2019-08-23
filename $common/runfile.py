@@ -19,7 +19,7 @@ def main():
     print("FEEDBACK SETTINGS LOADED")
 
     #####################################
-    #   Check prohibited statments      #
+    #   Check prohibited statements      #
     #####################################
 
     feedback.handle_prohibited_statements(feedback_settings)

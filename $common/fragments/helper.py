@@ -165,7 +165,7 @@ def generate_jar_file(main_class=RUNNER_JAVA_NAME, dst=JAR_FILE, manifest=MANIFE
 def contains_prohibited_statement_in_input(prohibited_array, problem_id):
     student_upload = input.get_input(problem_id)
     # Extract the given code into a single String file with no space, leading stuff, etc...
-    # FYI: It is done to simplify the verification as statments in java could be on multiple lines
+    # FYI: It is done to simplify the verification as statements in java could be on multiple lines
     source_code_as_string = student_upload.strip().replace("\n", '').replace("\t", '').replace(" ", '')
     
     # if any match , student tried to cheat
