@@ -148,9 +148,9 @@ def relative_path(path, base_path=CWD):
 
 
 # Since using a jar simply ignore -cp option, we have no other choice to create a manifest to add the libraries
-def create_manifest(librairies):
+def create_manifest(libraries):
     with open(MANIFEST_FILE, 'w+') as manifest:
-        libs = librairies.split(":")
+        libs = libraries.split(":")
         libs_str = "{} {}\n".format("Class-Path:", ' '.join(libs))
         manifest.write(libs_str)
         manifest.close()
@@ -165,7 +165,7 @@ def generate_jar_file(main_class=RUNNER_JAVA_NAME, dst=JAR_FILE, manifest=MANIFE
 def contains_prohibited_statement_in_input(prohibited_array, problem_id):
     student_upload = input.get_input(problem_id)
     # Extract the given code into a single String file with no space, leading stuff, etc...
-    # FYI: It is done to simplify the verification as statments in java could be on multiple lines
+    # FYI: It is done to simplify the verification as statements in java could be on multiple lines
     source_code_as_string = student_upload.strip().replace("\n", '').replace("\t", '').replace(" ", '')
     
     # if any match , student tried to cheat
@@ -176,8 +176,8 @@ def contains_prohibited_statement_in_input(prohibited_array, problem_id):
 
 
 # Main method that will be invoked by runfile.py to check all given problem inputs for prohibited instructions
-def contains_prohibited_statment(feedback_settings):
+def contains_prohibited_statement(feedback_settings):
     return any(
-        contains_prohibited_statement_in_input(statments, problem_id)
-        for (problem_id, statments) in feedback_settings["prohibited"].items()
+        contains_prohibited_statement_in_input(statements, problem_id)
+        for (problem_id, statements) in feedback_settings["prohibited"].items()
     )

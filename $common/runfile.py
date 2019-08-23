@@ -6,7 +6,7 @@ from inginious import input
 # Our import for common function    #
 #####################################
 
-from fragments import helper, feedback
+from fragments import helper, feedback, config
 from fragments.constants import *
 
 
@@ -15,14 +15,14 @@ def main():
     #   Load feedback task settings     #
     #####################################
 
-    feedback_settings = feedback.config_file_to_dict(FEEDBACK_REVIEW_PATH)
+    feedback_settings = config.config_file_to_dict(FEEDBACK_REVIEW_PATH)
     print("FEEDBACK SETTINGS LOADED")
 
     #####################################
-    #   Check prohibited statments      #
+    #   Check prohibited statements      #
     #####################################
 
-    feedback.handle_prohibited_statments(feedback_settings)
+    feedback.handle_prohibited_statements(feedback_settings)
     print("NO PROHIBITED STATMENT(S) DETECTED")
 
     #####################################
