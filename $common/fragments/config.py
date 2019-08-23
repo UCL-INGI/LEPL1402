@@ -18,7 +18,6 @@ def config_file_to_dict(file_path):
             1: "Your code failed all tests for this mission.",
             2: "You used prohibited instructions (such as System.exit) : read carefully the assignment.",
             3: "Your tests don't cover all cases.",
-            4: "What's happening with the tail of the cons?",
             252: "The memory limit of your program is exceeded.",
             253: "The time limit for running your program has been exceeded."
         }
