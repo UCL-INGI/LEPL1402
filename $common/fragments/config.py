@@ -32,5 +32,15 @@ def config_file_to_dict(file_path):
         with open(file_path, "r") as stream:
             # File must not be empty
             load_config = yaml.load(stream)
-            # Merge dictionaries
-            return default_values if load_config is None else {**default_values, **load_config}
+            # If no file given
+            if load_config is None:
+                return default_values
+            else:
+                # Merge dictionaries
+                # The ** operator doesn't correctly merged the dictionary "status_message", so monkey patching this
+                load_config["status_message"] = {
+                    **default_values["status_message"],
+                    **(load_config["status_message"] if "status_message" in load_config else {})
+                }
+
+                return {**default_values, **load_config}
