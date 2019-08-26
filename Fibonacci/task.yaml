@@ -47,7 +47,7 @@ limits:
     output: '2'
 name: '[Module 5] Introduction to recursion in Java - Fibonacci'
 network_grading: false
-order: 34
+order: 36
 problems:
     student_recursive:
         name: ''

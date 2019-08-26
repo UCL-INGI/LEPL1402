@@ -123,7 +123,7 @@ limits:
     output: '2'
 name: '[Module 3] Circular Linked list'
 network_grading: false
-order: 18
+order: 20
 problems:
     student_enqueue:
         name: ''

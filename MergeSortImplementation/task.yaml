@@ -46,7 +46,7 @@ limits:
     output: '2'
 name: '[Module 2] Merge Sort Implementation'
 network_grading: false
-order: 10
+order: 12
 problems:
     student_sort:
         header: Paste here the **body** of your method sort

@@ -30,7 +30,7 @@ limits:
     output: '2'
 name: '[Module 2] Array Search'
 network_grading: false
-order: 9
+order: 11
 problems:
     student_code:
         type: code

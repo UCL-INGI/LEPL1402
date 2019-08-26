@@ -14,7 +14,7 @@ limits:
     output: '2'
 name: '[Module 1] Type Casting - theoretical questions'
 network_grading: false
-order: 4
+order: 6
 problems:
     mcq1:
         choices:

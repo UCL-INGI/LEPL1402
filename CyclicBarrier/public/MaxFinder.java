@@ -8,62 +8,32 @@ public class MaxFinder {
     private final int nThreads,length,width,depth;
     private final int[][][] data;
     private final CyclicBarrier barrier;
-    private int[] maxima;
+    private int[] sums;
     private int max;
 
+    /*
+     * Worker constructor takes only one parameter int r, which is his associated row number
+     * A worker is responsible of the calculation of the sum of each 2D-Array with row == r + nThread * round; with round >= 0
+     *
+     * Run should compute the sum of a 2D-array and store the result in sums[] then wait for the cyclic barrier to get the result
+     * And restart computing nThreads further
+     */
     class Worker implements Runnable {
-        int myRow,i;
-
-        Worker(int row) {
-            myRow = row;
-            i = myRow;
-        }
-        public void run() {
-            boolean notDone=true;
-            while(notDone){
-                int sum = 0;
-                for(int k = 0 ; k < width ; k++){
-                    for(int j = 0 ; j < depth ; j++){
-                        sum += data[i][k][j];
-                    }
-                }
-                maxima[myRow] = sum;
-                try {
-                    barrier.await();
-                }catch(InterruptedException ex) {
-                    return;
-                }catch(BrokenBarrierException ex) {
-                    return;
-                }finally {
-                    i += nThreads;
-                    if(i>=length) notDone=false;
-                }
-
-            }
-
-        }
+        
+        //TODO by student
+        
     }
-
+	
+    
+    /*
+     *
+     * Initialize all the instance variable and start the right amount of Threads
+     *
+     */
     private MaxFinder(int[][][] matrix, int nThreads) throws InterruptedException{
-        data = matrix;
-        this.nThreads = nThreads;
-        length = matrix.length;
-        width = matrix[0].length;
-        depth = matrix[0][0].length;
-        maxima = new int[nThreads];
-        max = Integer.MIN_VALUE;
-        Runnable barrierAction = () -> {
-            for(int i = 0 ; i < nThreads ; i++)
-                max = Math.max(max, maxima[i]);
-        };
-        barrier = new CyclicBarrier(nThreads, barrierAction);
-
-        List<Thread> threads = new ArrayList<>(nThreads);
-        for (int i = 0; i < nThreads; i++) {
-            Thread thread = new Thread(new Worker(i));
-            threads.add(thread);
-            thread.start();
-        }
+        
+        //TODO by student
+        
 
         // wait until done
         for (Thread thread : threads)

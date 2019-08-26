@@ -1,0 +1,160 @@
+accessible: true
+author: Bastin J, Piron H
+categories:
+- module1
+context: |-
+    Welcome to the first task of a long series!
+
+    This serie of inginious tasks will accompany you throughout the quadrimester to learn java and apprehend the material seen in class. Successful completion of all tasks is a major step towards the success of this course. We encourage you to try to do them yourself without going on the Internet.
+
+    We also encourage you to try your solutions by yourself on you computer. To do so install a good IDE like IntelliJ_. We recommand you this IDE since it's the most complete and used. You can get a free student license here_.
+
+    This first task will cover the basics of java step by step. In most exercises we want you to paste the **signature** and the **body** of the methods you create. In other cases we just wan to you paste the **body** and we give you the **signature**.
+
+    Here is the class that you must implements in this task. The context of all variable must be static and the modifier public. You must find the return type by yourself.
+
+    .. code-block:: java
+
+        public class IntroductionExercises {
+
+            public static int variable = 0;
+
+            public static int[] squares;
+
+            //TODO
+
+        }
+
+
+    .. _IntelliJ: https://www.jetbrains.com/idea/
+    .. _here: https://www.jetbrains.com/student/
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: '[Module 1] Introduction to java, exercises'
+network_grading: false
+problems:
+    student_attribute:
+        name: Methods and variables
+        header: Paste here the **signature** and the **body** of a method ``attribute(int
+            value)`` that change the value of the variable ``variable`` to ``value``.
+        default: ''
+        type: code
+        language: java
+    student_add:
+        type: code
+        name: Return
+        header: Paste here the **signature** and the **body** of a method ``add(int
+            a, int b)`` that return the addition of ``a`` and ``b``.
+        language: java
+        default: ''
+    student_equals:
+        name: Comparison
+        language: java
+        default: ''
+        header: Paste here the **signature** and the **body** of a method ``equalsIntegers(int
+            a, int b)`` that return *true* if ``a`` is equal to ``b``.
+        type: code
+    student_middleValue:
+        header: Paste here the **signature** and the **body** of a method ``middleValue(int
+            a, int b, int c)`` that return the middle value between ``a``, ``b`` and
+            ``c``. So if :math:`a > b > c`, the method should return b. If minimum
+            two value are equals, return **-1**.
+        type: code
+        name: Conditions
+        default: ''
+        language: java
+    student_max:
+        header: |-
+            Paste here the **body** of the method ``max``. You can only use a ternary expression.
+
+            .. code-block:: java
+
+                /*
+                 * Function that return the max between a and b
+                 * You must use a ternary operation
+                 */
+                public static int max(int a, int b){
+                    //TODO
+                }
+        type: code_single_line
+        default: ''
+        name: Ternary expression
+    student_salutation:
+        language: java
+        default: ''
+        header: |-
+            Paste here the **signature** and the **body** of the method ``greetings(String str)``.
+            This method return :
+
+                - "Good morning, sir!" if ``str`` is "Morning"
+                - "Good evening, sir!" if ``str`` is "Evening"
+                - "Hello, sir!" otherwise
+
+            Your implementation should be case sensitive.
+        name: Switch ... case ...
+        type: code
+    student_lastFirstMiddle:
+        name: Arrays
+        header: |-
+            Paste here the **signature** and the **body** of a method ``lastFirstMiddle(int[] a)``. This method return a new array of three integers contained in this order :
+
+                - The last element of ``a``
+                - The first element of ``a``
+                - The element of the middle of ``a`` (given :math:`l` the length of a, take the element of index :math:`\frac{l}{2}`)
+        type: code
+        language: java
+        default: ''
+    student_sum:
+        name: For loop
+        type: code
+        header: Paste here the **signature** and the **body** of the method ``sum(int[]
+            array)`` that return the sum of all elements of ``array``. You should
+            use a for loop.
+        default: ''
+        language: java
+    student_maxArray:
+        type: code
+        header: Paste here the **signature** and the **body** of the method ``maxArray(int[]
+            array)`` that return the maximum element of ``array``. You should use
+            a while loop.
+        default: ''
+        name: While loop
+        language: java
+    student_main:
+        header: |-
+            Paste here the **body** of the ``main`` method. The main method is the method that runs a program. When you start a program, you can pass a list of arguments to start you program. For example here, we can enter in a terminal ``javac IntroductionExercises.java`` to compile our program and then ``java IntroductionExercises 1 5 20``.
+
+            Be careful with the type of the argument and don't hesitate to consult the java API_.
+
+            .. code-block:: java
+
+                /*
+                 * Using the arguments paste to the program in args
+                 * Bound the variable squares with the square of
+                 * the elements passed in argument.
+                 * Look at the java API : https://docs.oracle.com/javase/8/docs/api/index.html
+                 * If an exception occurs, assign the value 0 at the index where it occurs
+                 * -> use a try ... catch ...
+                 */
+                public static void main(String... args){
+                    //TODO
+                }
+
+            .. _API: https://docs.oracle.com/javase/8/docs/api/index.html
+        type: code
+        default: ''
+        language: java
+        name: Main
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
+order: 0

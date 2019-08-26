@@ -109,7 +109,7 @@ limits:
     output: '2'
 name: '[Module 3] MyArrayList'
 network_grading: false
-order: 23
+order: 25
 problems:
     student_constructor:
         language: java

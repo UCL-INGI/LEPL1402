@@ -72,7 +72,7 @@ limits:
     output: '2'
 name: '[Module 6] Small introduction to threads - Counters'
 network_grading: false
-order: 45
+order: 47
 problems:
     student_init:
         name: ''

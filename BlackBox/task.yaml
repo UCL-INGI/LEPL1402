@@ -55,7 +55,7 @@ limits:
     output: '2'
 name: '[Module 4] BlackBox Testing - Binary Search'
 network_grading: false
-order: 27
+order: 29
 problems:
     student_code:
         type: code

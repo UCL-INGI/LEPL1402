@@ -80,7 +80,7 @@ public class InginiousTests {
 
   @Test
   @Grade(value = 1, custom = true, customPermissions = ThreadPermissionFactory.class, cpuTimeout = 3000)
-  public void testDoTake(){
+  public void testDoTake() throws CustomGradingResult {
     boolean flag = true;
     BoundedBuffer buf = new BoundedBuffer(1);
     Thread producer = new Thread(new Producer(buf, 3, null));
@@ -136,7 +136,7 @@ public class InginiousTests {
 
   @Test
   @Grade(value = 1, custom = true, customPermissions = ThreadPermissionFactory.class, cpuTimeout = 3000)
-  public void testPut(){
+  public void testPut() throws CustomGradingResult{
     boolean flag = true;
 
     BoundedBuffer buf = new BoundedBuffer(2);
@@ -173,7 +173,7 @@ public class InginiousTests {
 
   @Test
   @Grade(value = 1, custom = true, customPermissions = ThreadPermissionFactory.class, cpuTimeout = 3000)
-  public void testTake(){
+  public void testTake() throws CustomGradingResult {
     boolean flag = true;
     BoundedBuffer buf = new BoundedBuffer(2);
     List<Integer> list = new ArrayList<>(1);
@@ -201,7 +201,7 @@ public class InginiousTests {
     if(consumer.isAlive()){
       throw new CustomGradingResult(TestStatus.FAILED, 0, "You must wait when the buffer is empty");
     }
-    if(!list.get(0) != 20){
+    if(list.get(0) != 20){
       throw new CustomGradingResult(TestStatus.FAILED, 0, "You must wait when the buffer is empty");
     }
 
@@ -210,13 +210,85 @@ public class InginiousTests {
 
   @Test
   @Grade(value = 1, custom = true, customPermissions = ThreadPermissionFactory.class, cpuTimeout = 3000)
-  public void testOffer(){
+  public void testOffer() throws CustomGradingResult {
+      List<Boolean> list = new ArrayList<>(2);
+      BoundedBuffer buf = new BoundedBuffer(1);
+      Thread producer = new Thread(new Producer(buf, 5, list));
+      producer.start();
 
+      sleep(200);
+      
+      if(producer.isAlive()){
+          throw new CustomGradingResult(TestStatus.FAILED, 0, "When the buffer is not full you should put the element");
+      }
+      if(!list.get(0)){
+          throw new CustomGradingResult(TestStatus.FAILED, 0, "You should return true when the element is added");
+      }
+      if(buf.getData()[0] != 42 && buf.isEmpty()){
+          throw new CustomGradingResult(TestStatus.FAILED, 0, "You don't put correctly then element");
+      }
+
+      Thread producer2 = new Thread(new Producer(buf, 5, list));
+      producer2.start();
+
+      sleep(200);
+
+      try{
+          producer.join(10);
+          producer2.join(10);
+      } catch(InterruptedException e){
+
+      }
+      
+      if(producer2.isAlive()){
+          throw new CustomGradingResult(TestStatus.FAILED, 0, "You should wait only ms second and then abort the operation");
+      }
+      if(list.get(1)){
+          throw new CustomGradingResult(TestStatus.FAILED, 0, "You should return false when the time is out");
+      }
+      
+      throw new CustomGradingResult(TestStatus.SUCCESS, 1);
   }
 
   @Test
   @Grade(value = 1, custom = true, customPermissions = ThreadPermissionFactory.class, cpuTimeout = 3000)
-  public void testPoll(){
+  public void testPoll() throws CustomGradingResult {
+      BoundedBuffer buf = new BoundedBuffer(1);
+      List<Integer> list = new ArrayList<>(2);
+      Thread producer = new Thread(new Producer(buf, 1, null));
+      producer.start();
 
+      sleep(200);
+
+      Thread consumer = new Thread(new Consumer(buf, 4, list));
+      consumer.start();
+
+      sleep(200);
+      
+      if(consumer.isAlive()){
+          throw new CustomGradingResult(TestStatus.FAILED, 0, "When the buffer is not empty you should take an element");
+      }
+      if(list.get(0) != 20 && !buf.isEmpty()){
+          throw new CustomGradingResult(TestStatus.FAILED, 0, "You are not taking correctly an element");
+      }
+
+      Thread consumer2 = new Thread(new Consumer(buf, 4, list));
+      consumer2.start();
+
+      sleep(200);
+
+      if(list.get(1) != null){
+          throw new CustomGradingResult(TestStatus.FAILED, 0, "You should return null when the time is out");
+      }
+
+      try{
+          producer.join(10);
+          consumer.join(10);
+          consumer2.join(10);
+      } catch (InterruptedException e){
+
+      }
+      
+      throw new CustomGradingResult(TestStatus.SUCCESS, 1);
   }
 }

@@ -1,0 +1,12 @@
+has_feedback: True
+feedback_kind: JavaGrading
+prohibited:
+  "student_max":
+    - if
+  "student_salutation":
+    - if
+    - else
+  "student_sum":
+    - while
+  "student_maxArray":
+    - for

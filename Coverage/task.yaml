@@ -73,7 +73,7 @@ limits:
     output: '2'
 name: '[Module 4] Coverage Testing'
 network_grading: false
-order: 28
+order: 30
 problems:
     student_code:
         type: code

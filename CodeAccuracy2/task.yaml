@@ -36,7 +36,7 @@ limits:
     output: '2'
 name: '[Module 2] Code accuracy - Practical exercise'
 network_grading: false
-order: 14
+order: 16
 problems:
     exch_code:
         name: ''

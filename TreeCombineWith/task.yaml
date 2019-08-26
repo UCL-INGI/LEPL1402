@@ -53,7 +53,7 @@ limits:
     time: '30'
 name: '[Module 2] Binary trees - combineWith'
 network_grading: false
-order: 17
+order: 19
 problems:
     student_combineWith:
         default: ''

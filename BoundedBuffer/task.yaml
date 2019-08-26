@@ -1,6 +1,7 @@
 accessible: true
-author: ''
-categories: []
+author: Bastin J, Piron H
+categories:
+- module6
 context: |-
     A bounded buffer is a way for multiple producers and consumers to synchronised. Indeed multiple producers are going to fill the buffer while consumers  are going to clear out this buffer.
 
@@ -24,46 +25,46 @@ limits:
     memory: '100'
     time: '30'
     output: '2'
-name: Bounded Buffer
+name: '[Module 6] Bounded Buffer'
 network_grading: false
-order: 49
+order: 51
 problems:
     student_doPut:
-        language: java
+        name: ''
+        type: code
         header: 'Paste here the **body** of the method ``doPut`` :'
         default: ''
-        type: code
-        name: ''
+        language: java
     student_doTake:
-        header: 'Paste here the **body** of the method ``doTake`` :'
-        language: java
-        name: ''
         type: code
+        header: 'Paste here the **body** of the method ``doTake`` :'
         default: ''
-    student_put:
+        name: ''
         language: java
+    student_put:
+        name: ''
         type: code
         default: ''
         header: 'Paste here the **body** of the method ``put`` :'
-        name: ''
-    student_take:
         language: java
-        name: ''
-        default: ''
+    student_take:
         type: code
+        language: java
         header: 'Paste here the **body** of the method ``take`` :'
+        default: ''
+        name: ''
     student_offer:
         name: ''
-        type: code
         header: 'Paste here the **body** of the method ``offer`` :'
         language: java
         default: ''
+        type: code
     student_poll:
-        default: ''
         header: 'Paste here the **body** of the method ``poll`` :'
         language: java
         type: code
         name: ''
+        default: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

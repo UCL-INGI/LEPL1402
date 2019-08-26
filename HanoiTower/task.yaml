@@ -38,16 +38,18 @@ limits:
     output: '2'
 name: '[Module 5] Hanoi Tower'
 network_grading: false
-order: 35
+order: 37
 problems:
     studentCode:
-        type: code
-        default: ''
-        language: java
-        name: Hanoi Tower implementation
         header: 'Paste here the **body** of the method ``towerOfHanoi``:'
+        default: ''
+        name: Hanoi Tower implementation
+        type: code
+        language: java
     studentNumber:
         default: ''
+        type: code_single_line
+        name: Number of moves
         header: |-
             Implement this function that returns the minimum number of times you have to move a disk to solve this problem
 
@@ -56,8 +58,6 @@ problems:
                 public static int numberOfMoves(int stackSize){
                     //TODO by student
                 }
-        type: code_single_line
-        name: Number of moves
 stored_submissions: 0
 submission_limit:
     amount: -1

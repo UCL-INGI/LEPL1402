@@ -1,5 +1,4 @@
-# Example of file
-exercise_type: default
 has_feedback: True
-quorum: 1.0
 feedback_kind: JavaGrading
+status_message:
+  4: "What's happening with the tail of the cons?"

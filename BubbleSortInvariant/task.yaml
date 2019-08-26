@@ -33,7 +33,7 @@ limits:
     time: '30'
 name: '[Module 2] Bubble Sort Invariant (MCQ)'
 network_grading: false
-order: 8
+order: 10
 problems:
     complexity:
         limit: 0

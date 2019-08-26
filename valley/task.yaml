@@ -72,7 +72,7 @@ limits:
     output: '2'
 name: '[Module 2] Longest Valley'
 network_grading: false
-order: 12
+order: 14
 problems:
     student_code:
         type: code

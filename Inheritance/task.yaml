@@ -19,7 +19,7 @@ limits:
     output: '2'
 name: '[Module 3] Inheritance : Fill the gaps (Small Exercise)'
 network_grading: false
-order: 22
+order: 24
 problems:
     act_code:
         type: code

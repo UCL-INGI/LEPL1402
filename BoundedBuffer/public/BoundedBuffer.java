@@ -53,6 +53,7 @@ public class BoundedBuffer {
      * if the buffer is full, the thread waits ms milliseconds until a place is free
      * if the delay is exceeded, don't put x on the buffer
      * return true if x was added on the buffer, or false
+     * return false if an exception occurs
      */
     public synchronized boolean offer(Integer x, long ms){
         //TODO
@@ -61,7 +62,7 @@ public class BoundedBuffer {
     /*
      * get the first element of the buffer
      * if the buffer is empty, the thread waits ms milliseconds until an element arrives
-     * if the delay is exceeded return null
+     * if the delay is exceeded or an exception occurs return null
      */
     public synchronized Integer poll(long ms){
         //TODO

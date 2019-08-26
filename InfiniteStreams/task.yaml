@@ -32,7 +32,7 @@ limits:
     time: '30'
 name: '[Module 5] Infinite Steams'
 network_grading: false
-order: 42
+order: 44
 problems:
     student_variables_constructor:
         header: |-

@@ -43,7 +43,7 @@ limits:
     output: '2'
 name: '[Module 4] Visitor design pattern - Calculator'
 network_grading: false
-order: 32
+order: 34
 problems:
     student_add:
         language: java

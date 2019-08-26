@@ -71,7 +71,7 @@ limits:
     time: '30'
 name: '[Module 2] Binary trees - Inorder traversal'
 network_grading: false
-order: 16
+order: 18
 problems:
     student_recursive:
         name: ''

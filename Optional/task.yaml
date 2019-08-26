@@ -25,7 +25,7 @@ limits:
     output: '2'
 name: '[Module 5] Optional - no more concerns about NullPointerException'
 network_grading: false
-order: 38
+order: 40
 problems:
     student_of_nullable:
         default: ''

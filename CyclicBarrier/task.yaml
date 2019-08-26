@@ -9,8 +9,10 @@ context: |-
 
     We give you the class MaxFinder_ that you must complete, read the code carefully before you start writing any line of code.
 
+    You should also read the class CyclicBarrier_ in the java api.
 
     .. _MaxFinder: /course/LEPL1402/CyclicBarrier/MaxFinder.java
+    .. _CyclicBarrier: https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/CyclicBarrier.html
 environment: pyjavacpp
 evaluate: best
 file: ''
@@ -22,7 +24,21 @@ limits:
     output: '2'
 name: '[Module 6] Cyclic Barrier'
 network_grading: false
-problems: {}
+order: 52
+problems:
+    studentWorker:
+        default: ''
+        name: Worker Implementation
+        language: java
+        type: code
+        header: Paste here the **body** of the worker inner-class
+    StudentMaxFinderConstructor:
+        header: Paste here the **body** of the MaxFinder constructor (only the part
+            you implemented)
+        type: code
+        name: MaxFinder Implementation
+        language: java
+        default: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

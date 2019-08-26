@@ -1,5 +1,5 @@
 #!/bin/python3
-from pathlib import Path
+import os
 from inginious import input
 
 #####################################
@@ -11,6 +11,7 @@ from fragments.constants import *
 
 
 def main():
+
     #####################################
     #   Load feedback task settings     #
     #####################################
@@ -37,7 +38,7 @@ def main():
     #   CREATE A CLASSES FOLDER         #
     #####################################
 
-    Path(PATH_CLASSES).mkdir(parents=True, exist_ok=True)
+    os.makedirs(PATH_CLASSES, exist_ok=True)
     print("SET UP CLASSES FOLDER FOR COMPILATION")
 
     #####################################
@@ -52,16 +53,16 @@ def main():
 
     # Possible paths where we could keep source code : src, templates and flavour (optional)
     folders_to_compile = [PATH_SRC, PATH_TEMPLATES, PATH_FLAVOUR]
-
+    
     # For custom structure, for example many packages in folders_to_compile
     # we need a generic way to find all files to compiles
     all_folders_to_compile = [
-        item
-        for sublist in
-        [
-            helper.find_files_folder_in_path(folder)
-            for folder in folders_to_compile
-        ]
+        item 
+        for sublist in 
+            [ 
+                helper.find_files_folder_in_path(folder) 
+                for folder in folders_to_compile 
+            ] 
         for item in sublist
     ]
 
@@ -70,7 +71,7 @@ def main():
         "{}/{}{}".format(folder, "*", FILE_EXTENSION)
         for folder in all_folders_to_compile
     ]
-
+    
     compile_cmd = helper.generate_java_command_string(files_to_compile, libs, "javac")
     print("COMPILING CODE : {}".format(compile_cmd))
     result = helper.run_command(compile_cmd)
@@ -84,7 +85,7 @@ def main():
 
     # We need a manifest in order to make the created jar runnable
     helper.create_manifest(libs)
-
+    
     # Create a jar file
     create_jar = helper.generate_jar_file()
     print("GENERATING JAR : {}".format(create_jar))
@@ -133,4 +134,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

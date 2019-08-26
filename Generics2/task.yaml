@@ -49,7 +49,7 @@ limits:
     output: '2'
 name: '[Module 3] Generics 2'
 network_grading: false
-order: 20
+order: 22
 problems:
     map:
         type: code

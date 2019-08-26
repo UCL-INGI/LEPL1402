@@ -1,3 +1,4 @@
+import shutil
 from xml.etree import ElementTree as ET
 from fragments.constants import *
 
@@ -29,4 +30,3 @@ def generate_coverage_report(exec_file=JACOCO_EXEC_FILE,
         ' '.join(["--classfiles {}".format(str(c)) for c in classes_path]),
         xml_output
     )
-
