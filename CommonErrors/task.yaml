@@ -14,7 +14,7 @@ limits:
     time: '30'
 name: '[Module 1] Game of 9 common Java programming errors'
 network_grading: false
-order: 4
+order: 7
 problems:
     mcq1:
         choices:

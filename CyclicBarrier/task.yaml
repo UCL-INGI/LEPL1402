@@ -11,6 +11,10 @@ context: |-
 
     You should also read the class CyclicBarrier_ in the java api.
 
+    You can download the `IntelliJ Project`_.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/CyclicBarrier/LEPL1402_CyclicBarrier.zip
+
     .. _MaxFinder: /course/LEPL1402/CyclicBarrier/MaxFinder.java
     .. _CyclicBarrier: https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/CyclicBarrier.html
 environment: pyjavacpp
@@ -24,21 +28,21 @@ limits:
     output: '2'
 name: '[Module 6] Cyclic Barrier'
 network_grading: false
-order: 52
+order: 56
 problems:
     studentWorker:
-        default: ''
         name: Worker Implementation
-        language: java
-        type: code
         header: Paste here the **body** of the worker inner-class
+        type: code
+        language: java
+        default: ''
     StudentMaxFinderConstructor:
+        default: ''
         header: Paste here the **body** of the MaxFinder constructor (only the part
             you implemented)
         type: code
-        name: MaxFinder Implementation
         language: java
-        default: ''
+        name: MaxFinder Implementation
 stored_submissions: 0
 submission_limit:
     amount: -1

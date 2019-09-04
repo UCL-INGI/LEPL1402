@@ -14,7 +14,7 @@ limits:
     time: '30'
 name: '[Module 1] Access Modifiers / Scopes'
 network_grading: false
-order: 3
+order: 6
 problems:
     mcq1:
         choices:

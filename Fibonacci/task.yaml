@@ -1,12 +1,18 @@
 accessible: true
 author: Yakoub J, Rucquoy A
 categories:
-- module5
+- module2
 context: |-
     In this task, we will ask you to implement two different versions of the Fibonacci_ sequence number: a recursive one and an iterative one.
     The objective of this exercise is to make you aware of what a call stack is and what problem could occur. We strongly suggest you to
     test your code with various input : what will happen if you test your recursive implementation with a very large index. Why ? Will the same
     thing happen with your iterative implementation ? Why ?
+
+
+
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/Fibonacci/LEPL1402_Fibonacci.zip
 
     .. code-block:: java
 
@@ -45,22 +51,22 @@ limits:
     memory: '100'
     time: '30'
     output: '2'
-name: '[Module 5] Introduction to recursion in Java - Fibonacci'
+name: '[Module 2] Introduction to recursion in Java - Fibonacci'
 network_grading: false
-order: 36
+order: 16
 problems:
     student_recursive:
-        name: ''
-        type: code
-        language: java
         header: 'Paste here the **body** of your ``fiboRecursive(int index)`` method:'
+        language: java
+        type: code
         default: ''
+        name: ''
     student_iterative:
+        language: java
+        header: 'Paste here the **body** of your ``fiboIterative(int index)`` method:'
+        default: ''
         type: code
         name: ''
-        header: 'Paste here the **body** of your ``fiboIterative(int index)`` method:'
-        language: java
-        default: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

@@ -27,6 +27,10 @@ context: |-
     any object implementing the Runnable_ interface. For this exercise, we give you a small implementation of the Runnable_ interface : Counter_, a small class increasing
     an int variable ``rnd`` times.
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/ThreadsIntroduction/LEPL1402_ThreadsIntroduction.zip
+
 
     .. code-block:: java
 
@@ -72,14 +76,14 @@ limits:
     output: '2'
 name: '[Module 6] Small introduction to threads - Counters'
 network_grading: false
-order: 47
+order: 51
 problems:
     student_init:
+        header: 'Paste here the **body** of your init **method**:'
+        language: java
+        type: code
         name: ''
         default: ''
-        header: 'Paste here the **body** of your init **method**:'
-        type: code
-        language: java
 stored_submissions: 0
 submission_limit:
     amount: -1

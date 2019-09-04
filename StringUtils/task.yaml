@@ -18,6 +18,10 @@ context: |-
 
     Here is the skeleton of the ``StringUtils`` (downloadable here_):
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+
+    .. _`IntelliJ Project`: /course/LEPL1402/StringUtils/LEPL1402_StringUtils.zip
     .. _here: /course/LEPL1402/StringUtils/StringUtils.java
 
     .. code-block:: java
@@ -74,35 +78,35 @@ limits:
     output: '2'
 name: '[Module 1] Strings'
 network_grading: false
-order: 5
+order: 9
 problems:
     student_split:
+        name: ''
+        default: ''
+        language: java
         header: 'Paste here the **body** of your ``split`` method. Note that you can''t
             use ``split`` from ``String`` API :'
-        default: ''
-        name: ''
         type: code
-        language: java
     student_indexof:
-        default: ''
         language: java
         type: code
+        default: ''
         header: 'Paste here the **body** of your ``indexOf`` method. Note that you
             can''t use ``indexOf`` from ``String`` API :'
         name: ''
     student_tolowercase:
-        default: ''
+        language: java
+        type: code
         header: 'Paste here the **body** of your ``toLowerCase`` method. Note that
             you can''t use ``toLowerCase`` from ``String`` API :'
-        name: ''
-        type: code
-        language: java
-    student_palindrome:
-        header: 'Paste here the **body** of your ``palindrome`` method :'
-        type: code
-        name: ''
-        language: java
         default: ''
+        name: ''
+    student_palindrome:
+        type: code
+        default: ''
+        header: 'Paste here the **body** of your ``palindrome`` method :'
+        language: java
+        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

@@ -51,6 +51,9 @@ context: |-
             }
         }
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/Array2D/LEPL1402_Array2D.zip
     .. _Array2DBuilderInterface: /course/LEPL1402/Array2D/Array2DBuilderInterface.java
     .. _MyBuilder: /course/LEPL1402/Array2D/MyBuilder.java
 environment: java8scala
@@ -64,26 +67,26 @@ limits:
     output: '2'
 name: '[Module 1] Arrays 2D and Matrix'
 network_grading: false
-order: 2
+order: 5
 problems:
     build_from:
         name: ''
-        header: 'Paste the body of the ``buildFrom`` method:'
+        language: java
         type: code
+        header: 'Paste the body of the ``buildFrom`` method:'
         default: ''
-        language: java
     sum:
-        name: ''
-        language: java
-        default: ''
         header: 'Paste the body of the ``sum`` method:'
         type: code
-    transpose:
-        type: code
-        header: 'Paste the body of the ``transpose`` method:'
+        language: java
         name: ''
         default: ''
+    transpose:
+        default: ''
+        header: 'Paste the body of the ``transpose`` method:'
         language: java
+        type: code
+        name: ''
     product:
         name: ''
         language: java

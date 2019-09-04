@@ -15,6 +15,10 @@ context: |-
 
     Before submitting don't hesitate to create a producer and a consumer and to test your code.
 
+    You can download the `IntelliJ Project`_:
+
+    .. _`IntelliJ Project`: /course/LEPL1402/BoundedBuffer/LEPL1402_BoundedBuffer.zip
+
     .. _BoundedBuffer: /course/LEPL1402/BoundedBuffer/BoundedBuffer.java
 environment: pyjavacpp
 evaluate: best
@@ -27,7 +31,7 @@ limits:
     output: '2'
 name: '[Module 6] Bounded Buffer'
 network_grading: false
-order: 51
+order: 55
 problems:
     student_doPut:
         name: ''
@@ -36,35 +40,35 @@ problems:
         default: ''
         language: java
     student_doTake:
-        type: code
         header: 'Paste here the **body** of the method ``doTake`` :'
-        default: ''
-        name: ''
         language: java
-    student_put:
+        type: code
         name: ''
+        default: ''
+    student_put:
         type: code
         default: ''
         header: 'Paste here the **body** of the method ``put`` :'
+        name: ''
         language: java
     student_take:
         type: code
-        language: java
-        header: 'Paste here the **body** of the method ``take`` :'
-        default: ''
         name: ''
+        default: ''
+        header: 'Paste here the **body** of the method ``take`` :'
+        language: java
     student_offer:
+        type: code
+        language: java
         name: ''
         header: 'Paste here the **body** of the method ``offer`` :'
+        default: ''
+    student_poll:
         language: java
         default: ''
-        type: code
-    student_poll:
-        header: 'Paste here the **body** of the method ``poll`` :'
-        language: java
         type: code
         name: ''
-        default: ''
+        header: 'Paste here the **body** of the method ``poll`` :'
 stored_submissions: 0
 submission_limit:
     amount: -1

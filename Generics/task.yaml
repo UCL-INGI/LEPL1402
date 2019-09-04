@@ -39,6 +39,10 @@ context: |-
             boolean filter(int v);
         }
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/Generics/LEPL1402_Generics.zip
+
     ( You can find all the required files here :  Cons_ , Function_ , Predicate_ )
 
     .. _Cons: /course/LEPL1402/Generics/Cons.java
@@ -55,20 +59,20 @@ limits:
     output: '2'
 name: '[Module 3] Generics 1'
 network_grading: false
-order: 21
+order: 27
 problems:
     map:
+        default: ''
+        name: ''
         type: code
         language: java
-        name: ''
         header: 'Paste here the **body** of your ``map`` method :'
-        default: ''
     filter:
+        name: ''
         type: code
         header: 'Paste here the **body** of your ``filter`` method :'
-        language: java
-        name: ''
         default: ''
+        language: java
 stored_submissions: 0
 submission_limit:
     amount: -1

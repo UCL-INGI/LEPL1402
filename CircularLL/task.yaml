@@ -25,9 +25,15 @@ context: |-
     .. _Iterator : https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
 
 
+    You can download the `IntelliJ Project`_:
+
+    .. _`IntelliJ Project`: /course/LEPL1402/CircularLL/LEPL1402_CircularLL.zip
+
+
     Here is the class (downloadable here_) where we will insert your code :
 
-    .. _here : /course/LEPL1402/CircularLL/CircularLinkedList.java
+
+    .. _here: /course/LEPL1402/CircularLL/CircularLinkedList.java
 
     .. code-block:: java
 
@@ -123,26 +129,26 @@ limits:
     output: '2'
 name: '[Module 3] Circular Linked list'
 network_grading: false
-order: 20
+order: 26
 problems:
     student_enqueue:
+        language: java
         name: ''
+        type: code
+        default: ''
         header: 'Paste here the BODY of your ``enqueue`` method:'
-        type: code
-        default: ''
-        language: java
     student_remove:
+        default: ''
+        type: code
+        language: java
+        name: ''
         header: 'Paste here the BODY of your ``remove(int index)`` method:'
-        type: code
-        default: ''
-        language: java
-        name: ''
     student_iterator:
-        language: java
         default: ''
-        header: 'Paste here the BODY of your ``ListIterator`` class:'
-        name: ''
         type: code
+        language: java
+        name: ''
+        header: 'Paste here the BODY of your ``ListIterator`` class:'
 stored_submissions: 0
 submission_limit:
     amount: -1

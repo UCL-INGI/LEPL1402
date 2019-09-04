@@ -7,6 +7,10 @@ context: |-
 
     In this task we give you the WebPage_ class to complete and three other class to use : URL_, Image_ and HTML_.
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/Future/LEPL1402_Future.zip
+
     .. code-block:: java
 
         import java.util.ArrayList;
@@ -111,25 +115,25 @@ limits:
     output: '2'
 name: '[Module 6] Future'
 network_grading: false
-order: 48
+order: 52
 problems:
     student_constructor:
-        language: java
         default: ''
-        type: code
+        language: java
         header: 'Paste here the **body** of the ``constructor`` :'
+        type: code
         name: ''
     student_loadImage:
         default: ''
-        type: code_single_line
+        name: ''
         header: 'Paste here the **body** of ``loadImage`` :'
-        name: ''
+        type: code_single_line
     student_loadImages:
-        header: 'Paste here the **body** of ``loadImages`` :'
         type: code
-        language: java
-        default: ''
         name: ''
+        default: ''
+        language: java
+        header: 'Paste here the **body** of ``loadImages`` :'
 stored_submissions: 0
 submission_limit:
     amount: -1

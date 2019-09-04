@@ -1,0 +1,183 @@
+accessible: true
+author: Bastin J, Piron H
+categories:
+- module1
+context: Try to answer the following question without actually testing the shown code
+    on your computer.
+environment: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    time: '30'
+    memory: '100'
+    output: '2'
+name: '[Module 1] Value Or Reference'
+network_grading: false
+problems:
+    int:
+        type: multiple_choice
+        error_message: Primitive types are passed by value in Java which means that
+            changing the value of an primitive int argument inside a method, only
+            updates the value in the function and not outside of it. Thus when the
+            value is set to 1 in the method ``foo`` it only changes it inside the
+            method and in this case not in the ``main`` method.
+        name: Passing int
+        limit: 0
+        success_message: Good job! Primitive types are passed by value in Java which
+            means that changing the value of an primitive int argument inside a method,
+            only updates the value in the function and not outside of it. Thus when
+            the value is set to 1 in the method ``foo`` it only changes it inside
+            the method and in this case not in the ``main`` method.
+        choices:
+        -   text: '0'
+            valid: true
+        -   text: '1'
+        header: |-
+            What is gonna be written on stdout after running this piece of code?
+
+            .. code-block:: java
+
+                public static void main(String[] args){
+
+                    int i =0;
+                    foo(i);
+                    System.out.println(i);
+
+                }
+
+                public static void foo(int i){
+                    i=1;
+                }
+    String:
+        choices:
+        -   text: titi
+            valid: true
+        -   text: toto
+        limit: 0
+        name: Passing String
+        type: multiple_choice
+        error_message: Object are passed by value in Java which means that changing
+            the value of a String argument inside a method, only updates the value
+            in the function and not outside of it. Thus when the value is set to *"toto"*
+            in the method ``foo`` it only changes it inside the method and in this
+            case not in the ``main`` method.
+        success_message: Good job! Object are passed by value in Java which means
+            that changing the value of a String argument inside a method, only updates
+            the value in the function and not outside of it. Thus when the value is
+            set to *"toto"* in the method ``foo`` it only changes it inside the method
+            and in this case not in the ``main`` method.
+        header: |
+            What is gonna be written on stdout after running this piece of code?
+
+            .. code-block:: java
+
+                public static void main(String[] args){
+
+                    String s = "titi";
+                    foo(s);
+                    System.out.println(s);
+
+                }
+
+                public static void foo(int i){
+                    s="toto";
+                }
+    String2:
+        choices:
+        -   valid: true
+            text: titi
+        -   text: toto
+        success_message: Good job! Using the ``new`` statement doesn't the behaviour
+            explained in the previous question.
+        error_message: Using the ``new`` statement doesn't the behaviour explained
+            in the previous question.
+        name: Passing another String
+        type: multiple_choice
+        limit: 0
+        header: |-
+            What is gonna be written on stdout after running this piece of code?
+
+            .. code-block:: java
+
+                public static void main(String[] args){
+
+                    String s = "titi";
+                    foo(s);
+                    System.out.println(s);
+
+                }
+
+                public static void foo(int i){
+                    s= new String("toto");
+                }
+    array:
+        name: Passing array
+        choices:
+        -   text: '[3, 2, 3]'
+            valid: true
+        -   text: '[1, 2, 3]'
+        limit: 0
+        header: |-
+            What is gonna be written on stdout after running this piece of code?
+
+            .. code-block:: java
+
+                public static void main(String[] args){
+
+                    int[] array = new int[]{1,2,3};
+
+                    foo(array);
+                    System.out.println(Arrays.toString(array));
+
+                }
+
+                public static void foo(int[] a){
+                    a[0] = 3;
+                }
+        type: multiple_choice
+        error_message: When you pass an array in Java, it actually passes the reference
+            to the array and not the value. Which means that changing a value in the
+            array does change it for the parent method.
+        success_message: Good job! When you pass an array in Java, it actually passes
+            the reference to the array and not the value. Which means that changing
+            a value in the array does change it for the parent method.
+    array2:
+        choices:
+        -   valid: true
+            text: '[1, 2, 3]'
+        -   text: '[4, 5, 6]'
+        header: |-
+            What is gonna be written on stdout after running this piece of code?
+
+            .. code-block:: java
+
+                public static void main(String[] args){
+
+                    int[] array = new int[]{1,2,3};
+
+                    foo(array);
+                    System.out.println(Arrays.toString(array));
+
+                }
+
+                public static void foo(int[] a){
+                    a = new int[]{4,5,6};
+                }
+        name: Passing array
+        limit: 0
+        error_message: Changing a value in a array or crushing the array to replace
+            it by another one is very different. You can change the value **in** an
+            array passed as argument but not change the value **of** the array itself.
+        success_message: Good job! Changing a value in a array or crushing the array
+            to replace it by another one is very different. You can change the value
+            **in** an array passed as argument but not change the value **of** the
+            array itself.
+        type: multiple_choice
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
+order: 8

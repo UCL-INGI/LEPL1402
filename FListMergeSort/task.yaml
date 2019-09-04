@@ -7,7 +7,11 @@ context: |-
 
     Here is the class FList_ you will be using. Try first to implement the FList by yourself in this exercise_ before starting this one.
 
-    And here is the method you must implement: note that you have to implement merge recursivly and you are allowed to create other methods
+    And here is the method you must implement: note that you have to implement merge recursivly and you are allowed to create other methods.
+
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/FListMergeSort/LEPL1402_FListMergeSort.zip
 
     .. code-block:: java
 
@@ -39,22 +43,22 @@ limits:
     output: '2'
 name: '[Module 5] FList MergeSort'
 network_grading: false
-order: 42
+order: 46
 problems:
     studentMergeSort:
-        default: ''
-        header: 'Paste here the **body** of you method mergesort:'
         type: code
+        header: 'Paste here the **body** of you method mergesort:'
+        default: ''
         language: java
         name: MergeSort implementation
     studentClass:
-        type: code
         default: ''
-        optional: 'on'
         header: 'Paste here the other methods you have implemented if you have, **SIGNATURE**
             and **BODY** :'
-        language: java
+        type: code
         name: Other methods
+        optional: 'on'
+        language: java
 stored_submissions: 0
 submission_limit:
     amount: -1

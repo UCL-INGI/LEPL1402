@@ -44,6 +44,10 @@ context: |-
 
         }
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/TreeSame/LEPL1402_TreeSame.zip
+
     .. _Tree: /course/LEPL1402/TreeSame/Tree.java
     .. _Node: /course/LEPL1402/TreeSame/Node.java
 environment: java8scala
@@ -53,23 +57,23 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: '[Module 2] Binary trees - equals'
 network_grading: false
-order: 17
+order: 23
 problems:
     student_eqtree:
         name: ''
+        type: code
         language: java
         default: ''
         header: 'Paste here the **body** of your ``equals`` method from class ``Tree``:'
-        type: code
     student_eqnode:
         type: code
         name: ''
-        language: java
         default: ''
+        language: java
         header: 'Paste here the **body** of your ``equals`` method from class ``Node``:'
 stored_submissions: 0
 submission_limit:

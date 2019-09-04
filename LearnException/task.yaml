@@ -1,6 +1,7 @@
 accessible: true
-author: ''
-categories: []
+author: Bastin J, Piron H
+categories:
+- module1
 context: |-
     In this task we ask you to implement method throwing and catching exceptions. In Java, Exceptions are handled using ``try`` and ``catch`` statement like the example below
 
@@ -28,9 +29,10 @@ context: |-
         throw new ArithmeticException();
 
     Download Divider_ and read the comment to know what you have to do.
-
+    Download `intellij project`_ with tests.
 
     .. _Divider: /course/LEPL1402/LearnException/Divider.java
+    .. _`intellij project`: /course/LEPL1402/LearnException/LEPL1402_LearnException.zip
 environment: java8scala
 evaluate: best
 file: ''
@@ -42,10 +44,11 @@ limits:
     output: '2'
 name: '[Module 1] Learn Exception in Java'
 network_grading: false
+order: 3
 problems:
     studentDivide:
+        name: Divide implementation
         default: ''
-        type: code
         header: |-
             Paste here the **body** of the divide method
 
@@ -54,13 +57,10 @@ problems:
                 public static double divide(int i1, int i2) throws ArithmeticException{
                     //Your code here
                 }
-        language: java
-        name: Divide implementation
-    studentCanDivide:
-        language: java
         type: code
+        language: java
+    studentCanDivide:
         default: ''
-        name: CanDivide Implementation
         header: |-
             Paste here the **body** of the canDivide method
 
@@ -69,7 +69,12 @@ problems:
                 public static boolean canDivide(int i1, int i2){
                     //Your code here
                 }
+        type: code
+        language: java
+        name: CanDivide Implementation
     studentBetterDivide:
+        type: code
+        default: ''
         header: |-
             Paste here the **body** of the betterDivide method
 
@@ -78,11 +83,11 @@ problems:
                 public static double betterDivide(int i1, int i2) throws ArithmeticException{
                     //Your code here
                 }
-        type: code
-        default: ''
         language: java
         name: Better Divide Implementation
     studentBetterCanDivide:
+        type: code
+        default: ''
         header: |-
             Paste here the **body** of the betterCanDivide method
 
@@ -91,13 +96,10 @@ problems:
                 public static String betterCanDivide(int i1, int i2){
                     //Your code here
                 }
-        language: java
-        type: code
         name: Can Better Divide Implementation
-        default: ''
+        language: java
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 weight: 1.0
-order: 1

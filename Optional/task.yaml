@@ -9,6 +9,10 @@ context: |-
 
     You are not allow to use ``new TeamLeader()`` in these exercises.
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/Optional/LEPL1402_Optional.zip
+
     .. _Optional: https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html
     .. _Person: /course/LEPL1402/Optional/Person.java
     .. _Team: /course/LEPL1402/Optional/Team.java
@@ -25,11 +29,11 @@ limits:
     output: '2'
 name: '[Module 5] Optional - no more concerns about NullPointerException'
 network_grading: false
-order: 40
+order: 44
 problems:
     student_of_nullable:
-        default: ''
         name: ''
+        type: code_single_line
         header: |-
             First, we want you to implement the ``createOptionalTeamLeader`` method that return a new ``Optional<TeamLeader>`` from ``teamLeader``.
 
@@ -45,8 +49,10 @@ problems:
                 TeamLeader teamLeader = ...; // can be null
                 Optional<TeamLeader> tl = optionalTest.createOptionalTeamLeader(teamLeader);
                 System.out.println(tl.equals(Optional.isEmpty())); //should not throw a NullPointerException
-        type: code_single_line
+        default: ''
     student_if_present:
+        type: code_single_line
+        name: ''
         header: |-
             For this sub-task you have to implement the function ``incAge`` that increment by one the age of the ``optioanlTeamLeader``.
 
@@ -58,11 +64,7 @@ problems:
 
             Note that in the following questions ``optionalTeamLeader`` can't be **null** but can have the value **Optional.empty()**.
         default: ''
-        name: ''
-        type: code_single_line
     student_filter:
-        name: ''
-        default: ''
         header: |
             A little more complicated : increment by one the age of the ``optionalTeamLeader`` only if its age in strictly greater than 15.
 
@@ -72,9 +74,12 @@ problems:
                     //TODO
                 }
         type: code_single_line
-    student_map_orelse:
         name: ''
+        default: ''
+    student_map_orelse:
         type: code_single_line
+        default: ''
+        name: ''
         header: |-
             Implements the ``getName`` method that return the name of the ``optionalTeamLeader`` or return **"No team leader"** if teamLeader is null.
 
@@ -83,11 +88,9 @@ problems:
                 public String getName(Optional<TeamLeader> optionalTeamLeader){
                     //TODO
                 }
-        default: ''
     student_flatmap:
-        type: code_single_line
-        default: ''
         name: ''
+        default: ''
         header: |-
             Implements the ``getNameOfTeamLeader`` method than returns the name of the team leader of the team in which the ``optionalPerson`` is, if the team has a team leader, or return **"No team leader"**.
 
@@ -98,6 +101,7 @@ problems:
                 }
 
             Note that ``optionalPerson`` can't be **null** but can have the value **Optional.empty()**.
+        type: code_single_line
 stored_submissions: 0
 submission_limit:
     amount: -1

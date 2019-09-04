@@ -31,6 +31,9 @@ context: |-
         }
 
     To help you understand how Predicate and Function works, check the documentation_.
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/Generics2/LEPL1402_Generics2.zip
 
     (You can find here all documents : Cons_, Function_, Predicate_)
 
@@ -49,20 +52,20 @@ limits:
     output: '2'
 name: '[Module 3] Generics 2'
 network_grading: false
-order: 22
+order: 28
 problems:
     map:
+        default: ''
+        name: ''
         type: code
         language: java
-        name: ''
         header: 'Paste here the **body** of your ``map`` method :'
-        default: ''
     filter:
+        name: ''
         type: code
         header: 'Paste here the **body** of your ``filter`` method :'
-        language: java
-        name: ''
         default: ''
+        language: java
 stored_submissions: 0
 submission_limit:
     amount: -1

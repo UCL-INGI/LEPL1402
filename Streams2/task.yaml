@@ -49,6 +49,10 @@ context: |-
 
        }
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/Streams2/LEPL1402_Streams2.zip
+
     .. _StudentStreamFunction: /course/LEPL1402/Streams2/StudentStreamFunction.java
     .. _Student: /course/LEPL1402/Streams2/Student.java
     .. _StudentFunctions: /course/LEPL1402/Streams/StudentFunctions.java
@@ -63,39 +67,39 @@ limits:
     output: '2'
 name: '[Module 5] Dealing with Streams - 2'
 network_grading: false
-order: 46
+order: 50
 problems:
     student_findFirst:
-        default: ''
-        language: java
-        name: ''
         header: 'Paste here the **body** of your ``findFirst`` method:'
+        default: ''
+        name: ''
+        language: java
         type: code
     student_findAll:
+        name: ''
         default: ''
-        language: java
         header: 'Paste here the **body** of your ``findAll`` method:'
         type: code
-        name: ''
+        language: java
     student_exists:
         type: code
-        name: ''
         default: ''
-        language: java
         header: 'Paste here the **body** of your ``exists`` method:'
-    student_filterThenSort:
         name: ''
         language: java
-        default: ''
+    student_filterThenSort:
         type: code
         header: 'Paste here the **body** of your ``filterThenSort`` method:'
-    student_util:
-        default: ''
-        type: code
-        header: 'You can paste here additional methods if you need :'
-        optional: 'on'
-        language: java
         name: ''
+        language: java
+        default: ''
+    student_util:
+        header: 'You can paste here additional methods if you need :'
+        name: ''
+        type: code
+        optional: 'on'
+        default: ''
+        language: java
 stored_submissions: 0
 submission_limit:
     amount: -1

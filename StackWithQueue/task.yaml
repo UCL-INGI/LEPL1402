@@ -13,6 +13,10 @@ context: |-
 
     (You can find the file here_).
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/StackWithQueue/LEPL1402_StackWithQueue.zip
+
     .. _here: /course/LEPL1402/StackWithQueue/MyStack.java
 
     .. code-block:: java
@@ -68,32 +72,32 @@ limits:
     output: '2'
 name: '[Module 3] Stack with a Queue'
 network_grading: false
-order: 27
+order: 33
 problems:
     student_add:
+        name: ''
+        default: ''
         language: java
         header: Paste here the **body** of your method ``push()``
-        name: ''
-        default: ''
         type: code
     student_remove:
-        header: Paste here the **body** of your method ``pop()``
-        type: code
         default: ''
+        type: code
         language: java
         name: ''
+        header: Paste here the **body** of your method ``pop()``
     student_peek:
-        default: ''
-        type: code
         name: ''
+        type: code
+        default: ''
         header: Paste here the **body** of your method ``peek()``
         language: java
     student_isEmpty:
-        language: java
-        default: ''
         header: Paste here the **body** of your method ``empty()``
         type: code
+        default: ''
         name: ''
+        language: java
 stored_submissions: 0
 submission_limit:
     amount: -1

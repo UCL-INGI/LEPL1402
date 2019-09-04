@@ -83,22 +83,10 @@ for folder in task_folders:
                                                    196) + "\n"
                     else:
                         if any([
-                            (not isinstance(problem_id, str)) or (not isinstance(statements, list))
-                            for (problem_id, statements) in result["prohibited"].items()
+                            (not isinstance(problem_id, str)) or (not isinstance(statments, list))
+                            for (problem_id, statments) in result["prohibited"].items()
                         ]):
                             problem += text_with_color("prohibited is improperly constructed", 196) + "\n"
-
-                if "status_message" in result:
-
-                    if not isinstance(result["status_message"], dict):
-                        problem += text_with_color("status_message should be a dictionary (Number, String) ",
-                                                   196) + "\n"
-                    else:
-                        if any([
-                            (not isinstance(exit_code, int)) or (not isinstance(message, str))
-                            for (exit_code, message) in result["status_message"].items()
-                        ]):
-                            problem += text_with_color("status_message is improperly constructed", 196) + "\n"
 
             except yaml.YAMLError as exc:
                 problem += text_with_color("Parsing error in feedback_settings.yaml\n", 196)

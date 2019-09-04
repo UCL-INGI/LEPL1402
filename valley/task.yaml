@@ -61,6 +61,10 @@ context: |
 
             }
         }
+
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/valley/LEPL1402_valley.zip
 environment: pyjavacpp
 evaluate: best
 file: ''
@@ -72,21 +76,21 @@ limits:
     output: '2'
 name: '[Module 2] Longest Valley'
 network_grading: false
-order: 14
+order: 20
 problems:
     student_code:
-        type: code
-        name: ''
-        default: ''
-        header: Paste here the **body** of your methode ``valley``
         language: java
+        default: ''
+        name: ''
+        type: code
+        header: Paste here the **body** of your methode ``valley``
     student_additionnal:
         language: java
-        type: code
+        optional: 'on'
+        header: Paste here your additionnal methods
         name: ''
         default: ''
-        header: Paste here your additionnal methods
-        optional: 'on'
+        type: code
 stored_submissions: 0
 submission_limit:
     amount: -1

@@ -38,15 +38,15 @@ limits:
     output: '2'
 name: '[Module 6] Threads - Shared counter with monitors'
 network_grading: false
-order: 49
+order: 53
 problems:
     student_class:
         header: Paste here the bodies **and** signatures of your three methods for
             the ``SharedCounter`` class.
-        type: code
+        language: java
         name: ''
         default: ''
-        language: java
+        type: code
 stored_submissions: 0
 submission_limit:
     amount: -1

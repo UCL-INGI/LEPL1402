@@ -24,7 +24,12 @@ context: |-
     Even with this simple algorithm, mistakes can occur and that is why we ask you to complete the implementation
     contained in this file_ , without forgetting to add assert statements in each method (as they will be tested separately in INGINIOUS).
 
-    .. _file : /course/LEPL1402/CodeAccuracy2/QuickSort.java
+
+    You can download the `IntelliJ Project`_.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/CodeAccuracy2/LEPL1402_CodeAccuracy2.zip
+
+    .. _file: /course/LEPL1402/CodeAccuracy2/QuickSort.java
 environment: java8scala
 evaluate: best
 file: ''
@@ -36,35 +41,35 @@ limits:
     output: '2'
 name: '[Module 2] Code accuracy - Practical exercise'
 network_grading: false
-order: 16
+order: 22
 problems:
     exch_code:
         name: ''
+        language: java
+        type: code
         header: 'Paste here the **body** of your **swap(Object[] a, int i, int j)**
             method:'
         default: ''
-        language: java
-        type: code
     partition_code:
-        name: ''
-        language: java
         header: 'Paste here the **body** of your **partition(Comparable[] a, int left,
             int right)** method:'
-        type: code
+        language: java
         default: ''
+        type: code
+        name: ''
     sort_code:
         name: ''
-        header: 'Paste here the **body** of your **sort(Comparable[] a)** method:'
-        default: ''
         language: java
         type: code
+        default: ''
+        header: 'Paste here the **body** of your **sort(Comparable[] a)** method:'
     sort_code2:
+        language: java
+        default: ''
         header: 'Paste here the **body** of your **sort(Comparable[] a, int left,
             int right)** method:'
-        default: ''
-        type: code
-        language: java
         name: ''
+        type: code
 stored_submissions: 0
 submission_limit:
     amount: -1

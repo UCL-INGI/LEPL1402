@@ -43,6 +43,10 @@ context: |-
     .. _ArrayList: https://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html
 
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/MyArrayList/LEPL1402_MyArrayList.zip
+
     Here is the class (downloadable here_) where we will insert your code :
 
     .. _here : /course/LEPL1402/MyArrayList/MyArrayList.java
@@ -109,40 +113,40 @@ limits:
     output: '2'
 name: '[Module 3] MyArrayList'
 network_grading: false
-order: 25
+order: 31
 problems:
     student_constructor:
-        language: java
         default: ''
-        type: code
+        language: java
         header: 'Paste here the **body** of your constructor ``MyArrayList(int initSize)``:'
+        type: code
         name: ''
     student_enqueue:
+        language: java
         name: ''
+        type: code
+        default: ''
         header: 'Paste here the **body** of your ``enqueue`` method:'
-        type: code
-        default: ''
-        language: java
     student_remove:
+        default: ''
+        type: code
+        language: java
+        name: ''
         header: 'Paste here the **body** of your ``remove(int index)`` method:'
-        type: code
-        default: ''
-        language: java
-        name: ''
     student_iterator:
-        language: java
         default: ''
-        header: 'Paste here the **body** of your ``ListIterator`` class:'
-        name: ''
         type: code
-    student_utils:
+        language: java
         name: ''
+        header: 'Paste here the **body** of your ``ListIterator`` class:'
+    student_utils:
         optional: 'on'
+        default: ''
+        type: code
+        language: java
         header: 'Paste here (if needed) auxiliary methods (body **and** signatures)
             for your ``MyArrayList`` class:'
-        language: java
-        default: ''
-        type: code
+        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

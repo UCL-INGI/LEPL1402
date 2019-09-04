@@ -8,6 +8,10 @@ context: |-
     of them implementing the LevelComponent_ interface.
     Your objective is thus to implement the two following classes:
 
+    You can download the `IntelliJ Project`_.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/Factory/LEPL1402_Factory.zip
+
     .. code-block:: java
 
         public class ElementFactory extends Factory {
@@ -63,19 +67,19 @@ limits:
     output: '2'
 name: '[Module 4] Factory design pattern - Level generator'
 network_grading: false
-order: 32
+order: 38
 problems:
     student_factory:
         header: 'Paste here the **body** of your ``ElementFactory`` class:'
-        language: java
         name: ''
         default: ''
+        language: java
         type: code
     student_level:
         default: ''
+        language: java
         name: ''
         header: 'Paste here the **body** of your ``Level`` class:'
-        language: java
         type: code
 stored_submissions: 0
 submission_limit:

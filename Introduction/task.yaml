@@ -7,7 +7,7 @@ context: |-
 
     This serie of inginious tasks will accompany you throughout the quadrimester to learn java and apprehend the material seen in class. Successful completion of all tasks is a major step towards the success of this course. We encourage you to try to do them yourself without going on the Internet.
 
-    We also encourage you to try your solutions by yourself on you computer. To do so install a good IDE like IntelliJ_. We recommand you this IDE since it's the most complete and used. You can get a free student license here_.
+    We also encourage you to try your solutions by yourself on you computer. To do so take a look at `this tutorial`_ on the tools you will need.
 
     This first task will cover the basics of java step by step. In most exercises we want you to paste the **signature** and the **body** of the methods you create. In other cases we just wan to you paste the **body** and we give you the **signature**.
 
@@ -28,49 +28,54 @@ context: |-
 
     .. _IntelliJ: https://www.jetbrains.com/idea/
     .. _here: https://www.jetbrains.com/student/
+    .. _`this tutorial`: https://lepl1402.readthedocs.io/en/latest/tools/index.html
 environment: java8scala
 evaluate: best
 file: ''
 groups: false
 input_random: '0'
 limits:
-    memory: '100'
     time: '30'
+    memory: '100'
     output: '2'
 name: '[Module 1] Introduction to java, exercises'
 network_grading: false
+order: 2
 problems:
     student_attribute:
-        name: Methods and variables
         header: Paste here the **signature** and the **body** of a method ``attribute(int
             value)`` that change the value of the variable ``variable`` to ``value``.
-        default: ''
-        type: code
         language: java
-    student_add:
+        default: ''
+        name: Methods and variables
         type: code
-        name: Return
+    student_add:
         header: Paste here the **signature** and the **body** of a method ``add(int
             a, int b)`` that return the addition of ``a`` and ``b``.
         language: java
+        type: code
+        name: Return
         default: ''
     student_equals:
-        name: Comparison
-        language: java
-        default: ''
         header: Paste here the **signature** and the **body** of a method ``equalsIntegers(int
             a, int b)`` that return *true* if ``a`` is equal to ``b``.
+        language: java
+        default: ''
         type: code
+        name: Comparison
     student_middleValue:
         header: Paste here the **signature** and the **body** of a method ``middleValue(int
             a, int b, int c)`` that return the middle value between ``a``, ``b`` and
             ``c``. So if :math:`a > b > c`, the method should return b. If minimum
             two value are equals, return **-1**.
-        type: code
-        name: Conditions
         default: ''
         language: java
+        type: code
+        name: Conditions
     student_max:
+        default: ''
+        name: Ternary expression
+        type: code_single_line
         header: |-
             Paste here the **body** of the method ``max``. You can only use a ternary expression.
 
@@ -83,12 +88,7 @@ problems:
                 public static int max(int a, int b){
                     //TODO
                 }
-        type: code_single_line
-        default: ''
-        name: Ternary expression
     student_salutation:
-        language: java
-        default: ''
         header: |-
             Paste here the **signature** and the **body** of the method ``greetings(String str)``.
             This method return :
@@ -98,9 +98,14 @@ problems:
                 - "Hello, sir!" otherwise
 
             Your implementation should be case sensitive.
-        name: Switch ... case ...
         type: code
+        language: java
+        name: Switch ... case ...
+        default: ''
     student_lastFirstMiddle:
+        type: code
+        language: java
+        default: ''
         name: Arrays
         header: |-
             Paste here the **signature** and the **body** of a method ``lastFirstMiddle(int[] a)``. This method return a new array of three integers contained in this order :
@@ -108,25 +113,22 @@ problems:
                 - The last element of ``a``
                 - The first element of ``a``
                 - The element of the middle of ``a`` (given :math:`l` the length of a, take the element of index :math:`\frac{l}{2}`)
-        type: code
-        language: java
-        default: ''
     student_sum:
-        name: For loop
+        default: ''
         type: code
         header: Paste here the **signature** and the **body** of the method ``sum(int[]
             array)`` that return the sum of all elements of ``array``. You should
             use a for loop.
-        default: ''
         language: java
+        name: For loop
     student_maxArray:
-        type: code
+        default: ''
+        name: While loop
         header: Paste here the **signature** and the **body** of the method ``maxArray(int[]
             array)`` that return the maximum element of ``array``. You should use
             a while loop.
-        default: ''
-        name: While loop
         language: java
+        type: code
     student_main:
         header: |-
             Paste here the **body** of the ``main`` method. The main method is the method that runs a program. When you start a program, you can pass a list of arguments to start you program. For example here, we can enter in a terminal ``javac IntroductionExercises.java`` to compile our program and then ``java IntroductionExercises 1 5 20``.
@@ -148,13 +150,12 @@ problems:
                 }
 
             .. _API: https://docs.oracle.com/javase/8/docs/api/index.html
-        type: code
+        name: Main
         default: ''
         language: java
-        name: Main
+        type: code
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 weight: 1.0
-order: 0

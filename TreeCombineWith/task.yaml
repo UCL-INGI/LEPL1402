@@ -39,6 +39,10 @@ context: |-
 
     (This exercise was partialy inspired by this source_)
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/TreeCombineWith/LEPL1402_TreeCombineWith.zip
+
     .. _here: /course/LEPL1402/TreeCombineWith/Node.java
     .. _Tree: /course/LEPL1402/TreeCombineWith/Tree.java
     .. _source: https://practiceit.cs.washington.edu/problem/view/cs2/exams/finals/final4/combineWith
@@ -49,27 +53,27 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: '[Module 2] Binary trees - combineWith'
 network_grading: false
-order: 19
+order: 25
 problems:
     student_combineWith:
-        default: ''
-        type: code
-        language: java
         header: 'Paste here the **body** of your ``combineWith`` method from class
             ``Tree``:'
         name: ''
-    student_additional_contents:
-        optional: 'on'
         type: code
         language: java
-        name: ''
         default: ''
+    student_additional_contents:
+        optional: 'on'
         header: 'Paste here the rest of the **body** of the class ``Tree`` (if you
             have defined private helper methods to solve this problem) :'
+        default: ''
+        name: ''
+        type: code
+        language: java
 stored_submissions: 0
 submission_limit:
     amount: -1

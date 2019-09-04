@@ -19,6 +19,12 @@ context: |-
                 //TODO YOUR CODE HERE
             }
         }
+
+
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+
+    .. _`IntelliJ Project`: /course/LEPL1402/ComplexityArraySearch/LEPL1402_ComplexityArraySearch.zip
 environment: pyjavacpp
 evaluate: best
 file: ''
@@ -30,14 +36,14 @@ limits:
     output: '2'
 name: '[Module 2] Array Search'
 network_grading: false
-order: 11
+order: 15
 problems:
     student_code:
-        type: code
-        name: ''
-        default: ''
-        header: 'Paste here the **body** of your method :'
         language: java
+        default: ''
+        name: ''
+        type: code
+        header: 'Paste here the **body** of your method :'
 stored_submissions: 0
 submission_limit:
     amount: -1

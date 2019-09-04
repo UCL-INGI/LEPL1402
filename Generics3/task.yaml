@@ -14,6 +14,9 @@ context: |-
     Instead of directly using a chain of logical operators ( that can lead you to a error prone code sometimes),
     we will be using BiFunction_ and Function_ to implement the logic gates.
     Your task is thus to implement the following class : Evaluator_ .
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/Generics3/LEPL1402_Generics3.zip
 
     .. _Function: https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html
     .. _BiFunction: https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html
@@ -29,38 +32,38 @@ limits:
     output: '2'
 name: '[Module 3] Generics 3'
 network_grading: false
-order: 23
+order: 29
 problems:
     student_gate_xor:
+        name: ''
         default: ''
         type: code
         language: java
-        name: ''
         header: Paste here the **BODY** of your **xor_gate** method
     student_gate_or:
-        header: Paste here the **BODY** of your **or_gate** method
         language: java
         name: ''
-        default: ''
+        header: Paste here the **BODY** of your **or_gate** method
         type: code
+        default: ''
     student_gate_and:
         name: ''
-        language: java
         default: ''
+        type: code
+        language: java
         header: Paste here the **BODY** of your **and_gate** method
-        type: code
     student_gate_not:
-        default: ''
         header: Paste here the **BODY** of your **not_gate** method
-        type: code
-        language: java
         name: ''
-    student_evaluate:
-        type: code
-        name: ''
-        header: Paste here the **BODY** of your **evaluate_circuit** method
-        language: java
         default: ''
+        language: java
+        type: code
+    student_evaluate:
+        default: ''
+        header: Paste here the **BODY** of your **evaluate_circuit** method
+        type: code
+        name: ''
+        language: java
 stored_submissions: 0
 submission_limit:
     amount: -1

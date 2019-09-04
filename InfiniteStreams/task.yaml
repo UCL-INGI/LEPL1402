@@ -15,6 +15,10 @@ context: |-
 
     Note that you will need to use the Supplier_ object in order to make the creation of your stream (so the tail of a Cons) lazy.
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/InfiniteStreams/LEPL1402_InfiniteStreams.zip
+
     .. _Stream: https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html
     .. _IStream: /course/LEPL1402/InfiniteStreams/IStream.java
     .. _Cons: /course/LEPL1402/InfiniteStreams/Cons.java
@@ -27,14 +31,18 @@ file: ''
 groups: false
 input_random: '0'
 limits:
-    output: '2'
-    memory: '100'
     time: '30'
+    memory: '100'
+    output: '2'
 name: '[Module 5] Infinite Steams'
 network_grading: false
-order: 44
+order: 48
 problems:
     student_variables_constructor:
+        default: ''
+        type: code
+        name: ''
+        language: java
         header: |-
             For this class, we do all imports you need for you.
 
@@ -62,13 +70,7 @@ problems:
                 }
 
             Paste here your two instance variable **head** and **tail** and the constructor of this class :
-        type: code
-        name: ''
-        default: ''
-        language: java
     student_createWhile:
-        name: ''
-        type: code
         header: |-
             First finish the IStream interface.
 
@@ -122,23 +124,23 @@ problems:
 
 
             Paste here the **body** of the method ``createWhile`` :
-        language: java
-        default: ''
-    student_map:
         name: ''
+        default: ''
+        type: code
+        language: java
+    student_map:
         language: java
         header: 'Paste here the **body** of the method ``map`` :'
-        type: code
         default: ''
-    student_filter:
+        type: code
         name: ''
+    student_filter:
+        type: code
+        default: ''
         language: java
-        type: code
-        default: ''
         header: 'Paste here the **body** of the method ``filter`` :'
+        name: ''
     student_fromInteger:
-        default: ''
-        type: code
         header: |-
             The next questions will concern **PlayWithStreams**.
 
@@ -153,11 +155,11 @@ problems:
                 }
 
             Paste here the body of the method ``fromInteger`` :
-        name: ''
         language: java
-    student_alternateBoolean:
+        name: ''
         type: code
         default: ''
+    student_alternateBoolean:
         language: java
         header: |-
             .. code-block:: java
@@ -174,9 +176,9 @@ problems:
 
             Paste here the body of the method ``booleanFromModulo`` :
         name: ''
-    student_finiteStream:
-        language: java
+        type: code
         default: ''
+    student_finiteStream:
         header: |-
             .. code-block:: java
 
@@ -189,11 +191,11 @@ problems:
                 }
 
             Paste here the body of the method ``finiteStream`` :
-        type: code
+        default: ''
+        language: java
         name: ''
+        type: code
     student_sieve:
-        type: code
-        name: ''
         language: java
         default: ''
         header: |-
@@ -208,7 +210,10 @@ problems:
                 }
 
             Paste here the body of the method ``sieve`` :
+        name: ''
+        type: code
     student_primeStream:
+        language: java
         default: ''
         header: |-
             .. code-block:: java
@@ -223,12 +228,10 @@ problems:
 
             Paste here the body of the method ``primeStream`` :
         name: ''
-        language: java
         type: code
     student_infiniteModulo:
-        default: ''
         type: code
-        language: java
+        name: ''
         header: |-
             .. code-block:: java
 
@@ -240,8 +243,13 @@ problems:
                 }
 
             Paste here the body of the method ``infiniteModulo`` :
-        name: ''
+        default: ''
+        language: java
     student_fibonacci:
+        default: ''
+        language: java
+        name: ''
+        type: code
         header: |-
             .. code-block:: java
 
@@ -254,17 +262,13 @@ problems:
                 }
 
             Paste here the body of the method ``fibonacci`` :
-        type: code
-        default: ''
-        language: java
-        name: ''
     student_helpers:
-        language: java
-        name: ''
-        type: code
+        default: ''
         header: 'Paste here the **body** and the **signature** of your additional
             methods :'
-        default: ''
+        name: ''
+        type: code
+        language: java
         optional: 'on'
 stored_submissions: 0
 submission_limit:

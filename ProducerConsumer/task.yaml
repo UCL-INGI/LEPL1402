@@ -13,6 +13,11 @@ context: |-
     For this exercise, you will need to implement ``enqueue`` and ``dequeue``, using all the instance variables that are in
     the LockQueue_ class below. We strongly suggest you to look at await_ and signal_ (or ``signalAll``) methods. You are not allowed to instantiate new locks or condition objects.
 
+
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/ProducerConsumer/LEPL1402_ProducerConsumer.zip
+
     .. _await: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html#await--
     .. _signal: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html#signal--
     .. _LockQueue: /course/LEPL1402/ProducerConsumer/LockQueue.java
@@ -68,20 +73,20 @@ limits:
     output: '2'
 name: '[Module 6] Threads - Producer/Consumer with locks'
 network_grading: false
-order: 50
+order: 54
 problems:
     student_enqueue:
+        language: java
         name: ''
-        header: Paste here the **body** of your ``enqueue`` method.
         type: code
         default: ''
-        language: java
+        header: Paste here the **body** of your ``enqueue`` method.
     student_dequeue:
         language: java
         default: ''
-        type: code
-        header: Paste here the **body** of your ``dequeue`` method.
         name: ''
+        header: Paste here the **body** of your ``dequeue`` method.
+        type: code
 stored_submissions: 0
 submission_limit:
     amount: -1

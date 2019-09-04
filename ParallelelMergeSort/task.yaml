@@ -24,6 +24,9 @@ context: |-
     You will see that we've fixed a threshold, the reason we are using a threshold is easy to understand. Since you want your code to be effective on very large array, starting a thread for every element can be very ressource consuming and thus you would be losing the advantage you had of using concurrent programming. So when the subarray you're working on is smaller than the threshold, it simply run a normal sort.
 
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/ParallelelMergeSort/LEPL1402_ParallelelMergeSort.zip
     .. _RecursiveAction: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/RecursiveAction.html
     .. _ForkJoinPool: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html
     .. _ForkJoinTask: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinTask.html
@@ -39,31 +42,31 @@ limits:
     output: '2'
 name: '[Module 6] Parallel Merge Sort'
 network_grading: false
-order: 53
+order: 57
 problems:
     studentConstructor:
-        name: Constructor Implementation
-        language: java
-        default: ''
         type: code
+        default: ''
         header: 'Paste here the **body** of your constructor:'
+        language: java
+        name: Constructor Implementation
     studentCompute:
         type: code
-        header: 'Paste here the **body** of the compute method:'
         language: java
         name: Compute Implementation
         default: ''
+        header: 'Paste here the **body** of the compute method:'
     studentSort:
-        default: ''
-        header: 'Paste here the **body** of the sort method:'
         name: Sort Implementation
         type: code
+        header: 'Paste here the **body** of the sort method:'
+        default: ''
         language: java
     studentMerge:
         header: 'Paste here the **body** of the merge method:'
-        name: Merge Implementation
         type: code
         language: java
+        name: Merge Implementation
         default: ''
 stored_submissions: 0
 submission_limit:

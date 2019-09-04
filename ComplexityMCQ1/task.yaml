@@ -14,7 +14,7 @@ limits:
     time: '30'
 name: '[Module 2] Complexity : simple MCQ'
 network_grading: false
-order: 7
+order: 11
 problems:
     mcq5:
         header: If an algorithm ran in less than a miscrosecond on my computer, what

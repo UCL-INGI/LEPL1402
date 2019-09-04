@@ -9,6 +9,10 @@ context: |-
 
     All the information on how the different method should work are given in comments in each class.
 
+    You can download the `IntelliJ Project`_.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/ComparatorvsComparable/LEPL1402_ComparatorvsComparable.zip
+
     .. _Comparator: https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html
     .. _Comparable: https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html
     .. _Plant: /course/LEPL1402/ComparatorvsComparable/Plant.java
@@ -26,45 +30,45 @@ limits:
     output: '2'
 name: '[Module 5] Comparator vs Comparable'
 network_grading: false
-order: 39
+order: 43
 problems:
     studentPlantComparable:
         name: Plant comparable
-        default: ''
-        header: paste here the **body** of your method compareTo
-        language: java
         type: code
-    studentPlantComparator:
-        name: Plant Comparator
         default: ''
-        language: ''
+        language: java
+        header: paste here the **body** of your method compareTo
+    studentPlantComparator:
         header: paste here the **body** of your method sortPlantByName. You are not
             allow to use compareTo for this task.
+        default: ''
+        name: Plant Comparator
         type: code
+        language: ''
     studentFlowerComparable:
         default: ''
         type: code
-        language: ''
-        name: Flower Comparable
         header: paste here the **body** of your method compareTo
-    studentFlowerComparator:
-        type: code
-        default: ''
-        header: paste here the **body** of your method sortFlowerByColor
+        name: Flower Comparable
         language: ''
+    studentFlowerComparator:
+        language: ''
+        header: paste here the **body** of your method sortFlowerByColor
+        default: ''
         name: Flower Comparator
+        type: code
     studentTreeComparable:
         language: ''
-        default: ''
+        name: Tree Comparable
         header: paste here the **body** of your method compareTo
         type: code
-        name: Tree Comparable
+        default: ''
     studentTreeComparator:
-        type: code
         language: ''
-        header: paste here the **body** of your method sortTreeLikePlant
         name: Tree Comparator
         default: ''
+        type: code
+        header: paste here the **body** of your method sortTreeLikePlant
 stored_submissions: 0
 submission_limit:
     amount: -1

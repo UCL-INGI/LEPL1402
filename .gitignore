@@ -201,3 +201,7 @@ course.yaml
 \$test\$/\course.yaml
 
 LEPL1402/
+
+MidTermQuiz/
+MidTermQuizMCQ/
+/*/public/*.zip

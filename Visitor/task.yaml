@@ -31,6 +31,10 @@ context: |-
 
     A special case needs you to throw an ``IllegalArgumentException``.
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/Visitor/LEPL1402_Visitor.zip
+
     .. _here: /course/LEPL1402/Visitor/source.zip
 environment: java8scala
 evaluate: best
@@ -43,44 +47,44 @@ limits:
     output: '2'
 name: '[Module 4] Visitor design pattern - Calculator'
 network_grading: false
-order: 34
+order: 40
 problems:
     student_add:
-        language: java
-        header: 'Paste here the **BODY** of your Add class:'
         name: ''
         default: ''
+        language: java
+        header: 'Paste here the **BODY** of your Add class:'
         type: code
     student_mult:
+        language: java
         type: code
         header: 'Paste here the **BODY** of your Mult class:'
         default: ''
         name: ''
-        language: java
     student_div:
-        default: ''
         header: 'Paste here the **BODY** of your Div class:'
+        default: ''
         language: java
-        name: ''
         type: code
+        name: ''
     student_sub:
+        default: ''
+        name: ''
         language: java
         type: code
         header: 'Paste here the **BODY** of your Sub class:'
-        default: ''
-        name: ''
     student_leaf:
-        default: ''
         name: ''
+        default: ''
         type: code
+        language: java
         header: 'Paste here the **BODY** of your Leaf class:'
-        language: java
     student_evaluation:
-        type: code
-        name: ''
-        default: ''
         language: java
+        default: ''
         header: 'Paste here the **BODY** of your Evaluation class:'
+        name: ''
+        type: code
 stored_submissions: 0
 submission_limit:
     amount: -1

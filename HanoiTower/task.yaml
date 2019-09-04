@@ -1,7 +1,7 @@
 accessible: true
 author: Bastin J, Piron H
 categories:
-- module5
+- module2
 context: |-
     The tower of Hanoi is a mathematical puzzle, it consists of three rods and a number of disk of different size which can slide onto any rod. The game starts with all the disks in an ascending order forming a stack on the first rod. The objective of this puzzle is to move the entire stack to another rod. We know, it sounds easy, but there are 3 simple rules that make the game harder than you think.
 
@@ -22,6 +22,10 @@ context: |-
 
     Here is the class TowerOfHanoi_ you must implement, you can create disk by yourself to test your method but it will not compile on Inginious if you try to do it.
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/HanoiTower/LEPL1402_HanoiTower.zip
+
     **hint:** you can call ``towerOfHanoi`` inside itself
 
     .. _Stack: https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html
@@ -36,16 +40,16 @@ limits:
     memory: '100'
     time: '30'
     output: '2'
-name: '[Module 5] Hanoi Tower'
+name: '[Module 2] Hanoi Tower'
 network_grading: false
-order: 37
+order: 17
 problems:
     studentCode:
-        header: 'Paste here the **body** of the method ``towerOfHanoi``:'
-        default: ''
         name: Hanoi Tower implementation
-        type: code
+        default: ''
         language: java
+        type: code
+        header: 'Paste here the **body** of the method ``towerOfHanoi``:'
     studentNumber:
         default: ''
         type: code_single_line

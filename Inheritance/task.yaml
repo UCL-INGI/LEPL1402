@@ -5,6 +5,10 @@ categories:
 context: |-
     Will you be able to fill the gaps inside these three source files ( Animal_ , Cat_ , SuperCat_ ) so that it compiles and passes our tests ?
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/Inheritance/LEPL1402_Inheritance.zip
+
     .. _Animal: /course/LEPL1402/Inheritance/Animal.java
     .. _Cat: /course/LEPL1402/Inheritance/Cat.java
     .. _SuperCat: /course/LEPL1402/Inheritance/SuperCat.java
@@ -19,34 +23,34 @@ limits:
     output: '2'
 name: '[Module 3] Inheritance : Fill the gaps (Small Exercise)'
 network_grading: false
-order: 24
+order: 30
 problems:
     act_code:
         type: code
+        default: ''
+        name: ''
+        language: java
         header: 'Paste here the **body** of the **act** method of the Animal class:'
-        language: java
-        default: ''
-        name: ''
     cat_constructor:
+        default: ''
         name: ''
         language: java
-        default: ''
-        header: 'Paste here the **body** of the Cat constructor:'
         type: code
+        header: 'Paste here the **body** of the Cat constructor:'
     cat_test_act:
-        language: java
-        default: ''
+        type: code
+        name: ''
         header: 'Paste here the **body** of the **act_forTestMethod** method of the
             Cat class:'
-        type: code
-        name: ''
-    super_cat_log:
         language: java
-        name: ''
+        default: ''
+    super_cat_log:
         default: ''
         type: code
+        language: java
         header: 'Paste here the **body** of the **clear_log** method of the SuperCat
             class:'
+        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

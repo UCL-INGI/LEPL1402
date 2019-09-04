@@ -23,6 +23,10 @@ context: |-
     Note that your observers start to receive messages at the moment they subscribe but they should not see messages that were broadcast before they
     subscribed.
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/Observer/LEPL1402_Observer.zip
+
     .. _Observable: /course/LEPL1402/Observer/Observable.java
     .. _Observer: /course/LEPL1402/Observer/Observer.java
     .. _Pair: /course/LEPL1402/Observer/Pair.java
@@ -37,18 +41,18 @@ limits:
     output: '2'
 name: '[Module 4] Observer design pattern'
 network_grading: false
-order: 33
+order: 39
 problems:
     student_client:
-        default: ''
         type: code
-        language: java
         header: 'Paste here the **body** of your ``Client`` class:'
-        name: ''
-    student_station:
         default: ''
+        name: ''
         language: java
+    student_station:
         type: code
+        language: java
+        default: ''
         header: 'Paste here the **body** of your ``MeteoStation`` class:'
         name: ''
 stored_submissions: 0

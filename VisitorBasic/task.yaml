@@ -36,6 +36,12 @@ context: |-
         visitor.visit(visitable);
 
         List<Object> lst = visitor.getFiltered(); // [1, 2, 3, 4]
+
+
+
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/VisitorBasic/LEPL1402_VisitorBasic.zip
 environment: java8scala
 evaluate: best
 file: ''
@@ -47,20 +53,20 @@ limits:
     output: '2'
 name: '[Module 4] Visitor design pattern - List Filtering'
 network_grading: false
-order: 35
+order: 41
 problems:
     student_visitable:
+        language: java
         header: 'Paste here the **body** of your ``VisitableList`` class:'
-        default: ''
-        language: java
         name: ''
         type: code
+        default: ''
     student_visitor:
-        default: ''
         name: ''
-        header: 'Paste here the **body** of your ``VisitorList`` class:'
-        language: java
+        default: ''
         type: code
+        language: java
+        header: 'Paste here the **body** of your ``VisitorList`` class:'
 stored_submissions: 0
 submission_limit:
     amount: -1

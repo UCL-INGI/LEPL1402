@@ -58,6 +58,10 @@ context: |-
 
         }
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/TreeInorder/LEPL1402_TreeInorder.zip
+
     .. _Node: /course/LEPL1402/TreeInorder/Node.java
     .. _Traversal: /course/LEPL1402/TreeInorder/Traversal.java
 environment: java8scala
@@ -67,25 +71,25 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: '[Module 2] Binary trees - Inorder traversal'
 network_grading: false
-order: 18
+order: 24
 problems:
     student_recursive:
-        name: ''
         header: 'Paste here the **body** of your ``recursiveInorder(Node root, List<Integer>
             res)`` method:'
         language: java
-        default: ''
         type: code
+        default: ''
+        name: ''
     student_iterative:
         language: java
-        type: code
-        default: ''
         header: 'Paste here the **body** of your ``iterativeInorder(Node root, List<Integer>
             res)`` method:'
+        default: ''
+        type: code
         name: ''
 stored_submissions: 0
 submission_limit:

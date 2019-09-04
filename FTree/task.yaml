@@ -17,6 +17,10 @@ context: |
         - implement the constructor
         - extend FTree_
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/FTree/LEPL1402_FTree.zip
+
 
     .. _FTree: /course/LEPL1402/FTree/FTree.java
     .. _Node: /course/LEPL1402/FTree/Node.java
@@ -32,13 +36,13 @@ limits:
     output: '2'
 name: '[Module 5] Functional immutable tree'
 network_grading: false
-order: 43
+order: 47
 problems:
     studentDepth:
-        type: code
-        name: Depth Implementation
         language: java
         default: ''
+        name: Depth Implementation
+        type: code
         header: |-
             Paste here the **body** of your depth method:
 
@@ -48,6 +52,7 @@ problems:
                     //Your code
                 }
     studentMap:
+        name: Map Implementation
         header: |-
             Paste here the **body** of your map method:
 
@@ -59,8 +64,10 @@ problems:
         type: code
         language: java
         default: ''
-        name: Map Implementation
     studentNode:
+        default: ''
+        language: java
+        type: code
         name: Node Implementation
         header: |-
             Paste here the **body** of your class Node class, including every method **signature** and their **implementation**:
@@ -74,11 +81,11 @@ problems:
 
                     //TODO by student
                 }
+    studentLeaf:
+        type: code
+        name: Leaf Implementation
         default: ''
         language: java
-        type: code
-    studentLeaf:
-        name: Leaf Implementation
         header: |
             Paste here the **body** of your class Leaf class, including every method **signature** and their **implementation**:
 
@@ -91,9 +98,6 @@ problems:
                     //TODO by student
 
                 }
-        default: ''
-        language: java
-        type: code
 stored_submissions: 0
 submission_limit:
     amount: -1

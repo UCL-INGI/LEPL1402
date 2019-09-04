@@ -1,0 +1,9 @@
+has_feedback: True
+feedback_kind: JavaGrading
+prohibited: 
+  "studentArray":
+    - throw
+  "studentNull":
+    - throw
+  "studentConcurrent":
+    - throw

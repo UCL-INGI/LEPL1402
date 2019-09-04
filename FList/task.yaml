@@ -7,6 +7,10 @@ context: |-
 
     You should first make sure that you understood the code that is given to you and what is asked to you before trying any implementation.
 
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/FList/LEPL1402_FList.zip
+
     Here is the API of an FList_ and the FList class_ you have to implement:
 
     .. code-block:: java
@@ -83,29 +87,31 @@ limits:
     output: '2'
 name: '[Module 5] Functional list implementation'
 network_grading: true
-order: 41
+order: 45
 problems:
     student_length:
-        default: ''
         language: java
         type: code
-        header: 'Paste here the **body** of you method length:'
+        default: ''
         name: Length implementation
+        header: 'Paste here the **body** of you method length:'
     student_map:
+        default: ''
+        language: java
+        name: Map implementation
         header: 'Paste here the **body** of you map method:'
         type: code
-        name: Map implementation
-        language: java
-        default: ''
     student_filter:
-        name: Filter implementation
-        language: java
-        default: ''
         header: 'Paste here the **body** of you filter implementation:'
-        type: code
-    student_iterator:
         language: java
+        type: code
+        name: Filter implementation
         default: ''
+    student_iterator:
+        default: ''
+        type: code
+        language: java
+        name: Iterator
         header: |-
             Paste here the **body** of your iterator:
 
@@ -116,9 +122,9 @@ problems:
                         //your code
                     };
                 }
-        name: Iterator
-        type: code
     student_nil:
+        default: ''
+        name: Nil implementation
         header: |-
             Paste the **body** of your class Nil
 
@@ -130,13 +136,10 @@ problems:
                     // Your code
 
                 }
-        default: ''
-        type: code
         language: java
-        name: Nil implementation
+        type: code
     student_cons:
-        language: java
-        type: code
+        default: ''
         header: |-
             Paste here the **body** of you class Cons
 
@@ -146,7 +149,8 @@ problems:
                     // Your code
                 }
         name: Cons Implementation
-        default: ''
+        language: java
+        type: code
 stored_submissions: 0
 submission_limit:
     amount: -1
