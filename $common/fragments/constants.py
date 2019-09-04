@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 
 #####################################
@@ -6,7 +5,7 @@ from pathlib import Path
 #####################################
 
 # Current path of the run script of the task (/task)
-CWD = Path(os.getcwd())
+CWD = Path.cwd()
 
 # File extension
 FILE_EXTENSION = ".java"
