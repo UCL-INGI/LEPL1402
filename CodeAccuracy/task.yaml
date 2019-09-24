@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module2
@@ -14,23 +14,26 @@ limits:
     output: '2'
 name: '[Module 2] Code accuracy - Pre, Post conditions and Invariants'
 network_grading: false
-order: 21
+order: 20
 problems:
     mcq1:
         choices:
-        -   valid: true
-            text: ':math: `@I\ left + 1 <= k <= right`'
+        -   text: ':math: `@I\ left + 1 <= k <= right`'
+            valid: true
         -   text: :math:`@post\ \forall k\ |\ left <= k <= pivot,\ a[k] <= a[pivot]`
             valid: true
         -   valid: true
             text: :math:`@post\ \forall k\ |\ pivot < k <= right,\ a[pivot] < a[k]`
-        -   valid: true
-            text: :math:`@pre\ left <= right`
+        -   text: :math:`@pre\ left <= right`
+            valid: true
         -   text: :math:`@pre\ left < right`
         -   text: :math:`@post\ \forall k\ |\ left <= k <= pivot,\ a[k] < a[pivot]`
         -   text: :math:`@post\ \forall k\ |\ pivot < k <= right,\ a[pivot] <= a[k]`
         -   text: :math:`@I\ left + 1 <= k < right`
+        multiple: true
+        name: ''
         limit: 0
+        type: multiple_choice
         header: |4-
 
             What must be the pre (@pre) / post (@post) conditions and loop invariant (@I) for the given partition function of QuickSort_ ?
@@ -53,10 +56,10 @@ problems:
                 }
 
             .. _QuickSort: https://en.wikipedia.org/wiki/Quicksort
-        multiple: true
-        type: multiple_choice
-        name: ''
     mcq2:
+        header: |4-
+
+            Which statment(s) about loop invariant is/are true ?
         choices:
         -   feedback: Only needed to be true immediately before and immediately after
                 each iteration of a loop, not through an iteration
@@ -66,19 +69,17 @@ problems:
         -   text: A loop invariant is a condition that is necessarily true immediately
                 before and immediately after each iteration of a loop
             valid: true
-        header: |4-
-
-            Which statment(s) about loop invariant is/are true ?
-        type: multiple_choice
         name: ''
         multiple: true
         limit: 0
+        type: multiple_choice
     mcq3:
+        header: Which Java keyword can you use to verify assumptions inside your code
+            ?
         name: ''
         answer: assert
         type: match
-        header: Which Java keyword can you use to verify assumptions inside your code
-            ?
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

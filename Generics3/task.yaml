@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module3
@@ -32,38 +32,39 @@ limits:
     output: '2'
 name: '[Module 3] Generics 3'
 network_grading: false
-order: 29
+order: 28
 problems:
     student_gate_xor:
-        name: ''
         default: ''
         type: code
-        language: java
         header: Paste here the **BODY** of your **xor_gate** method
-    student_gate_or:
         language: java
         name: ''
+    student_gate_or:
         header: Paste here the **BODY** of your **or_gate** method
+        language: java
         type: code
+        name: ''
         default: ''
     student_gate_and:
         name: ''
-        default: ''
-        type: code
         language: java
         header: Paste here the **BODY** of your **and_gate** method
+        type: code
+        default: ''
     student_gate_not:
+        type: code
+        name: ''
+        default: ''
+        language: java
         header: Paste here the **BODY** of your **not_gate** method
-        name: ''
-        default: ''
-        language: java
-        type: code
     student_evaluate:
-        default: ''
-        header: Paste here the **BODY** of your **evaluate_circuit** method
         type: code
-        name: ''
+        header: Paste here the **BODY** of your **evaluate_circuit** method
         language: java
+        default: ''
+        name: ''
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

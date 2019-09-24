@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module4
@@ -58,11 +58,12 @@ network_grading: false
 order: 35
 problems:
     student_code:
+        header: 'Insert here the **body** of your test suite:'
+        default: ''
+        language: java
         type: code
         name: ''
-        default: ''
-        header: 'Insert here the **body** of your test suite:'
-        language: java
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Bastin J, Piron H
 categories:
 - module6
@@ -31,18 +31,19 @@ network_grading: false
 order: 56
 problems:
     studentWorker:
+        language: java
         name: Worker Implementation
         header: Paste here the **body** of the worker inner-class
         type: code
-        language: java
         default: ''
     StudentMaxFinderConstructor:
+        type: code
         default: ''
+        language: java
         header: Paste here the **body** of the MaxFinder constructor (only the part
             you implemented)
-        type: code
-        language: java
         name: MaxFinder Implementation
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

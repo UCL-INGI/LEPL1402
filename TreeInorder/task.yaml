@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module2
@@ -75,22 +75,23 @@ limits:
     output: '2'
 name: '[Module 2] Binary trees - Inorder traversal'
 network_grading: false
-order: 24
+order: 23
 problems:
     student_recursive:
+        type: code
+        default: ''
+        language: java
+        name: ''
         header: 'Paste here the **body** of your ``recursiveInorder(Node root, List<Integer>
             res)`` method:'
-        language: java
-        type: code
-        default: ''
-        name: ''
     student_iterative:
-        language: java
         header: 'Paste here the **body** of your ``iterativeInorder(Node root, List<Integer>
             res)`` method:'
-        default: ''
         type: code
         name: ''
+        default: ''
+        language: java
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

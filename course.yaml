@@ -1,5 +1,5 @@
-accessible: false
-name: LEPL1402
+accessible: true
+name: '[LEPL1402] Informatique 2'
 description: ''
 admins:
 - gderval
@@ -9,8 +9,10 @@ admins:
 - raminsadre
 - pironhe
 - bastinjul
-tutors:
 - ogoletti
+- aldubray
+- louisna
+tutors: []
 groups_student_choice: false
 use_classrooms: true
 allow_unregister: true

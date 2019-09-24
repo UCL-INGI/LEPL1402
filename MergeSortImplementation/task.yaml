@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: ''
 categories:
 - module2
@@ -50,27 +50,28 @@ limits:
     output: '2'
 name: '[Module 2] Merge Sort Implementation'
 network_grading: false
-order: 18
+order: 17
 problems:
     student_sort:
         language: java
         header: Paste here the **body** of your method sort
         type: code
-        default: //
         name: Sort
+        default: //
     student_merge:
-        name: Merge
+        default: //
         type: code
         language: java
-        default: //
         header: 'Paste here the **body** of your method merge:'
+        name: Merge
     student_additionnal:
-        language: java
-        optional: 'on'
-        header: 'Paste here your additionnal method, **including their signature**:'
         name: Additionnal method
         default: ''
+        optional: 'on'
+        language: java
         type: code
+        header: 'Paste here your additionnal method, **including their signature**:'
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

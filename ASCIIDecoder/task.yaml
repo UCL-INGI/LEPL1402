@@ -1,0 +1,63 @@
+accessible: /2019-10-02 23:55:00/2019-10-02 23:55:00
+author: Rucquoy A
+categories:
+- module1
+context: |-
+    For this exercise we want you to make a method able to decode a set of ASCII (decimal) codes into a String. Please, read carefully
+    the signature and the comments above the method's signature below :
+
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+
+    .. _`IntelliJ Project`: /course/LEPL1402/ASCIIDecoder/LEPL1402_ASCIIDecoder.zip
+
+    .. code-block:: java
+
+            /*
+            * Forbidden characters are passed as an array of int.
+            * Each element of this array correspond to the decimal ASCII code
+            * of a forbidden character OR null if there's no forbidden character
+            * If you encounter one of these forbidden character
+            * you must ignore it when you translate your sentence.
+            *
+            * the 2D array "sentences" contain a set of decimal ASCII code we want you
+            * to translate. Each sub-element of this array is a different sentence.
+            * Ex : if we pass this array : { {"42", "72", "88"}, {"98", "99", "111", "47", "55"} }
+            * to your decode method, you should return : { "*HX", "bco/7" }
+            *
+            * You should NEVER return null or an array containing null
+            */
+            public static String [] decode(int[] forbidden, String[][] sentences){
+                // YOUR CODE HERE
+            }
+
+    We also highly suggest you to have a look at the StringBuilder_ and ArrayList_ APIs. We strongly encourage
+    you to use them for this exercise.
+
+    .. _StringBuilder : https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html
+    .. _ArrayList : https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: '[Module 1] ASCII Decoder'
+network_grading: false
+order: 9
+problems:
+    student_decode:
+        language: java
+        name: ''
+        type: code
+        header: Paste here the **body** of your ``decode`` method
+        default: ''
+run_cmd: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

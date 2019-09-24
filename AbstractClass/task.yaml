@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module4
@@ -31,23 +31,24 @@ network_grading: false
 order: 37
 problems:
     student_shape:
-        name: ''
-        language: java
-        default: ''
         header: 'Paste here your ``Shape`` class:'
-        type: code
-    student_circle:
+        name: ''
         language: java
+        type: code
+        default: ''
+    student_circle:
         default: ''
         type: code
-        name: ''
+        language: java
         header: 'Paste here your ``Circle`` class:'
+        name: ''
     student_square:
         default: ''
-        type: code
-        name: ''
         language: java
         header: 'Paste here your ``Square`` class:'
+        name: ''
+        type: code
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

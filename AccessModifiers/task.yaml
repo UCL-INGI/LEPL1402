@@ -1,7 +1,7 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
-- module1
+- module3
 context: ''
 environment: mcq
 evaluate: best
@@ -12,9 +12,9 @@ limits:
     output: '2'
     memory: '100'
     time: '30'
-name: '[Module 1] Access Modifiers / Scopes'
+name: '[Module 3] Access Modifiers / Scopes'
 network_grading: false
-order: 6
+order: 29
 problems:
     mcq1:
         choices:
@@ -53,8 +53,7 @@ problems:
                     - True
                     - False
                     - False
-        -   valid: true
-            text: |4-
+        -   text: |4-
 
 
                 .. list-table::
@@ -70,22 +69,7 @@ problems:
                     - False
                     - False
                     - False
-        -   feedback: Even inside another package, protected methods of a class are
-                available to subclasses that extend them
-            text: |-
-                .. list-table::
-                  :header-rows: 1
-
-                  * - Modifier
-                    - Class
-                    - Package
-                    - Subclass
-                    - Everywhere
-                  * - protected
-                    - True
-                    - True
-                    - False
-                    - False
+            valid: true
         -   text: |-
                 .. list-table::
                   :header-rows: 1
@@ -98,11 +82,26 @@ problems:
                   * - protected
                     - True
                     - True
-                    - True
                     - False
-            valid: true
+                    - False
+            feedback: Even inside another package, protected methods of a class are
+                available to subclasses that extend them
         -   valid: true
             text: |-
+                .. list-table::
+                  :header-rows: 1
+
+                  * - Modifier
+                    - Class
+                    - Package
+                    - Subclass
+                    - Everywhere
+                  * - protected
+                    - True
+                    - True
+                    - True
+                    - False
+        -   text: |-
                 .. list-table::
                   :header-rows: 1
 
@@ -116,6 +115,7 @@ problems:
                     - True
                     - False
                     - False
+            valid: true
         -   feedback: 'If a class has no modifier (the default, also known as package-private),
                 it is visible only within its own package '
             text: |-
@@ -132,6 +132,8 @@ problems:
                     - True
                     - True
                     - False
+        multiple: true
+        name: ''
         header: |4+
 
             Select the right scope for each modifier!
@@ -152,10 +154,10 @@ problems:
 
 
         limit: 0
-        multiple: true
         type: multiple_choice
-        name: ''
     mcq2:
+        name: ''
+        multiple: true
         choices:
         -   text: |-
                 .. code-block:: java
@@ -217,11 +219,10 @@ problems:
               class Beta {
                   final static String RANDOM_QUOTE = "You shall not pass";
               }
-        limit: 0
         type: multiple_choice
-        name: ''
-        multiple: true
+        limit: 0
     mcq3:
+        limit: 0
         choices:
         -   text: |-
                 .. code-block:: java
@@ -244,8 +245,7 @@ problems:
                     }
                   }
             valid: true
-        -   feedback: OuterClass isn't a static class so you must use "this" in printAlias()
-            text: |-
+        -   text: |-
                 .. code-block:: java
 
                   public class OuterClass {
@@ -265,6 +265,7 @@ problems:
                       innerClass.printAlias();
                     }
                   }
+            feedback: OuterClass isn't a static class so you must use "this" in printAlias()
         -   valid: true
             text: |-
                 .. code-block:: java
@@ -306,11 +307,11 @@ problems:
                   }
             feedback: You will get a "cannot find symbol" as you don't need here to
                 put the outer class for initialisation
-        type: multiple_choice
-        multiple: true
-        limit: 0
-        name: ''
         header: Which following examples of inner class are correct ?
+        type: multiple_choice
+        name: ''
+        multiple: true
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

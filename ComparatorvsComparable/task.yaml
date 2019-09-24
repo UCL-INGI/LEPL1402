@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Bastin J, Piron H
 categories:
 - module5
@@ -33,42 +33,43 @@ network_grading: false
 order: 43
 problems:
     studentPlantComparable:
+        default: ''
         name: Plant comparable
         type: code
-        default: ''
         language: java
         header: paste here the **body** of your method compareTo
     studentPlantComparator:
+        name: Plant Comparator
         header: paste here the **body** of your method sortPlantByName. You are not
             allow to use compareTo for this task.
-        default: ''
-        name: Plant Comparator
         type: code
         language: ''
+        default: ''
     studentFlowerComparable:
         default: ''
+        language: ''
         type: code
         header: paste here the **body** of your method compareTo
         name: Flower Comparable
-        language: ''
     studentFlowerComparator:
-        language: ''
-        header: paste here the **body** of your method sortFlowerByColor
-        default: ''
         name: Flower Comparator
-        type: code
-    studentTreeComparable:
+        default: ''
         language: ''
+        type: code
+        header: paste here the **body** of your method sortFlowerByColor
+    studentTreeComparable:
+        type: code
+        default: ''
         name: Tree Comparable
         header: paste here the **body** of your method compareTo
-        type: code
-        default: ''
+        language: ''
     studentTreeComparator:
         language: ''
         name: Tree Comparator
-        default: ''
-        type: code
         header: paste here the **body** of your method sortTreeLikePlant
+        type: code
+        default: ''
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

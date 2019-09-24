@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Bastin J, Piron H
 categories:
 - module2
@@ -29,39 +29,38 @@ file: ''
 groups: false
 input_random: '0'
 limits:
+    output: '2'
     memory: '100'
     time: '30'
-    output: '2'
 name: '[Module 2] Bubble Sort Invariant (MCQ)'
 network_grading: false
-order: 14
+order: 13
 problems:
     complexity:
-        header: What is the most precise **time** complexity of this algorithm? (:math:`n`
-            is the size of the array)
         choices:
-        -   text: :math:`\Theta(n^2)`
-            valid: true
+        -   valid: true
+            text: :math:`\Theta(n^2)`
         -   text: :math:`\Theta(nlog(n))`
         -   text: :math:`\mathcal{O}(n^2)`
         -   text: :math:`\mathcal{O}(nlog(n))`
+        header: What is the most precise **time** complexity of this algorithm? (:math:`n`
+            is the size of the array)
         limit: 0
         name: Time Complexity
         type: multiple_choice
     space:
+        limit: 0
+        header: What is the most precise **space** complexity of this algorithm? (:math:`n`
+            is the size of the array)
         choices:
         -   text: :math:`\Theta(n^2)`
         -   valid: true
             text: :math:`\Theta(n)`
         -   text: :math:`\Theta(n^3)`
         -   text: :math:`\Theta(nlog(n))`
-        header: What is the most precise **space** complexity of this algorithm? (:math:`n`
-            is the size of the array)
-        limit: 0
-        type: multiple_choice
         name: Space Complexity
+        type: multiple_choice
     invar1:
-        header: What are the correct invariant for the first loop?
         choices:
         -   text: ':math:`1\leq i\leq n` '
             valid: true
@@ -71,8 +70,9 @@ problems:
         -   text: if :math:`i < n` then :math:`a[1..i] \leq a[i+1]`
             valid: true
         -   text: :math:`a[1..i]` :math:`is` :math:`sorted`
-        limit: 0
         multiple: true
+        header: What are the correct invariant for the first loop?
+        limit: 0
         type: multiple_choice
         name: Invariant First Loop
     invar2:
@@ -80,22 +80,23 @@ problems:
         -   text: :math:`a[1..i]` :math:`is` :math:`sorted`
         -   valid: true
             text: ':math:`1\leq i\leq n` '
-        -   valid: true
-            text: if :math:`i < n` then :math:`a[1..i] \leq a[i+1]`
+        -   text: if :math:`i < n` then :math:`a[1..i] \leq a[i+1]`
+            valid: true
         -   text: :math:`a[j]<a[n]`
         -   text: :math:`a[i..n]` :math:`is` :math:`sorted`
             valid: true
-        -   text: :math:`a[1..j] \leq a[j]`
-            valid: true
-        -   text: :math:`1 \leq j \leq i`
-            valid: true
+        -   valid: true
+            text: :math:`a[1..j] \leq a[j]`
+        -   valid: true
+            text: :math:`1 \leq j \leq i`
         -   text: :math:`a[1..i] \leq a[i+1]`
         -   text: :math:`a[j..i]` :math:`is` :math:`sorted`
-        name: Invariant Second Loop
         header: What are the correct invariant for the second loop?
         type: multiple_choice
-        limit: 0
         multiple: true
+        name: Invariant Second Loop
+        limit: 0
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

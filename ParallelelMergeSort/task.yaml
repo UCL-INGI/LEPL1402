@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Bastin J, Piron H
 categories:
 - module6
@@ -45,29 +45,30 @@ network_grading: false
 order: 57
 problems:
     studentConstructor:
-        type: code
-        default: ''
         header: 'Paste here the **body** of your constructor:'
-        language: java
+        type: code
         name: Constructor Implementation
+        language: java
+        default: ''
     studentCompute:
         type: code
         language: java
-        name: Compute Implementation
         default: ''
         header: 'Paste here the **body** of the compute method:'
+        name: Compute Implementation
     studentSort:
-        name: Sort Implementation
+        language: java
+        default: ''
         type: code
         header: 'Paste here the **body** of the sort method:'
-        default: ''
-        language: java
+        name: Sort Implementation
     studentMerge:
-        header: 'Paste here the **body** of the merge method:'
-        type: code
         language: java
         name: Merge Implementation
+        header: 'Paste here the **body** of the merge method:'
+        type: code
         default: ''
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

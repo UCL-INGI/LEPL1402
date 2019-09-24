@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Bastin J. , Piron H.
 categories:
 - module6
@@ -118,22 +118,23 @@ network_grading: false
 order: 52
 problems:
     student_constructor:
-        default: ''
-        language: java
-        header: 'Paste here the **body** of the ``constructor`` :'
         type: code
+        language: java
+        default: ''
+        header: 'Paste here the **body** of the ``constructor`` :'
         name: ''
     student_loadImage:
         default: ''
-        name: ''
         header: 'Paste here the **body** of ``loadImage`` :'
         type: code_single_line
+        name: ''
     student_loadImages:
         type: code
-        name: ''
-        default: ''
         language: java
+        default: ''
+        name: ''
         header: 'Paste here the **body** of ``loadImages`` :'
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

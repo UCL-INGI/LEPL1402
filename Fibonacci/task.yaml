@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module2
@@ -53,20 +53,21 @@ limits:
     output: '2'
 name: '[Module 2] Introduction to recursion in Java - Fibonacci'
 network_grading: false
-order: 16
+order: 15
 problems:
     student_recursive:
+        type: code
+        default: ''
+        language: java
+        name: ''
         header: 'Paste here the **body** of your ``fiboRecursive(int index)`` method:'
-        language: java
-        type: code
-        default: ''
-        name: ''
     student_iterative:
-        language: java
         header: 'Paste here the **body** of your ``fiboIterative(int index)`` method:'
-        default: ''
         type: code
         name: ''
+        default: ''
+        language: java
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

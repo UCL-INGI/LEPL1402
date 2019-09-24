@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module6
@@ -77,16 +77,17 @@ order: 54
 problems:
     student_enqueue:
         language: java
-        name: ''
         type: code
-        default: ''
         header: Paste here the **body** of your ``enqueue`` method.
+        name: ''
+        default: ''
     student_dequeue:
+        type: code
         language: java
         default: ''
-        name: ''
         header: Paste here the **body** of your ``dequeue`` method.
-        type: code
+        name: ''
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

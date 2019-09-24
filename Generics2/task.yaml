@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module3
@@ -52,20 +52,21 @@ limits:
     output: '2'
 name: '[Module 3] Generics 2'
 network_grading: false
-order: 28
+order: 27
 problems:
     map:
-        default: ''
-        name: ''
-        type: code
-        language: java
         header: 'Paste here the **body** of your ``map`` method :'
+        type: code
+        name: ''
+        default: ''
+        language: java
     filter:
         name: ''
-        type: code
-        header: 'Paste here the **body** of your ``filter`` method :'
-        default: ''
         language: java
+        type: code
+        default: ''
+        header: 'Paste here the **body** of your ``filter`` method :'
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

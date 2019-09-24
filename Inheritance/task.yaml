@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module3
@@ -27,30 +27,31 @@ order: 30
 problems:
     act_code:
         type: code
-        default: ''
-        name: ''
-        language: java
         header: 'Paste here the **body** of the **act** method of the Animal class:'
-    cat_constructor:
-        default: ''
         name: ''
         language: java
+        default: ''
+    cat_constructor:
         type: code
+        language: java
         header: 'Paste here the **body** of the Cat constructor:'
-    cat_test_act:
-        type: code
+        default: ''
         name: ''
+    cat_test_act:
         header: 'Paste here the **body** of the **act_forTestMethod** method of the
             Cat class:'
-        language: java
+        name: ''
+        type: code
         default: ''
+        language: java
     super_cat_log:
         default: ''
-        type: code
         language: java
+        type: code
         header: 'Paste here the **body** of the **clear_log** method of the SuperCat
             class:'
         name: ''
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

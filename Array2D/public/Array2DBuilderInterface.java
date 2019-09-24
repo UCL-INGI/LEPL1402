@@ -3,7 +3,7 @@ public interface Array2DBuilderInterface {
     // integers are separated by spaces ; lines by the \n character
     // As array 2d aren't always regular matrix, you may build a Irregular matrix with the given input
     // Example :
-    //      String s = "1 2 3 \n 4 5 \n 42"; 
+    //      String s = "1 2 3 \n 4 5 \n 42 \n"; 
     // Gives :
     //      int[][] array2d = { {1, 2, 3}, {4, 5}, {42} };
     public int[][] build_from(String s);

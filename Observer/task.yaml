@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module4
@@ -44,17 +44,18 @@ network_grading: false
 order: 39
 problems:
     student_client:
-        type: code
         header: 'Paste here the **body** of your ``Client`` class:'
         default: ''
+        type: code
         name: ''
         language: java
     student_station:
-        type: code
-        language: java
-        default: ''
-        header: 'Paste here the **body** of your ``MeteoStation`` class:'
         name: ''
+        type: code
+        default: ''
+        language: java
+        header: 'Paste here the **body** of your ``MeteoStation`` class:'
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

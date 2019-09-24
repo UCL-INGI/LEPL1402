@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module3
@@ -129,26 +129,27 @@ limits:
     output: '2'
 name: '[Module 3] Circular Linked list'
 network_grading: false
-order: 26
+order: 25
 problems:
     student_enqueue:
         language: java
-        name: ''
         type: code
-        default: ''
         header: 'Paste here the BODY of your ``enqueue`` method:'
+        name: ''
+        default: ''
     student_remove:
-        default: ''
-        type: code
         language: java
-        name: ''
+        type: code
+        default: ''
         header: 'Paste here the BODY of your ``remove(int index)`` method:'
-    student_iterator:
-        default: ''
-        type: code
-        language: java
         name: ''
+    student_iterator:
+        language: java
+        default: ''
+        name: ''
+        type: code
         header: 'Paste here the BODY of your ``ListIterator`` class:'
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Bastin J, Piron H
 categories:
 - module6
@@ -34,41 +34,42 @@ network_grading: false
 order: 55
 problems:
     student_doPut:
+        default: ''
+        header: 'Paste here the **body** of the method ``doPut`` :'
         name: ''
         type: code
-        header: 'Paste here the **body** of the method ``doPut`` :'
-        default: ''
         language: java
     student_doTake:
+        default: ''
         header: 'Paste here the **body** of the method ``doTake`` :'
         language: java
         type: code
         name: ''
-        default: ''
     student_put:
-        type: code
-        default: ''
-        header: 'Paste here the **body** of the method ``put`` :'
         name: ''
+        type: code
+        header: 'Paste here the **body** of the method ``put`` :'
         language: java
+        default: ''
     student_take:
         type: code
-        name: ''
-        default: ''
         header: 'Paste here the **body** of the method ``take`` :'
         language: java
+        name: ''
+        default: ''
     student_offer:
-        type: code
-        language: java
+        default: ''
         name: ''
         header: 'Paste here the **body** of the method ``offer`` :'
-        default: ''
+        type: code
+        language: java
     student_poll:
+        header: 'Paste here the **body** of the method ``poll`` :'
+        name: ''
+        type: code
         language: java
         default: ''
-        type: code
-        name: ''
-        header: 'Paste here the **body** of the method ``poll`` :'
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Bastin J, Piron H
 categories:
 - module2
@@ -24,10 +24,11 @@ limits:
     time: '30'
 name: '[Module 2] Time Complexity : harder MCQ'
 network_grading: false
-order: 13
+order: 12
 problems:
     mcq:
-        type: multiple_choice
+        header: In what complexity can you determine the depth of a tree? (Choose
+            the most precise answer)
         choices:
         -   text: :math:`\Theta(n)`
         -   text: :math:`\mathcal{O}(n)`
@@ -35,11 +36,11 @@ problems:
         -   text: :math:`\Theta(log(n))`
             valid: true
             feedback: GOOD JOB
-        header: In what complexity can you determine the depth of a tree? (Choose
-            the most precise answer)
         name: Depth
+        type: multiple_choice
         limit: 0
     mcq2:
+        name: Find
         choices:
         -   text: :math:`\mathcal{O}(n)`
         -   text: :math:`\Omega(log(n))`
@@ -49,35 +50,34 @@ problems:
         -   text: :math:`\Omega(1)`
             valid: true
         -   text: :math:`\Theta(n)`
+        multiple: true
         header: 'The tree is still a complete ordered binary tree, in what complexity(ies)
             can you find an element? '
-        limit: 0
         type: multiple_choice
-        name: Find
-        multiple: true
+        limit: 0
     mcq3:
+        limit: 0
         choices:
         -   text: :math:`\Theta(n)`
             valid: true
         -   text: :math:`\Theta(nlog(n))`
         -   text: :math:`\mathcal{O}(nlog(n))`
         -   text: :math:`\Theta(n^2)`
-        type: multiple_choice
-        limit: 0
-        name: Traversal
         header: 'What is the complexity of an in-order traversal? '
+        type: multiple_choice
+        name: Traversal
     mcq4:
         choices:
-        -   text: :math:`\Theta(1)`
-            valid: true
+        -   valid: true
+            text: :math:`\Theta(1)`
         -   text: :math:`\Theta(n)`
         -   text: :math:`\mathcal{O}(1)`
         -   text: :math:`\mathcal{O}(n)`
-        type: multiple_choice
         header: What is the time complexity of finding the maximum in a sorted array?
             (Where :math:`n` is the size of the array)
-        limit: 0
+        type: multiple_choice
         name: Sorted Array
+        limit: 0
     mcq5:
         header: |-
             Consider a simple linked list like the one you see on the image, we only have a reference to the head of the list.  What is the complexity of finding the size :math:`n` of the list
@@ -89,7 +89,6 @@ problems:
                :width: 1920px
 
             \
-        name: Simple linked list
         type: multiple_choice
         choices:
         -   text: :math:`\Theta(n)`
@@ -97,17 +96,17 @@ problems:
         -   text: :math:`\Theta(n^2)`
         -   text: :math:`\mathcal{O}(n)`
         -   text: :math:`\mathcal{O}(1)`
+        name: Simple linked list
         limit: 0
     mcq6:
-        limit: 0
+        type: multiple_choice
+        name: ''
         choices:
-        -   text: :math:`\Theta(n)`
-            valid: true
+        -   valid: true
+            text: :math:`\Theta(n)`
         -   text: :math:`\Theta(1)`
         -   text: :math:`\mathcal{O}(n)`
         -   text: :math:`\mathcal{O}(1)`
-        name: ''
-        type: multiple_choice
         header: |+
             Consider the following ordered simple linked list, we only have a reference to the head of the list. What is the complexity of finding the **maximum** of the list? (Where :math:`n` is the size)
 
@@ -119,6 +118,7 @@ problems:
 
             \
 
+        limit: 0
     mcq7:
         choices:
         -   text: :math:`\Theta(1)`
@@ -126,6 +126,7 @@ problems:
         -   text: :math:`\Theta(n)`
         -   text: :math:`\mathcal{O}(1)`
         -   text: :math:`\mathcal{O}(n)`
+        type: multiple_choice
         name: ''
         header: |
             Consider the following ordered simple linked list, we only have a reference to the head of the list. What is the complexity of finding the **minimum** of the list? (Where :math:`n` is the size)
@@ -137,22 +138,8 @@ problems:
                :width: 1920px
 
             \
-        type: multiple_choice
         limit: 0
     mcq8:
-        choices:
-        -   text: :math:`\mathcal{O}(1)`
-        -   text: :math:`\Theta(1)`
-        -   text: :math:`\Theta(n)`
-        -   text: :math:`\mathcal{O}(n)`
-            valid: true
-        -   text: :math:`\Omega(n)`
-        -   valid: true
-            text: :math:`\Omega(1)`
-        multiple: true
-        limit: 0
-        name: ''
-        type: multiple_choice
         header: |-
             The ``replaceValue`` method given bellow takes in parameter :
                 - The **head** of a linked list of nodes
@@ -181,6 +168,19 @@ problems:
                 }
 
             Give the time complexity(ies) of ``replaceValue`` knowing that the linked list has a size of :math:`n`.
+        choices:
+        -   text: :math:`\mathcal{O}(1)`
+        -   text: :math:`\Theta(1)`
+        -   text: :math:`\Theta(n)`
+        -   text: :math:`\mathcal{O}(n)`
+            valid: true
+        -   text: :math:`\Omega(n)`
+        -   valid: true
+            text: :math:`\Omega(1)`
+        limit: 0
+        type: multiple_choice
+        multiple: true
+        name: ''
     mcq9:
         choices:
         -   text: :math:`\mathcal{O}(n^3)`
@@ -215,9 +215,10 @@ problems:
             In your opinion, what is the time complexity of the solution described above? Consider :math:`n` is the number of city
 
             .. _graph: https://en.wikipedia.org/wiki/Graph_theory
-        limit: 0
-        name: Travelling Salesman Problem
         type: multiple_choice
+        name: Travelling Salesman Problem
+        limit: 0
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

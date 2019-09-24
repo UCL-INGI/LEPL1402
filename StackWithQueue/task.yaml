@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module3
@@ -75,29 +75,30 @@ network_grading: false
 order: 33
 problems:
     student_add:
-        name: ''
-        default: ''
-        language: java
         header: Paste here the **body** of your method ``push()``
+        default: ''
         type: code
+        name: ''
+        language: java
     student_remove:
-        default: ''
-        type: code
         language: java
-        name: ''
+        type: code
+        default: ''
         header: Paste here the **body** of your method ``pop()``
-    student_peek:
         name: ''
-        type: code
-        default: ''
-        header: Paste here the **body** of your method ``peek()``
+    student_peek:
         language: java
+        type: code
+        name: ''
+        header: Paste here the **body** of your method ``peek()``
+        default: ''
     student_isEmpty:
+        name: ''
+        language: java
+        default: ''
         header: Paste here the **body** of your method ``empty()``
         type: code
-        default: ''
-        name: ''
-        language: java
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

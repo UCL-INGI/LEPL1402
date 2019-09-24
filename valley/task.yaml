@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Bastin J, Piron H
 categories:
 - module2
@@ -76,21 +76,22 @@ limits:
     output: '2'
 name: '[Module 2] Longest Valley'
 network_grading: false
-order: 20
+order: 19
 problems:
     student_code:
-        language: java
-        default: ''
-        name: ''
-        type: code
         header: Paste here the **body** of your methode ``valley``
-    student_additionnal:
+        default: ''
         language: java
-        optional: 'on'
-        header: Paste here your additionnal methods
+        type: code
+        name: ''
+    student_additionnal:
         name: ''
         default: ''
+        optional: 'on'
+        language: java
         type: code
+        header: Paste here your additionnal methods
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

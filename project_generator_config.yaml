@@ -1,0 +1,4 @@
+archive_path: public
+libraries_path: $common/libs
+resources_path: public
+tests_path: unit_test

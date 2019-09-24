@@ -1,4 +1,4 @@
-accessible: true
+accessible: /2019-09-25 23:55:55/2019-09-25 23:55:55
 author: Yakoub J, Rucquoy A
 categories:
 - module1
@@ -15,7 +15,7 @@ context: |-
         // integers are separated by spaces ; lines by the \n character
         // As array 2d aren't always regular matrix, you may build a Irregular matrix with the given input
         // Example :
-        //      String s = "1 2 3 \n 4 5 \n 42";
+        //      String s = "1 2 3 \n 4 5 \n 42 \n";
         // Gives :
         //      int[][] array2d = { {1, 2, 3}, {4, 5}, {42} };
         // hint: there is a method in java that removes space at the start and end of a string
@@ -70,29 +70,30 @@ network_grading: false
 order: 5
 problems:
     build_from:
-        name: ''
+        header: 'Paste the body of the ``buildFrom`` method:'
         language: java
         type: code
-        header: 'Paste the body of the ``buildFrom`` method:'
+        name: ''
         default: ''
     sum:
+        language: java
         header: 'Paste the body of the ``sum`` method:'
+        default: ''
         type: code
-        language: java
         name: ''
-        default: ''
     transpose:
-        default: ''
-        header: 'Paste the body of the ``transpose`` method:'
         language: java
+        header: 'Paste the body of the ``transpose`` method:'
+        default: ''
         type: code
         name: ''
     product:
         name: ''
         language: java
+        header: 'Paste the body of the ``product`` method:'
         default: ''
         type: code
-        header: 'Paste the body of the ``product`` method:'
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

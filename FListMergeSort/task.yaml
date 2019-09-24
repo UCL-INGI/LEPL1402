@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Bastin J, Piron H
 categories:
 - module5
@@ -47,18 +47,19 @@ order: 46
 problems:
     studentMergeSort:
         type: code
-        header: 'Paste here the **body** of you method mergesort:'
-        default: ''
-        language: java
         name: MergeSort implementation
-    studentClass:
+        header: 'Paste here the **body** of you method mergesort:'
+        language: java
         default: ''
+    studentClass:
+        type: code
+        default: ''
+        name: Other methods
+        language: java
+        optional: 'on'
         header: 'Paste here the other methods you have implemented if you have, **SIGNATURE**
             and **BODY** :'
-        type: code
-        name: Other methods
-        optional: 'on'
-        language: java
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module3
@@ -71,11 +71,12 @@ network_grading: false
 order: 32
 problems:
     student_code:
+        header: 'Paste here the **body** of your Interpreter class:'
+        default: ''
+        language: java
         type: code
         name: ''
-        default: ''
-        header: 'Paste here the **body** of your Interpreter class:'
-        language: java
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

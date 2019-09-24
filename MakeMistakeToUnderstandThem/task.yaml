@@ -1,4 +1,4 @@
-accessible: true
+accessible: /2019-09-25 23:55:55/2019-09-25 23:55:55
 author: Bastin J, Piron H
 categories:
 - module1
@@ -26,26 +26,27 @@ network_grading: false
 order: 4
 problems:
     studentArray:
-        name: ArrayIndexOutOfBoundsException
         default: ''
+        language: java
+        type: code
         header: Write a piece of code that generates an ArrayIndexOutOfBoundsException
             without using the ``throw`` statement.
-        type: code
-        language: java
+        name: ArrayIndexOutOfBoundsException
     studentNull:
         type: code
-        default: ''
         name: NullPointerException
+        language: java
         header: Write a piece of code that generates an NullPointerException without
             using the ``throw`` statement.
-        language: java
+        default: ''
     studentConcurrent:
-        header: 'Write a piece of code that generates an ConcurrentModificationException
-            without using the ``throw`` statement and with the usage of a list. '
         name: ConcurrentModificationException
-        language: java
         default: ''
         type: code
+        header: 'Write a piece of code that generates an ConcurrentModificationException
+            without using the ``throw`` statement and with the usage of a list. '
+        language: java
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

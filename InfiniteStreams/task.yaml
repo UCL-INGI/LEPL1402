@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Bastin J. , Piron H.
 categories:
 - module5
@@ -31,17 +31,17 @@ file: ''
 groups: false
 input_random: '0'
 limits:
-    time: '30'
-    memory: '100'
     output: '2'
-name: '[Module 5] Infinite Steams'
+    memory: '100'
+    time: '30'
+name: '[Module 5] Infinite Streams'
 network_grading: false
-order: 48
+order: 50
 problems:
     student_variables_constructor:
         default: ''
-        type: code
         name: ''
+        type: code
         language: java
         header: |-
             For this class, we do all imports you need for you.
@@ -71,6 +71,7 @@ problems:
 
             Paste here your two instance variable **head** and **tail** and the constructor of this class :
     student_createWhile:
+        type: code
         header: |-
             First finish the IStream interface.
 
@@ -126,21 +127,21 @@ problems:
             Paste here the **body** of the method ``createWhile`` :
         name: ''
         default: ''
-        type: code
         language: java
     student_map:
         language: java
-        header: 'Paste here the **body** of the method ``map`` :'
         default: ''
-        type: code
         name: ''
-    student_filter:
+        header: 'Paste here the **body** of the method ``map`` :'
         type: code
+    student_filter:
         default: ''
-        language: java
         header: 'Paste here the **body** of the method ``filter`` :'
+        type: code
+        language: java
         name: ''
     student_fromInteger:
+        type: code
         header: |-
             The next questions will concern **PlayWithStreams**.
 
@@ -156,11 +157,12 @@ problems:
 
             Paste here the body of the method ``fromInteger`` :
         language: java
-        name: ''
-        type: code
         default: ''
+        name: ''
     student_alternateBoolean:
+        type: code
         language: java
+        default: ''
         header: |-
             .. code-block:: java
 
@@ -176,9 +178,11 @@ problems:
 
             Paste here the body of the method ``booleanFromModulo`` :
         name: ''
-        type: code
-        default: ''
     student_finiteStream:
+        language: java
+        default: ''
+        type: code
+        name: ''
         header: |-
             .. code-block:: java
 
@@ -191,13 +195,11 @@ problems:
                 }
 
             Paste here the body of the method ``finiteStream`` :
-        default: ''
-        language: java
-        name: ''
-        type: code
     student_sieve:
-        language: java
         default: ''
+        language: java
+        type: code
+        name: ''
         header: |-
             .. code-block:: java
 
@@ -210,11 +212,10 @@ problems:
                 }
 
             Paste here the body of the method ``sieve`` :
-        name: ''
-        type: code
     student_primeStream:
+        name: ''
         language: java
-        default: ''
+        type: code
         header: |-
             .. code-block:: java
 
@@ -227,11 +228,11 @@ problems:
                 }
 
             Paste here the body of the method ``primeStream`` :
-        name: ''
-        type: code
+        default: ''
     student_infiniteModulo:
-        type: code
+        language: java
         name: ''
+        type: code
         header: |-
             .. code-block:: java
 
@@ -244,11 +245,8 @@ problems:
 
             Paste here the body of the method ``infiniteModulo`` :
         default: ''
-        language: java
     student_fibonacci:
-        default: ''
         language: java
-        name: ''
         type: code
         header: |-
             .. code-block:: java
@@ -262,14 +260,17 @@ problems:
                 }
 
             Paste here the body of the method ``fibonacci`` :
-    student_helpers:
+        name: ''
         default: ''
+    student_helpers:
+        type: code
+        optional: 'on'
+        name: ''
+        default: ''
+        language: java
         header: 'Paste here the **body** and the **signature** of your additional
             methods :'
-        name: ''
-        type: code
-        language: java
-        optional: 'on'
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

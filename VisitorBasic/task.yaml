@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module4
@@ -56,17 +56,18 @@ network_grading: false
 order: 41
 problems:
     student_visitable:
-        language: java
+        name: ''
+        default: ''
         header: 'Paste here the **body** of your ``VisitableList`` class:'
-        name: ''
         type: code
-        default: ''
+        language: java
     student_visitor:
-        name: ''
         default: ''
         type: code
         language: java
+        name: ''
         header: 'Paste here the **body** of your ``VisitorList`` class:'
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

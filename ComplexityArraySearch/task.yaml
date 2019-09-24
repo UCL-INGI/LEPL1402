@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Bastin J, Piron H
 categories:
 - module2
@@ -36,14 +36,15 @@ limits:
     output: '2'
 name: '[Module 2] Array Search'
 network_grading: false
-order: 15
+order: 14
 problems:
     student_code:
-        language: java
-        default: ''
-        name: ''
-        type: code
         header: 'Paste here the **body** of your method :'
+        default: ''
+        language: java
+        type: code
+        name: ''
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

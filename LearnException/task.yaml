@@ -1,4 +1,4 @@
-accessible: true
+accessible: /2019-09-25 23:55:55/2019-09-25 23:55:55
 author: Bastin J, Piron H
 categories:
 - module1
@@ -47,8 +47,8 @@ network_grading: false
 order: 3
 problems:
     studentDivide:
-        name: Divide implementation
         default: ''
+        type: code
         header: |-
             Paste here the **body** of the divide method
 
@@ -57,9 +57,11 @@ problems:
                 public static double divide(int i1, int i2) throws ArithmeticException{
                     //Your code here
                 }
-        type: code
         language: java
+        name: Divide implementation
     studentCanDivide:
+        language: java
+        type: code
         default: ''
         header: |-
             Paste here the **body** of the canDivide method
@@ -69,12 +71,10 @@ problems:
                 public static boolean canDivide(int i1, int i2){
                     //Your code here
                 }
-        type: code
-        language: java
         name: CanDivide Implementation
     studentBetterDivide:
-        type: code
-        default: ''
+        name: Better Divide Implementation
+        language: java
         header: |-
             Paste here the **body** of the betterDivide method
 
@@ -83,11 +83,12 @@ problems:
                 public static double betterDivide(int i1, int i2) throws ArithmeticException{
                     //Your code here
                 }
-        language: java
-        name: Better Divide Implementation
-    studentBetterCanDivide:
         type: code
         default: ''
+    studentBetterCanDivide:
+        name: Can Better Divide Implementation
+        default: ''
+        type: code
         header: |-
             Paste here the **body** of the betterCanDivide method
 
@@ -96,8 +97,8 @@ problems:
                 public static String betterCanDivide(int i1, int i2){
                     //Your code here
                 }
-        name: Can Better Divide Implementation
         language: java
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

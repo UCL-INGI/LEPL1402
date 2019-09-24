@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module2
@@ -61,20 +61,21 @@ limits:
     output: '2'
 name: '[Module 2] Binary trees - equals'
 network_grading: false
-order: 23
+order: 22
 problems:
     student_eqtree:
-        name: ''
-        type: code
-        language: java
-        default: ''
         header: 'Paste here the **body** of your ``equals`` method from class ``Tree``:'
-    student_eqnode:
-        type: code
         name: ''
+        language: java
+        default: ''
+        type: code
+    student_eqnode:
+        name: ''
+        type: code
+        header: 'Paste here the **body** of your ``equals`` method from class ``Node``:'
         default: ''
         language: java
-        header: 'Paste here the **body** of your ``equals`` method from class ``Node``:'
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

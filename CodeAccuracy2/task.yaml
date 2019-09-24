@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module2
@@ -41,35 +41,36 @@ limits:
     output: '2'
 name: '[Module 2] Code accuracy - Practical exercise'
 network_grading: false
-order: 22
+order: 21
 problems:
     exch_code:
-        name: ''
-        language: java
         type: code
         header: 'Paste here the **body** of your **swap(Object[] a, int i, int j)**
             method:'
+        language: java
+        name: ''
         default: ''
     partition_code:
         header: 'Paste here the **body** of your **partition(Comparable[] a, int left,
             int right)** method:'
+        type: code
+        name: ''
         language: java
         default: ''
-        type: code
-        name: ''
     sort_code:
-        name: ''
-        language: java
         type: code
+        language: java
+        name: ''
         default: ''
         header: 'Paste here the **body** of your **sort(Comparable[] a)** method:'
     sort_code2:
         language: java
-        default: ''
         header: 'Paste here the **body** of your **sort(Comparable[] a, int left,
             int right)** method:'
         name: ''
         type: code
+        default: ''
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

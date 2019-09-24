@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module3
@@ -116,37 +116,38 @@ network_grading: false
 order: 31
 problems:
     student_constructor:
-        default: ''
-        language: java
-        header: 'Paste here the **body** of your constructor ``MyArrayList(int initSize)``:'
         type: code
+        language: java
+        default: ''
+        header: 'Paste here the **body** of your constructor ``MyArrayList(int initSize)``:'
         name: ''
     student_enqueue:
         language: java
-        name: ''
         type: code
-        default: ''
         header: 'Paste here the **body** of your ``enqueue`` method:'
+        name: ''
+        default: ''
     student_remove:
-        default: ''
-        type: code
         language: java
-        name: ''
+        type: code
+        default: ''
         header: 'Paste here the **body** of your ``remove(int index)`` method:'
-    student_iterator:
-        default: ''
-        type: code
-        language: java
         name: ''
+    student_iterator:
+        language: java
+        default: ''
+        name: ''
+        type: code
         header: 'Paste here the **body** of your ``ListIterator`` class:'
     student_utils:
-        optional: 'on'
-        default: ''
-        type: code
         language: java
+        default: ''
+        optional: 'on'
+        type: code
+        name: ''
         header: 'Paste here (if needed) auxiliary methods (body **and** signatures)
             for your ``MyArrayList`` class:'
-        name: ''
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

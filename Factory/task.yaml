@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module4
@@ -70,17 +70,18 @@ network_grading: false
 order: 38
 problems:
     student_factory:
+        language: java
         header: 'Paste here the **body** of your ``ElementFactory`` class:'
+        type: code
         name: ''
         default: ''
-        language: java
-        type: code
     student_level:
-        default: ''
+        header: 'Paste here the **body** of your ``Level`` class:'
         language: java
         name: ''
-        header: 'Paste here the **body** of your ``Level`` class:'
         type: code
+        default: ''
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

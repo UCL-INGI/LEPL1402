@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module5
@@ -53,29 +53,29 @@ limits:
     output: '2'
 name: '[Module 5] Dealing with Streams'
 network_grading: false
-order: 49
+order: 48
 problems:
     student_find_second_and_third_top_student_for_given_course:
-        language: java
-        type: code
         name: ''
-        default: ''
         header: 'Paste here the **body** of your ``findSecondAndThirdTopStudentForGivenCourse``
             method : '
-    student_compute_average_for_student_in_section:
         type: code
         default: ''
         language: java
-        name: ''
+    student_compute_average_for_student_in_section:
         header: 'Paste here the **body** of your ``computeAverageForStudentInSection``
             method : '
+        type: code
+        default: ''
+        language: java
+        name: ''
     student_get_number_of_successful_students:
         default: ''
-        header: 'Paste here the **body** of your ``getNumberOfSuccessfulStudents``
-            method : '
-        name: ''
         type: code
         language: java
+        name: ''
+        header: 'Paste here the **body** of your ``getNumberOfSuccessfulStudents``
+            method : '
     student_find_last_in_lexicographic_order:
         type: code
         default: ''
@@ -85,10 +85,11 @@ problems:
         name: ''
     student_get_full_sum:
         header: 'Paste here the **body** of your ``getFullSum`` method : '
-        default: ''
-        type: code
         language: java
+        type: code
         name: ''
+        default: ''
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

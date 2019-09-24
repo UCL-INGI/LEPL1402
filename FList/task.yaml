@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Bastin J, Piron H
 categories:
 - module5
@@ -90,28 +90,28 @@ network_grading: true
 order: 45
 problems:
     student_length:
-        language: java
         type: code
-        default: ''
         name: Length implementation
+        language: java
+        default: ''
         header: 'Paste here the **body** of you method length:'
     student_map:
-        default: ''
-        language: java
-        name: Map implementation
         header: 'Paste here the **body** of you map method:'
+        name: Map implementation
+        language: java
+        default: ''
         type: code
     student_filter:
+        default: ''
         header: 'Paste here the **body** of you filter implementation:'
-        language: java
-        type: code
         name: Filter implementation
-        default: ''
-    student_iterator:
-        default: ''
         type: code
         language: java
+    student_iterator:
+        language: java
+        default: ''
         name: Iterator
+        type: code
         header: |-
             Paste here the **body** of your iterator:
 
@@ -123,8 +123,10 @@ problems:
                     };
                 }
     student_nil:
-        default: ''
+        language: java
+        type: code
         name: Nil implementation
+        default: ''
         header: |-
             Paste the **body** of your class Nil
 
@@ -136,9 +138,8 @@ problems:
                     // Your code
 
                 }
-        language: java
-        type: code
     student_cons:
+        language: java
         default: ''
         header: |-
             Paste here the **body** of you class Cons
@@ -148,9 +149,9 @@ problems:
                 private static final class Cons<A> extends FList<A> {
                     // Your code
                 }
-        name: Cons Implementation
-        language: java
         type: code
+        name: Cons Implementation
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

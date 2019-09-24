@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Bastin J, Piron H
 categories:
 - module2
@@ -42,18 +42,15 @@ limits:
     output: '2'
 name: '[Module 2] Hanoi Tower'
 network_grading: false
-order: 17
+order: 16
 problems:
     studentCode:
-        name: Hanoi Tower implementation
-        default: ''
-        language: java
-        type: code
         header: 'Paste here the **body** of the method ``towerOfHanoi``:'
-    studentNumber:
+        language: java
+        name: Hanoi Tower implementation
+        type: code
         default: ''
-        type: code_single_line
-        name: Number of moves
+    studentNumber:
         header: |-
             Implement this function that returns the minimum number of times you have to move a disk to solve this problem
 
@@ -62,6 +59,10 @@ problems:
                 public static int numberOfMoves(int stackSize){
                     //TODO by student
                 }
+        name: Number of moves
+        type: code_single_line
+        default: ''
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

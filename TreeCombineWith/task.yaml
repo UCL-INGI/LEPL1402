@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A
 categories:
 - module2
@@ -57,23 +57,24 @@ limits:
     output: '2'
 name: '[Module 2] Binary trees - combineWith'
 network_grading: false
-order: 25
+order: 24
 problems:
     student_combineWith:
         header: 'Paste here the **body** of your ``combineWith`` method from class
             ``Tree``:'
-        name: ''
-        type: code
         language: java
+        name: ''
         default: ''
+        type: code
     student_additional_contents:
+        name: ''
         optional: 'on'
         header: 'Paste here the rest of the **body** of the class ``Tree`` (if you
             have defined private helper methods to solve this problem) :'
-        default: ''
-        name: ''
         type: code
+        default: ''
         language: java
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

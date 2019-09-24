@@ -1,4 +1,4 @@
-accessible: true
+accessible: /2019-09-25 23:55:55/2019-09-25 23:55:55
 author: Bastin J, Piron H
 categories:
 - module1
@@ -35,61 +35,62 @@ file: ''
 groups: false
 input_random: '0'
 limits:
-    time: '30'
-    memory: '100'
     output: '2'
+    memory: '100'
+    time: '30'
 name: '[Module 1] Introduction to java, exercises'
 network_grading: false
 order: 2
 problems:
     student_attribute:
         header: Paste here the **signature** and the **body** of a method ``attribute(int
-            value)`` that change the value of the variable ``variable`` to ``value``.
+            value)`` that changes the value of the variable ``variable`` to ``value``.
         language: java
         default: ''
         name: Methods and variables
         type: code
     student_add:
         header: Paste here the **signature** and the **body** of a method ``add(int
-            a, int b)`` that return the addition of ``a`` and ``b``.
-        language: java
-        type: code
+            a, int b)`` that returns the addition of ``a`` and ``b``.
         name: Return
+        type: code
+        language: java
         default: ''
     student_equals:
-        header: Paste here the **signature** and the **body** of a method ``equalsIntegers(int
-            a, int b)`` that return *true* if ``a`` is equal to ``b``.
-        language: java
         default: ''
         type: code
+        language: java
+        header: Paste here the **signature** and the **body** of a method ``equalsIntegers(int
+            a, int b)`` that returns *true* if ``a`` is equal to ``b``.
         name: Comparison
     student_middleValue:
         header: Paste here the **signature** and the **body** of a method ``middleValue(int
-            a, int b, int c)`` that return the middle value between ``a``, ``b`` and
-            ``c``. So if :math:`a > b > c`, the method should return b. If minimum
+            a, int b, int c)`` that returns the middle value between ``a``, ``b``
+            and ``c``. So if :math:`a > b > c`, the method should return b. If minimum
             two value are equals, return **-1**.
         default: ''
+        name: Conditions
         language: java
         type: code
-        name: Conditions
     student_max:
-        default: ''
-        name: Ternary expression
-        type: code_single_line
         header: |-
-            Paste here the **body** of the method ``max``. You can only use a ternary expression.
+            Paste here the **body** of the method ``max``. You can only use a ternary expression (no if/else structure are allowed).
 
             .. code-block:: java
 
                 /*
-                 * Function that return the max between a and b
+                 * Function that returns the max between a and b
                  * You must use a ternary operation
                  */
                 public static int max(int a, int b){
                     //TODO
                 }
+        name: Ternary expression
+        type: code_single_line
+        default: ''
     student_salutation:
-        header: |-
+        language: java
+        header: |
             Paste here the **signature** and the **body** of the method ``greetings(String str)``.
             This method return :
 
@@ -97,39 +98,39 @@ problems:
                 - "Good evening, sir!" if ``str`` is "Evening"
                 - "Hello, sir!" otherwise
 
-            Your implementation should be case sensitive.
-        type: code
-        language: java
+            Your implementation should be case sensitive. **You should not use if/else if/else.**
+        default: ''
         name: Switch ... case ...
-        default: ''
-    student_lastFirstMiddle:
         type: code
-        language: java
+    student_lastFirstMiddle:
         default: ''
-        name: Arrays
         header: |-
-            Paste here the **signature** and the **body** of a method ``lastFirstMiddle(int[] a)``. This method return a new array of three integers contained in this order :
+            Paste here the **signature** and the **body** of a method ``lastFirstMiddle(int[] a)``. This method returns a new array of three integers contained in this order :
 
                 - The last element of ``a``
                 - The first element of ``a``
                 - The element of the middle of ``a`` (given :math:`l` the length of a, take the element of index :math:`\frac{l}{2}`)
-    student_sum:
-        default: ''
         type: code
+        language: java
+        name: Arrays
+    student_sum:
+        name: For loop
+        type: code
+        language: java
+        default: ''
         header: Paste here the **signature** and the **body** of the method ``sum(int[]
             array)`` that return the sum of all elements of ``array``. You should
-            use a for loop.
-        language: java
-        name: For loop
+            use a for loop, while loops being prohibited.
     student_maxArray:
-        default: ''
-        name: While loop
-        header: Paste here the **signature** and the **body** of the method ``maxArray(int[]
-            array)`` that return the maximum element of ``array``. You should use
-            a while loop.
-        language: java
         type: code
+        name: While loop
+        language: java
+        default: ''
+        header: Paste here the **signature** and the **body** of the method ``maxArray(int[]
+            array)`` that returns the maximum element of ``array``. You should use
+            a while loop, for loops being prohibited.
     student_main:
+        type: code
         header: |-
             Paste here the **body** of the ``main`` method. The main method is the method that runs a program. When you start a program, you can pass a list of arguments to start you program. For example here, we can enter in a terminal ``javac IntroductionExercises.java`` to compile our program and then ``java IntroductionExercises 1 5 20``.
 
@@ -153,7 +154,7 @@ problems:
         name: Main
         default: ''
         language: java
-        type: code
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

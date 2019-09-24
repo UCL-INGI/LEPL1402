@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Bastin J, Piron H
 categories:
 - module5
@@ -52,7 +52,9 @@ problems:
                     //Your code
                 }
     studentMap:
-        name: Map Implementation
+        language: java
+        type: code
+        default: ''
         header: |-
             Paste here the **body** of your map method:
 
@@ -61,14 +63,10 @@ problems:
                 public final <B> FTree<B> map(Function<A,B> f){
                     //Your code
                 }
-        type: code
-        language: java
-        default: ''
+        name: Map Implementation
     studentNode:
-        default: ''
-        language: java
         type: code
-        name: Node Implementation
+        language: java
         header: |-
             Paste here the **body** of your class Node class, including every method **signature** and their **implementation**:
 
@@ -81,10 +79,10 @@ problems:
 
                     //TODO by student
                 }
-    studentLeaf:
-        type: code
-        name: Leaf Implementation
+        name: Node Implementation
         default: ''
+    studentLeaf:
+        name: Leaf Implementation
         language: java
         header: |
             Paste here the **body** of your class Leaf class, including every method **signature** and their **implementation**:
@@ -98,6 +96,9 @@ problems:
                     //TODO by student
 
                 }
+        type: code
+        default: ''
+run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
