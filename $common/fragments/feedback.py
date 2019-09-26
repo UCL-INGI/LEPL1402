@@ -2,16 +2,45 @@ import sys
 
 from inginious import feedback, rst
 
-
 from fragments import helper
 from fragments.extraction import *
+
+
+# Throw a fatal error if we cannot create the jar
+def jar_feedback(result):
+    if result.returncode != 0:
+        msg = "A technical problem has occurred: please report it !"
+        print(result.stderr)
+        feedback.set_global_feedback(msg)
+        feedback.set_global_result("failed")
+        feedback.set_grade(0.0)
+        sys.exit(0)
 
 
 # Throw a fatal error if the given code doesn't compile
 def compilation_feedback(result):
     if result.returncode != 0:
+        errors = extract_compilation_errors(result.stderr)
+
+        # Generate the RST
+        msg = ""
+        next_line = "\n\r"
+
+        # Headers
+        msg += ".. csv-table:: Compilations errors" + next_line
+        msg += " " * 4 + ":header: " + ",".join(["\"{}\"".format(item)
+                                                 for item in ["File", "Line", "Error Message", "Code"]]) + next_line
+        msg += " " * 4 + ":widths: auto" + next_line * 2
+
+        # Contents
+        for error in errors:
+            print(error)
+
+        # Send it to Inginious
+
         msg = "Your file did not compile : please don't use INGINIOUS as an IDE ..."
         print(result.stderr)
+        # \n\r à rajouter
         feedback.set_global_feedback(msg)
         feedback.set_global_result("failed")
         feedback.set_grade(0.0)

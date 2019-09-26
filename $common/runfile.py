@@ -75,8 +75,8 @@ def main():
     print("COMPILING CODE : {}".format(compile_cmd))
     result = helper.run_command(compile_cmd)
 
-    # handle compilation errors
-    feedback.compilation_feedback(result)
+    # handle jar creation errors
+    feedback.jar_feedback(result)
 
     #####################################
     #       GENERATE A JAR FILE         #

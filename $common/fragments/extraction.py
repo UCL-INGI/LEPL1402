@@ -87,14 +87,13 @@ def extract_compilation_errors(javac_result):
         helper.relative_path(PATH_FLAVOUR)
     ]
     # because Inginious is on Linux; the separator will never change
-    separator = "/"
+    separator = '/' if '/' in PATH_SRC else '\\'
 
     # regexs
     regex_errors = re.compile("[0-9]+ errors?")
     regex_first_message = re.compile(
         "^{}{}{}:{}:\s{}$".format(
-            "(?P<folder>{})"
-                .format("|".join(folders)),
+            "(?P<folder>{})".format("|".join(folders)),
             "\/" if separator == "/" else "\\",
             "(?P<filename>.*\.java)",
             "(?P<line_number>[0-9]+)",
