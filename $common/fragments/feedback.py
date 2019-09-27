@@ -22,26 +22,67 @@ def compilation_feedback(result):
     if result.returncode != 0:
         errors = extract_compilation_errors(result.stderr)
 
-        # Generate the RST
-        msg = ""
-        next_line = "\n\r"
-
-        # Headers
-        msg += ".. csv-table:: Compilations errors" + next_line
-        msg += " " * 4 + ":header: " + ",".join(["\"{}\"".format(item)
-                                                 for item in ["File", "Line", "Error Message", "Code"]]) + next_line
-        msg += " " * 4 + ":widths: auto" + next_line * 2
-
-        # Contents
-        for error in errors:
-            print(error)
-
-        # Send it to Inginious
-
-        msg = "Your file did not compile : please don't use INGINIOUS as an IDE ..."
+        # For debug purposes
         print(result.stderr)
-        # \n\r à rajouter
-        feedback.set_global_feedback(msg)
+
+        # If any errors come from the templates, blame the student with this code
+        templates_folder = helper.relative_path(PATH_TEMPLATES)
+        if any(error.get("source", "templates") == templates_folder for error in errors):
+            # Generate an custom RST report that will see the student
+            msg = ""
+            next_line = "\n\r"
+            indentation = 4
+            headers = ["File", "Line", "Error Message", "Code"]
+
+            # Headers
+            msg += ".. csv-table:: " + next_line
+            # Need a symbol that isn't in the Java
+            msg += " " * indentation + ":quote: §" + next_line
+            msg += " " * indentation + ":header: " + ",".join(headers) + next_line
+            msg += " " * indentation + ":widths: auto" + next_line * 2
+
+            # Contents
+            # TODO Pas encore au point ; je continues à tête reposé plus tard
+            # TODO Cependant, on se rapproche de la solution selon mon REPL XD
+            for error in errors:
+                # Print File , Line and Error message without problem
+                msg += " " * indentation + "§{}§".format(error.get("file", "Unknown Filename"))
+                msg += ",§{}§".format(error.get("line", "Unknown Line Number"))
+                msg += ",§{}§".format(error.get("message", "Unknown Message"))
+
+                # Print the code
+                msg += ",§.. code-block:: java" + next_line * 2
+                code_lines = error.get("code", [])
+                indentation_for_code = indentation + 1
+
+                for code_line in code_lines:
+                    # as we are in a code block, we need indentation + 1 in order to create compilable code in RST
+                    msg += " " * indentation_for_code + code_line
+
+                    # needed test to correctly format things
+                    if code_line != code_lines[-1]:
+                        msg += next_line
+
+                # At the end , we should not forget the quote symbol and the next line
+                msg += "§" + next_line
+
+            # Send it to Inginious
+            # TODO Code Temporaire
+            #  C'est du RST ; je dois relire la doc du rst code sur Inginious
+            feedback.set_global_feedback(msg)
+
+        else:
+
+            # Either the student has made mistake(s) eg in the signature(s) of method(s) ....
+            # Or a TA adds code that doesn't compile
+            feedback.set_global_feedback(
+                "{}{}".format(
+                    "You modified the signature of at least a function or modified the content of a class.",
+                    "You should not; the tests fail to compile"
+                ))
+
+        # Final instructions commons for all scenario
+
         feedback.set_global_result("failed")
         feedback.set_grade(0.0)
         sys.exit(0)
