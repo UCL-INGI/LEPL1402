@@ -95,8 +95,8 @@ def main():
     # For debug the jar construction
     # print(result.stdout)
 
-    # handle compilation errors
-    feedback.compilation_feedback(result)
+    # handle jar creation errors
+    feedback.jar_feedback(result)
 
     #####################################
     #   RUN  TEST  RUNNER               #

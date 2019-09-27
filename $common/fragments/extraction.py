@@ -1,5 +1,6 @@
 import re
 
+from fragments.constants import *
 from fragments import coverage, helper
 
 
@@ -75,3 +76,56 @@ def extract_jacoco_result(feedback_settings):
         ratio = covered / total if total > 0 else 0.0
 
         return ratio, msg
+
+
+# Extract errors from javac result
+def extract_compilation_errors(javac_result):
+    lines = javac_result.splitlines()
+    folders = [
+        helper.relative_path(PATH_SRC),
+        helper.relative_path(PATH_TEMPLATES),
+        helper.relative_path(PATH_FLAVOUR)
+    ]
+    # because Inginious is on Linux; the separator will never change
+    separator = '/' if '/' in PATH_SRC else '\\'
+
+    # regexs
+    regex_errors = re.compile("[0-9]+ errors?")
+    regex_first_message = re.compile(
+        "^{}{}{}:{}:\s{}$".format(
+            "(?P<folder>{})".format("|".join(folders)),
+            "\/" if separator == "/" else "\\",
+            "(?P<filename>.*\.java)",
+            "(?P<line_number>[0-9]+)",
+            "(?P<message>.*)"
+        )
+    )
+
+    # variables that will be used somewhere in the loop
+    errors = []
+
+    for line in lines:
+        # ignores line that contains the sum of errors
+        if regex_errors.match(line):
+            continue
+
+        # when the regex matches, we are on the first line that explain the problem
+        if regex_first_message.match(line):
+            matches = re.search(regex_first_message, line)
+            # save for later use
+            errors.append({
+                "source": matches.group("folder"),
+                "file": matches.group("filename"),
+                "line": matches.group("line_number"),
+                "message": matches.group("message"),
+                "code": []
+            })
+
+        # else, we must store the code sample provided by javac
+        else:
+            # append the line to the code array
+            errors[-1].update({
+                "code": [*errors[-1].get("code"), line]
+            })
+
+    return errors
