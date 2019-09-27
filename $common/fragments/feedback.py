@@ -30,7 +30,8 @@ def compilation_feedback(result):
         if any(error.get("source", "templates") == templates_folder for error in errors):
             # Generate an custom RST report that will see the student
             msg = ""
-            next_line = "\n\r"
+            # Don't add \r to that as it produces strange results
+            next_line = "\n"
             indentation = 4
             headers = ["File", "Line", "Error Message", "Code"]
 
@@ -42,8 +43,6 @@ def compilation_feedback(result):
             msg += " " * indentation + ":widths: auto" + next_line * 2
 
             # Contents
-            # TODO Pas encore au point ; je continues à tête reposé plus tard
-            # TODO Cependant, on se rapproche de la solution selon mon REPL XD
             for error in errors:
                 # Print File , Line and Error message without problem
                 msg += " " * indentation + "§{}§".format(error.get("file", "Unknown Filename"))
