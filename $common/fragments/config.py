@@ -30,7 +30,7 @@ def config_file_to_dict(file_path):
 
         with open(file_path, "r") as stream:
             # File must not be empty
-            load_config = yaml.load(stream)
+            load_config = yaml.safe_load(stream)
             # If no file given
             if load_config is None:
                 return default_values
