@@ -66,9 +66,7 @@ def compilation_feedback(result):
                 msg += "§" + next_line
 
             # Send it to Inginious
-            # TODO Code Temporaire
-            #  C'est du RST ; je dois relire la doc du rst code sur Inginious
-            feedback.set_global_feedback(msg)
+            feedback.set_global_feedback(msg, True)
 
         else:
 
