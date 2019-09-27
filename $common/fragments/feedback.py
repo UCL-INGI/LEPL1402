@@ -43,7 +43,7 @@ def compilation_feedback(result):
             msg += " " * indentation + ":widths: auto" + next_line * 2
 
             # Contents
-            for error in errors:
+            for error in [error for error in errors if error.get("source", "Unknown Source") == templates_folder]:
                 # Print File , Line and Error message without problem
                 msg += " " * indentation + "§{}§".format(error.get("file", "Unknown Filename"))
                 msg += ",§{}§".format(error.get("line", "Unknown Line Number"))
