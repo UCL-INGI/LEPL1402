@@ -54,7 +54,7 @@ def compilation_feedback(result):
                 if not code_lines:
 
                     # Might be confusing but they are the rules of RST for empty block
-                    msg += ",\"" + next_line * 2 + " " * (indentation - 1) + "\""
+                    msg += ",\"" + next_line * 2 + " " * (indentation - 1) + "\"" + next_line
 
                 else:
 
