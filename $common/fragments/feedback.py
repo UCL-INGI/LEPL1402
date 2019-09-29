@@ -22,9 +22,6 @@ def compilation_feedback(result):
     if result.returncode != 0:
         errors = extract_compilation_errors(result.stderr)
 
-        # For debug purposes
-        print(result.stderr)
-
         # If any errors come from the templates, blame the student with this code
         templates_folder = helper.relative_path(PATH_TEMPLATES)
         if any(error.get("source", "templates") == templates_folder for error in errors):
@@ -50,20 +47,30 @@ def compilation_feedback(result):
                 msg += ",§{}§".format(error.get("message", "Unknown Message"))
 
                 # Print the code
-                msg += ",§.. code-block:: java" + next_line * 2
                 code_lines = error.get("code", [])
-                indentation_for_code = indentation + 1
 
-                for code_line in code_lines:
-                    # as we are in a code block, we need indentation + 1 in order to create compilable code in RST
-                    msg += " " * indentation_for_code + code_line
+                # For whatever reason, INGINIOUS might truncate the stderr message if too long
+                # It might break the CSV table ... so we need this fix
+                if not code_lines:
 
-                    # needed test to correctly format things
-                    if code_line != code_lines[-1]:
-                        msg += next_line
+                    # Might be confusing but they are the rules of RST for empty block
+                    msg += ",§§" + next_line
 
-                # At the end , we should not forget the quote symbol and the next line
-                msg += "§" + next_line
+                else:
+
+                    msg += ",§.. code-block:: java" + next_line * 2
+                    indentation_for_code = indentation + 1
+
+                    for code_line in code_lines:
+                        # as we are in a code block, we need indentation + 1 in order to create compilable code in RST
+                        msg += " " * indentation_for_code + code_line
+
+                        # needed test to correctly format things
+                        if code_line != code_lines[-1]:
+                            msg += next_line
+
+                    # At the end , we should not forget the quote symbol and the next line
+                    msg += "§" + next_line
 
             # Send it to Inginious
             feedback.set_global_feedback(msg, True)
@@ -77,6 +84,9 @@ def compilation_feedback(result):
                     "You modified the signature of at least a function or modified the content of a class.",
                     "You should not; the tests fail to compile"
                 ))
+
+            # For debug purposes ; if the student code isn't to blame
+            print(result.stderr)
 
         # Final instructions commons for all scenario
 
