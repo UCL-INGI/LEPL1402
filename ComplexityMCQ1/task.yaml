@@ -105,7 +105,7 @@ problems:
     mcq4:
         choices:
         -   text: :math:`\mathcal{O}(n)`
-	    valid: true
+            valid: true
         -   text: :math:`\mathcal{O}(n^2)`
         -   text: :math:`\Theta(n)`
             valid: true
