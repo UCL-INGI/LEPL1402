@@ -186,6 +186,6 @@ def statement_verification(feedback_settings):
     return [ 
         [check, problem_id]
         for check in ["prohibited", "required"]
-        for (problem_id, statements) in feedback_settings["check"].items()
+        for (problem_id, statements) in feedback_settings[check].items()
         if error_check(statements, problem_id, check)
     ]
