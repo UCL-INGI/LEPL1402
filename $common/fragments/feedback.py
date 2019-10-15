@@ -149,7 +149,7 @@ def handle_verification(feedback_settings):
         # Add message(s) to tell student where are his/her errors
         for [check, problem_id] in result:
             message = check.capitalize() + " statement(s) " + (" found " if check == "prohibited" else " missing ") + "HERE"
-            feedback.set_problem_feedback("This is not correct.", "problem_id", True)
+            feedback.set_problem_feedback(message, problem_id, True)
 
         feedback.set_global_result("failed")
         feedback.set_grade(0.0)
