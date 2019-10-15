@@ -22,8 +22,8 @@ def main():
     #   Check prohibited statements      #
     #####################################
 
-    feedback.handle_prohibited_statements(feedback_settings)
-    print("NO PROHIBITED STATMENT(S) DETECTED")
+    feedback.handle_verification(feedback_settings)
+    print("NO PROHIBITED STATEMENT(S) OR MISSING REQUIRED STATEMENT(S) DETECTED")
 
     #####################################
     #       Apply templates             #

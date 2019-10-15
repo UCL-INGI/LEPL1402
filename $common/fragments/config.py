@@ -11,12 +11,13 @@ def config_file_to_dict(file_path):
         "feedback_kind": None,
         "coverage_stats": None,
         "prohibited": {},
+        "required": {},
         "plagiarism": False,
         "external_libraries": None,
         "status_message": {
             0: "Your code has successfully passed all tests for this mission.",
             1: "Your code failed all tests for this mission.",
-            2: "You used prohibited instructions (such as System.exit) : read carefully the assignment.",
+            2: "You used prohibited instructions (or forgot required instructions) : read carefully the assignment.",
             3: "Your tests don't cover all cases.",
             252: "The memory limit of your program is exceeded.",
             253: "The time limit for running your program has been exceeded."

@@ -160,24 +160,32 @@ def create_manifest(libraries):
 def generate_jar_file(main_class=RUNNER_JAVA_NAME, dst=JAR_FILE, manifest=MANIFEST_FILE):
     return "jar -cmvfe {} {} {} {}".format(manifest, dst, without_extension(main_class), ".")
 
+# Main method that will be invoked by runfile.py to check all given problem inputs for prohibited / required instructions
+def statement_verification(feedback_settings):
 
-# Check out if any statment of the prohibited array is contained in the @problem input
-def contains_prohibited_statement_in_input(prohibited_array, problem_id):
-    student_upload = input.get_input(problem_id)
-    # Extract the given code into a single String file with no space, leading stuff, etc...
-    # FYI: It is done to simplify the verification as statements in java could be on multiple lines
-    source_code_as_string = student_upload.strip().replace("\n", '').replace("\t", '').replace(" ", '')
-    
-    # if any match , student tried to cheat
-    return any(
-        prohibited_statment.strip().replace(" ", '') in source_code_as_string 
-        for prohibited_statment in prohibited_array
-    )
+    # Function to extract source code as easily manageable string for check
+    def code_2_string(problem_id):
+        student_upload = input.get_input(problem_id)
+        # Extract the given code into a single String file with no space, leading stuff, etc...
+        # FYI: It is done to simplify the verification as statements in java could be on multiple lines
+        return student_upload.strip().replace("\n", '').replace("\t", '').replace(" ", '')
 
+    # Function to tell if there is an error for prohibited/required statements for the given problem
+    def error_check(statement_array, problem_id, kind):
+        source_code_as_string = code_2_string(problem_id)
+        # the code should only vary on this point for prohibited 
+        check_fct = any if kind == "prohibited" else all
 
-# Main method that will be invoked by runfile.py to check all given problem inputs for prohibited instructions
-def contains_prohibited_statement(feedback_settings):
-    return any(
-        contains_prohibited_statement_in_input(statements, problem_id)
-        for (problem_id, statements) in feedback_settings["prohibited"].items()
-    )
+        # return True if there is any prohibited statement (or no required statement )
+        return check_fct(
+            statement.strip().replace(" ", '') in source_code_as_string 
+            for statement in statement_array
+        )
+
+    # Check for prohibited / required instruction(s) and put the elements that contains an error
+    return [ 
+        [check, problem_id]
+        for check in ["prohibited", "required"]
+        for (problem_id, statements) in feedback_settings["check"].items()
+        if error_check(statements, problem_id, check)
+    ]
