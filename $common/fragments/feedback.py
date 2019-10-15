@@ -140,11 +140,17 @@ def feedback_result(score_ratio, feedback_settings):
     feedback.set_grade(updated_score_ratio * 100)
 
 
-def handle_prohibited_statements(feedback_settings):
-    result = helper.contains_prohibited_statement(feedback_settings)
+def handle_verification(feedback_settings):
+    result = helper.statement_verification(feedback_settings)
+    # If not empty, there is error(s) in student code 
     if result:
         msg = feedback_settings["status_message"].get(2, "Uncommon Failure")
         feedback.set_global_feedback(msg)
+        # Add message(s) to tell student where are his/her errors
+        for [check, problem_id] in result:
+            message = check.capitalize() + " statement(s) " + (" found " if check == "prohibited" else " missing ") + "HERE"
+            feedback.set_problem_feedback(message, problem_id, True)
+
         feedback.set_global_result("failed")
         feedback.set_grade(0.0)
         sys.exit(0)
