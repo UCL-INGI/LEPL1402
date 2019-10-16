@@ -104,14 +104,13 @@ problems:
         multiple: true
     mcq4:
         choices:
-        -   valid: true
-            text: :math:`\mathcal{O}(n)`
+        -   text: :math:`\mathcal{O}(n)`
         -   text: :math:`\mathcal{O}(n^2)`
         -   text: :math:`\Theta(n)`
-        -   text: :math:`\Theta(log(n))`
-        -   valid: true
-            text: :math:`\Omega(1)`
-        -   text: :math:`\Omega(log(n))`
+            valid: true
+        -   text: :math:`\Theta(\log(n))`
+        -   text: :math:`\Omega(1)`
+        -   text: :math:`\Omega(\log(n))`
         header: You write a function to verify if a list of length :math:`n` is ordered
             or not, this function returns true if it is and false if it is'nt. What
             is (are) the most precise time complexity(ies)?
@@ -147,9 +146,8 @@ problems:
         -   text: :math:`0.00001 \in \Theta(1)`
             valid: true
         -   text: :math:`2^{2n} \in \mathcal{O}(2^n)`
-            valid: true
         -   text: :math:`3^n \in \mathcal{O}(2^n)`
-        -   text: :math:`n log(n) \in \mathcal{O}(n)`
+        -   text: :math:`n \log(n) \in \mathcal{O}(n)`
         type: multiple_choice
         name: Mathematical Functions and Time Complexity
         header: 'Select the right proposition(s) :'
