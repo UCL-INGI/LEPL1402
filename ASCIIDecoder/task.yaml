@@ -1,4 +1,4 @@
-accessible: /2019-10-02 23:55:00/2019-10-02 23:55:00
+accessible: /2019-10-16 23:55:55/2019-10-16 23:55:55
 author: Rucquoy A
 categories:
 - module1
@@ -42,19 +42,19 @@ file: ''
 groups: false
 input_random: '0'
 limits:
-    memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
+    memory: '100'
 name: '[Module 1] ASCII Decoder'
 network_grading: false
 order: 9
 problems:
     student_decode:
-        language: java
-        name: ''
+        default: ''
         type: code
         header: Paste here the **body** of your ``decode`` method
-        default: ''
+        language: java
+        name: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

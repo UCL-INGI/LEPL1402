@@ -3,7 +3,7 @@ public class MergeSort {
     /**
      * Merge the array from lo to hi
      */
-    private static void merge(int[] a, int lo, int mid, int hi) {
+    private static void merge(int[] a, int[] aux, int lo, int mid, int hi) {
         // TODO By Student
     }
     /**

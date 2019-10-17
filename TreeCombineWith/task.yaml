@@ -1,7 +1,7 @@
 accessible: false
 author: Yakoub J, Rucquoy A
 categories:
-- module2
+- module3
 context: |-
     Write a method combineWith that could be added to the Tree_ class (Node class can be found here_).
 
@@ -53,26 +53,26 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
-name: '[Module 2] Binary trees - combineWith'
+    time: '30'
+name: '[Module 3] Binary trees - combineWith'
 network_grading: false
-order: 24
+order: 30
 problems:
     student_combineWith:
-        header: 'Paste here the **body** of your ``combineWith`` method from class
-            ``Tree``:'
+        type: code
+        default: ''
         language: java
         name: ''
-        default: ''
-        type: code
+        header: 'Paste here the **body** of your ``combineWith`` method from class
+            ``Tree``:'
     student_additional_contents:
-        name: ''
-        optional: 'on'
         header: 'Paste here the rest of the **body** of the class ``Tree`` (if you
             have defined private helper methods to solve this problem) :'
-        type: code
+        optional: 'on'
         default: ''
+        name: ''
+        type: code
         language: java
 run_cmd: ''
 stored_submissions: 0

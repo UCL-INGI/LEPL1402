@@ -1,4 +1,4 @@
-accessible: false
+accessible: /2019-11-01 23:59:59/2019-11-01 23:59:59
 author: Bastin J, Piron H
 categories:
 - module2
@@ -29,40 +29,42 @@ file: ''
 groups: false
 input_random: '0'
 limits:
-    output: '2'
     memory: '100'
+    output: '2'
     time: '30'
 name: '[Module 2] Bubble Sort Invariant (MCQ)'
 network_grading: false
-order: 13
+order: 21
 problems:
     complexity:
+        limit: 0
         choices:
-        -   valid: true
-            text: :math:`\Theta(n^2)`
+        -   text: :math:`\Theta(n^2)`
+            valid: true
         -   text: :math:`\Theta(nlog(n))`
         -   text: :math:`\mathcal{O}(n^2)`
         -   text: :math:`\mathcal{O}(nlog(n))`
+        name: Time Complexity
         header: What is the most precise **time** complexity of this algorithm? (:math:`n`
             is the size of the array)
-        limit: 0
-        name: Time Complexity
         type: multiple_choice
     space:
-        limit: 0
-        header: What is the most precise **space** complexity of this algorithm? (:math:`n`
-            is the size of the array)
         choices:
         -   text: :math:`\Theta(n^2)`
-        -   valid: true
-            text: :math:`\Theta(n)`
+        -   text: :math:`\Theta(n)`
+            valid: true
         -   text: :math:`\Theta(n^3)`
         -   text: :math:`\Theta(nlog(n))`
+        limit: 0
         name: Space Complexity
         type: multiple_choice
+        header: What is the most precise **space** complexity of this algorithm? (:math:`n`
+            is the size of the array)
     invar1:
+        name: Invariant First Loop
+        multiple: true
         choices:
-        -   text: ':math:`1\leq i\leq n` '
+        -   text: ':math:`0 \leq i < n` '
             valid: true
         -   text: :math:`a[j]<a[n]`
         -   valid: true
@@ -70,32 +72,30 @@ problems:
         -   text: if :math:`i < n` then :math:`a[1..i] \leq a[i+1]`
             valid: true
         -   text: :math:`a[1..i]` :math:`is` :math:`sorted`
-        multiple: true
-        header: What are the correct invariant for the first loop?
         limit: 0
         type: multiple_choice
-        name: Invariant First Loop
+        header: What are the correct invariant for the first loop?
     invar2:
         choices:
         -   text: :math:`a[1..i]` :math:`is` :math:`sorted`
         -   valid: true
-            text: ':math:`1\leq i\leq n` '
+            text: ':math:`0 \leq i < n` '
         -   text: if :math:`i < n` then :math:`a[1..i] \leq a[i+1]`
             valid: true
         -   text: :math:`a[j]<a[n]`
         -   text: :math:`a[i..n]` :math:`is` :math:`sorted`
             valid: true
-        -   valid: true
-            text: :math:`a[1..j] \leq a[j]`
+        -   text: :math:`a[1..j] \leq a[j]`
+            valid: true
         -   valid: true
             text: :math:`1 \leq j \leq i`
         -   text: :math:`a[1..i] \leq a[i+1]`
         -   text: :math:`a[j..i]` :math:`is` :math:`sorted`
-        header: What are the correct invariant for the second loop?
-        type: multiple_choice
         multiple: true
-        name: Invariant Second Loop
         limit: 0
+        name: Invariant Second Loop
+        type: multiple_choice
+        header: What are the correct invariant for the second loop?
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

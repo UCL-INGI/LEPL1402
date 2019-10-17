@@ -1,4 +1,4 @@
-accessible: false
+accessible: /2019-11-01 23:59:59/2019-11-01 23:59:59
 author: Bastin J, Piron H
 categories:
 - module2
@@ -41,7 +41,7 @@ context: |
     Given :math:`v` the length of the longest valley,
     :math:`\exists ! i,j` with :math:`0\leq i < j \leq |A|` so that :math:`\forall m` , :math:`i \leq m < (j-i)/2` , :math:`A[m]>0` and :math:`\forall n` , :math:`(j-i)/2 < m \leq j` , :math:`A[n]<0` , :math:`j-i > v*2`
 
-    Consider that the array is never gonna be empty.
+    Consider that the array is never gonna be empty and your method should have a theta(n) complexity
     \
 
     Here is the class you have to fill:
@@ -72,25 +72,25 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
 name: '[Module 2] Longest Valley'
 network_grading: false
-order: 19
+order: 23
 problems:
     student_code:
-        header: Paste here the **body** of your methode ``valley``
-        default: ''
         language: java
+        header: Paste here the **body** of your methode ``valley``
         type: code
         name: ''
-    student_additionnal:
-        name: ''
         default: ''
+    student_additionnal:
         optional: 'on'
         language: java
         type: code
+        default: ''
         header: Paste here your additionnal methods
+        name: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

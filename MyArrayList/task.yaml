@@ -1,7 +1,7 @@
-accessible: false
+accessible: /2019-11-01 23:59:59/2019-11-01 23:59:59
 author: Yakoub J, Rucquoy A
 categories:
-- module3
+- module2
 context: |-
     In this task, you have to implement your own version of the famous java's ``ArrayList<E>`` : a dynamic sized array. Each time you want to add an element, you must check that the item can fit and then append it at the end of the list.
     If the array is too small, you need to resize it so that new items can be added in the future. To remove an element you need to specify
@@ -109,44 +109,44 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
-name: '[Module 3] MyArrayList'
+    time: '30'
+name: '[Module 2] MyArrayList'
 network_grading: false
-order: 31
+order: 27
 problems:
     student_constructor:
         type: code
         language: java
+        name: ''
         default: ''
         header: 'Paste here the **body** of your constructor ``MyArrayList(int initSize)``:'
-        name: ''
     student_enqueue:
-        language: java
         type: code
-        header: 'Paste here the **body** of your ``enqueue`` method:'
+        default: ''
         name: ''
-        default: ''
+        header: 'Paste here the **body** of your ``enqueue`` method:'
+        language: java
     student_remove:
+        header: 'Paste here the **body** of your ``remove(int index)`` method:'
+        default: ''
         language: java
         type: code
-        default: ''
-        header: 'Paste here the **body** of your ``remove(int index)`` method:'
         name: ''
     student_iterator:
-        language: java
         default: ''
-        name: ''
-        type: code
         header: 'Paste here the **body** of your ``ListIterator`` class:'
-    student_utils:
-        language: java
-        default: ''
-        optional: 'on'
         type: code
         name: ''
+        language: java
+    student_utils:
         header: 'Paste here (if needed) auxiliary methods (body **and** signatures)
             for your ``MyArrayList`` class:'
+        type: code
+        name: ''
+        default: ''
+        language: java
+        optional: 'on'
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

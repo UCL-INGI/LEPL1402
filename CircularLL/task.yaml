@@ -1,7 +1,7 @@
-accessible: false
+accessible: /2019-11-01 23:59:59/2019-11-01 23:59:59
 author: Yakoub J, Rucquoy A
 categories:
-- module3
+- module2
 context: |-
     In this task, you have to implement a Circular linked list : a list where the last element points to the first element. In this exercise, the list must maintain a reference
     to the last of its elements. Each time you want to add an element, you must append it at the end of the list. Removing an element is a bit different: you need to specify
@@ -125,30 +125,30 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
-name: '[Module 3] Circular Linked list'
+    time: '30'
+name: '[Module 2] Circular Linked list'
 network_grading: false
 order: 25
 problems:
     student_enqueue:
-        language: java
         type: code
-        header: 'Paste here the BODY of your ``enqueue`` method:'
+        default: ''
         name: ''
-        default: ''
+        header: 'Paste here the BODY of your ``enqueue`` method:'
+        language: java
     student_remove:
+        header: 'Paste here the BODY of your ``remove(int index)`` method:'
+        default: ''
         language: java
         type: code
-        default: ''
-        header: 'Paste here the BODY of your ``remove(int index)`` method:'
         name: ''
     student_iterator:
-        language: java
         default: ''
-        name: ''
-        type: code
         header: 'Paste here the BODY of your ``ListIterator`` class:'
+        type: code
+        name: ''
+        language: java
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

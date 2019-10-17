@@ -180,12 +180,12 @@ public class InginiousTests {
 
         int[] array = Stream.generate(rng).limit(rng.get()).mapToInt(i -> i).toArray();
 
-        int max = array[0];
+        int sumi = 0;
         for(int i : array){
-            max = max > i ? max : i;
+            sumi+= i;
         }
 
-        if(max != IntroductionExercises.maxArray(array)){
+        if(sumi != IntroductionExercises.sum(array)){
             throw new CustomGradingResult(TestStatus.FAILED, 0, "Your method does not work as espected");
         }
         throw new CustomGradingResult(TestStatus.SUCCESS, 1);
