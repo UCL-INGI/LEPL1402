@@ -1,7 +1,7 @@
-accessible: false
+accessible: /2019-11-08 23:59:00/2019-11-08 23:59:00
 author: Yakoub J, Rucquoy A
 categories:
-- module2
+- module3
 context: |-
     In this task, we ask you to implement two different version of an "in-order" tree traversal : a recursive version and
     an iterative version. Both function will take a ``Node`` representing the root of the tree itself and a ``List<Integer>`` that
@@ -71,26 +71,26 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
-name: '[Module 2] Binary trees - Inorder traversal'
+    time: '30'
+name: '[Module 3] Binary trees - Inorder traversal'
 network_grading: false
-order: 23
+order: 29
 problems:
     student_recursive:
-        type: code
-        default: ''
-        language: java
         name: ''
         header: 'Paste here the **body** of your ``recursiveInorder(Node root, List<Integer>
             res)`` method:'
-    student_iterative:
-        header: 'Paste here the **body** of your ``iterativeInorder(Node root, List<Integer>
-            res)`` method:'
+        language: java
+        default: ''
         type: code
-        name: ''
+    student_iterative:
+        type: code
         default: ''
         language: java
+        name: ''
+        header: 'Paste here the **body** of your ``iterativeInorder(Node root, List<Integer>
+            res)`` method:'
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

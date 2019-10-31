@@ -64,18 +64,18 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
 name: '[Module 3] Postscript interpreter'
 network_grading: false
-order: 32
+order: 61
 problems:
     student_code:
-        header: 'Paste here the **body** of your Interpreter class:'
-        default: ''
         language: java
+        header: 'Paste here the **body** of your Interpreter class:'
         type: code
         name: ''
+        default: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

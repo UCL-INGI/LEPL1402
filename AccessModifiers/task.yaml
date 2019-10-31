@@ -1,7 +1,7 @@
-accessible: false
+accessible: /2019-10-16 23:55:55/2019-10-16 23:55:55
 author: Yakoub J, Rucquoy A
 categories:
-- module3
+- module1
 context: ''
 environment: mcq
 evaluate: best
@@ -9,17 +9,16 @@ file: ''
 groups: false
 input_random: '0'
 limits:
+    time: '30'
     output: '2'
     memory: '100'
-    time: '30'
-name: '[Module 3] Access Modifiers / Scopes'
+name: '[Module 1] Access Modifiers / Scopes'
 network_grading: false
-order: 29
+order: 11
 problems:
     mcq1:
         choices:
-        -   valid: true
-            text: |4-
+        -   text: |4-
 
 
                 .. list-table::
@@ -35,24 +34,7 @@ problems:
                     - True
                     - True
                     - True
-        -   feedback: 'Even in the same package, we cannot access private field(s)
-                / method(s) '
-            text: |4-
-
-
-                .. list-table::
-                  :header-rows: 1
-
-                  * - Modifier
-                    - Class
-                    - Package
-                    - Subclass
-                    - Everywhere
-                  * - private
-                    - True
-                    - True
-                    - False
-                    - False
+            valid: true
         -   text: |4-
 
 
@@ -66,10 +48,28 @@ problems:
                     - Everywhere
                   * - private
                     - True
+                    - True
+                    - False
+                    - False
+            feedback: 'Even in the same package, we cannot access private field(s)
+                / method(s) '
+        -   valid: true
+            text: |4-
+
+
+                .. list-table::
+                  :header-rows: 1
+
+                  * - Modifier
+                    - Class
+                    - Package
+                    - Subclass
+                    - Everywhere
+                  * - private
+                    - True
                     - False
                     - False
                     - False
-            valid: true
         -   text: |-
                 .. list-table::
                   :header-rows: 1
@@ -86,8 +86,7 @@ problems:
                     - False
             feedback: Even inside another package, protected methods of a class are
                 available to subclasses that extend them
-        -   valid: true
-            text: |-
+        -   text: |-
                 .. list-table::
                   :header-rows: 1
 
@@ -101,6 +100,7 @@ problems:
                     - True
                     - True
                     - False
+            valid: true
         -   text: |-
                 .. list-table::
                   :header-rows: 1
@@ -132,8 +132,8 @@ problems:
                     - True
                     - True
                     - False
-        multiple: true
-        name: ''
+        limit: 0
+        type: multiple_choice
         header: |4+
 
             Select the right scope for each modifier!
@@ -153,11 +153,9 @@ problems:
             +------------+------------+------------+--------------+--------------+
 
 
-        limit: 0
-        type: multiple_choice
-    mcq2:
         name: ''
         multiple: true
+    mcq2:
         choices:
         -   text: |-
                 .. code-block:: java
@@ -172,7 +170,8 @@ problems:
                   }
             feedback: Wrong as you cannot access the Beta class outside the package
                 one due to the default modifier
-        -   text: |-
+        -   valid: true
+            text: |-
                 .. code-block:: java
 
                   package two;
@@ -189,8 +188,8 @@ problems:
                       System.out.println(a.giveRandomNumber());
                     }
                   }
-            valid: true
-        -   text: |-
+        -   valid: true
+            text: |-
                 .. code-block:: java
 
                   package one;
@@ -199,7 +198,7 @@ problems:
                       System.out.println(Beta.RANDOM_QUOTE);
                     }
                   }
-            valid: true
+        limit: 0
         header: |4-
 
             With the following code, which situation(s) is / are possible ?
@@ -219,10 +218,10 @@ problems:
               class Beta {
                   final static String RANDOM_QUOTE = "You shall not pass";
               }
+        name: ''
+        multiple: true
         type: multiple_choice
-        limit: 0
     mcq3:
-        limit: 0
         choices:
         -   text: |-
                 .. code-block:: java
@@ -266,8 +265,7 @@ problems:
                     }
                   }
             feedback: OuterClass isn't a static class so you must use "this" in printAlias()
-        -   valid: true
-            text: |-
+        -   text: |-
                 .. code-block:: java
 
                   public class MethodLocalInnerClassExample {
@@ -286,7 +284,10 @@ problems:
                           innerClass.print(5);
                       }
                   }
-        -   text: |-
+            valid: true
+        -   feedback: You will get a "cannot find symbol" as you don't need here to
+                put the outer class for initialisation
+            text: |-
                 .. code-block:: java
 
                   public class MethodLocalInnerClassExample {
@@ -305,12 +306,11 @@ problems:
                           innerClass.print(5);
                       }
                   }
-            feedback: You will get a "cannot find symbol" as you don't need here to
-                put the outer class for initialisation
         header: Which following examples of inner class are correct ?
-        type: multiple_choice
-        name: ''
+        limit: 0
         multiple: true
+        name: ''
+        type: multiple_choice
 run_cmd: ''
 stored_submissions: 0
 submission_limit:
