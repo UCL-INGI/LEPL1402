@@ -41,7 +41,7 @@ limits:
     output: '2'
 name: '[Module 4] Observer design pattern'
 network_grading: false
-order: 39
+order: 40
 problems:
     student_client:
         header: 'Paste here the **body** of your ``Client`` class:'

@@ -1,4 +1,4 @@
-accessible: false
+accessible: /2019-11-08 23:59:00/2019-11-08 23:59:00
 author: Bastin J, Piron H
 categories:
 - module2
@@ -32,18 +32,18 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
 name: '[Module 2] Array Search'
 network_grading: false
-order: 14
+order: 17
 problems:
     student_code:
-        header: 'Paste here the **body** of your method :'
-        default: ''
         language: java
+        header: 'Paste here the **body** of your method :'
         type: code
         name: ''
+        default: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

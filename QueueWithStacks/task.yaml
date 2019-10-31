@@ -1,7 +1,7 @@
-accessible: false
+accessible: /2019-11-08 23:59:00/2019-11-08 23:59:00
 author: Yakoub J, Rucquoy A
 categories:
-- module3
+- module2
 context: |-
     In this short exercise we will ask you to implement a FIFO queue using two stacks (provided as two Java ``Stack<E>``). We need you to provide 4 methods :
     ``enqueue``, ``dequeue``, ``peek``, ``empty``. You can use the ``Stack`` API_ , but you can't instantiate a new ``Stack``. Use ``s1`` and ``s2`` from the MyQueue_ class below.
@@ -68,36 +68,36 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
-name: '[Module 3] Queue with two stacks'
+    time: '30'
+name: '[Module 2] Queue with two stacks'
 network_grading: false
-order: 34
+order: 26
 problems:
     enqueue:
         language: java
-        header: 'Paste here the **body** of your ``enqueue`` method:'
         default: ''
+        header: 'Paste here the **body** of your ``enqueue`` method:'
         name: ''
         type: code
     dequeue:
-        default: ''
         header: 'Paste here the **body** of your ``dequeue`` method:'
         name: ''
-        type: code
         language: java
-    peek:
+        type: code
         default: ''
-        name: ''
+    peek:
+        language: java
         header: 'Paste here the **body** of your ``peek`` method:'
         type: code
-        language: java
+        default: ''
+        name: ''
     empty:
+        language: java
+        name: ''
         type: code
         header: 'Paste here the **body** of your ``empty`` method:'
         default: ''
-        language: java
-        name: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

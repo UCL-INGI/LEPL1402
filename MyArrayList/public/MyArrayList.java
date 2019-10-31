@@ -34,6 +34,11 @@ public class MyArrayList<Item> implements Iterable<Item> {
     public int size(){
         return this.size;
     }
+    
+    
+    public Object [] getList(){
+        return this.list;
+    }
 
 
     @Override

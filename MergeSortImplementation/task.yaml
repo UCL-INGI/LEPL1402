@@ -1,4 +1,4 @@
-accessible: false
+accessible: /2019-11-08 23:59:00/2019-11-08 23:59:00
 author: ''
 categories:
 - module2
@@ -21,13 +21,14 @@ context: |
         public class MergeSort {
 
             /**
-             * Merge the array from lo to hi
+             * Pre-conditions: a[lo..mid] and a[mid+1..hi] are sorted
+             * Post-conditions: a[lo..hi] is sorted
              */
             private static void merge(int[] a, int[] aux, int lo, int mid, int hi) {
                 // TODO By Student
             }
             /**
-             *  Split the array and call merge
+             * Rearranges the array in ascending order, using the natural order
              */
             public static void sort(int[] a) {
                 // TODO By Student
@@ -46,31 +47,31 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
 name: '[Module 2] Merge Sort Implementation'
 network_grading: false
-order: 17
+order: 18
 problems:
     student_sort:
-        language: java
+        default: //
         header: Paste here the **body** of your method sort
-        type: code
+        language: java
         name: Sort
-        default: //
-    student_merge:
-        default: //
         type: code
+    student_merge:
+        name: Merge
+        type: code
+        default: //
         language: java
         header: 'Paste here the **body** of your method merge:'
-        name: Merge
     student_additionnal:
-        name: Additionnal method
-        default: ''
         optional: 'on'
         language: java
         type: code
+        default: ''
         header: 'Paste here your additionnal method, **including their signature**:'
+        name: Additionnal method
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

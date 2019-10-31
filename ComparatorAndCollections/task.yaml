@@ -1,0 +1,85 @@
+accessible: /2019-10-16 23:55:55/2019-10-16 23:55:55
+author: Jacques Yakoub
+categories:
+- module1
+context: |-
+    In this task, the challenge is to sort a custom class **Person** described as :
+
+    .. code-block:: java
+
+        public class Person {
+
+            public String name;
+            public int age;
+
+            public Person(String name, int age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            @Override
+            public String toString() {
+                return name + " " + age;
+            }
+        }
+
+    Your task is to implement the function ``public static void sortPerson(ArrayList<Person> persons)`` that should sort an ArrayList of Persons as follows :
+
+    - sort in the lexicographical order of their name
+    - If two persons have the same name, they should be classified according to their age (ascending order).
+
+    In order to succeed this task (whose solution is contained on 8 lines), we invite you to discover the following JavaDoc resource : Collections_ (method sort)
+
+    .. _Collections: https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html
+
+    Given this example :
+
+    .. code-block:: java
+
+        public class Main
+
+          public static void main(String[] args) {
+            ArrayList<Person> persons = new ArrayList<>();
+            persons.add(new Person("Guillaume",20));
+            persons.add(new Person("John",50));
+            persons.add(new Person("Guillaume",10));
+            persons.add(new Person("John",10));
+            persons.add(new Person("Luc",5));
+
+            sortPerson(persons);
+            System.out.println(persons);
+
+          }
+       }
+
+    You should get this on the output :
+
+    .. code-block:: java
+
+       [Guillaume 10, Guillaume 20, John 10, John 20, Luc 5]
+environment: pyjavacpp
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    time: '30'
+    memory: '100'
+name: '[Module 1] Comparator and Collections'
+network_grading: false
+order: 12
+problems:
+    student_sort:
+        default: ''
+        language: java
+        header: 'Paste here the **body** of your ``public static void sortPerson(ArrayList<Person>
+            persons)`` method. '
+        name: ''
+        type: code
+run_cmd: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

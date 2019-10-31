@@ -37,38 +37,38 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
-name: '[Module 2] Code accuracy - Practical exercise'
+    time: '30'
+name: '[Module 2] Quick Sort - Implem exercise'
 network_grading: false
-order: 21
+order: 60
 problems:
     exch_code:
-        type: code
+        default: ''
         header: 'Paste here the **body** of your **swap(Object[] a, int i, int j)**
             method:'
         language: java
         name: ''
-        default: ''
+        type: code
     partition_code:
+        name: ''
         header: 'Paste here the **body** of your **partition(Comparable[] a, int left,
             int right)** method:'
-        type: code
-        name: ''
-        language: java
         default: ''
-    sort_code:
-        type: code
         language: java
-        name: ''
+        type: code
+    sort_code:
+        language: java
+        type: code
         default: ''
         header: 'Paste here the **body** of your **sort(Comparable[] a)** method:'
+        name: ''
     sort_code2:
-        language: java
         header: 'Paste here the **body** of your **sort(Comparable[] a, int left,
             int right)** method:'
-        name: ''
         type: code
+        language: java
+        name: ''
         default: ''
 run_cmd: ''
 stored_submissions: 0

@@ -67,7 +67,7 @@ limits:
     output: '2'
 name: '[Module 4] Factory design pattern - Level generator'
 network_grading: false
-order: 38
+order: 39
 problems:
     student_factory:
         language: java

@@ -1,7 +1,7 @@
-accessible: false
+accessible: /2019-11-08 23:59:00/2019-11-08 23:59:00
 author: Bastin J, Piron H
 categories:
-- module2
+- module3
 context: |
     The three first questions will be time complexity questions about trees, the trees we are talking about is a complete ordered binary tree. Like the example you see here under:
 
@@ -19,44 +19,44 @@ file: ''
 groups: false
 input_random: '0'
 limits:
-    output: '2'
     memory: '100'
+    output: '2'
     time: '30'
-name: '[Module 2] Time Complexity : harder MCQ'
+name: '[Module 3] Time Complexity MCQ (trees, tsp, sort, lists)'
 network_grading: false
-order: 12
+order: 31
 problems:
     mcq:
-        header: In what complexity can you determine the depth of a tree? (Choose
-            the most precise answer)
         choices:
         -   text: :math:`\Theta(n)`
         -   text: :math:`\mathcal{O}(n)`
         -   text: :math:`\mathcal{O}(nlog(n))`
-        -   text: :math:`\Theta(log(n))`
-            valid: true
+        -   valid: true
             feedback: GOOD JOB
-        name: Depth
+            text: :math:`\Theta(log(n))`
+        header: In what complexity can you determine the depth of a tree? (Choose
+            the most precise answer)
         type: multiple_choice
+        name: Depth
         limit: 0
     mcq2:
-        name: Find
         choices:
         -   text: :math:`\mathcal{O}(n)`
         -   text: :math:`\Omega(log(n))`
-        -   text: :math:`\mathcal{O}(log(n))`
-            valid: true
+        -   valid: true
+            text: :math:`\mathcal{O}(log(n))`
         -   text: :math:`\Theta(log(n))`
         -   text: :math:`\Omega(1)`
             valid: true
         -   text: :math:`\Theta(n)`
+        type: multiple_choice
         multiple: true
+        name: Find
+        limit: 0
         header: 'The tree is still a complete ordered binary tree, in what complexity(ies)
             can you find an element? '
-        type: multiple_choice
-        limit: 0
     mcq3:
-        limit: 0
+        type: multiple_choice
         choices:
         -   text: :math:`\Theta(n)`
             valid: true
@@ -64,21 +64,28 @@ problems:
         -   text: :math:`\mathcal{O}(nlog(n))`
         -   text: :math:`\Theta(n^2)`
         header: 'What is the complexity of an in-order traversal? '
-        type: multiple_choice
         name: Traversal
+        limit: 0
     mcq4:
+        header: What is the time complexity of finding the maximum in a sorted array?
+            (Where :math:`n` is the size of the array)
         choices:
-        -   valid: true
-            text: :math:`\Theta(1)`
+        -   text: :math:`\Theta(1)`
+            valid: true
         -   text: :math:`\Theta(n)`
         -   text: :math:`\mathcal{O}(1)`
         -   text: :math:`\mathcal{O}(n)`
-        header: What is the time complexity of finding the maximum in a sorted array?
-            (Where :math:`n` is the size of the array)
-        type: multiple_choice
         name: Sorted Array
+        type: multiple_choice
         limit: 0
     mcq5:
+        choices:
+        -   valid: true
+            text: :math:`\Theta(n)`
+        -   text: :math:`\Theta(n^2)`
+        -   text: :math:`\mathcal{O}(n)`
+        -   text: :math:`\mathcal{O}(1)`
+        name: Simple linked list
         header: |-
             Consider a simple linked list like the one you see on the image, we only have a reference to the head of the list.  What is the complexity of finding the size :math:`n` of the list
 
@@ -89,18 +96,9 @@ problems:
                :width: 1920px
 
             \
-        type: multiple_choice
-        choices:
-        -   text: :math:`\Theta(n)`
-            valid: true
-        -   text: :math:`\Theta(n^2)`
-        -   text: :math:`\mathcal{O}(n)`
-        -   text: :math:`\mathcal{O}(1)`
-        name: Simple linked list
         limit: 0
-    mcq6:
         type: multiple_choice
-        name: ''
+    mcq6:
         choices:
         -   valid: true
             text: :math:`\Theta(n)`
@@ -118,16 +116,17 @@ problems:
 
             \
 
+        type: multiple_choice
         limit: 0
+        name: ''
     mcq7:
         choices:
-        -   text: :math:`\Theta(1)`
-            valid: true
+        -   valid: true
+            text: :math:`\Theta(1)`
         -   text: :math:`\Theta(n)`
         -   text: :math:`\mathcal{O}(1)`
         -   text: :math:`\mathcal{O}(n)`
         type: multiple_choice
-        name: ''
         header: |
             Consider the following ordered simple linked list, we only have a reference to the head of the list. What is the complexity of finding the **minimum** of the list? (Where :math:`n` is the size)
 
@@ -138,6 +137,7 @@ problems:
                :width: 1920px
 
             \
+        name: ''
         limit: 0
     mcq8:
         header: |-
@@ -168,27 +168,27 @@ problems:
                 }
 
             Give the time complexity(ies) of ``replaceValue`` knowing that the linked list has a size of :math:`n`.
+        name: ''
         choices:
         -   text: :math:`\mathcal{O}(1)`
         -   text: :math:`\Theta(1)`
         -   text: :math:`\Theta(n)`
-        -   text: :math:`\mathcal{O}(n)`
-            valid: true
+        -   valid: true
+            text: :math:`\mathcal{O}(n)`
         -   text: :math:`\Omega(n)`
         -   valid: true
             text: :math:`\Omega(1)`
-        limit: 0
         type: multiple_choice
         multiple: true
-        name: ''
+        limit: 0
     mcq9:
         choices:
         -   text: :math:`\mathcal{O}(n^3)`
         -   text: :math:`\mathcal{O}(2^n)`
         -   text: :math:`\mathcal{O}(n^2)`
         -   text: :math:`\mathcal{O}(3^n)`
-        -   text: :math:`\mathcal{O}(n!)`
-            valid: true
+        -   valid: true
+            text: :math:`\mathcal{O}(n!)`
         header: |-
             Here is the *Travelling Salesman Problem* : "Given a list of cities and the distance between each pair of cities, what is the shortest path that travels each city and returns to the origin city?".
 
@@ -215,8 +215,8 @@ problems:
             In your opinion, what is the time complexity of the solution described above? Consider :math:`n` is the number of city
 
             .. _graph: https://en.wikipedia.org/wiki/Graph_theory
-        type: multiple_choice
         name: Travelling Salesman Problem
+        type: multiple_choice
         limit: 0
 run_cmd: ''
 stored_submissions: 0

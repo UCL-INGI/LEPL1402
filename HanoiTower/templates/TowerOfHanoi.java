@@ -44,7 +44,8 @@ public class TowerOfHanoi{
     }
 
     public static void towerOfHanoi(int n, Stack<Disk> a, Stack<Disk> b, Stack<Disk> c) {
-        counter++;
+        if(n != 0)
+            counter++;
         checkRules(a,b,c);
         @@studentCode@@
     }

@@ -10,30 +10,29 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
-name: '[Module 2] Code accuracy - Pre, Post conditions and Invariants'
+    time: '30'
+name: '[Module 2] quick sort code accuracy - Pre, Post conditions and Invariants'
 network_grading: false
-order: 20
+order: 59
 problems:
     mcq1:
         choices:
-        -   text: ':math: `@I\ left + 1 <= k <= right`'
-            valid: true
-        -   text: :math:`@post\ \forall k\ |\ left <= k <= pivot,\ a[k] <= a[pivot]`
+        -   valid: true
+            text: ':math: `@I\ left + 1 <= k <= right`'
+        -   valid: true
+            text: :math:`@post\ \forall k\ |\ left <= k <= pivot,\ a[k] <= a[pivot]`
+        -   text: :math:`@post\ \forall k\ |\ pivot < k <= right,\ a[pivot] < a[k]`
             valid: true
         -   valid: true
-            text: :math:`@post\ \forall k\ |\ pivot < k <= right,\ a[pivot] < a[k]`
-        -   text: :math:`@pre\ left <= right`
-            valid: true
+            text: :math:`@pre\ left <= right`
         -   text: :math:`@pre\ left < right`
         -   text: :math:`@post\ \forall k\ |\ left <= k <= pivot,\ a[k] < a[pivot]`
         -   text: :math:`@post\ \forall k\ |\ pivot < k <= right,\ a[pivot] <= a[k]`
         -   text: :math:`@I\ left + 1 <= k < right`
-        multiple: true
         name: ''
-        limit: 0
         type: multiple_choice
+        multiple: true
         header: |4-
 
             What must be the pre (@pre) / post (@post) conditions and loop invariant (@I) for the given partition function of QuickSort_ ?
@@ -56,29 +55,30 @@ problems:
                 }
 
             .. _QuickSort: https://en.wikipedia.org/wiki/Quicksort
+        limit: 0
     mcq2:
+        type: multiple_choice
+        choices:
+        -   text: A loop invariant is a condition that is always true
+            feedback: Only needed to be true immediately before and immediately after
+                each iteration of a loop, not through an iteration
+        -   feedback: Nothing is said about its truth of falsity part at this time
+            text: A loop invariant is a condition that must be true through an iteration
+        -   valid: true
+            text: A loop invariant is a condition that is necessarily true immediately
+                before and immediately after each iteration of a loop
+        multiple: true
+        limit: 0
+        name: ''
         header: |4-
 
             Which statment(s) about loop invariant is/are true ?
-        choices:
-        -   feedback: Only needed to be true immediately before and immediately after
-                each iteration of a loop, not through an iteration
-            text: A loop invariant is a condition that is always true
-        -   text: A loop invariant is a condition that must be true through an iteration
-            feedback: Nothing is said about its truth of falsity part at this time
-        -   text: A loop invariant is a condition that is necessarily true immediately
-                before and immediately after each iteration of a loop
-            valid: true
-        name: ''
-        multiple: true
-        limit: 0
-        type: multiple_choice
     mcq3:
+        type: match
+        answer: assert
         header: Which Java keyword can you use to verify assumptions inside your code
             ?
         name: ''
-        answer: assert
-        type: match
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

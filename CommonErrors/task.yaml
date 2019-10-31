@@ -1,4 +1,4 @@
-accessible: /2019-10-02 23:55:55/2019-10-02 23:55:55
+accessible: /2019-10-16 23:55:55/2019-10-16 23:55:55
 author: Yakoub J, Rucquoy A
 categories:
 - module1
@@ -9,30 +9,30 @@ file: ''
 groups: false
 input_random: '0'
 limits:
+    time: '30'
     output: '2'
     memory: '100'
-    time: '30'
 name: '[Module 1] Game of 9 common Java programming errors'
 network_grading: false
 order: 6
 problems:
     mcq1:
         choices:
-        -   valid: true
-            text: |-
+        -   text: |-
                 .. code-block::
 
                   i1 is not equal to i2
                   i3 is equal to i4
                   s1 is not equal to s2
-        -   feedback: Java cached only some Integers (from -127 to 127) references
-                so == will returns false whereas .equals() give true
-            text: |-
+            valid: true
+        -   text: |-
                 .. code-block::
 
                   i1 is equal to i2
                   i3 is equal to i4
                   s1 is not equal to s2
+            feedback: Java cached only some Integers (from -127 to 127) references
+                so == will returns false whereas .equals() give true
         -   feedback: s1 is a String constant which is stored in memory inside the
                 java String pool, s2 is a String object which is stored in the heap
                 but not inside the pool. If you compare them with ==, you will always
@@ -45,9 +45,10 @@ problems:
                   i1 is not equal to i2
                   i3 is equal to i4
                   s1 is equal to s2
-        name: Confusing object comparison (== instead of .equals)
+        limit: 0
         success_message: Prefer to use i1.equals(i2) or s1.equals(s2) , which compares
             the values and not == that only check the references.
+        type: multiple_choice
         header: |4-
 
             Suppose you run the following code, what will you on STDOUT ?
@@ -77,19 +78,18 @@ problems:
                   System.out.println("s1 is not equal to s2");
                 }
               }
-        limit: 0
-        type: multiple_choice
+        name: Confusing object comparison (== instead of .equals)
     mcq2:
-        name: Confusing about 0-based or 1-based index
+        limit: 0
+        header: 'Arrays start at :'
         choices:
-        -   valid: true
-            text: '0'
+        -   text: '0'
+            valid: true
         -   text: '1'
             feedback: Java is not an 1-based array index language like MathLab or
                 R
-        header: 'Arrays start at :'
+        name: Confusing about 0-based or 1-based index
         type: multiple_choice
-        limit: 0
     mcq3:
         choices:
         -   text: This code throw a ConcurrentModificationException but only on multi
@@ -98,7 +98,6 @@ problems:
                 Even in single thread programs, it causes the iteration to behalve unpredictably as the content of the list get changed
         -   valid: true
             text: This code throw a ConcurrentModificationException
-        limit: 0
         header: |-
             What is the problem in this code ? (documentation about thread_ )
 
@@ -115,11 +114,12 @@ problems:
               }
 
             .. _Thread: https://en.wikipedia.org/wiki/Thread_(computing)#Multithreading
-        type: multiple_choice
+        limit: 0
         name: Modifying a collection while iterating it
+        type: multiple_choice
     mcq4:
         choices:
-        -   valid: true
+        -   feedback: You identified the NullPointerException
             text: |-
                 .. code-block:: java
 
@@ -127,10 +127,8 @@ problems:
                   if (ptr.equals("EPL")) {
                     System.out.println("SAME");
                   }
-            feedback: You identified the NullPointerException
-        -   feedback: You identified the "variable s might not have been initialized
-                error"
-            text: |-
+            valid: true
+        -   text: |-
                 .. code-block:: java
 
                   String s;
@@ -138,7 +136,11 @@ problems:
                     System.out.println("SAME");
                   }
             valid: true
-        -   text: |-
+            feedback: You identified the "variable s might not have been initialized
+                error"
+        -   feedback: 'There is not always a problem here : it depends on the random
+                boolean value'
+            text: |-
                 .. code-block:: java
 
                   // a random boolean
@@ -149,13 +151,11 @@ problems:
                   if (s.equals("EPL")) {
                     System.out.println("SAME");
                   }
-            feedback: 'There is not always a problem here : it depends on the random
-                boolean value'
-        header: Which code sample(s) **always** produce a problem ?
-        multiple: true
-        type: multiple_choice
-        name: Confusing about object reference
         limit: 0
+        type: multiple_choice
+        multiple: true
+        header: Which code sample(s) **always** produce a problem ?
+        name: Confusing about object reference
     mcq5:
         header: |4-
 
@@ -168,7 +168,6 @@ problems:
                 Enumeration enumeration = sampleMap.elements();
                 enumeration.nextElement();
               }
-        type: multiple_choice
         choices:
         -   text: 'A NoSuchElementException will occur as we have no element in the
                 hashtable. '
@@ -177,16 +176,12 @@ problems:
                 before any call of enumeration.nextElement();
         -   text: A RuntimeException will occur as we have no element in the hashtable.
             feedback: NoSuchElementException extends RuntimeException
-        name: Enumeration
-        limit: 0
-    mcq6:
-        multiple: true
         type: multiple_choice
-        name: Forgetting to free resources
+        limit: 0
+        name: Enumeration
+    mcq6:
         choices:
-        -   feedback: Not safe as it is still possible to leak the file ressource
-                in the catch part
-            text: |-
+        -   text: |-
                 .. code-block:: java
 
                   PrintWriter writer = null;
@@ -198,9 +193,9 @@ problems:
                   } catch (Exception err) {
                     err.printStackTrace();
                   }
-        -   feedback: The try-catch-finally works to deal with this problem but it
-                takes many lines, no ?
-            valid: true
+            feedback: Not safe as it is still possible to leak the file ressource
+                in the catch part
+        -   valid: true
             text: |-
                 .. code-block:: java
 
@@ -216,9 +211,11 @@ problems:
                       writer.close();
                     }
                   }
-        -   feedback: Always prefer the try-with-resources notation as it takes much
+            feedback: The try-catch-finally works to deal with this problem but it
+                takes many lines, no ?
+        -   valid: true
+            feedback: Always prefer the try-with-resources notation as it takes much
                 less code lines
-            valid: true
             text: |-
                 .. code-block:: java
 
@@ -227,6 +224,7 @@ problems:
                   } catch(Exception err) {
                     err.printStackTrace();
                   }
+        multiple: true
         header: |4-
 
             Select correct code sample(s) that does the same thing that this unsafe code sample :
@@ -241,8 +239,11 @@ problems:
               } catch (Exception err) {
                 err.printStackTrace();
               }
+        type: multiple_choice
         limit: 0
+        name: Forgetting to free resources
     mcq7:
+        name: Static / Not Static context on fields / methods call
         choices:
         -   text: No as we get the following compiler error "non-static variable count
                 cannot be referenced from a static context"
@@ -250,8 +251,7 @@ problems:
         -   text: 'Yes'
             feedback: Non-static variable count cannot be referenced from a static
                 context
-        type: multiple_choice
-        name: Static / Not Static context on fields / methods call
+        limit: 0
         header: |-
             Does it work ?
 
@@ -263,8 +263,33 @@ problems:
                  count++;
                }
              }
-        limit: 0
+        type: multiple_choice
     mcq8:
+        choices:
+        -   valid: true
+            text: |-
+                .. code-block::
+
+                  After swapping call, MEAN OF LIFE is equal to 42
+                  Student Noel has the grade 10.0
+                  Student Noel has the grade 0.0
+        -   feedback: Even for primitives (like int), the swap method will not work
+            text: |-
+                .. code-block::
+
+                  After swapping call, MEAN OF LIFE is equal to 2048
+                  Student Noel has the grade 10.0
+                  Student Noel has the grade 0.0
+        -   text: |-
+                .. code-block::
+
+                  After swapping call, MEAN OF LIFE is equal to 42
+                  Student Noel has the grade 40.0
+                  Student Noel has the grade 0.0
+            feedback: Just because we first change the value of the reference to the
+                object in setGrade(), futher operations will be without effect
+        type: multiple_choice
+        name: Pass by value or by reference
         header: |4-
 
             Can you correctly predict what would be the STDOUT of the following code ?
@@ -332,42 +357,20 @@ problems:
                   System.out.println(s3);
                 }
               }
-        choices:
-        -   text: |-
-                .. code-block::
-
-                  After swapping call, MEAN OF LIFE is equal to 42
-                  Student Noel has the grade 10.0
-                  Student Noel has the grade 0.0
-            valid: true
-        -   feedback: Even for primitives (like int), the swap method will not work
-            text: |-
-                .. code-block::
-
-                  After swapping call, MEAN OF LIFE is equal to 2048
-                  Student Noel has the grade 10.0
-                  Student Noel has the grade 0.0
-        -   text: |-
-                .. code-block::
-
-                  After swapping call, MEAN OF LIFE is equal to 42
-                  Student Noel has the grade 40.0
-                  Student Noel has the grade 0.0
-            feedback: Just because we first change the value of the reference to the
-                object in setGrade(), futher operations will be without effect
         limit: 0
-        type: multiple_choice
-        name: Pass by value or by reference
     mcq9:
+        error_message: Don't forget to select all the answers
         choices:
-        -   valid: true
-            text: 'Missing a semicolon after v * 3.14 : Each statement must finish
+        -   text: 'Missing a semicolon after v * 3.14 : Each statement must finish
                 by a semicolon'
+            valid: true
         -   text: Missing a double modifier in the method declaration of computeSomething
             valid: true
-        -   text: You can't multiply a floating point number with an integer in Java.
-            feedback: You can multiply a floating point number with an integer but
+        -   feedback: You can multiply a floating point number with an integer but
                 it's not a good habit
+            text: You can't multiply a floating point number with an integer in Java.
+        name: Forgetting something ...
+        limit: 0
         header: |-
             What are the problems here ?
 
@@ -378,11 +381,8 @@ problems:
                   return v * 3.14
                 }
               }
-        error_message: Don't forget to select all the answers
         multiple: true
         type: multiple_choice
-        name: Forgetting something ...
-        limit: 0
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

@@ -87,7 +87,7 @@ limits:
     output: '2'
 name: '[Module 5] Functional list implementation'
 network_grading: true
-order: 45
+order: 46
 problems:
     student_length:
         type: code

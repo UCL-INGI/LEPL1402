@@ -1,4 +1,4 @@
-accessible: /2019-09-25 23:55:55/2019-09-25 23:55:55
+accessible: /2019-10-09 23:55:55/2019-10-09 23:55:55
 author: Yakoub J, Rucquoy A
 categories:
 - module1
@@ -28,7 +28,7 @@ context: |-
         public int[][] transpose(int[][] matrix);
 
         // return the product of : matrix1 X matrix2
-        // (row1 X column1) X (row2 X column2) doesn't meet that row1 and column2 are the same
+        // (row1 X column1) X (row2 X column2) (row1 and column2 not necessarily the same but regular matrices)
         public int[][] product(int[][] matrix1, int[][] matrix2);
         }
 
@@ -70,27 +70,27 @@ network_grading: false
 order: 5
 problems:
     build_from:
-        header: 'Paste the body of the ``buildFrom`` method:'
+        header: 'Paste the **body** of the ``buildFrom`` method:'
         language: java
         type: code
         name: ''
         default: ''
     sum:
         language: java
-        header: 'Paste the body of the ``sum`` method:'
+        header: 'Paste the **body** of the ``sum`` method:'
         default: ''
         type: code
         name: ''
     transpose:
         language: java
-        header: 'Paste the body of the ``transpose`` method:'
+        header: 'Paste the **body** of the ``transpose`` method:'
         default: ''
         type: code
         name: ''
     product:
         name: ''
         language: java
-        header: 'Paste the body of the ``product`` method:'
+        header: 'Paste the **body** of the ``product`` method:'
         default: ''
         type: code
 run_cmd: ''

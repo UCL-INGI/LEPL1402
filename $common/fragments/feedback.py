@@ -154,3 +154,4 @@ def handle_verification(feedback_settings):
         feedback.set_global_result("failed")
         feedback.set_grade(0.0)
         sys.exit(0)
+

@@ -1,17 +1,18 @@
-accessible: false
+accessible: /2019-11-08 23:59:00/2019-11-08 23:59:00
 author: Yakoub J, Rucquoy A
 categories:
-- module3
+- module2
 context: |-
     In this short exercise we will ask you to implement a LIFO stack using a queue (provided as a Java ``LinkedList<E>``). We need you to provide 4 methods :
-    ``push``, ``pop``, ``peek``, ``empty``. You can't use the ``LinkedList`` API expect for the methods listed below:
+    ``push``, ``pop``, ``peek``, ``empty``. You can't use the ``LinkedList`` API except for the methods listed below:
 
     - ``add``
     - ``remove``
     - ``peek``
     - ``isEmpty``
+    - ``size``
 
-    (You can find the file here_).
+    (You can find the file here_). The challenge of this exercise is to use **only** the queue that is provided as instance variable: ``queue``. In other words, you **can't** instantiate a new ``LinkedList`` anywhere.
 
     You can download the `IntelliJ Project`_ that contains few tests to help you.
 
@@ -68,35 +69,35 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
-name: '[Module 3] Stack with a Queue'
+    time: '30'
+name: '[Module 2] Stack with a Queue'
 network_grading: false
-order: 33
+order: 24
 problems:
     student_add:
-        header: Paste here the **body** of your method ``push()``
-        default: ''
-        type: code
         name: ''
-        language: java
-    student_remove:
+        header: Paste here the **body** of your method ``push()``
         language: java
         type: code
         default: ''
+    student_remove:
         header: Paste here the **body** of your method ``pop()``
+        default: ''
+        language: java
+        type: code
         name: ''
     student_peek:
+        default: ''
         language: java
-        type: code
         name: ''
         header: Paste here the **body** of your method ``peek()``
-        default: ''
+        type: code
     student_isEmpty:
+        header: Paste here the **body** of your method ``empty()``
         name: ''
         language: java
         default: ''
-        header: Paste here the **body** of your method ``empty()``
         type: code
 run_cmd: ''
 stored_submissions: 0

@@ -1,7 +1,7 @@
-accessible: false
+accessible: /2019-11-08 23:59:00/2019-11-08 23:59:00
 author: Yakoub J, Rucquoy A
 categories:
-- module2
+- module3
 context: |-
     In this task, we will ask you to implement the mehtod ``equals(Object o)`` for both classes Tree_ and Node_. Two instances of ``Tree`` are considered
     equal when they both have the exact same structure (same number of nodes, each node at the same place in **both** trees) and when every node has the same ``val``.
@@ -57,24 +57,24 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
-name: '[Module 2] Binary trees - equals'
+    time: '30'
+name: '[Module 3] Binary trees - equals'
 network_grading: false
-order: 22
+order: 28
 problems:
     student_eqtree:
+        type: code
+        language: java
+        name: ''
+        default: ''
         header: 'Paste here the **body** of your ``equals`` method from class ``Tree``:'
-        name: ''
-        language: java
-        default: ''
-        type: code
     student_eqnode:
-        name: ''
-        type: code
         header: 'Paste here the **body** of your ``equals`` method from class ``Node``:'
+        type: code
         default: ''
         language: java
+        name: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

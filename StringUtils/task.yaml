@@ -1,4 +1,4 @@
-accessible: /2019-10-02 23:55:55/2019-10-02 23:55:55
+accessible: /2019-10-16 23:55:55/2019-10-16 23:55:55
 author: Yakoub J, Rucquoy A
 categories:
 - module1
@@ -73,40 +73,40 @@ file: ''
 groups: false
 input_random: '0'
 limits:
-    memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
+    memory: '100'
 name: '[Module 1] Strings'
 network_grading: false
 order: 8
 problems:
     student_split:
+        name: ''
+        default: ''
+        language: java
         header: 'Paste here the **body** of your ``split`` method. Note that you can''t
             use ``split`` from ``String`` API :'
         type: code
-        default: ''
-        language: java
-        name: ''
     student_indexof:
-        language: java
-        type: code
+        name: ''
         header: 'Paste here the **body** of your ``indexOf`` method. Note that you
             can''t use ``indexOf`` from ``String`` API :'
-        default: ''
-        name: ''
-    student_tolowercase:
-        default: ''
         language: java
         type: code
-        name: ''
+        default: ''
+    student_tolowercase:
+        language: java
+        type: code
         header: 'Paste here the **body** of your ``toLowerCase`` method. Note that
             you can''t use ``toLowerCase`` from ``String`` API :'
-    student_palindrome:
-        language: java
-        header: 'Paste here the **body** of your ``palindrome`` method :'
         name: ''
         default: ''
+    student_palindrome:
+        header: 'Paste here the **body** of your ``palindrome`` method :'
+        default: ''
+        name: ''
         type: code
+        language: java
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

@@ -1,4 +1,4 @@
-accessible: /2019-09-25 23:55:55/2019-09-25 23:55:55
+accessible: /2019-10-09 23:55:55/2019-10-09 23:55:55
 author: Bastin J, Piron H
 categories:
 - module1
@@ -47,8 +47,7 @@ network_grading: false
 order: 3
 problems:
     studentDivide:
-        default: ''
-        type: code
+        name: Divide implementation
         header: |-
             Paste here the **body** of the divide method
 
@@ -58,11 +57,10 @@ problems:
                     //Your code here
                 }
         language: java
-        name: Divide implementation
-    studentCanDivide:
-        language: java
-        type: code
         default: ''
+        type: code
+    studentCanDivide:
+        name: CanDivide Implementation
         header: |-
             Paste here the **body** of the canDivide method
 
@@ -71,10 +69,13 @@ problems:
                 public static boolean canDivide(int i1, int i2){
                     //Your code here
                 }
-        name: CanDivide Implementation
-    studentBetterDivide:
-        name: Better Divide Implementation
         language: java
+        type: code
+        default: ''
+    studentBetterDivide:
+        type: code
+        default: ''
+        name: Better Divide Implementation
         header: |-
             Paste here the **body** of the betterDivide method
 
@@ -83,12 +84,10 @@ problems:
                 public static double betterDivide(int i1, int i2) throws ArithmeticException{
                     //Your code here
                 }
-        type: code
-        default: ''
+        language: java
     studentBetterCanDivide:
-        name: Can Better Divide Implementation
-        default: ''
         type: code
+        name: Can Better Divide Implementation
         header: |-
             Paste here the **body** of the betterCanDivide method
 
@@ -98,6 +97,7 @@ problems:
                     //Your code here
                 }
         language: java
+        default: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

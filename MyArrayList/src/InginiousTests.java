@@ -68,14 +68,16 @@ public class InginiousTests {
     @GradeFeedback(onFail = true, message = "You should not leave \"blanks\" in your array when you remove an element")
     public void testRemove(){
 
-        MyArrayList<Integer> simple = new MyArrayList<Integer>(3);
+        MyArrayList<Integer> simple = new MyArrayList<Integer>(5);
         simple.enqueue(1);
         simple.enqueue(2);
         simple.enqueue(3);
+        simple.enqueue(4);
+        simple.enqueue(5);
         Integer res = simple.remove(1); // removes "2"
 
         assertEquals(2, (int)res);
-        assertNotEquals(simple.remove(1), res);
+        assertEquals((int)simple.remove(1), 3);
 
         MyArrayList<Integer> list = new MyArrayList<Integer>(20);
         Integer [] elements = Stream.generate(rng).limit(10).toArray(Integer[]::new);
