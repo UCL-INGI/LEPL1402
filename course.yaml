@@ -1,0 +1,57 @@
+accessible: true
+name: '[LEPL1402] Informatique 2'
+description: ''
+admins:
+- gderval
+- pschaus
+- jyakoub
+- rucquoya
+- raminsadre
+- pironhe
+- bastinjul
+- ogoletti
+- aldubray
+- louisna
+tutors: []
+groups_student_choice: false
+use_classrooms: true
+allow_unregister: true
+allow_preview: false
+registration: true
+registration_password: null
+registration_ac: null
+registration_ac_list: []
+is_lti: false
+lti_keys: {}
+lti_send_back_grade: false
+tags:
+    module1:
+        type: 2
+        name: Module 1
+        visible: true
+        description: ''
+    module2:
+        type: 2
+        visible: true
+        description: ''
+        name: Module 2
+    module3:
+        visible: true
+        type: 2
+        description: ''
+        name: Module 3
+    module4:
+        type: 2
+        visible: true
+        name: Module 4
+        description: ''
+    module5:
+        type: 2
+        visible: true
+        name: Module 5
+        description: ''
+    module6:
+        description: ''
+        visible: true
+        type: 2
+        name: Module 6
