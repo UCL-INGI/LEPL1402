@@ -17,13 +17,18 @@ public class StudentTestRunner {
         // Give all the classes implementing binarySearch as arguments.
 
         boolean flag = false;
+        boolean fp = false; // if the student test suite yields false positive
         ExerciseFlavour ex = new Exercise();
         int nDefinitions = 0;
+        int nBugs = 0;
+        int nBugsFound = 0;
 
         try {
             //The number of different implementations of binarySearch you want to submit the student test suite to.
             Field flavours = ex.getClass().getField("nImplems");
             nDefinitions = flavours.getInt(ex);
+            Field bugs = ex.getClass().getField("nBugs");
+            nBugs = bugs.getInt(ex);
         } catch(NoSuchFieldException | IllegalAccessException e){
             System.err.println(e.getMessage());
             System.exit(1); // No point on continuing if there's nothing to run the student tests on
@@ -63,14 +68,20 @@ public class StudentTestRunner {
             // If the flavour has a bug and the students' suite fails, then OK.
             // Else, KO.
 
+            if(!result.wasSuccessful() && !correctness) nBugsFound++; // the std correctly found a bug
+            if(!result.wasSuccessful() && correctness) fp = true; // the std code yield a false positive
+
         }
+
+        System.out.println(nBugsFound+"\t"+nBugs+"\t"+(fp ? "FP" : "NFP"));
+        // NBUGSFOUND   NBUGS   FP or NFP
 
         // If everything went well (flag = false) we exit with code 0
         // If smthing went wrong, exit with 1.
         if(!flag) {
             System.exit(0);
         } else {
-            System.exit(3);
+            System.exit(1);
         }
 
     }
