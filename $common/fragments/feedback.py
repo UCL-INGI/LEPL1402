@@ -1,4 +1,5 @@
 import sys
+import importlib.util
 
 from inginious import feedback, rst
 
@@ -131,6 +132,28 @@ def result_feedback(result, feedback_settings):
         feedback_result(score_ratio, feedback_settings)
 
 
+# If we want to use another script for that part ( rather that result_feedback )
+def custom_result_feedback(result, feedback_settings):
+    # Dynamically load modules we need
+    # Credits to https://stackoverflow.com/a/67692/6149867
+    # And for the explanation : http://www.blog.pythonlibrary.org/2016/05/27/python-201-an-intro-to-importlib/
+    def dynamically_load_module(module, path):
+        spec = importlib.util.spec_from_file_location(module, path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+
+    try:
+        custom_feedback_path = str(CWD / feedback_settings["custom_feedback_script"])
+        custom_feedback_module = dynamically_load_module("custom_feedback_module", custom_feedback_path)
+        custom_feedback_module.main(result, feedback_settings)
+    except (RuntimeError, ImportError):
+        feedback.set_global_feedback("A technical problem has occurred in custom feedback script: please report it !")
+        feedback.set_global_result("failed")
+        feedback.set_grade(0.0)
+        sys.exit(0)
+
+
 # Decision function to decide if the student pass the required level for this task
 def feedback_result(score_ratio, feedback_settings):
     result = "success" if score_ratio >= feedback_settings["quorum"] else "failed"
@@ -154,4 +177,3 @@ def handle_verification(feedback_settings):
         feedback.set_global_result("failed")
         feedback.set_grade(0.0)
         sys.exit(0)
-
