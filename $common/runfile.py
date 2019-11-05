@@ -113,7 +113,11 @@ def main():
     #####################################
     #   Show and handle results         #
     #####################################
-    feedback.result_feedback(result, feedback_settings)
+
+    # Must we use a custom python script for that part ? If not, use the classical script ( feedback.result_feedback )
+    feedback_fct = feedback.result_feedback \
+        if not feedback_settings["custom_feedback_script"] else feedback.custom_result_feedback
+    feedback_fct(result, feedback_settings)
 
     #####################################
     #   Prepare archive for JPlag       #
