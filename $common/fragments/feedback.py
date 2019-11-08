@@ -140,7 +140,8 @@ def result_feedback(result, feedback_settings):
         try:
             strategy = FEEDBACK_STRATEGIES.get(feedback_settings["feedback_kind"])
             strategy(result, feedback_settings, msg)
-        except (KeyError, RuntimeError):
+        except (KeyError, RuntimeError) as err:
+            print(err)  # Useful for us to debug what could be the problem
             feedback.set_global_result("failed")
             msg = "A technical problem has occurred : " \
                   "Couldn't find / Runtime error using the feedback strategy : {}" \
