@@ -76,17 +76,21 @@ for folder in task_folders:
                         ):
                             problem += text_with_color("Unknown value inside coverage_stats", 196) + "\n"
 
-                if "prohibited" in result:
+                for statement_check in ["prohibited", "required"]:
 
-                    if not isinstance(result["prohibited"], dict):
-                        problem += text_with_color("prohibited should be a dictionary (String, List/Sequence) ",
-                                                   196) + "\n"
-                    else:
-                        if any([
-                            (not isinstance(problem_id, str)) or (not isinstance(statments, list))
-                            for (problem_id, statments) in result["prohibited"].items()
-                        ]):
-                            problem += text_with_color("prohibited is improperly constructed", 196) + "\n"
+                    if statement_check in result:
+
+                        if not isinstance(result[statement_check], dict):
+                            problem += text_with_color(
+                                "{} should be a dictionary (String, List/Sequence) ".format(statement_check), 196) \
+                                       + "\n"
+                        else:
+                            if any([
+                                (not isinstance(problem_id, str)) or (not isinstance(statments, list))
+                                for (problem_id, statments) in result[statement_check].items()
+                            ]):
+                                problem += text_with_color(
+                                    "{} is improperly constructed".format(statement_check), 196) + "\n"
 
             except yaml.YAMLError as exc:
                 problem += text_with_color("Parsing error in feedback_settings.yaml\n", 196)
