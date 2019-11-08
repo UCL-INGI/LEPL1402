@@ -11,7 +11,9 @@ def text_with_color(text, color):
 
 
 # The used validations for feedback_settings.yml
-def validations(feedback_settings):
+# task_folder is a Path object of a task
+# feedback_settings is the yaml of this task
+def validations(feedback_settings, task_folder):
     def verification_result(validation_kind, validation_fct):
         return validation_fct() if validation_kind in feedback_settings else ""
 
@@ -60,12 +62,57 @@ def validations(feedback_settings):
 
         return checker
 
+    def plagiarism_check():
+        if not isinstance(feedback_settings["plagiarism"], bool):
+            return text_with_color("plagiarism should be a boolean", 196) + "\n"
+        else:
+            return ""
+
+    def external_libraries_check():
+        if not isinstance(feedback_settings["external_libraries"], list):
+            return text_with_color("external_libraries should be a sequence of string", 196) + "\n"
+        else:
+            if any([
+                not isinstance(item, str) or not (folder / item).exists()
+                for item in feedback_settings["external_libraries"]]
+            ):
+                return text_with_color("One or more path(s) in external_libraries isn't correct", 196) + "\n"
+            else:
+                return ""
+
+    def custom_feedback_script_check():
+        if not isinstance(feedback_settings["custom_feedback_script"], str):
+            return text_with_color("custom_feedback_script should be a string", 196) + "\n"
+        else:
+            if not (folder / feedback_settings["custom_feedback_script"]).exists():
+                return text_with_color("The path in custom_feedback_script isn't correct", 196) + "\n"
+            else:
+                # TODO maybe one day, check that the given script follows the given format :
+                # def main(result, feedback_settings)
+                return ""
+
+    def status_message_check():
+        if not isinstance(feedback_settings["status_message"], dict):
+            return text_with_color("status_message should be a dictionary (integer, String) ", 196) + "\n"
+        else:
+            if any([
+                (not isinstance(status_code, int)) or (not isinstance(message, str))
+                for (status_code, message) in feedback_settings["status_message"].items()
+            ]):
+                return text_with_color("status_message is improperly constructed", 196) + "\n"
+            else:
+                return ""
+
     return iter([
         verification_result("feedback_kind", feedback_kind_check),
         verification_result("quorum", quorum_check),
         verification_result("coverage_stats", coverage_stats_check),
         verification_result("prohibited", statement_presence_check("prohibited")),
         verification_result("required", statement_presence_check("required")),
+        verification_result("plagiarism", plagiarism_check),
+        verification_result("external_libraries", external_libraries_check),
+        verification_result("custom_feedback_script", custom_feedback_script_check),
+        verification_result("status_message", status_message_check)
     ])
 
 
@@ -101,7 +148,7 @@ for folder in task_folders:
         with open(feedback_path, "r") as stream:
             try:
                 feedback_settings = yaml.safe_load(stream)
-                problem += "".join(validations(feedback_settings))
+                problem += "".join(validations(feedback_settings, folder))
             except yaml.YAMLError as exc:
                 problem += text_with_color("Parsing error in feedback_settings.yaml\n", 196)
 
