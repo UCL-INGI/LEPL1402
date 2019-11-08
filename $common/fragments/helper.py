@@ -160,7 +160,9 @@ def create_manifest(libraries):
 def generate_jar_file(main_class=RUNNER_JAVA_NAME, dst=JAR_FILE, manifest=MANIFEST_FILE):
     return "jar -cmvfe {} {} {} {}".format(manifest, dst, without_extension(main_class), ".")
 
-# Main method that will be invoked by runfile.py to check all given problem inputs for prohibited / required instructions
+
+# Main method that will be invoked by runfile.py to check all given problem inputs
+# for prohibited / required instructions
 def statement_verification(feedback_settings):
 
     # Function to extract source code as easily manageable string for check
@@ -184,7 +186,7 @@ def statement_verification(feedback_settings):
 
     # Check for prohibited / required instruction(s) and put the elements that contains an error
     return [ 
-        [check, problem_id]
+        (check, problem_id)
         for check in ["prohibited", "required"]
         for (problem_id, statements) in feedback_settings[check].items()
         if error_check(statements, problem_id, check)

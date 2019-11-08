@@ -96,6 +96,39 @@ def compilation_feedback(result):
         sys.exit(0)
 
 
+# All the feedback functions for all known "feedback_kind"
+def build_strategies():
+
+    def java_grading(result, feedback_settings, msg):
+        score_ratio, msg2 = extract_java_grading_result(result, feedback_settings)
+        # To prevent some genius to have success grade with a prohibited
+        score_ratio = 0.0 if result.returncode == 2 else score_ratio
+        feedback_result(score_ratio, feedback_settings)
+        feedback.set_global_feedback(msg, True)
+        feedback.set_global_feedback(msg2, True)
+
+    def jacoco(result, feedback_settings, msg):
+        if result.returncode == 0:
+            score_ratio, msg = extract_jacoco_result(feedback_settings)
+            feedback_result(score_ratio, feedback_settings)
+            message_index = 0 if score_ratio >= feedback_settings["quorum"] else 3
+            msg2 = "{}\n".format(feedback_settings["status_message"].get(message_index, "Uncommon Failure"))
+            feedback.set_global_feedback(msg2, True)
+            feedback.set_global_feedback(rst.get_codeblock("java", msg), True)
+        else:
+            feedback.set_global_feedback(msg, True)
+            feedback_result(0.0, feedback_settings)
+
+    return {
+        "JavaGrading": java_grading,
+        "JaCoCo": jacoco
+    }
+
+
+# No need to rebuild that every thing we need that
+FEEDBACK_STRATEGIES = build_strategies()
+
+
 # Generate the final message(s) to student
 def result_feedback(result, feedback_settings):
     # Top level message
@@ -104,26 +137,17 @@ def result_feedback(result, feedback_settings):
     # if we have a feedback, use it
     if feedback_settings["has_feedback"]:
 
-        # JavaGrading
-        if feedback_settings["feedback_kind"] == "JavaGrading":
-            score_ratio, msg = extract_java_grading_result(result, feedback_settings)
-            # To prevent some genius to have success grade with a prohibited
-            score_ratio = 0.0 if result.returncode == 2 else score_ratio
-            feedback_result(score_ratio, feedback_settings)
-            feedback.set_global_feedback(msg, True)
-
-        # JaCoCo
-        if feedback_settings["feedback_kind"] == "JaCoCo":
-            if result.returncode == 0:
-                score_ratio, msg = extract_jacoco_result(feedback_settings)
-                feedback_result(score_ratio, feedback_settings)
-                message_index = 0 if score_ratio >= feedback_settings["quorum"] else 3
-                msg2 = "{}\n".format(feedback_settings["status_message"].get(message_index, "Uncommon Failure"))
-                feedback.set_global_feedback(msg2, True)
-                feedback.set_global_feedback(rst.get_codeblock("java", msg), True)
-            else:
-                feedback.set_global_feedback(msg, True)
-                feedback_result(0.0, feedback_settings)
+        try:
+            strategy = FEEDBACK_STRATEGIES.get(feedback_settings["feedback_kind"])
+            strategy(result, feedback_settings, msg)
+        except (KeyError, RuntimeError):
+            feedback.set_global_result("failed")
+            msg = "A technical problem has occurred : " \
+                  "Couldn't find / Runtime error using the feedback strategy : {}" \
+                  "\n Please report it !".format(feedback_settings["feedback_kind"])
+            feedback.set_global_feedback(msg)
+            feedback.set_grade(0.0)
+            sys.exit(0)
 
     # For exercises with binary result : 0 or 100
     else:
@@ -170,8 +194,9 @@ def handle_verification(feedback_settings):
         msg = feedback_settings["status_message"].get(2, "Uncommon Failure")
         feedback.set_global_feedback(msg)
         # Add message(s) to tell student where are his/her errors
-        for [check, problem_id] in result:
-            message = check.capitalize() + " statement(s) " + (" found " if check == "prohibited" else " missing ") + "HERE"
+        for (check, problem_id) in result:
+            message = check.capitalize() + " statement(s) " \
+                      + (" found " if check == "prohibited" else " missing ") + "HERE"
             feedback.set_problem_feedback(message, problem_id, True)
 
         feedback.set_global_result("failed")
