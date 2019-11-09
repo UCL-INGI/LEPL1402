@@ -167,12 +167,12 @@ def custom_result_feedback(result, feedback_settings):
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         return mod
-
     try:
         custom_feedback_path = str(CWD / feedback_settings["custom_feedback_script"])
         custom_feedback_module = dynamically_load_module("custom_feedback_module", custom_feedback_path)
         custom_feedback_module.main(result, feedback_settings)
-    except (RuntimeError, ImportError):
+    except (RuntimeError, ImportError, BaseException) as err:
+        print(err)  # useful for debugging a custom script that failed
         feedback.set_global_feedback("A technical problem has occurred in custom feedback script: please report it !")
         feedback.set_global_result("failed")
         feedback.set_grade(0.0)

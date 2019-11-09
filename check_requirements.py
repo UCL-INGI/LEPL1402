@@ -112,7 +112,7 @@ def validations(feedback_settings, folder, items_in_task):
                                                "def main(result, feedback_settings)", 196) + "\n"
                     else:
                         return ""
-                except ModuleNotFoundError as err:
+                except (ModuleNotFoundError, BaseException) as err:
                     return text_with_color("Error when loading custom_feedback_script : {}".format(err),
                                            196) + "\n"
 
