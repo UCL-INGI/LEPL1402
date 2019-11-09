@@ -27,7 +27,7 @@ def dynamically_load_module(module, path):
 # The used validations for feedback_settings.yml
 # task_folder is a Path object of a task
 # feedback_settings is the yaml of this task
-def validations(feedback_settings, task_folder):
+def validations(feedback_settings, folder, items_in_task):
     def verification_result(validation_kind, validation_fct):
         return validation_fct() if validation_kind in feedback_settings else ""
 
@@ -36,7 +36,7 @@ def validations(feedback_settings, task_folder):
             text_with_color("You must set has_feedback to True in order to have feedback on INGInious", 196) + "\n"
             if ("has_feedback" not in feedback_settings) or not feedback_settings["has_feedback"] else "",
             text_with_color("You must have a flavour folder for coverage testing", 196) + "\n"
-            if feedback_settings["feedback_kind"] == "JaCoCo" and "flavour" not in files_and_folder_in_task else ""
+            if feedback_settings["feedback_kind"] == "JaCoCo" and "flavour" not in items_in_task else ""
         )
 
     def quorum_check():
@@ -158,8 +158,8 @@ table = BeautifulTable()
 table.column_headers = ["task folder", "reasons"]
 
 # fill the table
-for folder in task_folders:
-    files_and_folder_in_task = [x.name for x in folder.iterdir()
+for task_folder in task_folders:
+    files_and_folder_in_task = [x.name for x in task_folder.iterdir()
                                 if
                                 x.name in ["src", "templates", "flavour", "feedback_settings.yaml", "run", "task.yaml"]]
 
@@ -169,7 +169,7 @@ for folder in task_folders:
 
     # check if feedback_settings
     if "feedback_settings.yaml" in files_and_folder_in_task:
-        feedback_path = str(folder / "feedback_settings.yaml")
+        feedback_path = str(task_folder / "feedback_settings.yaml")
         problem = ""
 
         # check existence of folders src and templates (TODO maybe also check emptiness of folder )
@@ -178,13 +178,13 @@ for folder in task_folders:
 
         with open(feedback_path, "r") as stream:
             try:
-                feedback_settings = yaml.safe_load(stream)
-                problem += "".join(validations(feedback_settings, folder))
+                result = yaml.safe_load(stream)
+                problem += "".join(validations(result, task_folder, files_and_folder_in_task))
             except yaml.YAMLError as exc:
                 problem += text_with_color("Parsing error in feedback_settings.yaml\n", 196)
 
         if problem != "":
-            table.append_row([folder.name, problem])
+            table.append_row([task_folder.name, problem])
 
 # if there is errors(s), tell Travis
 if len(table) > 0:
