@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 import sys
 import yaml
+import importlib.util
+import unittest
+from unittest.mock import MagicMock, patch
+from inspect import signature
 from colored import fg, bg, attr
 from beautifultable import BeautifulTable
 from pathlib import Path
@@ -8,6 +12,16 @@ from pathlib import Path
 
 def text_with_color(text, color):
     return "%s%s %s %s" % (fg(color), bg(0), text, attr(0))
+
+
+# Dynamically load modules we need
+# Credits to https://stackoverflow.com/a/67692/6149867
+# And for the explanation : http://www.blog.pythonlibrary.org/2016/05/27/python-201-an-intro-to-importlib/
+def dynamically_load_module(module, path):
+    spec = importlib.util.spec_from_file_location(module, path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
 
 
 # The used validations for feedback_settings.yml
@@ -87,9 +101,20 @@ def validations(feedback_settings, task_folder):
             if not (folder / feedback_settings["custom_feedback_script"]).exists():
                 return text_with_color("The path in custom_feedback_script isn't correct", 196) + "\n"
             else:
-                # TODO maybe one day, check that the given script follows the given format :
+                # check that the given script follows the given format :
                 # def main(result, feedback_settings)
-                return ""
+                try:
+                    path_to_script = str((folder/feedback_settings["custom_feedback_script"]).absolute())
+                    custom_feedback_script = dynamically_load_module("custom_feedback_script", path_to_script)
+                    if not hasattr(custom_feedback_script, "main") \
+                            or len(signature(custom_feedback_script.main).parameters) != 2:
+                        return text_with_color("The custom_feedback_script must follow the format : "
+                                               "def main(result, feedback_settings)", 196) + "\n"
+                    else:
+                        return ""
+                except ModuleNotFoundError as err:
+                    return text_with_color("Error when loading custom_feedback_script : {}".format(err),
+                                           196) + "\n"
 
     def status_message_check():
         if not isinstance(feedback_settings["status_message"], dict):
@@ -114,6 +139,12 @@ def validations(feedback_settings, task_folder):
         verification_result("custom_feedback_script", custom_feedback_script_check),
         verification_result("status_message", status_message_check)
     ])
+
+
+# Because custom script use INGINIOUS methods I cannot import, I must hide the import error
+# when testing custom_script
+# credits to https://turlucode.com/mock-python-imports-in-unit-tests/
+sys.modules['inginious'] = MagicMock()
 
 
 print("CHECK THAT ALL TASKS FOLLOWS THE EXPLAINED STRUCTURE IN DOC")
