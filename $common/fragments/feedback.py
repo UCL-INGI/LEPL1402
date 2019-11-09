@@ -1,5 +1,6 @@
 import sys
 import importlib.util
+import traceback
 
 from inginious import feedback, rst
 
@@ -172,8 +173,8 @@ def custom_result_feedback(result, feedback_settings):
         custom_feedback_module = dynamically_load_module("custom_feedback_module", custom_feedback_path)
         custom_feedback_module.main(result, feedback_settings)
     except (RuntimeError, ImportError, BaseException) as err:
-        print(err)  # useful for debugging a custom script that failed
-        feedback.set_global_feedback("A technical problem has occurred in custom feedback script: please report it !")
+        traceback.print_exc() # useful for debugging a custom script that failed
+        feedback.set_global_feedback("A technical problem has occurred in the custom feedback script: please report it !")
         feedback.set_global_result("failed")
         feedback.set_grade(0.0)
         sys.exit(0)
