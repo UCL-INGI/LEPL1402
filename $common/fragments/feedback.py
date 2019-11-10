@@ -139,14 +139,13 @@ def result_feedback(result, feedback_settings):
     if feedback_settings["has_feedback"]:
 
         try:
-            strategy = FEEDBACK_STRATEGIES.get(feedback_settings["feedback_kind"])
+            strategy = FEEDBACK_STRATEGIES[feedback_settings["feedback_kind"]]
             strategy(result, feedback_settings, msg)
-        except (KeyError, TypeError, RuntimeError) as err:
-            print(err)  # Useful for us to debug what could be the problem
+        except (KeyError, RuntimeError, BaseException):
+            traceback.print_exc() # useful for debugging a custom script that failed
             feedback.set_global_result("failed")
-            msg = "A technical problem has occurred : " \
-                  "Couldn't find / Runtime error using the feedback strategy : {}" \
-                  "\n Please report it !".format(feedback_settings["feedback_kind"])
+            msg = "A technical problem has occurred using the feedback strategy : {} . Please report it !" \
+                .format(feedback_settings["feedback_kind"])
             feedback.set_global_feedback(msg)
             feedback.set_grade(0.0)
             sys.exit(0)
@@ -172,7 +171,7 @@ def custom_result_feedback(result, feedback_settings):
         custom_feedback_path = str(CWD / feedback_settings["custom_feedback_script"])
         custom_feedback_module = dynamically_load_module("custom_feedback_module", custom_feedback_path)
         custom_feedback_module.main(result, feedback_settings)
-    except (RuntimeError, ImportError, BaseException) as err:
+    except (RuntimeError, ImportError, BaseException):
         traceback.print_exc() # useful for debugging a custom script that failed
         feedback.set_global_feedback("A technical problem has occurred in the custom feedback script: please report it !")
         feedback.set_global_result("failed")
