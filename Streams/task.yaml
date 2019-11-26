@@ -53,7 +53,7 @@ limits:
     output: '2'
 name: '[Module 5] Dealing with Streams'
 network_grading: false
-order: 49
+order: 50
 problems:
     student_find_second_and_third_top_student_for_given_course:
         name: ''

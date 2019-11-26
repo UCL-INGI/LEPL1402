@@ -36,7 +36,7 @@ limits:
     time: '30'
 name: '[Module 5] Infinite Streams'
 network_grading: false
-order: 50
+order: 51
 problems:
     student_variables_constructor:
         default: ''

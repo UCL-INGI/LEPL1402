@@ -1,4 +1,4 @@
-accessible: /2019-11-08 23:59:00/2019-11-08 23:59:00
+accessible: true
 author: ''
 categories:
 - module2
@@ -47,29 +47,29 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: '[Module 2] Merge Sort Implementation'
 network_grading: false
-order: 18
+order: 19
 problems:
     student_sort:
-        default: //
-        header: Paste here the **body** of your method sort
         language: java
-        name: Sort
         type: code
-    student_merge:
-        name: Merge
-        type: code
+        header: Paste here the **body** of your method sort
         default: //
+        name: Sort
+    student_merge:
+        type: code
+        name: Merge
         language: java
         header: 'Paste here the **body** of your method merge:'
+        default: //
     student_additionnal:
         optional: 'on'
         language: java
-        type: code
         default: ''
+        type: code
         header: 'Paste here your additionnal method, **including their signature**:'
         name: Additionnal method
 run_cmd: ''

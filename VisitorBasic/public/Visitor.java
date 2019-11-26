@@ -24,4 +24,4 @@ abstract class Visitor {
      */
     abstract void visit(Object o);
 }
-}
+

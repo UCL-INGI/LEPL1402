@@ -1,4 +1,4 @@
-accessible: /2019-11-08 23:59:00/2019-11-08 23:59:00
+accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module3
@@ -53,27 +53,27 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: '[Module 3] Binary trees - combineWith'
 network_grading: false
-order: 30
+order: 31
 problems:
     student_combineWith:
-        type: code
-        default: ''
-        language: java
         name: ''
         header: 'Paste here the **body** of your ``combineWith`` method from class
             ``Tree``:'
+        language: java
+        default: ''
+        type: code
     student_additional_contents:
+        optional: 'on'
+        name: ''
         header: 'Paste here the rest of the **body** of the class ``Tree`` (if you
             have defined private helper methods to solve this problem) :'
-        optional: 'on'
         default: ''
-        name: ''
-        type: code
         language: java
+        type: code
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

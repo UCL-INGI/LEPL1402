@@ -1,4 +1,4 @@
-accessible: /2019-11-08 23:59:00/2019-11-08 23:59:00
+accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module2
@@ -68,36 +68,36 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: '[Module 2] Queue with two stacks'
 network_grading: false
-order: 26
+order: 27
 problems:
     enqueue:
-        language: java
-        default: ''
+        type: code
         header: 'Paste here the **body** of your ``enqueue`` method:'
+        default: ''
         name: ''
-        type: code
+        language: java
     dequeue:
-        header: 'Paste here the **body** of your ``dequeue`` method:'
         name: ''
         language: java
         type: code
+        header: 'Paste here the **body** of your ``dequeue`` method:'
         default: ''
     peek:
+        default: ''
         language: java
         header: 'Paste here the **body** of your ``peek`` method:'
-        type: code
-        default: ''
         name: ''
+        type: code
     empty:
-        language: java
-        name: ''
-        type: code
-        header: 'Paste here the **body** of your ``empty`` method:'
         default: ''
+        header: 'Paste here the **body** of your ``empty`` method:'
+        language: java
+        type: code
+        name: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

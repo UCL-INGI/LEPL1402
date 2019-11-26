@@ -75,7 +75,7 @@ public class InginiousTests {
     }
 
     @Test
-    @Grade(value=1, cpuTimeout=100)
+    @Grade(value=1, cpuTimeout=200)
     @GradeFeedback(message = "CompareTo from Flower is not working as expected", onFail = true, onTimeout = true)
     public void testFlowerComparable() {
         Flower p1 = new Flower("poppy", 3, new Color(1,1,1));

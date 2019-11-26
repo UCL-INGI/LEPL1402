@@ -1,4 +1,4 @@
-accessible: /2019-10-16 23:55:55/2019-10-16 23:55:55
+accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module1
@@ -9,35 +9,34 @@ file: ''
 groups: false
 input_random: '0'
 limits:
-    output: '2'
-    time: '30'
     memory: '100'
+    time: '30'
+    output: '2'
 name: '[Module 1] Type Casting - theoretical questions'
 network_grading: false
-order: 10
+order: 11
 problems:
     mcq1:
-        choices:
-        -   text: Everything works as expected
-        -   text: We got an error as boolean cannot be converted to int
-            valid: true
-        type: multiple_choice
-        name: What happens if you try to run the following code ?
-        limit: 0
         header: |-
             .. code-block:: java
 
                 int d = (int) true;
+        choices:
+        -   text: Everything works as expected
+        -   text: We got an error as boolean cannot be converted to int
+            valid: true
+        name: What happens if you try to run the following code ?
+        limit: 0
+        type: multiple_choice
     mcq2:
-        name: What contains b ?
+        answer: '97'
+        type: match
         header: |-
             .. code-block:: java
 
                 int b = (int) 'a';
-        answer: '97'
-        type: match
+        name: What contains b ?
     mcq3:
-        type: match
         header: |-
             .. code-block:: java
 
@@ -45,6 +44,7 @@ problems:
                 byte b = (byte)a;
         name: What contains b ?
         answer: '44'
+        type: match
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

@@ -1,4 +1,4 @@
-accessible: /2019-10-16 23:55:55/2019-10-16 23:55:55
+accessible: true
 author: Bastin J, Piron H
 categories:
 - module1
@@ -11,23 +11,17 @@ groups: false
 input_random: '0'
 limits:
     time: '30'
-    output: '2'
     memory: '100'
+    output: '2'
 name: '[Module 1] Value Or Reference'
 network_grading: false
-order: 7
+order: 8
 problems:
     int:
         choices:
         -   text: '0'
             valid: true
         -   text: '1'
-        limit: 0
-        error_message: Primitive types are passed by value in Java which means that
-            changing the value of an primitive int argument inside a method, only
-            updates the value in the function and not outside of it. Thus when the
-            value is set to 1 in the method ``foo`` it only changes it inside the
-            method and in this case not in the ``main`` method.
         header: |-
             What is gonna be written on stdout after running this piece of code?
 
@@ -44,25 +38,36 @@ problems:
                 public static void foo(int i){
                     i=1;
                 }
+        type: multiple_choice
+        error_message: Primitive types are passed by value in Java which means that
+            changing the value of an primitive int argument inside a method, only
+            updates the value in the function and not outside of it. Thus when the
+            value is set to 1 in the method ``foo`` it only changes it inside the
+            method and in this case not in the ``main`` method.
+        name: Passing int
         success_message: Good job! Primitive types are passed by value in Java which
             means that changing the value of an primitive int argument inside a method,
             only updates the value in the function and not outside of it. Thus when
             the value is set to 1 in the method ``foo`` it only changes it inside
             the method and in this case not in the ``main`` method.
-        type: multiple_choice
-        name: Passing int
+        limit: 0
     String:
+        choices:
+        -   text: titi
+            valid: true
+        -   text: toto
+        type: multiple_choice
         success_message: Good job! Object are passed by value in Java which means
             that changing the value of a String argument inside a method, only updates
             the value in the function and not outside of it. Thus when the value is
             set to *"toto"* in the method ``foo`` it only changes it inside the method
             and in this case not in the ``main`` method.
-        choices:
-        -   valid: true
-            text: titi
-        -   text: toto
-        type: multiple_choice
-        name: Passing String
+        limit: 0
+        error_message: Object are passed by value in Java which means that changing
+            the value of a String argument inside a method, only updates the value
+            in the function and not outside of it. Thus when the value is set to *"toto"*
+            in the method ``foo`` it only changes it inside the method and in this
+            case not in the ``main`` method.
         header: |
             What is gonna be written on stdout after running this piece of code?
 
@@ -79,20 +84,17 @@ problems:
                 public static void foo(String s){
                     s="toto";
                 }
-        error_message: Object are passed by value in Java which means that changing
-            the value of a String argument inside a method, only updates the value
-            in the function and not outside of it. Thus when the value is set to *"toto"*
-            in the method ``foo`` it only changes it inside the method and in this
-            case not in the ``main`` method.
-        limit: 0
+        name: Passing String
     String2:
-        error_message: Using the ``new`` statement doesn't the behaviour explained
-            in the previous question.
         name: Passing another String
         choices:
-        -   text: titi
-            valid: true
+        -   valid: true
+            text: titi
         -   text: toto
+        error_message: Using the ``new`` statement doesn't the behaviour explained
+            in the previous question.
+        success_message: Good job! Using the ``new`` statement doesn't the behaviour
+            explained in the previous question.
         header: |-
             What is gonna be written on stdout after running this piece of code?
 
@@ -109,19 +111,9 @@ problems:
                 public static void foo(String s){
                     s= new String("toto");
                 }
+        type: multiple_choice
         limit: 0
-        success_message: Good job! Using the ``new`` statement doesn't the behaviour
-            explained in the previous question.
-        type: multiple_choice
     array:
-        error_message: When you pass an array in Java, it actually passes the reference
-            to the array and not the value. Which means that changing a value in the
-            array does change it for the parent method.
-        choices:
-        -   valid: true
-            text: '[3, 2, 3]'
-        -   text: '[1, 2, 3]'
-        type: multiple_choice
         header: |-
             What is gonna be written on stdout after running this piece of code?
 
@@ -139,26 +131,34 @@ problems:
                 public static void foo(int[] a){
                     a[0] = 3;
                 }
+        choices:
+        -   valid: true
+            text: '[3, 2, 3]'
+        -   text: '[1, 2, 3]'
+        type: multiple_choice
+        name: Passing array
         success_message: Good job! When you pass an array in Java, it actually passes
             the reference to the array and not the value. Which means that changing
             a value in the array does change it for the parent method.
         limit: 0
-        name: Passing array
+        error_message: When you pass an array in Java, it actually passes the reference
+            to the array and not the value. Which means that changing a value in the
+            array does change it for the parent method.
     array2:
-        name: Passing array
-        error_message: Changing a value in a array or crushing the array to replace
-            it by another one is very different. You can change the value **in** an
-            array passed as argument but not change the value **of** the array itself.
+        limit: 0
         choices:
-        -   text: '[1, 2, 3]'
-            valid: true
+        -   valid: true
+            text: '[1, 2, 3]'
         -   text: '[4, 5, 6]'
+        name: Passing array
+        type: multiple_choice
         success_message: Good job! Changing a value in a array or crushing the array
             to replace it by another one is very different. You can change the value
             **in** an array passed as argument but not change the value **of** the
             array itself.
-        type: multiple_choice
-        limit: 0
+        error_message: Changing a value in a array or crushing the array to replace
+            it by another one is very different. You can change the value **in** an
+            array passed as argument but not change the value **of** the array itself.
         header: |-
             What is gonna be written on stdout after running this piece of code?
 

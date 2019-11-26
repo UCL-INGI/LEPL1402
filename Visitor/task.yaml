@@ -1,7 +1,8 @@
-accessible: false
+accessible: /2019-11-25 23:59:59/2019-11-28 23:59:59
 author: Yakoub J, Rucquoy A
 categories:
 - module4
+contact_url: ''
 context: |-
     In this task, we will ask you to implement a basic calculator (+,-,*,/) using
     the visitor design pattern. Every expression you will compute will be represented as a tree. A tree contains at least one node
@@ -42,49 +43,49 @@ file: ''
 groups: false
 input_random: '0'
 limits:
+    output: '2'
     memory: '100'
     time: '30'
-    output: '2'
 name: '[Module 4] Visitor design pattern - Calculator'
 network_grading: false
-order: 43
+order: 42
 problems:
     student_add:
+        name: ''
         header: 'Paste here the **BODY** of your Add class:'
-        default: ''
         type: code
-        name: ''
         language: java
+        default: ''
     student_mult:
-        language: java
         name: ''
-        default: ''
-        type: code
         header: 'Paste here the **BODY** of your Mult class:'
-    student_div:
-        header: 'Paste here the **BODY** of your Div class:'
         type: code
         default: ''
-        name: ''
         language: java
-    student_sub:
+    student_div:
+        language: java
         type: code
-        name: ''
         default: ''
+        name: ''
+        header: 'Paste here the **BODY** of your Div class:'
+    student_sub:
+        name: ''
         header: 'Paste here the **BODY** of your Sub class:'
         language: java
-    student_leaf:
-        language: java
-        header: 'Paste here the **BODY** of your Leaf class:'
+        default: ''
         type: code
+    student_leaf:
+        header: 'Paste here the **BODY** of your Leaf class:'
         name: ''
         default: ''
+        language: java
+        type: code
     student_evaluation:
         language: java
         header: 'Paste here the **BODY** of your Evaluation class:'
         default: ''
-        name: ''
         type: code
+        name: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

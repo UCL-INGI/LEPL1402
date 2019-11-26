@@ -1,4 +1,4 @@
-accessible: /2019-10-09 23:55:55/2019-10-09 23:55:55
+accessible: true
 author: Bastin J, Piron H
 categories:
 - module1
@@ -23,29 +23,29 @@ limits:
     output: '2'
 name: '[Module 1] Make Mistake To Understand Them'
 network_grading: false
-order: 4
+order: 5
 problems:
     studentArray:
+        name: ArrayIndexOutOfBoundsException
         default: ''
-        language: java
-        type: code
         header: Write a piece of code that generates an ArrayIndexOutOfBoundsException
             without using the ``throw`` statement.
-        name: ArrayIndexOutOfBoundsException
-    studentNull:
         type: code
-        name: NullPointerException
         language: java
+    studentNull:
+        language: java
+        default: ''
         header: Write a piece of code that generates an NullPointerException without
             using the ``throw`` statement.
-        default: ''
-    studentConcurrent:
-        name: ConcurrentModificationException
-        default: ''
         type: code
+        name: NullPointerException
+    studentConcurrent:
         header: 'Write a piece of code that generates an ConcurrentModificationException
             without using the ``throw`` statement and with the usage of a list. '
         language: java
+        name: ConcurrentModificationException
+        type: code
+        default: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

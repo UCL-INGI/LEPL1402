@@ -1,4 +1,4 @@
-accessible: /2019-10-09 23:55:55/2019-10-09 23:55:55
+accessible: true
 author: Bastin J, Piron H
 categories:
 - module1
@@ -44,10 +44,12 @@ limits:
     output: '2'
 name: '[Module 1] Learn Exception in Java'
 network_grading: false
-order: 3
+order: 4
 problems:
     studentDivide:
-        name: Divide implementation
+        type: code
+        default: ''
+        language: java
         header: |-
             Paste here the **body** of the divide method
 
@@ -56,9 +58,7 @@ problems:
                 public static double divide(int i1, int i2) throws ArithmeticException{
                     //Your code here
                 }
-        language: java
-        default: ''
-        type: code
+        name: Divide implementation
     studentCanDivide:
         name: CanDivide Implementation
         header: |-
@@ -69,13 +69,13 @@ problems:
                 public static boolean canDivide(int i1, int i2){
                     //Your code here
                 }
-        language: java
         type: code
+        language: java
         default: ''
     studentBetterDivide:
+        name: Better Divide Implementation
         type: code
         default: ''
-        name: Better Divide Implementation
         header: |-
             Paste here the **body** of the betterDivide method
 
@@ -86,8 +86,8 @@ problems:
                 }
         language: java
     studentBetterCanDivide:
+        default: ''
         type: code
-        name: Can Better Divide Implementation
         header: |-
             Paste here the **body** of the betterCanDivide method
 
@@ -97,7 +97,7 @@ problems:
                     //Your code here
                 }
         language: java
-        default: ''
+        name: Can Better Divide Implementation
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

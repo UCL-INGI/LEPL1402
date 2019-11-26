@@ -1,4 +1,4 @@
-accessible: /2019-10-09 23:55:55/2019-10-09 23:55:55
+accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module1
@@ -67,20 +67,20 @@ limits:
     output: '2'
 name: '[Module 1] Arrays 2D and Matrix'
 network_grading: false
-order: 5
+order: 6
 problems:
     build_from:
+        default: ''
         header: 'Paste the **body** of the ``buildFrom`` method:'
+        name: ''
         language: java
         type: code
-        name: ''
-        default: ''
     sum:
-        language: java
-        header: 'Paste the **body** of the ``sum`` method:'
-        default: ''
         type: code
         name: ''
+        default: ''
+        header: 'Paste the **body** of the ``sum`` method:'
+        language: java
     transpose:
         language: java
         header: 'Paste the **body** of the ``transpose`` method:'
@@ -88,11 +88,11 @@ problems:
         type: code
         name: ''
     product:
-        name: ''
         language: java
-        header: 'Paste the **body** of the ``product`` method:'
-        default: ''
+        name: ''
         type: code
+        default: ''
+        header: 'Paste the **body** of the ``product`` method:'
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

@@ -2,6 +2,7 @@
 from inginious import feedback
 import re
 
+
 def main(result, feedback_settings):
     # Top level message
     msg = "{}\n".format(feedback_settings["status_message"].get(result.returncode, "Uncommon Failure"))
@@ -9,8 +10,12 @@ def main(result, feedback_settings):
     
     print("INSIDE CUSTOM SCRIPT")
 
+    # No runnable method(s)
+    if result.returncode == 3:
+        feedback.set_global_feedback(result.stdout, True)
+
     # if the student didn't cheat
-    if result.returncode != 2:
+    if result.returncode not in [2, 3]:
         
         # Extract the data
         format = re.compile("(?P<nBugsFound>[0-9]+)\t(?P<nBugs>[0-9]+)\t(?P<status>N?FP)\n")

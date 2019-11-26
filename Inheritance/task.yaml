@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module3
@@ -23,34 +23,34 @@ limits:
     output: '2'
 name: '[Module 3] Inheritance : Fill the gaps (Small Exercise)'
 network_grading: false
-order: 35
+order: 34
 problems:
     act_code:
         type: code
+        name: ''
+        language: java
+        default: ''
         header: 'Paste here the **body** of the **act** method of the Animal class:'
-        name: ''
-        language: java
-        default: ''
     cat_constructor:
-        type: code
-        language: java
         header: 'Paste here the **body** of the Cat constructor:'
-        default: ''
         name: ''
+        default: ''
+        language: java
+        type: code
     cat_test_act:
-        header: 'Paste here the **body** of the **act_forTestMethod** method of the
-            Cat class:'
         name: ''
+        header: 'Paste here the **body** of the **actForTestMethod** method of the
+            Cat class:'
+        language: java
         type: code
         default: ''
-        language: java
     super_cat_log:
-        default: ''
-        language: java
-        type: code
-        header: 'Paste here the **body** of the **clear_log** method of the SuperCat
+        header: 'Paste here the **body** of the **clearLog** method of the SuperCat
             class:'
         name: ''
+        default: ''
+        type: code
+        language: java
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

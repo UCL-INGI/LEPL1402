@@ -41,7 +41,7 @@ limits:
     time: '30'
 name: '[Module 2] Quick Sort - Implem exercise'
 network_grading: false
-order: 60
+order: 61
 problems:
     exch_code:
         default: ''

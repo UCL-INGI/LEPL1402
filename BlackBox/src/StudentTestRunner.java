@@ -54,11 +54,15 @@ public class StudentTestRunner {
             Result result = runner.run(StudentTests.class);
             List<Failure> failures = result.getFailures();
             for(Failure fail : failures){
-                if(fail.getMessage().contains("access denied")){
+                if(fail.getMessage() != null && fail.getMessage().contains("access denied")){
                     // If the student uses a forbidden instruction, exit with this code 2
                     // The run script SHOULD interpret a Sys exit 2 as a permission error
                     // And therefore inform the student that he/she used some forbidden instruction.
                     System.exit(2);
+                }
+                if(fail.getMessage() != null && fail.getMessage().contains("No runnable methods")){
+                    System.out.println("NO RUNNABLE METHODS");
+                    System.exit(3);
                 }
             }
 

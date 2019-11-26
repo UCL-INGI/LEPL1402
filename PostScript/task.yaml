@@ -68,7 +68,7 @@ limits:
     time: '30'
 name: '[Module 3] Postscript interpreter'
 network_grading: false
-order: 61
+order: 62
 problems:
     student_code:
         language: java

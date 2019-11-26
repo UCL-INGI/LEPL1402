@@ -1,4 +1,4 @@
-accessible: /2019-10-16 23:55:55/2019-10-16 23:55:55
+accessible: true
 author: Piron H
 categories:
 - module1
@@ -19,19 +19,18 @@ groups: false
 input_random: '0'
 limits:
     time: '30'
-    output: '2'
     memory: '100'
+    output: '2'
 name: '[Module 1] MCQ Sieve of Eratosthenes'
 network_grading: false
-order: 13
+order: 14
 problems:
     mcq1:
         choices:
         -   text: 'true'
         -   text: 'false'
             valid: true
-        limit: 0
-        type: multiple_choice
+        name: Initialization
         header: |+
             What is the value of ``v`` after the following instructions:
 
@@ -41,13 +40,11 @@ problems:
                 BitSet bits = new BitSet(5);
                 v = bits.get(3);
 
-        name: Initialization
+        limit: 0
+        type: multiple_choice
     mcq2:
         limit: 0
-        choices:
-        -   text: 'true'
-        -   valid: true
-            text: 'false'
+        type: multiple_choice
         header: |+
             What is the value of the 5th bit after those instructions?
 
@@ -56,15 +53,12 @@ problems:
                 BitSet bits = new BitSet(10);
                 bits.flip(0,4);
 
-        name: Flip
-        type: multiple_choice
-    mcq3:
         choices:
-        -   text: '0'
+        -   text: 'true'
         -   valid: true
-            text: '4'
-        -   text: '5'
-        -   text: '10'
+            text: 'false'
+        name: Flip
+    mcq3:
         header: |+
             What is the value of ``v`` after those instructions?
 
@@ -75,15 +69,20 @@ problems:
                 bits.flip(0,4);
                 v = bits.cardinality();
 
-        limit: 0
+        choices:
+        -   text: '0'
+        -   text: '4'
+            valid: true
+        -   text: '5'
+        -   text: '10'
         name: Cardinality
+        limit: 0
         type: multiple_choice
     mcq4:
         choices:
         -   text: The value of the bit at index 4 changes.
         -   text: Nothing changes.
             valid: true
-        limit: 0
         type: multiple_choice
         header: |-
             What does change after the ``set`` instruction?
@@ -93,20 +92,21 @@ problems:
                 BitSet bits = new BitSet(10);
                 bits.set(4,false);
         name: Set
+        limit: 0
     mcq5:
         choices:
         -   text: It would compute faster
-        -   text: It would take less memory
-            valid: true
+        -   valid: true
+            text: It would take less memory
         -   text: An array is easier to use
         -   text: I don't understand the question
+        name: Array or BitSet?
+        type: multiple_choice
         header: |-
             Consider that you want to implement the method ``numberOfPrime(int n)`` which return the number of prime between 0 and n, using a BitSet, why would it be better than with an array of integer for example?
 
             **hint:** imagine you want to now how many prime numbers are between 0 and 10^9.
-        type: multiple_choice
         limit: 0
-        name: Array or BitSet?
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

@@ -1,4 +1,4 @@
-accessible: /2019-11-08 23:59:00/2019-11-08 23:59:00
+accessible: true
 author: Bastin J, Piron H
 categories:
 - module2
@@ -40,25 +40,25 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: '[Module 2] Largest Sum Contiguous Subarray'
 network_grading: false
-order: 19
+order: 20
 problems:
     student_subarray:
         language: java
         name: ''
-        header: Paste here the **body** of your method ``maxSubArray``
-        default: ''
         type: code
+        default: ''
+        header: Paste here the **body** of your method ``maxSubArray``
     student_functions:
         name: ''
         type: code
-        header: 'Paste here you eventual additional methods (**signature** and **body**):'
-        optional: 'on'
-        language: java
         default: ''
+        language: java
+        optional: 'on'
+        header: 'Paste here you eventual additional methods (**signature** and **body**):'
 run_cmd: ''
 stored_submissions: 0
 submission_limit:
