@@ -60,6 +60,18 @@ def validations(feedback_settings, folder, items_in_task):
             else:
                 return ""
 
+    def coverage_xpaths_check():
+        if not isinstance(feedback_settings["coverage_xpaths"], list):
+            return text_with_color("coverage_xpaths should be a sequence of string", 196) + "\n"
+        else:
+            if any(
+                    [(not isinstance(item, str))]
+                     for item in feedback_settings["coverage_xpaths"]]
+            ):
+                return text_with_color("Unknown value inside coverage_xpaths", 196) + "\n"
+            else:
+                return ""
+
     def statement_presence_check(statement_kind):
         def checker():
             if not isinstance(feedback_settings[statement_kind], dict):
@@ -144,6 +156,7 @@ def validations(feedback_settings, folder, items_in_task):
         verification_result("feedback_kind", feedback_kind_check),
         verification_result("quorum", quorum_check),
         verification_result("coverage_stats", coverage_stats_check),
+        verification_result("coverage_xpaths", coverage_xpaths_check)
         verification_result("prohibited", statement_presence_check("prohibited")),
         verification_result("required", statement_presence_check("required")),
         verification_result("plagiarism", plagiarism_check),
