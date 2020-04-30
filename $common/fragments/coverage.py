@@ -1,10 +1,12 @@
 from xml.etree import ElementTree as ET
 from fragments.constants import *
+from itertools import chain
+combine_list = chain.from_iterable
 
 
 # https://docs.python.org/3/library/xml.etree.elementtree.html
 # Extract the stats given by Jacoco into a list so that we can use that later
-def extract_stats(path_to_xml_file=JACOCO_RESULT_FILE):
+def extract_stats(path_to_xml_file=JACOCO_RESULT_FILE, xpaths):
     tree = ET.parse(path_to_xml_file)
     root = tree.getroot()
     return [
@@ -13,7 +15,12 @@ def extract_stats(path_to_xml_file=JACOCO_RESULT_FILE):
             "missed": int(coverage_data.get("missed")),
             "type": coverage_data.get("type")
         }
-        for coverage_data in root.findall("./counter")
+        for coverage_data in
+            combine_list([
+                root.findall(xpath_rule)
+                for xpath_rule
+                in xpaths
+            ])
     ]
 
 

@@ -56,7 +56,7 @@ def extract_jacoco_result(feedback_settings):
         helper.run_command(gen_report)
 
         # extract stats
-        coverage_result = coverage.extract_stats()
+        coverage_result = coverage.extract_stats(xpaths=feedback_settings["coverage_xpaths"])
         filtered_coverage_result = [x for x in coverage_result if x["type"] in coverage_stats]
         print(filtered_coverage_result)
 
