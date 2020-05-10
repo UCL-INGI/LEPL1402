@@ -6,7 +6,7 @@ combine_list = chain.from_iterable
 
 # https://docs.python.org/3/library/xml.etree.elementtree.html
 # Extract the stats given by Jacoco into a list so that we can use that later
-def extract_stats(path_to_xml_file=JACOCO_RESULT_FILE, xpaths):
+def extract_stats(xpaths, path_to_xml_file=JACOCO_RESULT_FILE):
     tree = ET.parse(path_to_xml_file)
     root = tree.getroot()
     return [
