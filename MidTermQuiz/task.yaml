@@ -1,0 +1,125 @@
+accessible: 2019-11-08 16:15:00/2019-11-08 18:15:00/2019-11-08 18:15:00
+author: Guillaume Derval, Bastin J, Piron H
+categories: []
+context: |-
+    You are asked to implement the method sort of the class Sorter_ that takes a list of integer as parameter, and sorts it. Here is a skeleton with most of the information:
+
+    .. code-block:: java
+
+        /**
+         * Sorts a list in increasing order
+         *
+         * We expect this function to behave in O(n^2), where n is the size of the list.
+         * Precisely, we expect that you make at MOST n^2 calls to list.pop() and at
+         * MOST n^2 calls to list.swap().
+         *
+         * You will obtain the full score for a test case if
+         *
+         * - The list is sorted (2/4 points per test case)
+         * - The list is sorted AND you make less than n^2 calls to swap (1/4 points)
+         * - The list is sorted AND you make less than n^2 calls to pop (1/4 points)
+         *
+         * @param list: a list of integers to be sorted.
+         */
+        public static void sort(LinkedList list) {
+            // Here is a small loop with an invariant that you should try to respect
+            // although it's not mandatory. Try to respect it, it will help you ;-)
+
+            for(int iter = 0; iter < list.getSize() - 1; iter++) {
+                //invariant: the 'iter' biggest elements are at the end of the list and are sorted.
+                //example, at iteration iter=3, the three lasts elements are the three biggest elements in the list, and
+                //they are in the increasing order.
+
+                // TODO
+            }
+
+            // here, if you followed the invariant proposed above, the list should be sorted!
+        }
+
+    But this linked list is not working as you would expect it to work, in fact only two operations are possible on the given list:
+
+    - **swap()** : exchange the first and the second element of the list;
+    - **pop()** : pops the first element of the list and push it at the end.
+
+    Here is the implementation of the class LinkedList_. In your implementation of the sort, you should only use the three following methods:
+
+    - **getFirst()** : returns the int value of the first element of the list;
+    - **getSecond()** : returns the int value of the second element of the list;
+    - **getSize()** : returns the length of the list
+
+    There are other methods in the class that may, or not, prove helpful while debugging.
+
+    Your implementation will be run against a lot of test cases:
+
+    - **already sorted** test cases (25 test cases);
+    - **reverse sorted** test cases (25 test cases);
+    - **already sorted but one** test cases (25 test cases). In these, everything is sorted but one value somewhere in the middle;
+    - **two different** test cases (25 test cases). In these, only two values are present, randomly, in the list;
+    - **bimonotonous** test cases (25 test cases). The list is initially decreasing then increasing or the opposite;
+    - **random** test cases (125 test cases).
+
+    Each test case is graded as follows:
+
+    - 2 points are given if the list is correctly sorted after running your algorithm.
+    - 1 additionnal point is given if the list is sorted and your algorithm did not use more than :math:`n^2` swaps.
+    - 1 additionnal point is given if the list is sorted and your algorithm did not use more than :math:`n^2` pops.
+
+    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    .. _`IntelliJ Project`: /course/LEPL1402/MidTermQuiz/LEPL1402_MidTermQuiz.zip
+    .. _Sorter: /course/LEPL1402/MidTermQuiz/Sorter.java
+    .. _LinkedList: /course/LEPL1402/MidTermQuiz/LinkedList.java
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    time: '30'
+    memory: '800'
+    output: '2'
+name: 'Mid-Term Quiz: StrangeSort'
+network_grading: false
+order: 0
+problems:
+    studentCode:
+        language: java
+        default: |-
+            /**
+            * Sorts a list in increasing order
+            *
+            * We expect this function to behave in O(n^2), where n is the size of the list.
+            * Precisely, we expect that you make at MOST n^2 calls to list.pop() and at
+            * MOST n^2 calls to list.swap().
+            *
+            * You will obtain the full score for a test case if
+            *
+            * - The list is sorted (2/4 points per test case)
+            * - The list is sorted AND you make less than n^2 calls to swap (1/4 points)
+            * - The list is sorted AND you make less than n^2 calls to pop (1/4 points)
+            *
+            * @param list: a list of integers to be sorted.
+            */
+            public static void sort(LinkedList list) {
+                // Here is a small loop with an invariant that you should try to respect
+                // although it's not mandatory. Try to respect it, it will help you ;-)
+
+                for(int iter = 0; iter < list.getSize() - 1; iter++) {
+                    //invariant: the 'iter' biggest elements are at the end of the list and are sorted.
+                    //example, at iteration iter=3, the three lasts elements are the three biggest elements in the list, and
+                    //they are in the increasing order.
+
+                    // TODO
+                }
+
+                // here, if you followed the invariant proposed above, the list should be sorted!
+            }
+        header: Paste here the **body and the signature** of your method ``sort``.
+        type: code
+        name: Method Sort
+run_cmd: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

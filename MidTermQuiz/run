@@ -1,0 +1,36 @@
+#! /bin/inginious-ipython
+import importlib.util
+import sys
+
+
+thecode = get_input("studentCode")
+if "static" not in thecode:
+    with open('templates/Sorter.java', 'w') as f:
+        f.write("""
+package templates;
+import src.*;
+
+public class Sorter {
+    public static void sort(LinkedList list) {
+        @@studentCode@@
+    }
+}
+        """)
+
+# Dynamically load modules we need
+# Credits to https://stackoverflow.com/a/67692/6149867
+# And for the explanation : http://www.blog.pythonlibrary.org/2016/05/27/python-201-an-intro-to-importlib/
+def dynamically_load_module(module, path):
+    spec = importlib.util.spec_from_file_location(module, path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+#####################################
+# Our import for common run file    #
+#####################################
+sys.path.append("/course/common")
+
+runfile = dynamically_load_module("runfile", "/course/common/runfile.py")
+runfile.main()

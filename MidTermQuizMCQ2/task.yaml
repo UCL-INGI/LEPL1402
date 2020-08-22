@@ -1,0 +1,105 @@
+accessible: 2019-11-08 16:15:00/2019-11-08 18:15:00/2019-11-08 18:15:00
+author: Guillaume Derval
+categories: []
+context: |-
+    .. warning::
+
+        You will **not** receive your grade to this question during the quizz. It will only be graded **afterwards** (as if it was a paper quizz ;-)
+
+        Only your last submission will count.
+
+    You are given the following code:
+
+    .. code:: java
+
+        /**
+         * A binary search implementation.
+         * If the value to be found is actually in the list, returns the index of the position of the value in the list.
+         * Otherwise, returns -(the index of the position where it should have been minus one).
+         */
+
+        public static int binarySearch(List<Integer> list, int valueToFind) {
+            int minIdx = 0;
+            int maxIdx = list.size();
+            while (minIdx != maxIdx - 1) {
+                int mid = (maxIdx + minIdx)/2;
+                int val = list.get(mid);
+
+                if(val == valueToFind)
+                    return mid;
+                if(val < valueToFind)
+                    minIdx = mid;
+                else
+                    maxIdx = mid;
+            }
+            return list.get(minIdx) == valueToFind ? minIdx : -minIdx-1;
+        }
+
+    Assume that this code works correctly (it should ;-)).
+
+    In all the questions, the list are **always** sorted in ascending order.
+environment: mcq
+evaluate: last
+file: ''
+groups: false
+input_random: '0'
+limits:
+    time: '30'
+    memory: '100'
+    output: '2'
+name: 'Mid-Term Quiz: Binary Search'
+network_grading: false
+order: 2
+problems:
+    a:
+        choices:
+        -   text: :math:`\mathcal{O}(\log n), \Omega(1)`
+            valid: true
+        -   text: :math:`\mathcal{O}(n), \Omega(1)`
+        -   text: :math:`\mathcal{O}(n \log n), \Omega(\log n)`
+        -   text: :math:`\mathcal{O}(n \log n), \Omega(n)`
+        -   text: :math:`\mathcal{O}(n), \Omega(\log n)`
+        -   text: :math:`\Theta(\log n)`
+        -   text: :math:`\Theta(n)`
+        -   text: :math:`\Theta(n \log n)`
+        -   text: :math:`\mathcal{O}(n \log n), \Omega(1)`
+        header: |-
+            Consider this function:
+
+            .. code:: java
+
+               public static int arraylistBS(ArrayList<Integer> list, int v) { return binarySearch(list, v); }
+
+            What is the complexity of this function? Choose the **most precise** answer.
+        type: multiple_choice
+        name: ''
+        limit: 0
+    b:
+        choices:
+        -   text: :math:`\mathcal{O}(\log n), \Omega(1)`
+        -   text: :math:`\mathcal{O}(n), \Omega(1)`
+        -   text: :math:`\mathcal{O}(n \log n), \Omega(\log n)`
+        -   text: :math:`\mathcal{O}(n \log n), \Omega(n)`
+            valid: true
+        -   text: :math:`\mathcal{O}(n), \Omega(\log n)`
+        -   text: :math:`\Theta(\log n)`
+        -   text: :math:`\Theta(n)`
+        -   text: :math:`\Theta(n \log n)`
+        -   text: :math:`\mathcal{O}(n \log n), \Omega(1)`
+        type: multiple_choice
+        name: ''
+        limit: 0
+        header: |-
+            Consider this function:
+
+            .. code:: java
+
+               public static int linkedlistBS(LinkedList<Integer> list, int v) { return binarySearch(list, v); }
+
+            What is the complexity of this function? Choose the **most precise** answer.
+run_cmd: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 0.4

@@ -1,0 +1,231 @@
+accessible: 2019-11-08 16:15:00/2019-11-08 18:15:00/2019-11-08 18:15:00
+author: Guillaume Derval
+categories: []
+context: |-
+    .. warning::
+
+        You will **not** receive your grade to this question during the quizz. It will only be graded **afterwards** (as if it was a paper quizz ;-)
+
+        Only your last submission will count.
+
+    Here is a (badly-written) class hierarchy:
+
+    .. image:: /course/LEPL1402/MidTermQuizMCQ/animals.png
+        :width: 70%
+
+    These are all (maybe abstract) classes in Java. Here is how you would write the class ``Cat``:
+
+    .. code:: java
+
+        class Cat extends Mammal {
+            String shout() { return "Miaw"; }
+
+            int height = 35;
+            int jumpHeight = 200;
+        }
+
+
+    (icons by FreePik)
+environment: mcq
+evaluate: last
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: 'Mid-Term Quiz: What does the fox say?'
+network_grading: false
+order: 1
+problems:
+    b:
+        choices:
+        -   valid: true
+            text: |-
+                .. code:: java
+
+                    Miaw
+                    Wouf
+                    Wif
+                    Wif
+        -   text: |-
+                .. code:: java
+
+                    Miaw
+                    Wouf
+                    Wouf
+                    Wouf
+        -   text: |-
+                .. code:: java
+
+                    Miaw
+                    Wif
+                    Wif
+                    Wif
+        -   text: |-
+                .. code:: java
+
+                    Miaw
+                    Wouf
+                    Wif
+                    Wouf
+        -   text: |-
+                .. code:: java
+
+                    Miaw
+                    Miaw
+                    Miaw
+                    Miaw
+        -   text: This will not compile
+        -   text: |-
+                .. code:: java
+
+                    Bloup
+                    Bloup
+                    Bloup
+                    Bloup
+        name: The answer is not bloup
+        header: |
+            What is the output of this code?
+
+            .. code:: java
+
+                Cat cat = new Cat(/* ... */);
+                Dog dog = new Dog(/* ... */);
+                FrenchBouledogue fb = new FrenchBouledogue(/* ... */);
+                Dog dog2 = (Dog) fb;
+
+                System.out.println(cat.shout());
+                System.out.println(dog.shout());
+                System.out.println(fb.shout());
+                System.out.println(dog2.shout());
+        type: multiple_choice
+        limit: 0
+    c:
+        choices:
+        -   valid: true
+            text: |-
+                .. code:: java
+
+                    false
+                    false
+                    false
+                    false
+        -   text: |-
+                .. code:: java
+
+                    false
+                    true
+                    false
+                    false
+        -   text: |-
+                .. code:: java
+
+                    false
+                    true
+                    false
+                    true
+        -   text: |-
+                .. code:: java
+
+                    true
+                    true
+                    false
+                    false
+        -   text: |-
+                .. code:: java
+
+                    false
+                    true
+                    true
+                    false
+        -   text: |-
+                .. code:: java
+
+                    true
+                    true
+                    true
+                    true
+        -   text: This will not compile
+        limit: 0
+        header: |
+            What is the output of this code?
+
+            .. code:: java
+
+                Cow cow = new Cow(/*...*/);
+                Cat cat = new Cat(/*...*/);
+
+                Mammal cowMammal = (Mammal) cow;
+                Mammal catMammal = (Mammal) cat;
+
+                System.out.println(cow.canJump());
+                System.out.println(cat.canJump());
+                System.out.println(cowMammal.canJump());
+                System.out.println(catMammal.canJump());
+        type: multiple_choice
+        name: Can it jump?
+    d:
+        choices:
+        -   text: |-
+                .. code::
+
+                    35
+                    20
+                    20
+                    5
+        -   text: |-
+                .. code::
+
+                    35
+                    20
+                    80
+                    5
+        -   text: |-
+                .. code::
+
+                    35
+                    80
+                    80
+                    5
+        -   text: |-
+                .. code::
+
+                    0
+                    0
+                    0
+                    0
+        -   valid: true
+            text: This will not compile
+        header: |
+            What is the output of this code?
+
+            .. code:: java
+
+                // This is in another file
+                public class Q4 {
+                    static public void printHeight(Animal animal) {
+                        System.out.println(animal.height);
+                    }
+                }
+
+                // This is in your main
+                Cat c = new Cat(/*....*/);
+                FrenchBouledogue fb = new FrenchBouledogue(/*...*/);
+                Dog d = (Dog) fb;
+                Fish f = new Fish(/*...*/);
+
+                Q4.printHeight(c);
+                Q4.printHeight(fb);
+                Q4.printHeight(d);
+                Q4.printHeight(f);
+        name: Apparently, all animals have a height
+        limit: 0
+        type: multiple_choice
+run_cmd: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 0.6
