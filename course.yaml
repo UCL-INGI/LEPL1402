@@ -12,6 +12,7 @@ admins:
 - ogoletti
 - aldubray
 - louisna
+- marisl
 tutors: []
 groups_student_choice: false
 use_classrooms: true
@@ -55,3 +56,4 @@ tags:
         visible: true
         type: 2
         name: Module 6
+lti_url: ''

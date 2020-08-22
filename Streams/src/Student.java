@@ -29,7 +29,7 @@ public class Student implements Comparable<Student> {
         return section;
     }
 
-    public Map<String, Double> getCourses_results() {
+    public Map<String, Double> getCoursesResults() {
         return courses_results;
     }
 
@@ -41,7 +41,7 @@ public class Student implements Comparable<Student> {
                 .thenComparing(Student::getFirstName)
                 .thenComparing(Student::getLastName)
                 .thenComparing(
-                        (s) -> s.getCourses_results().values().stream().reduce(0.0, Double::sum),
+                        (s) -> s.getCoursesResults().values().stream().reduce(0.0, Double::sum),
                         Comparator.reverseOrder()
                 );
         return my_comparator.compare(this, student);

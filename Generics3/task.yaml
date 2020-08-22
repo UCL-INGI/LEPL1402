@@ -1,7 +1,8 @@
-accessible: /2019-11-28 23:59:59/2019-11-28 23:59:59
+accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module5
+contact_url: ''
 context: |-
     In this task, you have to implement the solver of this well-known logic circuit :
 
@@ -35,35 +36,35 @@ network_grading: false
 order: 45
 problems:
     student_gate_xor:
+        name: ''
         header: Paste here the **BODY** of your **xor_gate** method
         language: java
-        name: ''
         type: code
         default: ''
     student_gate_or:
+        type: code
         header: Paste here the **BODY** of your **or_gate** method
-        name: ''
-        language: java
-        type: code
         default: ''
+        language: java
+        name: ''
     student_gate_and:
-        type: code
         language: java
-        default: ''
-        name: ''
         header: Paste here the **BODY** of your **and_gate** method
+        name: ''
+        default: ''
+        type: code
     student_gate_not:
-        default: ''
-        name: ''
-        type: code
+        language: java
         header: Paste here the **BODY** of your **not_gate** method
-        language: java
+        type: code
+        name: ''
+        default: ''
     student_evaluate:
+        default: ''
         type: code
         language: java
-        default: ''
-        name: ''
         header: Paste here the **BODY** of your **evaluate_circuit** method
+        name: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

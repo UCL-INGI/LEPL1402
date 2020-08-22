@@ -1,9 +1,10 @@
-accessible: false
+accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module5
+contact_url: ''
 context: |-
-    In order to understand why the Stream class could be useful for genericity, we purpose you this small exercise that merged casting and streams.
+    In order to understand why the Stream class could be useful for genericity, we give you this small exercise where you'll have to work on both casting and streams.
 
     Given the Student_ class, You are asked to write the implementation of the StudentFunctions_ class ( that implements the StudentStreamFunction_ interface ) :
 
@@ -70,36 +71,36 @@ network_grading: false
 order: 52
 problems:
     student_findFirst:
+        language: java
+        type: code
+        name: ''
         default: ''
         header: 'Paste here the **body** of your ``findFirst`` method:'
-        name: ''
-        type: code
-        language: java
     student_findAll:
+        name: ''
         default: ''
+        type: code
         header: 'Paste here the **body** of your ``findAll`` method:'
         language: java
-        type: code
-        name: ''
     student_exists:
+        language: java
         name: ''
         header: 'Paste here the **body** of your ``exists`` method:'
-        language: java
         type: code
         default: ''
     student_filterThenSort:
         language: java
-        name: ''
-        type: code
         default: ''
+        name: ''
         header: 'Paste here the **body** of your ``filterThenSort`` method:'
+        type: code
     student_util:
         optional: 'on'
-        language: java
-        header: 'You can paste here additional methods if you need :'
-        name: ''
-        default: ''
         type: code
+        default: ''
+        header: 'You can paste here additional methods if you need :'
+        language: java
+        name: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

@@ -1,7 +1,8 @@
-accessible: /2019-11-28 23:59:59/2019-11-28 23:59:59
+accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module5
+contact_url: ''
 context: |-
     In this task, you have to implement the generic map / filter functions of the following class :
 
@@ -53,17 +54,17 @@ network_grading: false
 order: 44
 problems:
     map:
-        header: 'Paste here the **body** of your ``map`` method :'
         default: ''
-        type: code
-        language: java
         name: ''
+        type: code
+        header: 'Paste here the **body** of your ``map`` method :'
+        language: java
     filter:
         language: java
-        name: ''
         type: code
-        header: 'Paste here the **body** of your ``filter`` method :'
         default: ''
+        header: 'Paste here the **body** of your ``filter`` method :'
+        name: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

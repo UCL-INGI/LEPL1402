@@ -1,7 +1,8 @@
-accessible: false
+accessible: true
 author: Bastin J, Piron H
 categories:
 - module5
+contact_url: ''
 context: |-
     Functional programming_ is an increasingly important programming paradigm. In this paradigm, data structures are immutable_. You are asked to implement an immutable list called FList that can be used in functionnal programming.
 
@@ -11,71 +12,12 @@ context: |-
 
     .. _`IntelliJ Project`: /course/LEPL1402/FList/LEPL1402_FList.zip
 
-    Here is the API of an FList_ and the FList class_ you have to implement:
-
-    .. code-block:: java
-
-        public abstract class FList<A> implements Iterable<A> {
-
-            // creates an empty list
-            public static <A> FList<A> nil();
-
-            // prepend a to the list and return the new list
-            public final FList<A> cons(final A a);
-
-            public final boolean isNotEmpty();
-
-            public final boolean isEmpty();
-
-            public final int length();
-
-            // return the head element of the list
-            public abstract A head();
-
-            // return the tail of the list
-            public abstract FList<A> tail();
-
-            // return a list on which each element has been applied function f
-            public final <B> FList<B> map(Function<A,B> f);
-
-            // return a list on which only the elements that satisfies predicate are kept
-            public final FList<A> filter(Predicate<A> f);
-
-            // return an iterator on the element of the list
-            public Iterator<A> iterator();
-
-        }
-
-
-    Here is an example of how we could test your code:
-
-    .. code-block:: java
-
-        FList<Integer> list = FList.nil();
-
-        for (int i = 0; i < 10; i++) {
-            list = list.cons(i);
-        }
-
-        list = list.map(i -> i+1);
-        // will print 1,2,...,11
-        for (Integer i: list) {
-            System.out.println(i);
-        }
-
-        list = list.filter(i -> i%2 == 0);
-        // will print 2,4,6,...,10
-        for (Integer i: list) {
-            System.out.println(i);
-        }
-
+    You can download the `FList class you have to implement here </course/LEPL1402/FList/FList.java>`_
 
     Since you know how your code should work, we **strongly** recommend you to test it on your computer before trying any submission. The iterator is the most critical part, if it doesn't work, most of the test will not work.
 
     .. _programming: https://en.wikipedia.org/wiki/Functional_programming
     .. _immutable: https://en.wikipedia.org/wiki/Purely_functional_data_structure
-    .. _FList: /course/LEPL1402/FList/FList.java
-    .. _class: /course/LEPL1402/FList/FListClass.java
 environment: java8scala
 evaluate: best
 file: ''
@@ -83,74 +25,92 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
 name: '[Module 5] Functional list implementation'
 network_grading: true
 order: 47
 problems:
-    student_length:
-        type: code
-        name: Length implementation
+    student_answer:
+        header: Paste here the **body** of your **class** ``FList<A>``
         language: java
-        default: ''
-        header: 'Paste here the **body** of you method length:'
-    student_map:
-        header: 'Paste here the **body** of you map method:'
-        name: Map implementation
-        language: java
-        default: ''
-        type: code
-    student_filter:
-        default: ''
-        header: 'Paste here the **body** of you filter implementation:'
-        name: Filter implementation
-        type: code
-        language: java
-    student_iterator:
-        language: java
-        default: ''
-        name: Iterator
-        type: code
-        header: |-
-            Paste here the **body** of your iterator:
+        name: ''
+        default: |4
+                /**
+                 * Returns an empty FList
+                 */
+                public static <A> FList<A> nil() {
+                    return (Nil<A>) Nil.INSTANCE;
+                }
 
-            .. code-block:: java
+                /**
+                 * Creates a new list with a prepended to this list
+                 */
+                public final FList<A> cons(final A a) {
+                    return new Cons(a, this);
+                }
 
-                public Iterator<A> iterator(){
-                    return new iterator<A>{
-                        //your code
+                /**
+                 * @return the number of elements in the list
+                 */
+                public abstract int length();
+
+                /**
+                 * @return true if the list is empty, false otherwise
+                 */
+                public abstract boolean isEmpty();
+
+                /**
+                 * @return the head of the list.
+                 * Throws NoSuchElementException if the list is empty
+                 */
+                public abstract A head();
+
+                /**
+                 * @return the tail of the list (i.e. the sublist without the first element of this list)
+                 * Throws NoSuchElementException if the list is empty
+                 */
+                public abstract FList<A> tail();
+
+                /**
+                 * Returns a new list with the output of the function f applied to each element of this list
+                 */
+                public abstract <B> FList<B> map(Function<A,B> f);
+
+                /**
+                 * Creates a new list with only the element that fullfill the predicate f (i.e. f(elem) == true).
+                 */
+                public abstract FList<A> filter(Predicate<A> f);
+
+
+                public Iterator<A> iterator() {
+                    return new Iterator<A>() {
+                        // Do whatever you want here
+
+                        public boolean hasNext() {
+                            // TODO
+                        }
+
+                        public A next() {
+                            // TODO
+                        }
+
+                        public void remove() {
+                            throw new UnsupportedOperationException();
+                        }
                     };
                 }
-    student_nil:
-        language: java
-        type: code
-        name: Nil implementation
-        default: ''
-        header: |-
-            Paste the **body** of your class Nil
 
-            .. code-block:: java
 
                 private static final class Nil<A> extends FList<A> {
                     public static final Nil<Object> INSTANCE = new Nil();
-
-                    // Your code
-
+                    //TODO
                 }
-    student_cons:
-        language: java
-        default: ''
-        header: |-
-            Paste here the **body** of you class Cons
-
-            .. code-block:: java
 
                 private static final class Cons<A> extends FList<A> {
-                    // Your code
+                    // TODO
                 }
         type: code
-        name: Cons Implementation
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

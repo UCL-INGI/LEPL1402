@@ -1,7 +1,8 @@
-accessible: false
+accessible: true
 author: Bastin J, Piron H
 categories:
 - module5
+contact_url: ''
 context: |-
     To complete this task you must implement a mergesort for FList using only FList. Arrays, ArrayList, etc. are prohibited for this exercise.
 
@@ -38,27 +39,27 @@ file: ''
 groups: false
 input_random: '0'
 limits:
+    output: '2'
     memory: '100'
     time: '30'
-    output: '2'
-name: '[Module 5] FList MergeSort'
+name: '[Module 5] FList MergeSort [hard]'
 network_grading: false
 order: 48
 problems:
     studentMergeSort:
         type: code
-        name: MergeSort implementation
-        header: 'Paste here the **body** of you method mergesort:'
         language: java
+        header: 'Paste here the **body** of you method mergesort:'
+        name: MergeSort implementation
         default: ''
     studentClass:
-        type: code
+        header: 'Paste here the other methods you have implemented if you have, **SIGNATURE**
+            and **BODY** :'
         default: ''
         name: Other methods
         language: java
+        type: code
         optional: 'on'
-        header: 'Paste here the other methods you have implemented if you have, **SIGNATURE**
-            and **BODY** :'
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

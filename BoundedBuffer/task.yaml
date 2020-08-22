@@ -1,11 +1,12 @@
-accessible: false
+accessible: true
 author: Bastin J, Piron H
 categories:
 - module6
+contact_url: ''
 context: |-
-    A bounded buffer is a way for multiple producers and consumers to synchronised. Indeed multiple producers are going to fill the buffer while consumers  are going to clear out this buffer.
+    A bounded buffer is a way for multiple producers and consumers to synchronize. Indeed multiple producers are going to fill the buffer while consumers  are going to clear out this buffer.
 
-    You have to implement the class BoundedBuffer_. In a bounded buffer, the element window grows to the right, shrinks to the left and slides t the right on the buffer. Here is a little example about the fonctioning of a bounded buffer :
+    You have to implement the class BoundedBuffer_. In a bounded buffer, the element window grows to the right, shrinks to the left and slides to the right on the buffer. Here is a little example about the fonctioning of a bounded buffer :
 
     .. image:: /course/LEPL1402/BoundedBuffer/BoundedBuffer.png
        :scale: 100%
@@ -26,49 +27,49 @@ file: ''
 groups: false
 input_random: '0'
 limits:
+    output: '2'
     memory: '100'
     time: '30'
-    output: '2'
-name: '[Module 6] Bounded Buffer'
+name: '[Module 6] Bounded Buffer [hard]'
 network_grading: false
 order: 55
 problems:
     student_doPut:
-        default: ''
-        header: 'Paste here the **body** of the method ``doPut`` :'
-        name: ''
         type: code
+        header: 'Paste here the **body** of the method ``doPut`` :'
+        default: ''
         language: java
+        name: ''
     student_doTake:
         default: ''
-        header: 'Paste here the **body** of the method ``doTake`` :'
         language: java
-        type: code
         name: ''
+        type: code
+        header: 'Paste here the **body** of the method ``doTake`` :'
     student_put:
+        default: ''
         name: ''
         type: code
         header: 'Paste here the **body** of the method ``put`` :'
         language: java
-        default: ''
     student_take:
-        type: code
+        default: ''
         header: 'Paste here the **body** of the method ``take`` :'
+        name: ''
         language: java
-        name: ''
-        default: ''
+        type: code
     student_offer:
-        default: ''
-        name: ''
         header: 'Paste here the **body** of the method ``offer`` :'
         type: code
+        name: ''
         language: java
+        default: ''
     student_poll:
-        header: 'Paste here the **body** of the method ``poll`` :'
+        default: ''
         name: ''
         type: code
         language: java
-        default: ''
+        header: 'Paste here the **body** of the method ``poll`` :'
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

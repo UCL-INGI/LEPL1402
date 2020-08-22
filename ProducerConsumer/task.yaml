@@ -1,7 +1,8 @@
-accessible: false
+accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module6
+contact_url: ''
 context: |-
     In this task we will ask you to solve the producer/consumer problem, represented here as a concurrent bounded FIFO queue. We will run simultaneously two different types of threads on your queue :
 
@@ -11,7 +12,7 @@ context: |-
     Your queue needs to be thread-safe : it must be able to operate in a concurrent environment. It also means that threads must wait if necessary.
     A producer can't progress if there's no space left in the queue. A consumer can't take element from the queue if it is empty.
     For this exercise, you will need to implement ``enqueue`` and ``dequeue``, using all the instance variables that are in
-    the LockQueue_ class below. We strongly suggest you to look at await_ and signal_ (or ``signalAll``) methods. You are not allowed to instantiate new locks or condition objects.
+    the LockQueue_ class below. We strongly suggest you to look at await_ and signal_ (or ``signalAll``) methods. You are not allowed to instantiate new locks or condition objects. **Do not** reset value of ``head`` and ``tail`` to 0 when you reach the size of the queue.
 
 
     You can download the `IntelliJ Project`_ that contains few tests to help you.
@@ -68,25 +69,25 @@ file: ''
 groups: false
 input_random: '0'
 limits:
+    output: '2'
     memory: '100'
     time: '30'
-    output: '2'
-name: '[Module 6] Threads - Producer/Consumer with locks'
+name: '[Module 6] Threads - Producer/Consumer with locks [medium]'
 network_grading: false
 order: 58
 problems:
     student_enqueue:
+        default: ''
         language: java
-        type: code
         header: Paste here the **body** of your ``enqueue`` method.
+        type: code
         name: ''
-        default: ''
     student_dequeue:
+        default: ''
+        name: ''
+        header: Paste here the **body** of your ``dequeue`` method.
         type: code
         language: java
-        default: ''
-        header: Paste here the **body** of your ``dequeue`` method.
-        name: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

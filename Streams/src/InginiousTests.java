@@ -19,6 +19,10 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+// To have nice double numbers like 10.42
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 @RunWith(GradingRunner.class) // classic "jail runner" from Guillaume's library
 public class InginiousTests {
     private StudentStreamFunction streamFunction;
@@ -33,7 +37,10 @@ public class InginiousTests {
     private Supplier<Integer> section_rng = () -> (int) (Math.random() * 10) + 1; // between 1 and 10
 
     // for course grade
-    private Supplier<Double> grade_rng = () -> Math.random() * 20;
+    private Supplier<Double> grade_rng = () -> BigDecimal
+            .valueOf(Math.random() * 20)
+            .setScale(2, RoundingMode.HALF_UP)
+            .doubleValue();
     private String[] courses = new String[] {"Algorithmn", "Proba & Stat", "ORG"};
 
     // generate random students
@@ -99,8 +106,8 @@ public class InginiousTests {
                     .of(random_students)
                     .sorted(
                             ((Comparator<Student>) (o1, o2) -> {
-                                double d1 = o1.getCourses_results().get(course);
-                                double d2 = o2.getCourses_results().get(course);
+                                double d1 = o1.getCoursesResults().get(course);
+                                double d2 = o2.getCoursesResults().get(course);
                                 return Double.compare(d1, d2);
                             }).reversed()
                     )
@@ -132,7 +139,7 @@ public class InginiousTests {
                     .filter( s -> s.getSection() == section )
                     .map( student -> new Object[] {
                             String.format("%s %s %s","Student", student.getFirstName(), student.getLastName()),
-                            student.getCourses_results().values().stream().reduce(0.0, Double::sum) / (double) student.getCourses_results().size()
+                            student.getCoursesResults().values().stream().reduce(0.0, Double::sum) / (double) student.getCoursesResults().size()
                     })
                     .toArray();
 
@@ -154,7 +161,7 @@ public class InginiousTests {
             int expected = (int) Stream
                     .of(random_students)
                     .filter( student ->
-                            student.getCourses_results()
+                            student.getCoursesResults()
                                     .values()
                                     .stream()
                                     .allMatch(result -> result > 10.0)
@@ -178,9 +185,8 @@ public class InginiousTests {
                     .sorted(
                             (o1, o2) ->
                                     Comparator
-                                            .comparing(Student::getLastName)
-                                            .thenComparing(Student::getFirstName)
-                                            .reversed()
+                                            .comparing(Student::getLastName, Comparator.reverseOrder())
+                                            .thenComparing(Student::getFirstName, Comparator.reverseOrder())
                                             .compare(o1, o2)
                     )
                     .limit(1)
@@ -204,7 +210,7 @@ public class InginiousTests {
                     .of(random_students)
                     .map(
                             student -> student
-                                    .getCourses_results()
+                                    .getCoursesResults()
                                     .values()
                                     .stream()
                                     .reduce(0.0, Double::sum)

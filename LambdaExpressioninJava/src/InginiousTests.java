@@ -51,7 +51,7 @@ public class InginiousTests {
 
     }
     @Test()
-    @Grade(value=5, custom=true, cpuTimeout=100)
+    @Grade(value=5, custom=true, cpuTimeout=200)
     @GradeFeedback(message="Your lambda is not correct for the Predicate", onFail=true)
     public void testPredicate() throws CustomGradingResult{
 

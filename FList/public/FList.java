@@ -1,30 +1,81 @@
+import java.util.Iterator;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
 public abstract class FList<A> implements Iterable<A> {
+    /**
+     * Returns an empty FList
+     */
+    public static <A> FList<A> nil() {
+        return (Nil<A>) Nil.INSTANCE;
+    }
 
-    // creates an empty list
-    public static <A> FList<A> nil();
+    /**
+     * Creates a new list with a prepended to this list
+     */
+    public final FList<A> cons(final A a) {
+        return new Cons(a, this);
+    }
 
-    // prepend a to the list and return the new list
-    public final FList<A> cons(final A a);
+    /**
+     * @return the number of elements in the list
+     */
+    public abstract int length();
 
-    public final boolean isNotEmpty();
+    /**
+     * @return true if the list is empty, false otherwise
+     */
+    public abstract boolean isEmpty();
 
-    public final boolean isEmpty();
-
-    public final int length();
-
-    // return the head element of the list
+    /**
+     * @return the head of the list.
+     * Throws NoSuchElementException if the list is empty
+     */
     public abstract A head();
 
-    // return the tail of the list
+    /**
+     * @return the tail of the list (i.e. the sublist without the first element of this list)
+     * Throws NoSuchElementException if the list is empty
+     */
     public abstract FList<A> tail();
 
-    // return a list on which each element has been applied function f
-    public final <B> FList<B> map(Function<A,B> f);
+    /**
+     * Returns a new list with the output of the function f applied to each element of this list
+     */
+    public abstract <B> FList<B> map(Function<A,B> f);
 
-    // return a list on which only the elements that satisfies predicate are kept
-    public final FList<A> filter(Predicate<A> f);
+    /**
+     * Creates a new list with only the element that fullfill the predicate f (i.e. f(elem) == true).
+     */
+    public abstract FList<A> filter(Predicate<A> f);
 
-    // return an iterator on the element of the list
-    public Iterator<A> iterator();
+
+    public Iterator<A> iterator() {
+        return new Iterator<A>() {
+            // Do whatever you want here
+
+            public boolean hasNext() {
+                // TODO
+            }
+
+            public A next() {
+                // TODO
+            }
+
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
+        };
+    }
+
+
+    private static final class Nil<A> extends FList<A> {
+        public static final Nil<Object> INSTANCE = new Nil();
+        //TODO
+    }
+
+    private static final class Cons<A> extends FList<A> {
+        // TODO
+    }
 
 }

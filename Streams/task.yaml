@@ -1,7 +1,8 @@
-accessible: false
+accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module5
+contact_url: ''
 context: |-
     Given the Student_ class, You are asked to write the implementation of the StudentFunctions_ class ( that implements the StudentStreamFunction_ interface ) :
 
@@ -16,7 +17,7 @@ context: |-
               Stream<Student> studentStream, String name);
 
           // Compute for each student in the given section their average grade result,
-          // sorted by their result (ascending) as an array of array structured like that :
+          // as an array of array structured like that :
           // [ ["Student FirstName1 LastName1", 7.5], ["Student FirstName2 LastName2", 9.5] ]
           public Object[] computeAverageForStudentInSection(Stream<Student> studentStream,
                                                               int section);
@@ -48,47 +49,47 @@ file: ''
 groups: false
 input_random: '0'
 limits:
+    output: '2'
     memory: '100'
     time: '30'
-    output: '2'
 name: '[Module 5] Dealing with Streams'
 network_grading: false
 order: 50
 problems:
     student_find_second_and_third_top_student_for_given_course:
         name: ''
+        default: ''
+        language: java
+        type: code
         header: 'Paste here the **body** of your ``findSecondAndThirdTopStudentForGivenCourse``
             method : '
-        type: code
-        default: ''
-        language: java
     student_compute_average_for_student_in_section:
+        type: code
         header: 'Paste here the **body** of your ``computeAverageForStudentInSection``
             method : '
-        type: code
         default: ''
-        language: java
         name: ''
+        language: java
     student_get_number_of_successful_students:
-        default: ''
-        type: code
-        language: java
         name: ''
+        default: ''
+        language: java
+        type: code
         header: 'Paste here the **body** of your ``getNumberOfSuccessfulStudents``
             method : '
     student_find_last_in_lexicographic_order:
-        type: code
         default: ''
-        language: java
+        type: code
         header: 'Paste here the **body** of your ``findLastInLexicographicOrder``
             method : '
+        language: java
         name: ''
     student_get_full_sum:
-        header: 'Paste here the **body** of your ``getFullSum`` method : '
-        language: java
         type: code
         name: ''
         default: ''
+        header: 'Paste here the **body** of your ``getFullSum`` method : '
+        language: java
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

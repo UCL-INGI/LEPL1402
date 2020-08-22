@@ -1,7 +1,8 @@
-accessible: false
+accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module6
+contact_url: ''
 context: |-
     In this task we will ask you to use monitors for a thread-shared counter. When threads are executed concurrently and they share some piece of memory, unexpected/wrong results
     are very likely to happen. For example, if you run four threads on the same counter, each thread incrementing ten thousands times the counter, you would of course expect that the
@@ -33,20 +34,20 @@ file: ''
 groups: false
 input_random: '0'
 limits:
+    output: '2'
     memory: '100'
     time: '30'
-    output: '2'
-name: '[Module 6] Threads - Shared counter with monitors'
+name: '[Module 6] Threads - Shared counter with monitors [medium]'
 network_grading: false
 order: 56
 problems:
     student_class:
-        name: ''
-        type: code
-        default: ''
         language: java
+        type: code
+        name: ''
         header: Paste here the bodies **and** signatures of your three methods for
             the ``SharedCounter`` class.
+        default: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

@@ -1,7 +1,8 @@
-accessible: false
+accessible: true
 author: Bastin J. , Piron H.
 categories:
 - module6
+contact_url: ''
 context: |-
     For this task you will learn use Future_ and ExecutorService_ in order to load a web page with images asynchronously. Indeed html is lightweight compared to the images so we want the images to be downloaded asynchronously while the html is displayed without the images.
 
@@ -110,29 +111,29 @@ file: ''
 groups: false
 input_random: '0'
 limits:
+    output: '2'
     memory: '100'
     time: '30'
-    output: '2'
-name: '[Module 6] Future'
+name: '[Module 6] Future [easy]'
 network_grading: false
 order: 53
 problems:
     student_constructor:
-        type: code
-        language: java
-        default: ''
         header: 'Paste here the **body** of the ``constructor`` :'
+        language: java
+        type: code
         name: ''
+        default: ''
     student_loadImage:
+        type: code_single_line
         default: ''
         header: 'Paste here the **body** of ``loadImage`` :'
-        type: code_single_line
         name: ''
     student_loadImages:
+        name: ''
         type: code
         language: java
         default: ''
-        name: ''
         header: 'Paste here the **body** of ``loadImages`` :'
 run_cmd: ''
 stored_submissions: 0

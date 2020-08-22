@@ -1,7 +1,8 @@
-accessible: 2019-11-08 23:19:29/2019-11-22 23:19:32/2019-11-22 23:19:32
+accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module4
+contact_url: ''
 context: |
     In this task, you should provide a TestSuite for coverage check of the following class :
 
@@ -94,18 +95,18 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
 name: '[Module 4] Coverage Testing'
 network_grading: false
 order: 37
 problems:
     student_code:
-        default: ''
-        header: 'Insert here the **BODY** of your test suite:'
         type: code
-        name: ''
+        header: 'Insert here the **BODY** of your test suite:'
         language: java
+        name: ''
+        default: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

@@ -1,9 +1,10 @@
-accessible: 2019-11-08 19:36:08/2019-11-22 19:36:13/2019-11-22 19:36:13
+accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module4
+contact_url: ''
 context: |-
-    In this task, you will need to provide a JUnit4 TestSuite for the **static method** ``binarySearch`` located in the **class** ``Exercise``  :
+    In this task, you will need to provide a JUnit4 TestSuite for the **static method** ``binarySearch`` located in the **class** ``Exercise``:
 
     .. code-block:: java
 
@@ -14,7 +15,7 @@ context: |-
          *             -2 if the parameters do not respect the preconditions.
          *
          * @pre low >= 0, high < |arr|, low <= high
-         * @post returns :
+         * @post returns:
          *            index in which the searched element is located,
          *            -1 if it is not present.
          *            -2 if it does not respect @pre
@@ -51,18 +52,18 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '60'
     output: '2'
+    time: '60'
 name: '[Module 4] BlackBox Testing - Binary Search'
 network_grading: false
 order: 36
 problems:
     student_code:
-        default: ''
-        header: 'Insert here the **body** of your test suite:'
         type: code
-        name: ''
+        header: 'Insert the **body** of your test suite here:'
         language: java
+        name: ''
+        default: ''
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

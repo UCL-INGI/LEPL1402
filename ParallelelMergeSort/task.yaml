@@ -1,7 +1,8 @@
-accessible: false
+accessible: true
 author: Bastin J, Piron H
 categories:
 - module6
+contact_url: ''
 context: |-
     In this task, you will be asked to implement a special kind of merge sort using the RecursiveAction_ , ForkJoinPool_ and ForkJoinTask_ interfaces. You will understand by reading these interfaces that the merge sort you must implement is not only recursive but in parallel.
 
@@ -37,37 +38,37 @@ file: ''
 groups: false
 input_random: '0'
 limits:
+    output: '2'
     memory: '100'
     time: '30'
-    output: '2'
-name: '[Module 6] Parallel Merge Sort'
+name: '[Module 6] Parallel Merge Sort [hard]'
 network_grading: false
 order: 59
 problems:
     studentConstructor:
-        header: 'Paste here the **body** of your constructor:'
-        type: code
+        language: java
         name: Constructor Implementation
-        language: java
         default: ''
+        type: code
+        header: 'Paste here the **body** of your constructor:'
     studentCompute:
-        type: code
         language: java
-        default: ''
         header: 'Paste here the **body** of the compute method:'
+        type: code
         name: Compute Implementation
+        default: ''
     studentSort:
-        language: java
+        header: 'Paste here the **body** of the sort method:'
         default: ''
         type: code
-        header: 'Paste here the **body** of the sort method:'
         name: Sort Implementation
-    studentMerge:
         language: java
-        name: Merge Implementation
+    studentMerge:
         header: 'Paste here the **body** of the merge method:'
         type: code
+        name: Merge Implementation
         default: ''
+        language: java
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

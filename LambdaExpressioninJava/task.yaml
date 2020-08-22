@@ -1,7 +1,8 @@
-accessible: /2019-11-28 23:59:59/2019-11-28 23:59:59
+accessible: true
 author: Bastin J, Piron H
 categories:
 - module5
+contact_url: ''
 context: |
     In this exercise you will learn to use basic lambda expression. Since you are going to use them later, they are worth a small introduction exercise.
 
@@ -27,17 +28,15 @@ order: 41
 problems:
     studentAdd:
         name: Add Integer
-        default: ''
         header: |-
             Write here a lambda expression that takes an integer and return a sum of the integer and two! *Don't forget the semicolon!*
 
             .. code-block:: java
 
                 Function<Integer, Integer> f1 = //Your lambda
+        default: ''
         type: code_single_line
     studentStringLength:
-        name: String length
-        type: code_single_line
         default: ''
         header: |-
             Write here a lambda expression that takes a String and return its length. *Don't forget the semicolon!*
@@ -45,7 +44,10 @@ problems:
             .. code-block:: java
 
                 Function<String, Integer> mf = //Your lambda
+        type: code_single_line
+        name: String length
     studentPredicate:
+        default: ''
         name: Even Integer
         type: code_single_line
         header: |-
@@ -54,18 +56,18 @@ problems:
             .. code-block:: java
 
                 Predicate<Integer> p1 = //Your lambda
-        default: ''
     studentComparator:
-        default: ''
         name: String Comparator
+        type: code_single_line
+        default: ''
         header: |-
             Write here a lambda expression that takes two Strings and compare them using compareTo. *Don't forget the semicolon!*
 
             .. code-block:: java
 
                 Comparator<String> comp = //Your lambda
-        type: code_single_line
     studentStringLengthComp:
+        name: String Length Comparator
         default: ''
         header: |-
             Write here a lambda expression that takes two Strings and compare them using their length, your comparator should return the difference between the first and the second String length. *Don't forget the semicolon!*
@@ -74,7 +76,6 @@ problems:
 
                 Comparator<String> compLength = //Your lambda
         type: code_single_line
-        name: String Length Comparator
 run_cmd: ''
 stored_submissions: 0
 submission_limit:

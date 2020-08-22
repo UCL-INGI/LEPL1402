@@ -201,8 +201,3 @@ course.yaml
 \$test\$/\course.yaml
 
 LEPL1402/
-
-.DS_Store
-*.zip
-._*
-MidTermQuiz*
