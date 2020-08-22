@@ -2,14 +2,14 @@ package src;
 
 public abstract class Observer {
 
-    // A subscriber is an "observer" object. It will get updates from a meteo station.
+    // A subscriber is an "observer" object. It will get updates from a weather station.
 
      protected String news;
 
      protected int zone;
 
     /*
-     * Update the variable "news"
+     * Updates the variable "news"
      */
     abstract public void update(Object o);
 

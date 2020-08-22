@@ -5,9 +5,9 @@ categories:
 contact_url: ''
 context: |-
     In this task, we will ask you to implement a list filtering using the visitor design pattern. More precisely, your visitor
-    will need to traverse a list full of objects of different kind. At the end of its traversal, your observer should have a
-    filtered list containing only ``Integer`` elements from the original list. To succeed this task, you'll have to give us the
-    implementation of these two classes :
+    will need to traverse a list full of objects of different kinds. At the end of its traversal, your visitor should have computed
+    a filtered list containing only ``Integer`` elements from the original list. To succeed this task, you'll have to give us the
+    implementation of these two classes:
 
     .. code-block:: java
 
@@ -20,7 +20,7 @@ context: |-
         }
 
 
-    These two classes must extends Visitable_ and Visitor_. These are abstract classes, pay attention to implement all abstract
+    These two classes must extend Visitable_ and Visitor_. These are abstract classes, so be sure to implement all abstract
     methods these classes contain.
 
     .. _Visitable : /course/LEPL1402/VisitorBasic/Visitable.java
@@ -40,7 +40,7 @@ context: |-
 
 
 
-    You can download the `IntelliJ Project`_ that contains few tests to help you.
+    You can download the `IntelliJ Project`_ that contains a few tests to help you.
 
     .. _`IntelliJ Project`: /course/LEPL1402/VisitorBasic/LEPL1402_VisitorBasic.zip
 environment: java8scala
@@ -61,10 +61,10 @@ problems:
         default: ''
         name: ''
         language: java
-        header: 'Paste here the **body** of your ``VisitableList`` class:'
+        header: 'Paste the **body** of your ``VisitableList`` class here:'
     student_visitor:
         type: code
-        header: 'Paste here the **body** of your ``VisitorList`` class:'
+        header: 'Paste the **body** of your ``VisitorList`` class here:'
         language: java
         default: ''
         name: ''

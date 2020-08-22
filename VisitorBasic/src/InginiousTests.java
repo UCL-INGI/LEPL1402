@@ -28,7 +28,8 @@ public class InginiousTests {
 
     @Test
     @Grade
-    public void Randomtest(){
+    @GradeFeedback(message = "You failed to pass randomised tests, have you tried debugging the issue locally?\n", onFail = true)
+    public void RandomTest(){
 
         for(Class c : cls) {
 
@@ -65,7 +66,7 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedback(message = "Your VisitorList didn't work\n", onFail = true)
+    @GradeFeedback(message = "There's an error within your VisitorList\n", onFail = true)
     public void VisitorTest(){
       for(Class c : cls) {
 
@@ -102,7 +103,7 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedback(message = "Your VisitableList didn't work\n", onFail = true)
+    @GradeFeedback(message = "There's an error within your VisitableList\n", onFail = true)
     public void VisitableTest(){
       for(Class c : cls) {
 

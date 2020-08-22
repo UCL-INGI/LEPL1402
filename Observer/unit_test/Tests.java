@@ -16,7 +16,7 @@ public class Tests {
     @GradeFeedback(message = "Adding and/or removing subscribers to a station does not work\n", onFail = true, onTimeout = true)
     public void testSubscriptions(){
 
-        MeteoStation station = new MeteoStation();
+        WeatherStation station = new WeatherStation();
 
         Observer[] clients = {new Client(1), new Client(2), new Client(2), new Client(3)};
 
@@ -34,10 +34,10 @@ public class Tests {
 
     @Test
     @Grade
-    @GradeFeedback(message = "Your code has problems to broadcast alerts to subscribers\n", onFail = true, onTimeout = true)
+    @GradeFeedback(message = "Your code has problems with broadcasting alerts to subscribers\n", onFail = true, onTimeout = true)
     public void testAlerts(){
 
-        MeteoStation station = new MeteoStation();
+        WeatherStation station = new WeatherStation();
 
         Observer[] clients = {new Client(1), new Client(2), new Client(2)};
 
@@ -61,10 +61,10 @@ public class Tests {
 
     @Test
     @Grade
-    @GradeFeedback(message = "Your code has problems to update alert messages\n", onFail = true, onTimeout = true)
+    @GradeFeedback(message = "Your code has problems with updating alert messages\n", onFail = true, onTimeout = true)
     public void testUpdate(){
 
-        MeteoStation station = new MeteoStation();
+        WeatherStation station = new WeatherStation();
 
         Observer[] clients = {new Client(1), new Client(2), new Client(2)};
 
@@ -92,9 +92,9 @@ public class Tests {
 
     @Test
     @Grade
-    @GradeFeedback(message = "A client cannot be present 2 times in the same meteostation\n", onFail = true, onTimeout = true)
+    @GradeFeedback(message = "A client cannot be present multiple times in the same weather station\n", onFail = true, onTimeout = true)
     public void testDuplicate(){
-        Observable station = new MeteoStation();
+        Observable station = new WeatherStation();
         Observer client = new Client(0);
 
         station.addObserver(client);
@@ -103,5 +103,17 @@ public class Tests {
         station.removeObserver(client);
 
         assertTrue(station.getSubscribers().length == 0);
+    }
+
+    @Test
+    @Grade
+    @GradeFeedback(message = "Did you correctly initialise instance variables?\n", onFail = true, onTimeout = true)
+    public void testConstructor(){
+
+        Observer client = new Client(3);
+
+        assertNotNull(client.getNews());
+        assertEquals(3, client.getZone());
+
     }
 }

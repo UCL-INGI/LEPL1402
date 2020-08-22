@@ -68,7 +68,6 @@ public class InginiousTests {
 
     }
 
-
     @Test
     @Grade
     @GradeFeedback(message = "You should not be able to divide by 0, read the assignment about what we expect from your code in that specific case", onFail = true)
@@ -88,5 +87,19 @@ public class InginiousTests {
         }
     }
 
+    @Test
+    @Grade
+    @GradeFeedback(message = "Your code couldn't handle the example input given above", onFail = true)
+    public void testExample(){
+        Node root = new Add(
+                new Div(
+                        new Sub(new Leaf(6), new Leaf(2)),
+                        new Add(new Leaf(1), new Leaf(1))),
+                new Mult(new Leaf(5), new Leaf(2)));
 
+        Visitor calculator = new Evaluation();
+
+        int expression = calculator.visit((Add)root);
+        assertEquals(expression, ((6-2)/(1+1))+(5*2));
+    }
 }

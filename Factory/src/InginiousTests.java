@@ -100,7 +100,7 @@ public class InginiousTests {
             }
             if (e instanceof IndexOutOfBoundsException) {
                 throw new CustomGradingResult(TestStatus.FAILED, 0, "(Array)IndexOutOfBoundsException thrown " +
-                        ": Did you check that your Level(String input) works with the given example ?");
+                        ": Did you check that your Level(String input) works with the given example?");
             }
 
             // should never reach that but who knows
@@ -109,14 +109,14 @@ public class InginiousTests {
 
         switch (errorType) {
             case 1:
-                throw new CustomGradingResult(TestStatus.FAILED, 0, "Your toString() method doesn't work as expected : " +
+                throw new CustomGradingResult(TestStatus.FAILED, 0, "Your toString() method doesn't work as expected: " +
                         "It should be the same string you received with the constructor");
             case 2:
                 throw new CustomGradingResult(TestStatus.FAILED, 0.2, "Your getComponents() method should not be empty");
             case 3:
-                throw new CustomGradingResult(TestStatus.FAILED, 0.4, "Your getSize() method doesn't give the expected result : Read carefully the assignment");
+                throw new CustomGradingResult(TestStatus.FAILED, 0.4, "Your getSize() method doesn't give the expected result: Read the assignment carefully");
             case 4:
-                throw new CustomGradingResult(TestStatus.FAILED, 0.6, "Your getComponents() method should not contain null object");
+                throw new CustomGradingResult(TestStatus.FAILED, 0.6, "Your getComponents() method should not contain null objects");
             case 5:
                 throw new CustomGradingResult(TestStatus.FAILED, 0.6, "Not the expected LevelComponent drawn");
             default:

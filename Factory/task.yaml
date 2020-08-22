@@ -49,10 +49,10 @@ context: |-
     .. _Door: /course/LEPL1402/Factory/Door.java
     .. _LevelComponent: /course/LEPL1402/Factory/LevelComponent.java
 
-    Note that these two classes extends the abstract classes Factory_ and AbstractLevel_. Pay attention, we add a small constraint to this exercise: your ElementFactory
+    Note that these two classes extend the abstract classes Factory_ and AbstractLevel_. Pay attention, we add a small constraint to this exercise: your ElementFactory
     **must** be a singleton (i.e, it should not be possible to instantiate your factory
-    with java's ``new`` keyword). For your ``Level`` class, what we want you to do is, given a String, create a ``Level`` object whose ``components``
-    is a 2D array where each cell represent a ``LevelComponent`` and whose ``size`` is the total number of components in the level. Note that all sub-arrays in ``components`` will have the same size as we will only ask you to create "square" labyrinths. If a character does not correspond to one of the component, your code should throw an ``IllegalArgumentException``.
+    with Java's ``new`` keyword). For your ``Level`` class, what we want you to do is, given a String, create a ``Level`` object whose ``components``
+    is a 2D array where each cell represent a ``LevelComponent`` and whose ``size`` is the total number of components in the level. Note that all sub-arrays in ``components`` will have the same size as we will only ask you to create "square" labyrinths. If a character does not correspond to one of the components, your code should throw an ``IllegalArgumentException``.
 
     .. _Factory: /course/LEPL1402/Factory/Factory.java
     .. _AbstractLevel: /course/LEPL1402/Factory/AbstractLevel.java
@@ -70,14 +70,14 @@ network_grading: false
 order: 38
 problems:
     student_factory:
-        header: 'Paste here the **body** of your ``ElementFactory`` class:'
+        header: 'Paste the **body** of your ``ElementFactory`` class here:'
         type: code
         language: java
         name: ''
         default: ''
     student_level:
         name: ''
-        header: 'Paste here the **body** of your ``Level`` class:'
+        header: 'Paste the **body** of your ``Level`` class here:'
         default: ''
         language: java
         type: code
