@@ -68,7 +68,7 @@ public class InginiousTests {
                     break;
                 }
 
-                // check if their array contains LevelComponent ( and not empty objects)
+                // check if their array contains LevelComponent (and not empty objects)
                 boolean error = Arrays.stream(levelcomps).anyMatch(
                         subArray -> Arrays.stream(subArray).anyMatch(Objects::isNull)
                 );
@@ -96,11 +96,11 @@ public class InginiousTests {
         } catch (Exception e) {
 
             if (e instanceof CustomGradingResult) {
-                throw new CustomGradingResult(TestStatus.FAILED, 0, "Well tried, but we are protected against that");
+                throw new CustomGradingResult(TestStatus.FAILED, 0, "Well tried, but we're protected against that");
             }
             if (e instanceof IndexOutOfBoundsException) {
-                throw new CustomGradingResult(TestStatus.FAILED, 0, "(Array)IndexOutOfBoundsException thrown " +
-                        ": Did you check that your Level(String input) works with the given example?");
+                throw new CustomGradingResult(TestStatus.FAILED, 0, "(Array)IndexOutOfBoundsException thrown: " +
+                        "did you check whether your Level(String input) works with the given example?");
             }
 
             // should never reach that but who knows
@@ -110,13 +110,13 @@ public class InginiousTests {
         switch (errorType) {
             case 1:
                 throw new CustomGradingResult(TestStatus.FAILED, 0, "Your toString() method doesn't work as expected: " +
-                        "It should be the same string you received with the constructor");
+                        "It should return the same string you received within the constructor");
             case 2:
-                throw new CustomGradingResult(TestStatus.FAILED, 0.2, "Your getComponents() method should not be empty");
+                throw new CustomGradingResult(TestStatus.FAILED, 0.2, "Your getComponents() method shouldn't return an empty object");
             case 3:
-                throw new CustomGradingResult(TestStatus.FAILED, 0.4, "Your getSize() method doesn't give the expected result: Read the assignment carefully");
+                throw new CustomGradingResult(TestStatus.FAILED, 0.4, "Your getSize() method doesn't give the expected result: read the assignment carefully");
             case 4:
-                throw new CustomGradingResult(TestStatus.FAILED, 0.6, "Your getComponents() method should not contain null objects");
+                throw new CustomGradingResult(TestStatus.FAILED, 0.6, "Your getComponents() method shouldn't contain null objects");
             case 5:
                 throw new CustomGradingResult(TestStatus.FAILED, 0.6, "Not the expected LevelComponent drawn");
             default:

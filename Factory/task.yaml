@@ -4,10 +4,9 @@ categories:
 - module4
 contact_url: ''
 context: |-
-    In this task, we will ask you to implement a labyrinth mini-game level builder using
-    The factory design pattern. Each level consists in a set of Wall_, Key_, Floor_, Door_, all
-    of them implementing the LevelComponent_ interface.
-    Your objective is thus to implement the two following classes:
+    In this task, we will ask you to implement a labyrinth mini-game level builder using the factory design pattern.
+    Each level consists in a set of Wall_, Key_, Floor_, Door_, all of them implementing the LevelComponent_ interface.
+    Your goal is thus to implement the following two classes:
 
     You can download the `IntelliJ Project`_.
 
@@ -28,7 +27,7 @@ context: |-
 
         public class Level extends AbstractLevel {
 
-            public Level(String input){
+            public Level(String input) {
                 // YOUR CODE HERE
             }
 
@@ -49,10 +48,11 @@ context: |-
     .. _Door: /course/LEPL1402/Factory/Door.java
     .. _LevelComponent: /course/LEPL1402/Factory/LevelComponent.java
 
-    Note that these two classes extend the abstract classes Factory_ and AbstractLevel_. Pay attention, we add a small constraint to this exercise: your ElementFactory
-    **must** be a singleton (i.e, it should not be possible to instantiate your factory
-    with Java's ``new`` keyword). For your ``Level`` class, what we want you to do is, given a String, create a ``Level`` object whose ``components``
-    is a 2D array where each cell represent a ``LevelComponent`` and whose ``size`` is the total number of components in the level. Note that all sub-arrays in ``components`` will have the same size as we will only ask you to create "square" labyrinths. If a character does not correspond to one of the components, your code should throw an ``IllegalArgumentException``.
+    Note that these two classes extend the abstract classes Factory_ and AbstractLevel_.
+    Do note that we add a small constraint to this exercise: your ElementFactory **must** be a singleton (i.e, it should not be possible to instantiate your factory with Java's ``new`` keyword).
+    For your ``Level`` class, what we want you to do is, given a String, create a ``Level`` object whose ``components`` is a 2D array where each cell represent a ``LevelComponent`` and whose ``size`` is the total number of components in the level.
+    Note that all sub-arrays in ``components`` will have the same size as we will only ask you to create "square" labyrinths.
+    If a character does not correspond to one of the components, your code should throw an ``IllegalArgumentException``.
 
     .. _Factory: /course/LEPL1402/Factory/Factory.java
     .. _AbstractLevel: /course/LEPL1402/Factory/AbstractLevel.java

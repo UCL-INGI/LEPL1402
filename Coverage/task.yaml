@@ -4,7 +4,7 @@ categories:
 - module4
 contact_url: ''
 context: |
-    In this task, you should provide a TestSuite for coverage check of the following class :
+    In this task, you should provide a test suite for coverage check of the following class:
 
     .. code-block:: java
 
@@ -56,7 +56,9 @@ context: |
             }
         }
 
-    In order to succeed this task, you must cover all the different execution cases. To grade your tests, we use the tool ``Jacoco``, it checks wether you navigate among the entire code that was given. First understand what this code does, then you should write tests that will navigate through each condition, loop etc.
+    In order to succeed at this task, you must cover all the different execution cases.
+    To grade your tests, we use the tool ``Jacoco``, which checks whether you navigate through the entire given code.
+    First try to understand what this code does before writing tests that will navigate through each condition, each loop, etc.
 
 
     Take a look at this link_ to understand the feedback you'll be given.
@@ -64,20 +66,20 @@ context: |
 
     .. _link: https://www.eclemma.org/jacoco/trunk/doc/counters.html
 
-    To start your test suite :
+    Use the following template to start your test suite:
 
     .. code-block:: java
 
         import org.junit.Test;
         import static org.junit.Assert.*;
 
-        public class TestSuite{
+        public class TestSuite {
 
             @Test
-            public void test(){
+            public void test() {
                  // parameters for parseExp
                  char[] in = new char[]{/*Some chars here*/};
-                 // also possible to use .toCharArray from String class for that :
+                 // you can also use .toCharArray from String class for this:
                  // char[] in = myString.toCharArray();
                  int offset = /*Some value HERE*/;
                  int len = /*Some value HERE*/;
@@ -103,7 +105,7 @@ order: 37
 problems:
     student_code:
         type: code
-        header: 'Insert here the **BODY** of your test suite:'
+        header: 'Insert the **BODY** of your test suite here:'
         language: java
         name: ''
         default: ''

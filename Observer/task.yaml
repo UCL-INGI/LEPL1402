@@ -1,10 +1,10 @@
 accessible: true
-author: Yakoub J, Rucquoy A
+author: Yakoub J, Rucquoy A, Maris L
 categories:
 - module4
 contact_url: ''
 context: |-
-    In this task, you have to implement the Observer design pattern for the case of a weather station:
+    In this task, you have to implement the Observer design pattern in the context of a weather station:
 
     .. code-block:: java
 
@@ -18,11 +18,13 @@ context: |-
         }
 
     Note that Observable_ and Observer_ are two abstract classes containing abstract methods.
-    Therefore, check and read them carefully in order to implement things correctly. For your ``Client`` class you have to extend the observer class and implement a constructor (do not forget instance variables).
-    For the ``WeatherStation`` class, extend the Observable abstract class, you will need to use Pair_ for this one.
+    You should therefore check and read them carefully in order to implement things correctly.
+    For your ``Client`` class, you have to extend the ``Observer`` class and implement a constructor (do not forget instance variables).
+    For the ``WeatherStation`` class, extend the ``Observable`` abstract class.
+    You'll have to use Pair_ objects for this one.
 
-    Note that your observers start to receive messages at the moment they subscribe but they should not see messages that were broadcast before they
-    subscribed. They should only get sent weather alerts relative to their own zone.
+    Note that your observers start to receive messages at the moment they subscribe but they should not see messages that were broadcast before they subscribed.
+    They should only get sent weather alerts relative to their own zone.
 
     You can download the `IntelliJ Project`_ that contains a few tests to help you.
 

@@ -24,7 +24,7 @@ limits:
     time: '30'
 name: '[Module 5] Lambda Expression in Java'
 network_grading: false
-order: 41
+order: 42
 problems:
     studentAdd:
         name: Add Integer
