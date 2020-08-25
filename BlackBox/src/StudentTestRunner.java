@@ -22,6 +22,7 @@ public class StudentTestRunner {
         int nDefinitions = 0;
         int nBugs = 0;
         int nBugsFound = 0;
+        String feedbackMessage = "";
 
         try {
             //The number of different implementations of binarySearch you want to submit the student test suite to.
@@ -72,12 +73,20 @@ public class StudentTestRunner {
             // If the flavour has a bug and the students' suite fails, then OK.
             // Else, KO.
 
-            if(!result.wasSuccessful() && !correctness) nBugsFound++; // the std correctly found a bug
-            if(!result.wasSuccessful() && correctness) fp = true; // the std code yield a false positive
+            if(!result.wasSuccessful() && !correctness) {
+                nBugsFound++; // the std correctly found a bug
+                feedbackMessage+=Exercise.feedbackMessages[i]+",";
+            }
+            if(!result.wasSuccessful() && correctness) {
+                fp = true; // the std code yield a false positive
+                feedbackMessage+=i;
+                feedbackMessage+=Exercise.feedbackMessages[i]+",";
+            }
 
         }
 
         System.out.println(nBugsFound+"\t"+nBugs+"\t"+(fp ? "FP" : "NFP"));
+        System.out.println(feedbackMessage);
         // NBUGSFOUND   NBUGS   FP or NFP
 
         // If everything went well (flag = false) we exit with code 0

@@ -24,6 +24,7 @@ def main(result, feedback_settings):
         nBugs = int(regex_result.group("nBugs"))
         status = regex_result.group("status")
         score_ratio = nBugsFound / nBugs
+        extraFeedback = result.stdout.split('\n', 1)[1].split(',')
 
         print("nBugsFound : {} , nBugs : {} , status : {}".format(nBugsFound, nBugs, status))
 
@@ -36,12 +37,19 @@ def main(result, feedback_settings):
         feedback.set_grade(updated_score_ratio * 100)
 
         # Give him some explanation
-        msg2 = "You have found {} bug(s) on a total of {} bugs\n".format(nBugsFound, nBugs)
-        feedback.set_global_feedback(msg2, True)
+        msg2 = "You have found {} bug(s) on a total of {} bugs".format(nBugsFound, nBugs)
         if status == "FP":
-            feedback.set_global_feedback("Your test suite generates a false positive: therefore you have 0.0%.", True)
+            feedback.set_global_feedback(msg2+" but your test suite generates a false positive: therefore you have 0.0%.\n", True)
+            feedback.set_global_feedback("You should check whether a correct binary search implementation is able to pass your tests.\n", True)
+        elif result == "success": # 100%, no need for extra feedback
+            feedback.set_global_feedback(msg2+".\n", True)
+        else: # Failure, so we give the student extra feedback
+            feedback.set_global_feedback(msg2+".\n", True)
+            feedback.set_global_feedback("Your tests managed to single out the following bugs:\n", True)
+            for bug in extraFeedback[:-2]: # [-2] because [-1] is just an empty string, due to the way StudentTestRunner.java prints the feedback
+                feedback.set_global_feedback(bug+", ", True)
+            feedback.set_global_feedback(extraFeedback[-2]+".\n", True)
     
     else:
-
         feedback.set_global_result("failed")
         feedback.set_grade(0.0)

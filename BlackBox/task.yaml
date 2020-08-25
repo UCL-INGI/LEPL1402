@@ -1,41 +1,42 @@
 accessible: true
-author: Yakoub J, Rucquoy A
+author: Yakoub J, Rucquoy A, Maris L
 categories:
 - module4
 contact_url: ''
 context: |-
-    In this task, you will need to provide a JUnit4 TestSuite for the **static method** ``binarySearch`` located in the **class** ``Exercise``:
+    In this task, you will need to provide a JUnit4 TestSuite for the **static method** ``binarySearch`` located in the ``Exercise`` **class**:
 
     .. code-block:: java
 
         /*
          * This method returns:
-         *             index of elem if it is between the "low" and "high" indexes.
-         *             -1 if elem is not the there
+         *             index of elem if it is between the "low" and "high" indexes,
+         *             -1 if elem is not in there,
          *             -2 if the parameters do not respect the preconditions.
          *
          * @pre low >= 0, high < |arr|, low <= high
          * @post returns:
-         *            index in which the searched element is located,
-         *            -1 if it is not present.
-         *            -2 if it does not respect @pre
+         *            index at which the searched element is located,
+         *            -1 if it is not present,
+         *            -2 if the input does not respect @pre.
          */
         public static int binarySearch(int [] arr, int low, int high, int elem) {
             ...
         }
 
-    Based on the specifications provided, create test cases for different input and possible outputs. We strongly suggest you to read the Junit4_ asserts documentation. Here is a signature
-    to start your test suite:
+    Based on the provided specifications, create test cases for different inputs and possible outputs.
+    We strongly suggest you to read the `Junit4 assert documentation`_.
+    Use the following signature to start your test suite:
 
     .. code-block:: java
 
         import org.junit.Test;
         import static org.junit.Assert.*;
 
-        public class TestSuite{
+        public class TestSuite {
 
             @Test
-            public void test(){
+            public void test() {
                 Exercise.binarySearch(...)
             }
 
@@ -44,7 +45,7 @@ context: |-
         }
 
 
-    .. _Junit4: https://junit.org/junit4/javadoc/4.12/org/junit/Assert.html
+    .. _`Junit4 assert documentation`: https://junit.org/junit4/javadoc/4.12/org/junit/Assert.html
 environment: java8scala
 evaluate: best
 file: ''
