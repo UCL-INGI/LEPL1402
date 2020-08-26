@@ -5,13 +5,10 @@ services:
   - mongodb
   - docker
 install:
-  # TODO DONT USE THE REAL INGINIOUS VERSION AS THEY DONT MERGE THIS PR :
-  # https://github.com/UCL-INGI/INGInious/pull/415
-  # - pip3 install git+https://github.com/UCL-INGI/INGInious
-  - pip3 install git+https://github.com/jy95/INGInious
-  - docker pull ingi/inginious-c-base
-  - docker pull ingi/inginious-c-default
-  - docker pull ingi/inginious-c-java8scala
+  - pip3 install --upgrade git+https://github.com/UCL-INGI/INGInious.git@v0.6
+  - docker pull ingi/inginious-c-base:v0.6
+  - docker pull ingi/inginious-c-default:v0.6
+  - docker pull ingi/inginious-c-java8scala:v0.6
   # Dependencies for verification scripts
   - pip3 install -r requirements.txt
 before_script:
