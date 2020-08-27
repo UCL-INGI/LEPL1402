@@ -4,7 +4,7 @@ categories:
 - module5
 contact_url: ''
 context: |-
-    In this task, you have to implement the solver of this well-known logic circuit :
+    In this task, you have to implement this well-known full adder logic circuit:
 
     .. figure:: /course/LEPL1402/Generics3/full-adder-circuit.png
        :scale: 100 %
@@ -12,10 +12,17 @@ context: |-
        :align: center
        :figclass: align-center
 
-    Instead of directly using a chain of logical operators ( that can lead you to a error prone code sometimes),
-    we will be using BiFunction_ and Function_ to implement the logic gates.
-    Your task is thus to implement the following class : Evaluator_ .
-    You can download the `IntelliJ Project`_ that contains few tests to help you.
+    Instead of computing the result directly by using a chain of logical operators (which can lead to error prone code),
+    you're asked to implement the various logic gates the circuit requires first.
+    The way you'll implement these is by defining, for each logic gate, a method that returns a BiFunction_ or Function_ that computes the logical operation.
+
+    Once you've managed to define these logic gates, you're asked to implement the whole circuit within the ``evaluate_circuit(Boolean a, Boolean b, Boolean carry_in)``
+    method. You are not allowed to use any of the built-in logic operators within this method (i.e., you cannot use ``&``, ``|``, ``!`` or ``^`` within this method).
+    Do note this method returns a ``Map<String, Boolean>``, which stores the two outputs of the computation under keys ``SUM`` and ``carry_out``. 
+
+
+    Your task is thus to implement the following class: Evaluator_.
+    You can download the `IntelliJ Project`_ that contains a few tests to help you.
 
     .. _`IntelliJ Project`: /course/LEPL1402/Generics3/LEPL1402_Generics3.zip
 
@@ -37,25 +44,25 @@ order: 45
 problems:
     student_gate_xor:
         name: ''
-        header: Paste here the **BODY** of your **xor_gate** method
+        header: 'Paste the **BODY** of your **xor_gate** method here:'
         language: java
         type: code
         default: ''
     student_gate_or:
         type: code
-        header: Paste here the **BODY** of your **or_gate** method
+        header: 'Paste the **BODY** of your **or_gate** method here:'
         default: ''
         language: java
         name: ''
     student_gate_and:
         language: java
-        header: Paste here the **BODY** of your **and_gate** method
+        header: 'Paste the **BODY** of your **and_gate** method here:'
         name: ''
         default: ''
         type: code
     student_gate_not:
         language: java
-        header: Paste here the **BODY** of your **not_gate** method
+        header: 'Paste the **BODY** of your **not_gate** method here:'
         type: code
         name: ''
         default: ''
@@ -63,7 +70,7 @@ problems:
         default: ''
         type: code
         language: java
-        header: Paste here the **BODY** of your **evaluate_circuit** method
+        header: 'Paste the **BODY** of your **evaluate_circuit** method here:'
         name: ''
 run_cmd: ''
 stored_submissions: 0

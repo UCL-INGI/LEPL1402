@@ -34,7 +34,7 @@ public class InginiousTests {
 
     @Test()
     @Grade(value=5, custom=true, cpuTimeout=100)
-    @GradeFeedback(message="Your lambda is not correct for the first Function", onFail=true)
+    @GradeFeedback(message="Your lambda for question 1 is incorrect", onFail=true)
     public void testFirstFunction() throws CustomGradingResult{
 
         int size = 100;
@@ -50,28 +50,10 @@ public class InginiousTests {
 
 
     }
-    @Test()
-    @Grade(value=5, custom=true, cpuTimeout=200)
-    @GradeFeedback(message="Your lambda is not correct for the Predicate", onFail=true)
-    public void testPredicate() throws CustomGradingResult{
-
-        int size = 100;
-
-        Random rng = new Random();
-        Integer ran;
-
-        for(int i = 0 ; i < size ; i++){
-            ran = rng.nextInt(1000);
-            if(ran%2==0) assertTrue( StudentCode.p1.test(ran));
-            else assertFalse(StudentCode.p1.test(ran));
-        }
-
-
-    }
 
     @Test()
     @Grade(value=5, custom=true, cpuTimeout=100)
-    @GradeFeedback(message="Your lambda is not correct for the second Function", onFail=true)
+    @GradeFeedback(message="Your lambda for question 2 is incorrect", onFail=true)
     public void testSecondFunction() throws CustomGradingResult{
 
         int size = 100;
@@ -86,8 +68,27 @@ public class InginiousTests {
     }
 
     @Test()
+    @Grade(value=5, custom=true, cpuTimeout=200)
+    @GradeFeedback(message="Your lambda for question 3 is incorrect", onFail=true)
+    public void testPredicate() throws CustomGradingResult{
+
+        int size = 100;
+
+        Random rng = new Random();
+        Integer ran;
+
+        for(int i = 0 ; i < size ; i++){
+            ran = rng.nextInt(1000);
+            if(ran%2==0) assertTrue(StudentCode.p1.test(ran));
+            else assertFalse(StudentCode.p1.test(ran));
+        }
+
+
+    }
+
+    @Test()
     @Grade(value=5, custom=true, cpuTimeout=100)
-    @GradeFeedback(message="Your lambda is not correct for the String CompareTo Comparator", onFail=true)
+    @GradeFeedback(message="Your lambda for question 4 is incorrect", onFail=true)
     public void testStringCompTo() throws CustomGradingResult{
 
         int size = 100;
@@ -96,14 +97,14 @@ public class InginiousTests {
         for(int i = 0 ; i < size ; i++){
             s1 = randomString(25);
             s2 = randomString(25);
-            assertEquals(s1.compareTo(s2),StudentCode.comp.compare(s1,s2));
+            assertEquals(s1.compareTo(s2), StudentCode.comp.compare(s1,s2));
         }
 
     }
 
     @Test()
     @Grade(value=5, custom=true, cpuTimeout=100)
-    @GradeFeedback(message="Your lambda is not correct for the String Length Comparator", onFail=true)
+    @GradeFeedback(message="Your lambda for question 5 is incorrect", onFail=true)
     public void testStringLengthComp() throws CustomGradingResult{
 
         int size = 100;
@@ -113,7 +114,7 @@ public class InginiousTests {
             int l2 = rng.nextInt(25);
             s1 = randomString(l1);
             s2 = randomString(l2);
-            assertEquals(s1.length()-s2.length() ,StudentCode.compLength.compare(s1,s2));
+            assertEquals(s1.length()-s2.length(), StudentCode.compLength.compare(s1,s2));
         }
 
     }

@@ -4,23 +4,25 @@ categories:
 - module5
 contact_url: ''
 context: |-
-    In this task, you have to implement the map / filter functions of the following class :
+    In this task, you have to implement the map / filter functions of the following class:
 
     .. code-block:: java
 
         public class Cons {
-            // the item inside this list node
+            // The item inside this list node
             public int v;
-            // The next element, null if nothing
+            // The next element, null if there is none
             public Cons next;
-            // creates a new Cons that applies function f on all elements
+
+            // Returns a new Cons by applying function f on all elements
             public Cons map(F f) {
                 // TODO by student
             }
-            // creates a new Cons with all elements that matches predicate p
+            // Returns a new Cons containing all elements that match predicate p
             public Cons filter(P p) {
                 // TODO by student
             }
+            
             // Constructor
             public Cons(int v, Cons next) {
                 this.v = v;
@@ -28,7 +30,7 @@ context: |-
             }
         }
 
-    Here are the interfaces for the object parameter for filter/map
+    These are the interfaces for the objects used as parameters for filter and map:
 
     .. code-block:: java
 
@@ -40,15 +42,15 @@ context: |-
             boolean filter(int v);
         }
 
-    You can download the `IntelliJ Project`_ that contains few tests to help you.
+    You can download the `IntelliJ Project`_ that contains a few tests to help you.
 
     .. _`IntelliJ Project`: /course/LEPL1402/Generics/LEPL1402_Generics.zip
 
-    ( You can find all the required files here :  Cons_ , Function_ , Predicate_ )
+    (You can find all the required files here: Cons_, F_, P_)
 
     .. _Cons: /course/LEPL1402/Generics/Cons.java
-    .. _Function: /course/LEPL1402/Generics/F.java
-    .. _Predicate: /course/LEPL1402/Generics/P.java
+    .. _F: /course/LEPL1402/Generics/F.java
+    .. _P: /course/LEPL1402/Generics/P.java
 environment: java8scala
 evaluate: best
 file: ''
@@ -66,13 +68,13 @@ problems:
         default: ''
         name: ''
         type: code
-        header: 'Paste here the **body** of your ``map`` method :'
+        header: 'Paste the **body** of your ``map`` method here:'
         language: java
     filter:
         language: java
         type: code
         default: ''
-        header: 'Paste here the **body** of your ``filter`` method :'
+        header: 'Paste the **body** of your ``filter`` method here:'
         name: ''
 run_cmd: ''
 stored_submissions: 0

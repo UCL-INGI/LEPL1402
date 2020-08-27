@@ -4,11 +4,11 @@ categories:
 - module5
 contact_url: ''
 context: |
-    In this exercise you will learn to use basic lambda expression. Since you are going to use them later, they are worth a small introduction exercise.
+    In this exercise you will learn to use basic lambda expressions. Since you are going to use them later, they are worth a small introduction exercise.
 
-    Since we work with lambda, we have decided to block the ``return`` statement.
+    Do note that, as we're working with lambdas, we've decided to block the ``return`` statement.
 
-    Here you can find the java documentation about Function_, Predicate_ and Comparator_.
+    You can click on the following links to find the java documentation about Function_, Predicate_ and Comparator_.
 
     .. _Function: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
     .. _Predicate: https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html
@@ -29,7 +29,7 @@ problems:
     studentAdd:
         name: Add Integer
         header: |-
-            Write here a lambda expression that takes an integer and return a sum of the integer and two! *Don't forget the semicolon!*
+            Write a lambda expression here that takes an integer and return the sum of the integer and two. *Don't forget the semicolon!*
 
             .. code-block:: java
 
@@ -39,7 +39,7 @@ problems:
     studentStringLength:
         default: ''
         header: |-
-            Write here a lambda expression that takes a String and return its length. *Don't forget the semicolon!*
+            Write a lambda expression here that takes a String and returns its length. *Don't forget the semicolon!*
 
             .. code-block:: java
 
@@ -51,7 +51,7 @@ problems:
         name: Even Integer
         type: code_single_line
         header: |-
-            Write here a lambda expression that takes an Integer and return true if its even and false if its odd. *Don't forget the semicolon!*
+            Write a lambda expression here that takes an integer and returns true if it's even and false if it's odd. *Don't forget the semicolon!*
 
             .. code-block:: java
 
@@ -61,7 +61,7 @@ problems:
         type: code_single_line
         default: ''
         header: |-
-            Write here a lambda expression that takes two Strings and compare them using compareTo. *Don't forget the semicolon!*
+            Write a lambda expression here that takes two Strings and compares them using compareTo. *Don't forget the semicolon!*
 
             .. code-block:: java
 
@@ -70,7 +70,7 @@ problems:
         name: String Length Comparator
         default: ''
         header: |-
-            Write here a lambda expression that takes two Strings and compare them using their length, your comparator should return the difference between the first and the second String length. *Don't forget the semicolon!*
+            Write a lambda expression here that takes two Strings and compares them using their length. Your comparator should return the difference between the first and the second String's length. *Don't forget the semicolon!*
 
             .. code-block:: java
 

@@ -1,16 +1,18 @@
 accessible: true
-author: Bastin J. , Piron H.
+author: Bastin J., Piron H., Maris L.
 categories:
 - module5
 contact_url: ''
 context: |-
-    The 8th version of java introduced the Optional_ object to avoid NullPointerException in our codes without using too many check on nullable objects.
+    The 8th version of java introduced the Optional_ object, which allows us to avoid NullPointerExceptions in our code without being forced to perform a ton of checks on nullable objects.
 
-    For this task, we give you three small classes (Person_, Team_ and TeamLeader_) and you have to implement the different methods of OptionalTest_. All methods can be implemented in one line of code thanks to the different methods of Optional_ and the lambda expressions.
+    For this task, we give you three small classes (Person_, Team_ and TeamLeader_) and ask you to implement the different methods of OptionalTest_.
+    All these methods can be implemented with just one line of code thanks to the different methods of Optional_ objects and lambda expressions.
+    You're therefore strongly encouraged to read through the Optional_ documentation.
 
-    You are not allow to use ``new TeamLeader()`` in these exercises.
+    You're not allow to use ``new TeamLeader()`` in these exercises.
 
-    You can download the `IntelliJ Project`_ that contains few tests to help you.
+    You can download the `IntelliJ Project`_ that contains a few tests to help you.
 
     .. _`IntelliJ Project`: /course/LEPL1402/Optional/LEPL1402_Optional.zip
 
@@ -37,11 +39,11 @@ problems:
         default: ''
         name: ''
         header: |-
-            First, we want you to implement the ``createOptionalTeamLeader`` method that return a new ``Optional<TeamLeader>`` from ``teamLeader``.
+            First, we want you to implement the ``createOptionalTeamLeader`` method, which returns a new ``Optional<TeamLeader>`` created from ``teamLeader``.
 
             .. code-block:: java
 
-                public Optional<TeamLeader> createOptionalTeamLeader(TeamLeader teamLeader){
+                public Optional<TeamLeader> createOptionalTeamLeader(TeamLeader teamLeader) {
                     //TODO
                 }
 
@@ -50,54 +52,58 @@ problems:
                 OptionalTest optionalTest = new OptionalTest();
                 TeamLeader teamLeader = ...; // can be null
                 Optional<TeamLeader> tl = optionalTest.createOptionalTeamLeader(teamLeader);
-                System.out.println(tl.equals(Optional.isEmpty())); //should not throw a NullPointerException
+                System.out.println(tl.equals(Optional.isEmpty())); // should not throw a NullPointerException
     student_if_present:
         default: ''
         name: ''
         header: |-
-            For this sub-task you have to implement the function ``incAge`` that increment by one the age of the ``optioanlTeamLeader``.
+            Next, we ask you to implement the function ``incAge`` that increments the age of the ``optionalTeamLeader`` by one.
 
             .. code-block:: java
 
-                public void incAge(Optional<TeamLeader> optionalTeamLeader){
+                public void incAge(Optional<TeamLeader> optionalTeamLeader) {
                     //TODO
                 }
-
-            Note that in the following questions ``optionalTeamLeader`` can't be **null** but can have the value **Optional.empty()**.
         type: code_single_line
     student_filter:
         default: ''
         type: code_single_line
         name: ''
         header: |
-            A little more complicated : increment by one the age of the ``optionalTeamLeader`` only if its age in strictly greater than 15.
+            A little more complex: increment the age of the ``optionalTeamLeader`` by one only if its age is strictly greater than 15.
 
             .. code-block:: java
 
-                public void incAgeIfMoreThanFifteen(Optional<TeamLeader> teamLeader){
+                public void incAgeIfMoreThanFifteen(Optional<TeamLeader> optionalTeamLeader) {
                     //TODO
                 }
+
+            Note that ``optionalTeamLeader`` can't be **null** but can have the value **Optional.empty()**.
     student_map_orelse:
         default: ''
         type: code_single_line
         name: ''
         header: |-
-            Implements the ``getName`` method that return the name of the ``optionalTeamLeader`` or return **"No team leader"** if teamLeader is null.
+            Now we ask you to implement the ``getName`` method, which returns the name of the ``optionalTeamLeader``
+            or returns **"No team leader"** if the teamLeader contained in ``optionalTeamLeader`` is null.
 
             .. code-block:: java
 
-                public String getName(Optional<TeamLeader> optionalTeamLeader){
+                public String getName(Optional<TeamLeader> optionalTeamLeader) {
                     //TODO
                 }
+
+            Note that ``optionalTeamLeader`` can't be **null** but can have the value **Optional.empty()**.
     student_flatmap:
         name: ''
         type: code_single_line
         header: |-
-            Implements the ``getNameOfTeamLeader`` method than returns the name of the team leader of the team in which the ``optionalPerson`` is, if the team has a team leader, or return **"No team leader"**.
+            Finally, we want you to implement the ``getNameOfTeamLeader`` method, which returns the name of the team leader of the team in which the
+            ``optionalPerson`` is, if that team has a team leader, or **"No team leader"** elsewise.
 
             .. code-block:: java
 
-                public String getNameOfTeamLeader(Optional<Person> optionalPerson){
+                public String getNameOfTeamLeader(Optional<Person> optionalPerson) {
                     //TODO
                 }
 

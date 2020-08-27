@@ -36,7 +36,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Filter does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Your filter function does not work\n", onFail = true, onTimeout = true)})
     public void testFilter(){
 
         for(int i=0; i<100; i++){
@@ -68,7 +68,7 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Map does not work\n", onFail = true, onTimeout = true)})
+    @GradeFeedback(message = "Your map function does not work\n", onFail = true, onTimeout = true)})
     public void testMap(){
         Integer [] seeds = Stream.generate(rng).limit(3).toArray(Integer[]::new);
 

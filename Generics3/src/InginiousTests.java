@@ -35,7 +35,7 @@ public class InginiousTests {
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
     @GradeFeedback(message = "Your logic gate AND doesn't work as expected\n", onFail = true, onTimeout = true)})
-    public void test1(){
+    public void testAND(){
 
         BiFunction<Boolean, Boolean, Boolean> and_gate = evaluator.and_gate();
 
@@ -52,7 +52,7 @@ public class InginiousTests {
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
             @GradeFeedback(message = "Your logic gate OR doesn't work as expected\n", onFail = true, onTimeout = true)})
-    public void test2(){
+    public void testOR(){
 
         BiFunction<Boolean, Boolean, Boolean> or_gate = evaluator.or_gate();
 
@@ -69,7 +69,7 @@ public class InginiousTests {
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
             @GradeFeedback(message = "Your logic gate XOR doesn't work as expected\n", onFail = true, onTimeout = true)})
-    public void test3(){
+    public void testXOR(){
 
         BiFunction<Boolean, Boolean, Boolean> xor_gate = evaluator.xor_gate();
 
@@ -86,7 +86,7 @@ public class InginiousTests {
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
             @GradeFeedback(message = "Your logic gate NOT doesn't work as expected\n", onFail = true, onTimeout = true)})
-    public void test4(){
+    public void testNOT(){
 
         Function<Boolean, Boolean> not_gate = evaluator.not_gate();
 
@@ -100,8 +100,8 @@ public class InginiousTests {
     @Test
     @Grade
     @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-            @GradeFeedback(message = "Your implementation of Full Adder in evaluate_circuit is wrong\n", onFail = true, onTimeout = true)})
-    public void test5(){
+            @GradeFeedback(message = "Your full adder implementation in evaluate_circuit doesn't work as expected\n", onFail = true, onTimeout = true)})
+    public void testEvaluateCircuit(){
 
         Function<Boolean, Boolean> not = a -> !a;
         BiFunction<Boolean, Boolean, Boolean> and = (a, b) -> a & b;
@@ -116,7 +116,7 @@ public class InginiousTests {
                     // actual result
                     Map<String, Boolean> actual = evaluator.evaluate_circuit(a, b, cIn);
                     Boolean actual_sum = actual.get("SUM");
-                    Boolean actual_carryout = actual.get("CarryOut");
+                    Boolean actual_carryout = actual.get("carry_out");
 
                     // expected
                     Boolean s = xor.apply(a, b);

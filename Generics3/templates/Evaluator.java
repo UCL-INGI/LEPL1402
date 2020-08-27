@@ -27,9 +27,10 @@ public class Evaluator {
         @   @student_gate_not@@
     }
 
-    // Should return a map with the results stored in map ( use HashMap )
-    // Keys are "SUM", "CarryOut"
-    // WARNING : USE HERE ONLY the previously defined method to compute result (as inginious will prevent you to cheat to directly invoke logical operators)
+    // Should return a map containing the computation's results (use HashMap)
+    // You're asked to store the results under the following keys: "SUM" & "carry_out"
+    // TODO WARNING : ONLY USE the previously defined methods to compute the result
+    // (INGInious will prevent you from cheating by directly invoking logical operators)
     public Map<String, Boolean> evaluate_circuit(Boolean a, Boolean b, Boolean carry_in) {
         // TODO BY STUDENT
         @   @student_evaluate@@

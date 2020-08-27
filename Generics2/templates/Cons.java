@@ -4,21 +4,23 @@ import java.util.function.Predicate;
 import java.util.function.Function;
 
 public class Cons<E> {
-    // the item inside this list node
+    // The item inside this list node
     public E v;
-    // The next element, null if nothing
+    // The next element, null if there is none
     public Cons<E> next;
+
+    // Returns a new Cons by applying Function function on all elements
+    public <R> Cons <R> map(Function <E,R> function) {
+        @@map@@
+    }
+    // Returns a new Cons containing all elements that match Predicate predicate
+    public Cons <E> filter(Predicate <E> predicate) {
+        @@filter@@
+    }
+
     // Constructor
     public Cons(E v, Cons<E> next) {
         this.v = v;
         this.next = next;
     }
-
-    public <R> Cons <R> map(Function <E,R> function) {
-      @@map@@
-    }
-
-    public Cons <E> filter(Predicate <E> predicate) {
-      @@filter@@
-    } 
 }

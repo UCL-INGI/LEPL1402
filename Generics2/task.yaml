@@ -4,7 +4,7 @@ categories:
 - module5
 contact_url: ''
 context: |-
-    In this task, you have to implement the generic map / filter functions of the following class :
+    In this task, you have to implement the generic map / filter functions of the following class:
 
     .. code-block:: java
 
@@ -12,18 +12,20 @@ context: |-
         import java.util.function.Function;
 
         public class Cons < E > {
-            // the item inside this list node
+            // The item inside this list node
             public E v;
-            // The next element, null if nothing
+            // The next element, null if there is none
             public Cons<E> next;
-            // creates a new Cons that applies function f on all elements
+
+            // Returns a new Cons by applying Function function on all elements
             public <R> Cons <R> map(Function <E,R> function) {
                 // TODO by student
             }
-            // creates a new Cons with all elements that matches predicate p
+            // Returns a new Cons containing all elements that match Predicate predicate
             public Cons <E> filter(Predicate <E> predicate) {
                 // TODO by student
             }
+
             // Constructor
             public Cons(E v, Cons < E > next) {
                 this.v = v;
@@ -31,12 +33,15 @@ context: |-
             }
         }
 
+    This task is very similar to the previous one, the difference being that you're now asked to implement generic methods and to use Java's
+    built-in ``Function`` and ``Predicate`` objects. Your code should therefore not be vastly different of the code you've previously written.
     To help you understand how Predicate and Function works, check the documentation_.
-    You can download the `IntelliJ Project`_ that contains few tests to help you.
+
+    You can download the `IntelliJ Project`_ that contains a few tests to help you.
 
     .. _`IntelliJ Project`: /course/LEPL1402/Generics2/LEPL1402_Generics2.zip
 
-    (You can find here all documents : Cons_)
+    (You can find all the required files here: Cons_)
 
     .. _documentation: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
     .. _Cons: /course/LEPL1402/Generics2/Cons.java
@@ -57,13 +62,13 @@ problems:
         default: ''
         name: ''
         type: code
-        header: 'Paste here the **body** of your ``map`` method :'
+        header: 'Paste the **body** of your ``map`` method here:'
         language: java
     filter:
         language: java
         type: code
         default: ''
-        header: 'Paste here the **body** of your ``filter`` method :'
+        header: 'Paste the **body** of your ``filter`` method here:'
         name: ''
 run_cmd: ''
 stored_submissions: 0
