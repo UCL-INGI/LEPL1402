@@ -2,25 +2,22 @@ import java.util.stream.Stream;
 
 public interface StudentStreamFunction {
 
-    // Find the N°2 and N°3 top students for the given course name in parameter
-    public Stream<Student> findSecondAndThirdTopStudentForGivenCourse(Stream<Student> studentStream,
-                                                                              String name);
+    // Finds the N°2 and N°3 top students for the course name given as parameter
+    public Stream<Student> findSecondAndThirdTopStudentForGivenCourse(Stream<Student> studentStream, String name);
 
-    // Compute for each student in the given section their average grade result,
-    // sorted by their result (ascending) as an array of array structured like that :
-    // [ [ "Student FirstName1 LastName1", 7.5 ], [ "Student FirstName2 LastName2", 9.5 ]  ]
-    public Object[] computeAverageForStudentInSection(Stream<Student> studentStream,
-                                                           int section);
+    // Computes, for each student in the given section, their average grade result,
+    // in the form of an array of arrays structured as follows:
+    // [ ["Student FirstName1 LastName1", 7.5], ["Student FirstName2 LastName2", 9.5] ]
+    public Object[] computeAverageForStudentInSection(Stream<Student> studentStream, int section);
 
-    // Give the number of students that success in all courses (> 10.0)
+    // Gives the number of students that passed all courses (all grades > 10.0)
     public int getNumberOfSuccessfulStudents(Stream<Student> studentStream);
 
-    // Find the student that is the last one in the lexicographic order
-    // ( You must first compare students on their lastNames then on their firstNames )
+    // Finds the last student in lexicographic order
+    // (First compare students on their lastNames and then on their firstNames)
     public Student findLastInLexicographicOrder(Stream<Student> studentStream);
 
-
-    // Give the full sum of the grade obtained by all students
+    // Gives the total sum of all grades obtained by all students
     public double getFullSum(Stream<Student> studentStream);
 
 }

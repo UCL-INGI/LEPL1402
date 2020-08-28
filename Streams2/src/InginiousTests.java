@@ -86,12 +86,12 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "FindOne() didn't work for a stream of only one student\n", onFail = true, onTimeout = true)})
+    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "findFirst() didn't work for a stream of just one student", onFail = true, onTimeout = true)})
     public void findOne_simple() {
         Map<String, Double> grades = new HashMap<>();
         Map<String, Predicate<?>> conditions = new HashMap<>();
 
-        Student student = new Student("Jacques","42", 42, grades);
+        Student student = new Student("Jacques", "42", 42, grades);
         Student student1 = new Student("Jacques", "42", 12, grades);
 
         Predicate<String> p1 = (s) -> s.equalsIgnoreCase("jacques");
@@ -105,7 +105,7 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "FindOne() didn't work for advanced data sample\n", onFail = true, onTimeout = true)})
+    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "findFirst() didn't work for an advanced data sample", onFail = true, onTimeout = true)})
     public void findOne_advanced() {
         // random students
         Student[] random_students = generate_random_students(section_rng.get()).toArray(Student[]::new);
@@ -124,7 +124,7 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "FindAll() didn't work for advanced data sample\n", onFail = true, onTimeout = true)})
+    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "findAll() didn't work for an advanced data sample", onFail = true, onTimeout = true)})
     public void findAll_advanced() {
         // random students
         Student[] random_students = generate_random_students(section_rng.get()).toArray(Student[]::new);
@@ -143,7 +143,7 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "Exists() didn't work for advanced data sample\n", onFail = true, onTimeout = true)})
+    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "exists() didn't work for an advanced data sample", onFail = true, onTimeout = true)})
     public void exists_advanced() {
         // random students
         Student[] random_students = generate_random_students(section_rng.get()).toArray(Student[]::new);
@@ -163,7 +163,7 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "filterThenSort() didn't work for advanced data sample\n", onFail = true, onTimeout = true)})
+    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "filterThenSort() didn't work for an advanced data sample", onFail = true, onTimeout = true)})
     public void filterThenSort_advanced() {
         // random students
         Student[] random_students = generate_random_students(section_rng.get()).toArray(Student[]::new);

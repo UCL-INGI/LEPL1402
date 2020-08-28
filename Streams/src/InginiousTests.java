@@ -94,8 +94,8 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "find_second_and_third_top_student_for_given_course() didn't work\n", onFail = true, onTimeout = true)})
-    public void test1() {
+    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "findSecondAndThirdTopStudentForGivenCourse() didn't work", onFail = true, onTimeout = true)})
+    public void testQuestion1() {
 
         for(int i = 0; i < 10; i++) {
             // random students ( at least 3 )
@@ -127,8 +127,8 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "compute_average_for_student_in_section() didn't work\n", onFail = true, onTimeout = true)})
-    public void test2() {
+    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "computeAverageForStudentInSection() didn't work", onFail = true, onTimeout = true)})
+    public void testQuestion2() {
         for(int i = 0; i < 10; i++) {
 
             Student[] random_students = generate_random_students(section_rng.get()).toArray(Student[]::new);
@@ -152,8 +152,8 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "get_number_of_successful_students() didn't work\n", onFail = true, onTimeout = true)})
-    public void test3() {
+    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "getNumberOfSuccessfulStudents() didn't work", onFail = true, onTimeout = true)})
+    public void testQuestion3() {
         for(int i = 0; i < 10; i++) {
 
             Student[] random_students = generate_random_students(section_rng.get()).toArray(Student[]::new);
@@ -174,8 +174,8 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "find_last_in_lexicographic_order() didn't work\n", onFail = true, onTimeout = true)})
-    public void test4() {
+    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "findLastInLexicographicOrder() didn't work", onFail = true, onTimeout = true)})
+    public void testQuestion4() {
         for(int i = 0; i < 1000; i++) {
 
             Student[] random_students = generate_random_students(section_rng.get()).toArray(Student[]::new);
@@ -200,8 +200,8 @@ public class InginiousTests {
 
     @Test
     @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "get_full_sum() didn't work\n", onFail = true, onTimeout = true)})
-    public void test5() {
+    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "getFullSum() didn't work", onFail = true, onTimeout = true)})
+    public void testQuestion5() {
         for(int i = 0; i < 10; i++) {
 
             Student[] random_students = generate_random_students(section_rng.get()).toArray(Student[]::new);

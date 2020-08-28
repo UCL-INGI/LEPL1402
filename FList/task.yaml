@@ -1,22 +1,27 @@
 accessible: true
-author: Bastin J, Piron H
+author: Bastin J, Piron H, Maris L
 categories:
 - module5
 contact_url: ''
 context: |-
-    Functional programming_ is an increasingly important programming paradigm. In this paradigm, data structures are immutable_. You are asked to implement an immutable list called FList that can be used in functionnal programming.
+    `Functional programming`_ is an increasingly important programming paradigm.
+    In this paradigm, data structures are immutable_.
+    You are asked to implement an immutable list called FList that can be used in functionnal programming.
 
-    You should first make sure that you understood the code that is given to you and what is asked to you before trying any implementation.
+    You should first make sure that you understood the code that is given to you and what is asked from you before trying to work out
+    an implementation. Don't be intimidated by the size of size of the class we're giving you: none of its methods should require more
+    than 5 lines of code from you. Make sure you code recursively and not iteratively (which would be much harder)!
 
-    You can download the `IntelliJ Project`_ that contains few tests to help you.
+    You can download the `IntelliJ Project`_, which contains a few tests to help you.
 
     .. _`IntelliJ Project`: /course/LEPL1402/FList/LEPL1402_FList.zip
 
-    You can download the `FList class you have to implement here </course/LEPL1402/FList/FList.java>`_
+    You can download the FList class you have to implement `here </course/LEPL1402/FList/FList.java>`_.
 
-    Since you know how your code should work, we **strongly** recommend you to test it on your computer before trying any submission. The iterator is the most critical part, if it doesn't work, most of the test will not work.
+    Since you know how your code should work, we **strongly** recommend you to test it on your computer before trying to submit.
+    The iterator is the most critical part of this task, so if it doesn't work, most of the tests will not work.
 
-    .. _programming: https://en.wikipedia.org/wiki/Functional_programming
+    .. _`Functional programming`: https://en.wikipedia.org/wiki/Functional_programming
     .. _immutable: https://en.wikipedia.org/wiki/Purely_functional_data_structure
 environment: java8scala
 evaluate: best
@@ -32,7 +37,7 @@ network_grading: true
 order: 47
 problems:
     student_answer:
-        header: Paste here the **body** of your **class** ``FList<A>``
+        header: 'Paste the **body** of your ``FList<A>`` **class** here:'
         language: java
         name: ''
         default: |4
@@ -104,7 +109,7 @@ problems:
 
                 private static final class Nil<A> extends FList<A> {
                     public static final Nil<Object> INSTANCE = new Nil();
-                    //TODO
+                    // TODO
                 }
 
                 private static final class Cons<A> extends FList<A> {

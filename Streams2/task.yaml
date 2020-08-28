@@ -6,7 +6,7 @@ contact_url: ''
 context: |-
     In order to understand why the Stream class could be useful for genericity, we give you this small exercise where you'll have to work on both casting and streams.
 
-    Given the Student_ class, You are asked to write the implementation of the StudentFunctions_ class ( that implements the StudentStreamFunction_ interface ) :
+    Given the Student_ class, you are asked to write the StudentFunctions_ class (which implements the StudentStreamFunction_ interface):
 
     .. code-block:: java
 
@@ -17,40 +17,40 @@ context: |-
 
        public interface StudentStreamFunction {
 
-       // In order to test efficiently your code, we use a Map<String, Predicate<?>>
-       // structured like that :
-       //    Key : String that is one of the fields of Student
-       //          ( "firstName", "lastName", "section", "courses_results")
-       //    Value : Predicate bounded to the type of the field to perform a check condition
+       // In order to test your code efficiently, input conditions take the
+       // form of a Map<String, Predicate<?>> object structured as follows:
+       //    Key   : String corresponding to one of the fields of Student objects
+       //            ("firstName", "lastName", "section", "courses_results")
+       //    Value : Predicate bound to the type of the field on which the condition applies
        //
-       // For example :
-       //    Key:   "firstName"
-       //  Value:   Predicate<String>
+       // For example:
+       //    Key   : "firstName"
+       //    Value : Predicate<String>
 
 
-       // Returns a student if any match the given conditions
-       // if it is not possible, you must return null
+       // Returns a student that matches the given conditions
+       // If there is none, returns null
        public Student findFirst(Stream<Student> studentsStream,
                                 Map<String, Predicate<?>> conditions);
 
-       // Returns a array of student(s) that match the given conditions
+       // Returns an array of student(s) that match the given conditions
        public Student[] findAll(Stream<Student> studentsStream,
                                 Map<String, Predicate<?>> conditions);
 
-       // Return true if we could find n student(s) that match the given condition
+       // Returns true if there are at least n student(s) that match the given conditions
        public boolean exists(Stream<Student> studentsStream,
                              Map<String, Predicate<?>> conditions,
                              int n);
 
-       // Returns a ordered array of student(s) that match the given conditions,
-       // depending of the given comparator
+       // Returns an array of student(s) that match the given conditions,
+       // ordered according to the given comparator
        public Student[] filterThenSort(Stream<Student> studentsStream,
                                        Map<String, Predicate<?>> conditions,
                                        Comparator<Student> comparator);
 
        }
 
-    You can download the `IntelliJ Project`_ that contains few tests to help you.
+    You can download the `IntelliJ Project`_ which contains a few tests to help you.
 
     .. _`IntelliJ Project`: /course/LEPL1402/Streams2/LEPL1402_Streams2.zip
 
@@ -75,30 +75,30 @@ problems:
         type: code
         name: ''
         default: ''
-        header: 'Paste here the **body** of your ``findFirst`` method:'
+        header: 'Paste the **body** of your ``findFirst`` method here:'
     student_findAll:
         name: ''
         default: ''
         type: code
-        header: 'Paste here the **body** of your ``findAll`` method:'
+        header: 'Paste the **body** of your ``findAll`` method here:'
         language: java
     student_exists:
         language: java
         name: ''
-        header: 'Paste here the **body** of your ``exists`` method:'
+        header: 'Paste the **body** of your ``exists`` method here:'
         type: code
         default: ''
     student_filterThenSort:
         language: java
         default: ''
         name: ''
-        header: 'Paste here the **body** of your ``filterThenSort`` method:'
+        header: 'Paste the **body** of your ``filterThenSort`` method here:'
         type: code
     student_util:
         optional: 'on'
         type: code
         default: ''
-        header: 'You can paste here additional methods if you need :'
+        header: 'You can paste additional methods here if you need them:'
         language: java
         name: ''
 run_cmd: ''

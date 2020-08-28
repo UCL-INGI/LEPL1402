@@ -18,7 +18,6 @@ import static org.junit.Assert.*;
 @RunWith(GradingRunner.class) // classic "jail runner" from Guillaume's library
 public class Tests {
 
-    private boolean flag = true;
     private Supplier<Integer> rng = () -> (int) (new Random().nextInt(100));
 
     private int[] randomNumberSup(int size){
@@ -34,105 +33,172 @@ public class Tests {
     }
 
     @Test()
-    @Grade(value=10, cpuTimeout=100)
-    @GradeFeedback(message = "You failed the example", onFail = true, onTimeout = true)
-    public void testExample(){
+    @Grade(value=5, cpuTimeout=100)
+    @GradeFeedbacks({@GradeFeedback(message = "Your isEmpty() works as expected", onSuccess = true),
+            @GradeFeedback(message = "Your code has an issue with isEmpty()", onFail = true, onTimeout = true)})
+    public void testIsEmpty() {
+        FList<Integer> list = FList.nil(); // list = nil
+        assertTrue(list.isEmpty());
 
+        list = list.cons(1); // list = 1|nil
+        assertFalse(list.isEmpty());
+    }
+
+    @Test()
+    @Grade(value=5, cpuTimeout=100)
+    @GradeFeedbacks({@GradeFeedback(message = "Both head() and tail() seem to work correctly", onSuccess = true),
+            @GradeFeedback(message = "Your code has an issue with head() or tail()", onFail = true, onTimeout = true)})
+    public void testHeadTail() {
+        FList<Integer> list = FList.nil(); // list = nil
+
+        // test whether head() throws the exception
+        boolean noSuch = false;
+        try {
+            list.head();
+        }
+        catch(NoSuchElementException e) {
+            noSuch = true;
+        }
+        if(!noSuch) {
+            fail();
+        }
+
+        // test whether tail() throws the exception
+        noSuch = false;
+        try {
+            list.tail();
+        }
+        catch(NoSuchElementException e) {
+            noSuch = true;
+        }
+        if(!noSuch) {
+            fail();
+        }
+
+        // test whether we can access elements correctly through head() and tail()
+        for(int i = 9; i >= 0; i--) {
+            list = list.cons(i);
+        } // list = 0|1|2|3|4|5|6|7|8|9|nil
+        for(int expectedValue = 0; expectedValue < 10; expectedValue++) {
+            int actualValue = list.head();
+            assertEquals(actualValue, expectedValue);
+            list = list.tail();
+        }
+    }
+
+    @Test()
+    @Grade(value=5, cpuTimeout=100)
+    @GradeFeedbacks({@GradeFeedback(message = "Your code succesfully performed a simple map operation", onSuccess = true),
+            @GradeFeedback(message = "Your code failed to perform a simple map operation", onFail = true, onTimeout = true)})
+    public void testMapBasic() {
         FList<Integer> list = FList.nil();
+        // list = nil
 
-        for (int i = 0; i < 10; i++) {
+        for(int i = 9; i >= 0; i--) {
             list = list.cons(i);
         }
-        int index = 10;
+        // list = 0|1|2|3|4|5|6|7|8|9|nil
+
         list = list.map(i -> i+1);
-        // will print 1,2,...,11
-        for (Integer i: list) {
-            int k = i.intValue();
-            assertEquals(k, index);
-            index--;
+        // list = 1|2|3|4|5|6|7|8|9|10|nil
+
+        for(int expectedValue = 1; expectedValue <= 10; expectedValue++) {
+            int actualValue = list.head();
+            assertEquals(actualValue, expectedValue);
+            list = list.tail();
         }
+    }
+
+    @Test()
+    @Grade(value=5, cpuTimeout=100)
+    @GradeFeedbacks({@GradeFeedback(message = "Your code succesfully performed a simple filter operation", onSuccess = true),
+            @GradeFeedback(message = "Your code failed to perform a simple filter operation", onFail = true, onTimeout = true)})
+    public void testFilterBasic() {
+        FList<Integer> list = FList.nil();
+        // list = nil
+
+        for(int i = 10; i > 0; i--) {
+            list = list.cons(i);
+        }
+        // list = 1|2|3|4|5|6|7|8|9|10|nil
 
         list = list.filter(i -> i%2 == 0);
-        // will print 2,4,6,...,10
-        index = 10;
-        for (Integer i: list) {
-            int k = i.intValue();
-            assertEquals(k, index);
-            index-=2;
-        }
-        flag = false;
+        // list = 2|4|6|8|10|nil
 
+        for(int expectedValue = 2; expectedValue <= 10; expectedValue+=2) {
+            int actualValue = list.head();
+            assertEquals(actualValue, expectedValue);
+            list = list.tail();
+        }
     }
 
     @Test()
     @Grade(value=10, cpuTimeout=100)
-    @GradeFeedback(message="The length you return is not correct", onFail=true)
-    public void testLength(){
+    @GradeFeedbacks({@GradeFeedback(message = "Your length() is working as expected", onSuccess = true),
+            @GradeFeedback(message = "The length you return is incorrect", onFail = true, onTimeout = true)})
+    public void testLength() {
 
         int[] sizes = randomNumberSup(100);
 
         for(int i = 0 ; i<100 ; i++){
-
             FList<Integer> list = FList.nil();
-
             for(int j = 0 ; j < sizes[i] ; j++){
                 list = list.cons(new Random().nextInt(100));
             }
-
             assertEquals(list.length(), sizes[i]);
         }
 
         FList<Integer> list = FList.nil();
         assertEquals(list.length(), 0);
-
     }
 
 
     @Test()
     @Grade(value=10, custom=true, cpuTimeout=100)
-    public void testIterator() throws CustomGradingResult{
+    @GradeFeedbacks({@GradeFeedback(message = "Your iterator is working as expected", onSuccess = true),
+            @GradeFeedback(message = "Your iterator doesn't work as expected", onFail = true, onTimeout = true)})
+    public void testIterator() {
         FList<Integer> list = FList.nil();
 
         int[] values = randomNumberSup(100);
 
-        for(int i = 0 ; i < 100; i++){
+        for(int i = 0 ; i < 100; i++) {
             list = list.cons(values[i]);
         }
         int index= 99;
-        for(Integer i : list){
+        for(Integer i : list) {
             assertEquals(values[index--],i.intValue());
         }
 
-        boolean noSuch = false, concurr=false;
+        boolean noSuch = false, unsupported=false;
 
-        try{
+        try {
             FList<Integer> fl = FList.nil();
             Iterator it = fl.iterator();
             it.next();
-        }catch(NoSuchElementException e){
+        }
+        catch(NoSuchElementException e) {
             noSuch = true;
         }
 
-        try{
+        try {
             FList<Integer> fl = FList.nil();
             Iterator it = fl.iterator();
             fl = fl.cons(1);
             it.remove();
-        }catch(UnsupportedOperationException e){
-            concurr = true;
+        }
+        catch(UnsupportedOperationException e) {
+            unsupported = true;
         }
 
-        if(!concurr && !noSuch){
-            throw new CustomGradingResult(TestStatus.FAILED, 0 , "You forgot about the exceptions");
+        if(!unsupported && !noSuch) {
+            fail("You forgot about the exceptions");
         }
-        if(!concurr){
-            throw new CustomGradingResult(TestStatus.FAILED, 3, "You forgot about the UnsupportedOperationException");
+        if(!unsupported) {
+            fail("You forgot about the UnsupportedOperationException");
         }
-        if(!noSuch){
-            throw new CustomGradingResult(TestStatus.FAILED, 3 , "You forgot about the NoSuchElementException");
+        if(!noSuch) {
+            fail("You forgot about the NoSuchElementException");
         }
-
     }
-
-
 }

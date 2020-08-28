@@ -1,85 +1,71 @@
 package src;
-import java.util.ConcurrentModificationException;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public abstract class CorrectFList<A> implements Iterable<A>{
-
-    public final boolean isNotEmpty() {
-        return this instanceof Cons;
-    }
-
-    public final boolean isEmpty() {
-        return this instanceof Nil;
-    }
-
-    public final int length() {
-        if(this.isEmpty()){
-            return 0;
-        }
-        return 1 + tail().length();
-    }
-
-    public abstract A head();
-
-    public abstract CorrectFList<A> tail();
-
+abstract class CorrectFList<A> implements Iterable<A> {
+    /**
+     * Returns an empty FList
+     */
     public static <A> CorrectFList<A> nil() {
         return (Nil<A>) Nil.INSTANCE;
     }
 
+    /**
+     * Returns a new FList obtained by prepending a to this list
+     */
     public final CorrectFList<A> cons(final A a) {
         return new Cons(a, this);
     }
 
-    public final <B> CorrectFList<B> map(Function<A,B> f) {
+    /**
+     * @return the number of elements in this list
+     */
+    public abstract int length();
 
-        if(length()>1){
-            return new Cons(f.apply(head()), tail().map(f) );
-        }else{
-            return new Cons(f.apply(head()), (Nil<A>) Nil.INSTANCE );
-        }
-    }
+    /**
+     * @return true if the list is empty, false otherwise
+     */
+    public abstract boolean isEmpty();
 
-    public final CorrectFList<A> filter(Predicate<A> f) {
-        if(f.test(head())) {
-            if (length() > 1) {
-                return new Cons(head(), tail().filter(f));
-            }else{
-                return new Cons(head(), (Nil<A>) Nil.INSTANCE);
-            }
-        }else{
-            if(length()>1){
-                return tail().filter(f);
-            }else{
-                return (Nil<A>) Nil.INSTANCE;
-            }
-        }
-    }
+    /**
+     * @return the head of the list.
+     * @throws NoSuchElementException if the list is empty
+     */
+    public abstract A head();
+
+    /**
+     * @return the tail of the list (i.e. the sublist without the first element of this list)
+     * @throws NoSuchElementException if the list is empty
+     */
+    public abstract CorrectFList<A> tail();
+
+    /**
+     * Returns a new list containing the outputs obtained by applying function f to each element of this list
+     */
+    public abstract <B> CorrectFList<B> map(Function<A,B> f);
+
+    /**
+     * Returns a new list containing only the elements from this list that fullfill predicate f (i.e. f(elem) == true)
+     */
+    public abstract CorrectFList<A> filter(Predicate<A> f);
+
+
     public Iterator<A> iterator() {
         return new Iterator<A>() {
+            // Do whatever you want here
+            CorrectFList<A> cur = CorrectFList.this;
 
-            private int sizeAtStart= length();
-            private CorrectFList<A> current = CorrectFList.this;
-
-            public boolean hasNext() throws ConcurrentModificationException {
-                if(sizeAtStart != length()) {
-                    System.out.println(sizeAtStart + "    " + length());
-                    throw new ConcurrentModificationException();
-                }
-
-                return current.isNotEmpty();
+            public boolean hasNext() {
+                return !cur.isEmpty();
             }
 
             public A next() {
-                if(hasNext()){
-                    A a = current.head();
-                    current = current.tail();
-                    return a;
-                }
-                throw new NoSuchElementException();
+                A elem = cur.head();
+                cur = cur.tail();
+                return elem;
             }
 
             public void remove() {
@@ -88,41 +74,81 @@ public abstract class CorrectFList<A> implements Iterable<A>{
         };
     }
 
-    public static final class Nil<A> extends CorrectFList<A> {
-        private static  final Nil<Object> INSTANCE = new Nil();
+
+    private static final class Nil<A> extends CorrectFList<A> {
+        public static final Nil<Object> INSTANCE = new Nil();
+
+        @Override
+        public int length() {
+            return 0;
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return true;
+        }
 
         @Override
         public A head() {
-            return null;
+            throw new NoSuchElementException();
         }
 
         @Override
         public CorrectFList<A> tail() {
-            return null;
+            throw new NoSuchElementException();
         }
 
+        @Override
+        public <B> CorrectFList<B> map(Function<A, B> f) {
+            return CorrectFList.nil();
+        }
+
+        @Override
+        public CorrectFList<A> filter(Predicate<A> f) {
+            return CorrectFList.nil();
+        }
     }
 
-    public static final class Cons<A> extends CorrectFList<A> {
+    private static final class Cons<A> extends CorrectFList<A> {
+        private final A elem;
+        private final CorrectFList<A> next;
 
-        private A head;
-        private CorrectFList<A> tail;
-
-
-        private Cons(A a, CorrectFList<A> fList){
-            this.head = a;
-            this.tail = fList;
-
+        public Cons(final A elem, final CorrectFList<A> next) {
+            this.elem = elem;
+            this.next = next;
         }
+
+        @Override
+        public int length() {
+            return 1 + tail().length();
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
         @Override
         public A head() {
-            return this.head;
+            return elem;
         }
 
         @Override
         public CorrectFList<A> tail() {
-            return this.tail;
+            return next;
+        }
+
+        @Override
+        public <B> CorrectFList<B> map(Function<A, B> f) {
+            return tail().map(f).cons(f.apply(elem));
+        }
+
+        @Override
+        public CorrectFList<A> filter(Predicate<A> f) {
+            if(f.test(elem))
+                return tail().filter(f).cons(elem);
+            else
+                return tail().filter(f);
         }
     }
-
 }

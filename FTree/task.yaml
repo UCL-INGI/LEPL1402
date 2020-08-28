@@ -4,21 +4,24 @@ categories:
 - module5
 contact_url: ''
 context: |
-    In this exercise you have to complete the class FTree_, Node_ and Leaf_. Ftree_ is an abstract class that represents a binary tree, it is extended by Node and Leaf. A Node_ is a FTree_ with two children (left and right) and a value. A Leaf_ is terminal, so it has a value but no children.
+    In this exercise you have to complete classes FTree_, Node_ and Leaf_.
+    Ftree_ is an abstract class that represents a binary tree. It is extended by Node and Leaf.
+    A Node_ is an FTree_ with two children (left and right) and a value.
+    A Leaf_ is terminal, so it has a value but no children.
 
-    In the FTree_ class you must *recursivly* implement:
-        - depth : returns the depth of the tree (we assume that the tree is balanced)
-        - map : receives a function as argument and apply it to all the values contained in the tree
+    Within the FTree_ class, you have to *recursively* implement:
+        - ``depth()``: returns the depth of the tree (we assume that the tree is balanced)
+        - ``map()``: returns a new FTree obtained by applying the function received as argument on all the values contained in the tree
 
-    To complete the Node_ class you must:
+    To complete the Node_ class, you must:
         - implement the constructor
         - extend FTree_
 
-    To complete the Leaf_ class you must :
+    To complete the Leaf_ class, you must :
         - implement the constructor
         - extend FTree_
 
-    You can download the `IntelliJ Project`_ that contains few tests to help you.
+    You can download the `IntelliJ Project`_ that contains a few tests to help you.
 
     .. _`IntelliJ Project`: /course/LEPL1402/FTree/LEPL1402_FTree.zip
 
@@ -44,7 +47,7 @@ problems:
         default: ''
         type: code
         header: |-
-            Paste here the **body** of your depth method:
+            Paste the **body** of your depth method here:
 
             .. code-block:: java
 
@@ -57,7 +60,7 @@ problems:
         type: code
         default: ''
         header: |-
-            Paste here the **body** of your map method:
+            Paste the **body** of your map method here:
 
             .. code-block:: java
 
@@ -71,7 +74,7 @@ problems:
         name: Node Implementation
         default: ''
         header: |-
-            Paste here the **body** of your class Node class, including every method **signature** and their **implementation**:
+            Paste the **body** of your Node class here, including every method's **signature** and **implementation**:
 
             .. code-block:: java
 
@@ -84,7 +87,7 @@ problems:
                 }
     studentLeaf:
         header: |
-            Paste here the **body** of your class Leaf class, including every method **signature** and their **implementation**:
+            Paste the **body** of your Leaf class here, including every method's **signature** and **implementation**:
 
             .. code-block:: java
 

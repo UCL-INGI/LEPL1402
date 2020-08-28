@@ -4,35 +4,39 @@ categories:
 - module5
 contact_url: ''
 context: |-
-    To complete this task you must implement a mergesort for FList using only FList. Arrays, ArrayList, etc. are prohibited for this exercise.
+    To complete this task, you're asked to implement the MergeSort algorithm for functional lists using only FList.
+    Arrays, ArrayList, etc. are prohibited for this exercise.
 
-    Here is the class FList_ you will be using. Try first to implement the FList by yourself in this exercise_ before starting this one.
+    You will be using the same FList class as in last exercise. We provide you with a template for this class here_.
+    In order to work on this exercise locally, you should first implement FList yourself (i.e., do the `previous exercise`_)
+    before starting  this one. This will allow you to copy/paste your FList class into this task's `IntelliJ Project`_ and
+    work out your MergeSort implementation locally.
 
-    And here is the method you must implement: note that you have to implement merge recursivly and you are allowed to create other methods.
-
-    You can download the `IntelliJ Project`_ that contains few tests to help you.
-
-    .. _`IntelliJ Project`: /course/LEPL1402/FListMergeSort/LEPL1402_FListMergeSort.zip
+    The method we want you to implement has the following signature.
 
     .. code-block:: java
 
         public class FListMerge {
 
-
             /*
-            * This method receives an FList and returns the FList containing the same values but sorted with the smallest value to the highest one.
+            * This method receives an FList and returns a new FList containing the same values but sorted in ascending order.
             *
             */
             public static FList<Integer> mergeSort(FList<Integer> fList){
-                //TODO By Student
+                // TODO By Student
             }
 
-            //TO Complete if needed
+            // TO Complete if necessary
         }
 
+    Note that you have to implement merge recursively and that you are allowed (and encouraged!) to create other methods.
+    One last tip you might want to think about: when splitting a list into 2 sublists, the MergeSort algorithm works regardless
+    of how you decide to split the list into 2 smaller lists. This essentially means you could split list [0, 1, 2, 3, 4, 5] into
+    sublists [0, 2, 4] and [1, 3, 5] instead of the usual [0, 1, 2] and [3, 4, 5].
 
-    .. _FList: /course/LEPL1402/FListMergeSort/FList.java
-    .. _exercise: https://inginious.info.ucl.ac.be/course/LEPL1402/FList
+    .. _`IntelliJ Project`: /course/LEPL1402/FListMergeSort/LEPL1402_FListMergeSort.zip
+    .. _here: /course/LEPL1402/FListMergeSort/FList.java
+    .. _`previous exercise`: https://inginious.info.ucl.ac.be/course/LEPL1402/FList
 environment: java8scala
 evaluate: best
 file: ''
@@ -49,12 +53,11 @@ problems:
     studentMergeSort:
         type: code
         language: java
-        header: 'Paste here the **body** of you method mergesort:'
+        header: 'Paste the **body** of you mergeSort method here:'
         name: MergeSort implementation
         default: ''
     studentClass:
-        header: 'Paste here the other methods you have implemented if you have, **SIGNATURE**
-            and **BODY** :'
+        header: 'Paste the **SIGNATURE** and **BODY** of any other methods you have implemented here (if you implemented any other methods):'
         default: ''
         name: Other methods
         language: java
