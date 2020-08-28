@@ -54,16 +54,13 @@ abstract class FList<A> implements Iterable<A> {
     public Iterator<A> iterator() {
         return new Iterator<A>() {
             // Do whatever you want here
-            FList<A> cur = FList.this;
 
             public boolean hasNext() {
-                return !cur.isEmpty();
+                // TODO
             }
 
             public A next() {
-                A elem = cur.head();
-                cur = cur.tail();
-                return elem;
+                // TODO
             }
 
             public void remove() {
@@ -75,78 +72,10 @@ abstract class FList<A> implements Iterable<A> {
 
     private static final class Nil<A> extends FList<A> {
         public static final Nil<Object> INSTANCE = new Nil();
-
-        @Override
-        public int length() {
-            return 0;
-        }
-
-        @Override
-        public boolean isEmpty() {
-            return true;
-        }
-
-        @Override
-        public A head() {
-            throw new NoSuchElementException();
-        }
-
-        @Override
-        public FList<A> tail() {
-            throw new NoSuchElementException();
-        }
-
-        @Override
-        public <B> FList<B> map(Function<A, B> f) {
-            return FList.nil();
-        }
-
-        @Override
-        public FList<A> filter(Predicate<A> f) {
-            return FList.nil();
-        }
+        // TODO
     }
 
     private static final class Cons<A> extends FList<A> {
-        private final A elem;
-        private final FList<A> next;
-
-        public Cons(final A elem, final FList<A> next) {
-            this.elem = elem;
-            this.next = next;
-        }
-
-        @Override
-        public int length() {
-            return 1 + tail().length();
-        }
-
-        @Override
-        public boolean isEmpty() {
-            return false;
-        }
-
-        @Override
-        public A head() {
-            return elem;
-        }
-
-        @Override
-        public FList<A> tail() {
-            return next;
-        }
-
-        @Override
-        public <B> FList<B> map(Function<A, B> f) {
-            return tail().map(f).cons(f.apply(elem));
-        }
-
-        @Override
-        public FList<A> filter(Predicate<A> f) {
-            if(f.test(elem))
-                return tail().filter(f).cons(elem);
-            else
-                return tail().filter(f);
-        }
+        // TODO
     }
 }
