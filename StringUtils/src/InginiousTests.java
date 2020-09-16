@@ -98,21 +98,13 @@ public class InginiousTests {
     @Grade
     @Test
     public void testSplit() {
-
         String[][] seeds = Stream.generate(rsg_split).limit(10).toArray(String[][]::new);
 
         for (String[] seed : seeds) {
             String[] splitJDK = seed[0].split(seed[1]);
             String[] splitStd = StringUtils.split(seed[0], seed[1].charAt(0));
-            for (int i = 0; i < splitJDK.length; i++) {
-                assertEquals(splitJDK[i], splitStd[i]);
-                // ignore the NPE warning, it will never happen AS LONG AS you use "rsg_split" to generate
-                // input strings
-            }
+            assertArrayEquals(splitJDK, splitStd);
         }
-
-        assertNull(StringUtils.split("Hello world", '=')); // no occurrence of marker, should return null
-
     }
 
 

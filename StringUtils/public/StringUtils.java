@@ -1,34 +1,56 @@
 public class StringUtils {
 
 
-    /*
-     * Split the input string 'str' w.r.t the character 'marker' in an array of String
-     * for example split("test-test", '-') => {"test", "test"}
-     * Must return null if there is no occurrence of 'marker' in 'str'
+    /**
+     * Split a strin according to a delimiter
+     *
+     * @param str The string to split
+     * @param delimiter The delimiter
+     * @return An array containing the substring which fall
+     *          between two consecutive occurence of the delimiter.
+     *          If there is no occurence of the delimiter, it should
+     *          return an array of size 1 with the string at element 0
      */
-    public static String [] split(String str, char marker){
+    public static String [] split(String str, char delimiter){
 
     }
 
 
-    /*
-     * Returns the index of the first occurrence of sub in str
-     * or -1 if there is no occurrence of sub in str at all.
-     * Be careful, we ask you to make CASE SENSITIVE comparison between str and sub.
+    /**
+     * Find the first occurence of a substring in a string
+     *
+     * @param str The string to look in
+     * @param sub The string to look for
+     * @return The index of the start of the first appearance of
+     *          the substring in str or -1 if sub does not appear
+     *          in str
      */
     public static int indexOf(String str, String sub){
 
     }
 
 
+    /**
+     * Convert a string to lowercase
+     *
+     * @param str The string to convert
+     * @return A new string, same as str but with every
+     *          character put to lower case.
+     */
     public static String toLowerCase(String str){
 
     }
 
 
-    /*
-     * Returns true if the string 'str' is a palindrome (a string that reads the same from
-     * left to right AND from right to left).
+    /**
+     * Check if a string is a palyndrome
+     *
+     * A palyndrome is a sequence of character that is the
+     * same when read from left to right and from right to
+     * left.
+     *
+     * @param str The string to check
+     * @return true if str is a palyndrome, false otherwise
      */
     public static boolean palindrome(String str){
     
