@@ -2,52 +2,53 @@ accessible: true
 author: Yakoub J, Rucquoy A
 categories:
 - module1
+contact_url: ''
 context: ''
-environment: mcq
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
 evaluate: best
 file: ''
 groups: false
 input_random: '0'
-limits:
-    time: '30'
-    memory: '100'
-    output: '2'
 name: '[Module 1] Game of 9 common Java programming errors'
 network_grading: false
 order: 7
 problems:
     mcq1:
         choices:
-        -   valid: true
-            text: |-
-                .. code-block::
-
-                  i1 is not equal to i2
-                  i3 is equal to i4
-                  s1 is not equal to s2
         -   text: |-
                 .. code-block::
 
-                  i1 is equal to i2
-                  i3 is equal to i4
-                  s1 is not equal to s2
+                  False
+                  True
+                  False
+            valid: true
+        -   text: |-
+                .. code-block::
+
+                  True
+                  True
+                  False
             feedback: Java cached only some Integers (from -127 to 127) references
                 so == will returns false whereas .equals() give true
-        -   feedback: s1 is a String constant which is stored in memory inside the
+        -   text: |-
+                .. code-block::
+
+                  False
+                  True
+                  True
+            feedback: s1 is a String constant which is stored in memory inside the
                 java String pool, s2 is a String object which is stored in the heap
                 but not inside the pool. If you compare them with ==, you will always
                 get a false result because you compare the references (one is pointing
                 to the string pool and the other to the heap). But if you compare
                 them with .equals(), it will compare the values.
-            text: |-
-                .. code-block::
-
-                  i1 is not equal to i2
-                  i3 is equal to i4
-                  s1 is equal to s2
         success_message: Prefer to use i1.equals(i2) or s1.equals(s2) , which compares
             the values and not == that only check the references.
         name: Confusing object comparison (== instead of .equals)
+        type: multiple_choice
+        limit: 0
         header: |4-
 
             Suppose you run the following code, what will you on STDOUT ?
@@ -61,66 +62,79 @@ problems:
                 Integer i4 = 42;
                 String s1 = "EPL";
                 String s2 = new String("EPL");
-                if (i1 == i2) {
-                  System.out.println("i1 is equal to i2");
-                } else {
-                  System.out.println("i1 is not equal to i2");
-                }
-                if (i3 == i4) {
-                  System.out.println("i3 is equal to i4");
-                } else {
-                  System.out.println("i3 is not equal to i4");
-                }
-                if (s1 == s2) {
-                  System.out.println("s1 is equal to s2");
-                } else {
-                  System.out.println("s1 is not equal to s2");
-                }
-              }
-        limit: 0
-        type: multiple_choice
-    mcq2:
-        limit: 0
-        type: multiple_choice
-        header: 'Arrays start at :'
-        choices:
-        -   valid: true
-            text: '0'
-        -   text: '1'
-            feedback: Java is not an 1-based array index language like MathLab or
-                R
-        name: Confusing about 0-based or 1-based index
-    mcq3:
-        header: |-
-            What is the problem in this code ? (documentation about thread_ )
 
+                System.out.println(i1 == i2);
+                System.out.println(i3 == i4);
+                System.out.println(s1 == s2);
+              }
+    mcq2:
+        choices:
+        -   feedback: You can declare the variable `i` outside the for loops. In this
+                case, if you do not go through the end of the loop (for various reasons),
+                you still know where you stopped.
+            text: |4-
+
+                .. code-block:: java
+
+                    int i;
+                    for (i = 0; i < array.length; i++) {
+                        System.out.println(array[i]);
+                    }
+            valid: true
+        -   valid: true
+            text: |4-
+
+                .. code-block:: java
+
+                    for (int i = 0; i < array.length; i++) {
+                        System.out.println(array[i]);
+                    }
+        -   text: |4-
+
+                .. code-block:: java
+
+                    for (int i=1; i <= array.length; i++) {
+                        System.out.println(array[i]);
+                    }
+            feedback: In Java, as in python (and many good programming languages :-)),
+                the indexing starts at 0.
+        name: Printing an array
+        header: Which of the following code(s) correctly print an array?
+        type: multiple_choice
+        limit: 0
+        multiple: true
+    mcq3:
+        type: multiple_choice
+        limit: 0
+        choices:
+        -   text: This code remove the carrot from the list of fruits.
+        -   text: This code throw a ConcurrentModificationException
+        -   feedback: Unexpectedely, this is the correct answer. The above code **might**
+                work, but generally you **should not** modify a list when iterating
+                over **unless you use an iterator**. See https://docs.oracle.com/javase/8/docs/technotes/guides/language/foreach.html
+                for some info on the foreach loop.
+            valid: true
+            text: The behaviour is not well determined.
+        header: |
+            What is the result of the following lines of code?
 
             .. code-block:: java
 
-              List<String> fixedList = Arrays.asList("Apple", "Banana", "Carrot", "Grape");
-              List<String> listFruit = new ArrayList<>(fixedList);
+                List<String> fruits = new ArrayList<>();
+                fruits.add("Apple");
+                fruits.add("Banana");
+                fruits.add("Carrot");
+                fruits.add("Grape");
 
-              for (String fruit : listFruit) {
-                if (fruit.contains("e")) {
-                  listFruit.remove(fruit);
+                for (String fruit : fruits) {
+                    if (fruit.equals("Carrot")) {
+                        fruits.remove(fruit);
+                    }
                 }
-              }
-
-            .. _Thread: https://en.wikipedia.org/wiki/Thread_(computing)#Multithreading
-        choices:
-        -   text: This code throw a ConcurrentModificationException but only on multi
-                thread programs
-            feedback: |
-                Even in single thread programs, it causes the iteration to behalve unpredictably as the content of the list get changed
-        -   text: This code throw a ConcurrentModificationException
-            valid: true
-        name: Modifying a collection while iterating it
-        limit: 0
-        type: multiple_choice
+        name: It was me, The Carrot!
     mcq4:
         choices:
-        -   valid: true
-            text: |-
+        -   text: |-
                 .. code-block:: java
 
                   String ptr = null;
@@ -128,7 +142,9 @@ problems:
                     System.out.println("SAME");
                   }
             feedback: You identified the NullPointerException
-        -   feedback: You identified the "variable s might not have been initialized
+            valid: true
+        -   valid: true
+            feedback: You identified the "variable s might not have been initialized
                 error"
             text: |-
                 .. code-block:: java
@@ -137,7 +153,6 @@ problems:
                   if (s.equals("EPL")) {
                     System.out.println("SAME");
                   }
-            valid: true
         -   text: |-
                 .. code-block:: java
 
@@ -152,32 +167,42 @@ problems:
             feedback: 'There is not always a problem here : it depends on the random
                 boolean value'
         type: multiple_choice
-        header: Which code sample(s) **always** produce a problem ?
+        limit: 0
         multiple: true
         name: Confusing about object reference
-        limit: 0
+        header: Which code sample(s) **always** produce a problem ?
     mcq5:
         choices:
-        -   text: 'A NoSuchElementException will occur as we have no element in the
-                hashtable. '
+        -   feedback: When using an iterator, you must **always** check that there
+                is still some element to iterate over. To do so, you can use the method
+                `hasNext()`.
             valid: true
-            feedback: Thereby we must call "enumeration.hasMoreElements()" each time
-                before any call of enumeration.nextElement();
-        -   feedback: NoSuchElementException extends RuntimeException
-            text: A RuntimeException will occur as we have no element in the hashtable.
-        name: Enumeration
-        type: multiple_choice
-        header: |4-
-
-            What could be a problem here ?
+            text: 'A NoSuchElementException will occur as we have no element in the
+                list. '
+        -   text: Since there is no element in the list, `null` is printed.
+            feedback: Well tried, but this is not the behaviour.
+        name: Gimme gimme gimme the first element
+        header: |
+            What is the behaviour of the following code?
 
             .. code-block:: java
 
-              public static void main(String args[]) {
-                Hashtable sampleMap = new Hashtable();
-                Enumeration enumeration = sampleMap.elements();
-                enumeration.nextElement();
-              }
+                import java.util.List;
+                import java.util.ArrayList;
+                import java.util.Iterator;
+
+                class Main {
+                    public static void main(String [] args) {
+                        List<Integer> l = new ArrayList<>();
+                        // Class that allow to iterate on a list
+                        Iterator<Integer> ite = l.iterator();
+                        // The method "next" gives the next element in the list
+                        // and the first call gives the first element
+                        Integer firstElement = ite.next();
+                        System.out.println(firstElement);
+                    }
+                }
+        type: multiple_choice
         limit: 0
     mcq6:
         choices:
@@ -186,65 +211,67 @@ problems:
             text: |-
                 .. code-block:: java
 
-                  PrintWriter writer = null;
+                    PrintWriter writer = null;
 
-                  try {
-                    writer = new PrintWriter(new File("EPL.txt"));
-                    writer.write("WhateverStringIWant");
-                    writer.close();
-                  } catch (Exception err) {
-                    err.printStackTrace();
-                  }
-        -   valid: true
-            text: |-
-                .. code-block:: java
-
-                  PrintWriter writer = null;
-
-                  try {
-                    writer = new PrintWriter(new File("EPL.txt"));
-                    writer.write("WhateverStringIWant");
-                  } catch (Exception err) {
-                    err.printStackTrace();
-                  } finally {
-                    if ( writer != null ) {
-                      writer.close();
+                    try {
+                        writer = new PrintWriter(new File("hello_world.txt"));
+                        writer.write("Hello, world!");
+                        writer.close();
+                    } catch (Exception err) {
+                        err.printStackTrace();
                     }
-                  }
+        -   valid: true
             feedback: The try-catch-finally works to deal with this problem but it
                 takes many lines, no ?
-        -   valid: true
-            feedback: Always prefer the try-with-resources notation as it takes much
-                less code lines
             text: |-
                 .. code-block:: java
 
-                  try (PrintWriter writer = new PrintWriter(new File("EPL.txt"))) {
-                    writer.write("WhateverStringIWant");
-                  } catch(Exception err) {
-                    err.printStackTrace();
-                  }
+                  PrintWriter writer = null;
+
+                    PrintWriter writer = null;
+
+                    try {
+                        writer = new PrintWriter(new File("hello_world.txt"));
+                        writer.write("Hello, world!");
+                    } catch (Exception err) {
+                        err.printStackTrace();
+                    } finally {
+                        if (writer != null) {
+                            writer.close();
+                        }
+                    }
+        -   valid: true
+            text: |-
+                .. code-block:: java
+
+                    PrintWriter writer = null;
+
+                    try (PrintWriter writer = new PrintWriter(new File("hello_world.txt"))) {
+                        writer = new PrintWriter(new File("hello_world.txt"));
+                        writer.write("Hello, world!");
+                    } catch (Exception err) {
+                        err.printStackTrace();
+                    }
+            feedback: Always prefer the try-with-resources notation as it takes much
+                less code lines
         multiple: true
         limit: 0
-        header: |4-
-
-            Select correct code sample(s) that does the same thing that this unsafe code sample :
+        type: multiple_choice
+        name: Give it back
+        header: |-
+            When opening a file (`new File(filename)`), you should always close it to avoid undefined behaviour. Select the code(s) among the followings that are correctly coded.
 
             .. code-block:: java
 
-              PrintWriter writer = null;
+                PrintWriter writer = null;
 
-              try {
-                writer = new PrintWriter(new File("EPL.txt"));
-                writer.write("WhateverStringIWant");
-              } catch (Exception err) {
-                err.printStackTrace();
-              }
-        type: multiple_choice
-        name: Forgetting to free resources
+                try {
+                    writer = new PrintWriter(new File("hello_world.txt"));
+                    writer.write("Hello, world!");
+                } catch (Exception err) {
+                    err.printStackTrace();
+                }
     mcq7:
-        type: multiple_choice
-        limit: 0
         choices:
         -   valid: true
             text: No as we get the following compiler error "non-static variable count
@@ -252,6 +279,8 @@ problems:
         -   text: 'Yes'
             feedback: Non-static variable count cannot be referenced from a static
                 context
+        limit: 0
+        name: Static / Not Static context on fields / methods call
         header: |-
             Does it work ?
 
@@ -263,31 +292,34 @@ problems:
                  count++;
                }
              }
-        name: Static / Not Static context on fields / methods call
+        type: multiple_choice
     mcq8:
         choices:
         -   text: |-
                 .. code-block::
 
-                  After swapping call, MEAN OF LIFE is equal to 42
-                  Student Noel has the grade 10.0
-                  Student Noel has the grade 0.0
+                  42
+                  10.0
+                  0.0
             valid: true
-        -   feedback: Even for primitives (like int), the swap method will not work
-            text: |-
-                .. code-block::
-
-                  After swapping call, MEAN OF LIFE is equal to 2048
-                  Student Noel has the grade 10.0
-                  Student Noel has the grade 0.0
         -   text: |-
                 .. code-block::
 
-                  After swapping call, MEAN OF LIFE is equal to 42
-                  Student Noel has the grade 40.0
-                  Student Noel has the grade 0.0
+                  2048
+                  10.0
+                  0.0
+            feedback: Even for primitives (like int), the swap method will not work
+        -   text: |-
+                .. code-block::
+
+                  42
+                  40.0
+                  0.0
             feedback: Just because we first change the value of the reference to the
                 object in setGrade(), futher operations will be without effect
+        limit: 0
+        type: multiple_choice
+        name: Pass by value or by reference
         header: |4-
 
             Can you correctly predict what would be the STDOUT of the following code ?
@@ -340,35 +372,30 @@ problems:
                   int meanOfLife = 42;
                   int randomInt = 2048;
                   swap(meanOfLife, randomInt);
-                  String s1 = "After swapping call, MEAN OF LIFE is equal to "+ meanOfLife;
-                  System.out.println(s1);
+                  System.out.println(meanOfLife);
 
                   Student std = new Student("Noel", 10);
-                  String s_part = "Student " + std.getName() + " has the grade ";
-
                   setGrade(std);
-                  String s2 = s_part + std.getGrade();
-                  System.out.println(s2);
+                  System.out.println(std.getGrade());
 
                   setGrade2(std);
-                  String s3 = s_part + std.getGrade();
-                  System.out.println(s3);
+                  System.out.println(std.getGrade());
                 }
               }
-        type: multiple_choice
-        name: Pass by value or by reference
-        limit: 0
     mcq9:
+        limit: 0
         choices:
         -   text: 'Missing a semicolon after v * 3.14 : Each statement must finish
                 by a semicolon'
             valid: true
         -   text: Missing a double modifier in the method declaration of computeSomething
             valid: true
-        -   feedback: You can multiply a floating point number with an integer but
+        -   text: You can't multiply a floating point number with an integer in Java.
+            feedback: You can multiply a floating point number with an integer but
                 it's not a good habit
-            text: You can't multiply a floating point number with an integer in Java.
-        limit: 0
+        type: multiple_choice
+        name: Forgetting something ...
+        multiple: true
         header: |-
             What are the problems here ?
 
@@ -380,10 +407,6 @@ problems:
                 }
               }
         error_message: Don't forget to select all the answers
-        type: multiple_choice
-        name: Forgetting something ...
-        multiple: true
-run_cmd: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
