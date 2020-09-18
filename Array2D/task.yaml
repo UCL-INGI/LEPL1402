@@ -18,7 +18,7 @@ context: |-
            *  - Each row of the matrix is separated by a newline
            *    character \n
            *  - Each element of the rows are separated by a space
-           *  For example, the String "0 1\n 2 3" represent the
+           *  For example, the String "0 1\n2 3" represent the
            *  matrix:
            *      [0 1]
            *      [2 3]
