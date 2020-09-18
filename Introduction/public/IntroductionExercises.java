@@ -62,13 +62,32 @@ public class IntroductionExercises {
      */
     //TODO maxArray(int[] array) method
 
-    /*
-     * Using the argument of the program
-     * Bound the variable squares with the square of
-     * the elements passed in argument.
-     * Look at the java API : https://docs.oracle.com/javase/8/docs/api/index.html
-     * If an exception occurs, assign the value 0 at the index where its occurs
-     */
+
+
+    /**
+     * Assign to the variable square, the square of the
+     * parameters.
+     *
+     * Let assume that the program is invoked with the following
+     * line:
+     *  java IntroductionExercises 0 3 4 5
+     *
+     * The arguments of the program are 0, 3, 4 and 5.
+     * After the execution of the main, the variable squares
+     * should be:
+     *  squares = [0, 9, 16, 25]
+     *
+     * If an exception occurs when converting an argument to
+     * an integer, put 0 at the corresponding index. For example
+     *
+     *  java IntroductionExercise 0 3.1 4 5
+     *
+     * would yield
+     *
+     *  square = [0, 0, 16, 25]
+     *
+     * because 3.1 can not be converted to an integer
+     * */
     public static void main(String... args){
         //TODO main body
     }
