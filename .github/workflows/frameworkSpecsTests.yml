@@ -4,6 +4,8 @@ jobs:
   unit_test:
     runs-on: ubuntu-latest
     steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
         - name: Install Dependancies
           run: pip3 install -r requirements.txt
         - name: Set up test folder
