@@ -6,6 +6,9 @@ jobs:
     steps:
         - name: Checkout repository
           uses: actions/checkout@v2
+        - name: Install Python setuptools
+          run: |
+            sudo apt-get install -y python-setuptools
         - name: Install Dependancies
           run: pip3 install -r requirements.txt
         - name: Set up test folder
