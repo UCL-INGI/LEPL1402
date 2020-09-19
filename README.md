@@ -1,4 +1,4 @@
-# LEPL1402  ![Framework Specifications for Tasks Validation](https://github.com/UCL-INGI/LEPL1402/workflows/Framework%20Specifications%20for%20Tasks%20Validation/badge.svg)  ![Integration Testing](https://github.com/UCL-INGI/LEPL1402/workflows/Integration%20Testing/badge.svg)
+# LEPL1402  ![Framework Specifications for Tasks](https://github.com/UCL-INGI/LEPL1402/workflows/Framework%20Specifications%20for%20Tasks/badge.svg)  ![Integration Testing](https://github.com/UCL-INGI/LEPL1402/workflows/Integration%20Testing/badge.svg)
 
 INGInious tasks for LEPL1402 at EPL ( UCLouvain )
 

@@ -1,4 +1,4 @@
-name: Framework Specifications for Tasks Validation
+name: Framework Specifications for Tasks
 on: push
 jobs:
   unit_test:
