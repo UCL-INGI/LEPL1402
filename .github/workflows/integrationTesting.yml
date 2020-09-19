@@ -2,13 +2,10 @@ name: Integration Testing
 on: push
 jobs:
     testing:
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-20.04
       steps:
           - name: Checkout repository
             uses: actions/checkout@v2
-          - name: Install Python setuptools
-            run: |
-              sudo apt-get install -y python-setuptools
           - name: Install INGInious containers
             run: |
               docker pull ingi/inginious-c-base
