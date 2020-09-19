@@ -8,15 +8,15 @@ jobs:
             uses: actions/checkout@v2
           - name: Install INGInious containers
             run: |
-              docker pull ingi/inginious-c-base
-              docker pull ingi/inginious-c-default
-              docker pull ingi/inginious-c-java8scala
+              sudo docker pull ingi/inginious-c-base
+              sudo docker pull ingi/inginious-c-default
+              sudo docker pull ingi/inginious-c-java8scala
           - name: Install INGInious
             run: |
-              pip3 install git+https://github.com/UCL-INGI/INGInious
+              sudo pip3 install git+https://github.com/UCL-INGI/INGInious
           - name: Set up Testing
             run: |
               python3 travis_setup.py
           - name: Testing your tasks
             run: |
-              inginious-autotest . LEPL1402 -l
+              sudo inginious-autotest . LEPL1402 -l
