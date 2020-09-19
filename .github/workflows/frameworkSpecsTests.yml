@@ -1,0 +1,15 @@
+name: Framework Specifications for Tasks Validation
+on: push
+jobs:
+  unit_test:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Install Dependancies
+          run: pip3 install -r requirements.txt
+        - name: Set up test folder
+          run:  |
+            python3 travis_setup.py
+            chmod +x check_requirements.py
+        - name: Run Tests
+          run: |
+            ./check_requirements.py

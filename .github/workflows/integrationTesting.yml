@@ -1,0 +1,20 @@
+name: Integration Testing
+on: push
+jobs:
+    testing:
+      runs-on: ubuntu-latest
+      steps:
+          - name: Install INGInious containers
+            run: |
+              docker pull ingi/inginious-c-base
+              docker pull ingi/inginious-c-default
+              docker pull ingi/inginious-c-java8scala
+          - name: Install INGInious
+            run: |
+              pip3 install git+https://github.com/UCL-INGI/INGInious
+          - name: Set up Testing
+            run: |
+              python3 travis_setup.py
+          - name: Testing your tasks
+            run: |
+              inginious-autotest . LEPL1402 -l
