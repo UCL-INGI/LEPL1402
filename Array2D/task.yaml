@@ -45,7 +45,7 @@ context: |-
           /**
            * Compute the transpose of a matrix
            *
-           * @param matrix The input matrix
+           * @param matrix The input rectangular matrix
            * @return A new matrix that is the transpose of matrix
            */
           public static int[][] transpose(int[][] matrix) {
