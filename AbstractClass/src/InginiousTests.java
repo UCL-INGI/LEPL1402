@@ -1,9 +1,11 @@
 package src;
 
+import com.github.guillaumederval.javagrading.CustomGradingResult;
 import com.github.guillaumederval.javagrading.Grade;
 import com.github.guillaumederval.javagrading.GradeFeedback;
 import com.github.guillaumederval.javagrading.GradeFeedbacks;
 import com.github.guillaumederval.javagrading.GradingRunner;
+import com.github.guillaumederval.javagrading.TestStatus;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -23,73 +25,121 @@ public class InginiousTests {
 
     // Check that Shape is correctly implemented
     @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Wrong modifiers in your Shape implementation\n", onFail = true, onTimeout = true)})
-    public void checkShapeImplementation() {
+    @Grade(value=3, custom = true)
+    public void checkShapeImplementation() throws CustomGradingResult {
         Class c = Shape.class;
         int modifier_of_class = c.getModifiers();
+        
         // should be abstract and public
-        assertTrue(Modifier.isAbstract(modifier_of_class));
-        assertTrue(Modifier.isPublic(modifier_of_class));
+        boolean isAbstract = Modifier.isAbstract(modifier_of_class);
+        boolean isPublic = Modifier.isPublic(modifier_of_class);
+        String result = (!isPublic) ? "public" : "abstract";
+        
+        if (!isAbstract || !isPublic){
+            throw new CustomGradingResult(TestStatus.FAILED, 0 , "Shape class is not " + result);
+        }
+
         // Now check if they respected given implementation ; will throw exception if not the case
+        boolean success = true;
+        double currentScore = 1;
+        String[] methodsNames = new String[] {"getArea", "getPerimeter"};
+        String error = "";
         try {
 
-            Method my_method = c.getDeclaredMethod("getArea", double.class);
-            int modifier_of_method = my_method.getModifiers();
+            for(int i = 0; success && i < methodsNames.length; i++) {
+                Method my_method = c.getDeclaredMethod(methodsNames[i], double.class);
+                int modifier_of_method = my_method.getModifiers();
 
-            assertTrue(Modifier.isAbstract(modifier_of_method));
-            assertTrue(Modifier.isPublic(modifier_of_method));
-            assertTrue(my_method.getReturnType().equals(double.class));
+                if (!Modifier.isAbstract(modifier_of_method)) {
+                    success = false;
+                    error = "Shape - method " + methodsNames[i] + " is not abstract";
+                }
 
-            my_method = c.getDeclaredMethod("getPerimeter", double.class);
-            modifier_of_method = my_method.getModifiers();
+                if (success && !Modifier.isPublic(modifier_of_method)) {
+                    success = false;
+                    error = "Shape - method " + methodsNames[i] + " is not public";
+                }
 
-            assertTrue(Modifier.isAbstract(modifier_of_method));
-            assertTrue(Modifier.isPublic(modifier_of_method));
-            assertTrue(my_method.getReturnType().equals(double.class));
+                if (success && !my_method.getReturnType().equals(double.class)) {
+                    success = false;
+                    error = "Shape - method " + methodsNames[i] + " does not have the correct return type";
+                }
+
+                if (success) {
+                    currentScore = currentScore + 1;
+                }
+            }
 
         } catch (Exception e) {
-            fail();
+            throw new CustomGradingResult(TestStatus.FAILED, 0, "You have probably forget to define getArea and/or getPerimeter methods");
         }
+
+        if (success) {
+            throw new CustomGradingResult(TestStatus.SUCCESS, 3);
+        } else {
+            throw new CustomGradingResult(TestStatus.FAILED, currentScore, error);
+        }
+
     }
 
     @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-    @GradeFeedback(message = "Wrong modifiers in your subclasses implementation\n", onFail = true, onTimeout = true)})
-    public void checkSubClassImplementation() {
+    @Grade(value=2, custom = true)
+    public void checkSubClassImplementation() throws CustomGradingResult {
         Class[] class_array = new Class[] {Circle.class, Square.class};
+        String[] methodsNames = new String[] {"getArea", "getPerimeter"};
+        boolean success = true;
+        String error = "";
+        double currentScore = 0;
 
-        for(int i = 0; i < class_array.length; i++) {
+        for(int i = 0; success && i < class_array.length; i++) {
             int modifier_of_class = class_array[i].getModifiers();
             // should be public only
-            assertTrue(modifier_of_class == Modifier.PUBLIC);
-
-            // should extends the Square class
-            assertTrue(Shape.class.isAssignableFrom(class_array[i]));
-
-            try {
-
-                Method my_method = class_array[i].getDeclaredMethod("getArea", new Class[]{double.class});
-                int modifier_of_method = my_method.getModifiers();
-
-                // should be only public
-                assertTrue(modifier_of_method == Modifier.PUBLIC);
-                assertTrue(my_method.getReturnType().equals(double.class));
-
-                // should also be only public
-                my_method = class_array[i].getDeclaredMethod("getPerimeter", new Class[]{double.class});
-                modifier_of_method = my_method.getModifiers();
-
-                assertTrue(modifier_of_method == Modifier.PUBLIC);
-                assertTrue(my_method.getReturnType().equals(double.class));
-                i++;
-
-            } catch (Exception e) {
-                fail();
+            if (!(modifier_of_class == Modifier.PUBLIC)) {
+                success = false;
+                error = class_array[i].getSimpleName() + " is not public";
             }
 
+            // should extends the Shape class
+            if (success && !Shape.class.isAssignableFrom(class_array[i])) {
+                success = false;
+                error = class_array[i].getSimpleName() + " does not extend the Shape class";
+            }
+
+            try {
+                
+                // verify if methods are PUBLIC and have good RETURN type
+                for(int j = 0 ; success && j < methodsNames.length; j++) {
+
+                    Method my_method = class_array[i].getDeclaredMethod(methodsNames[j], new Class[]{double.class});
+                    int modifier_of_method = my_method.getModifiers();
+
+                    // should be only public
+                    if (success && !(modifier_of_method == Modifier.PUBLIC)) {
+                        success = false;
+                        error = class_array[i].getSimpleName() + " - method " + methodsNames[i] + " is not public";
+                    }
+
+                    // should have correct return type
+                    if (success && !(my_method.getReturnType().equals(double.class))) {
+                        success = false;
+                        error = class_array[i].getSimpleName() + " - method " + methodsNames[i] + " does not have the correct return type";
+                    }
+                }
+                
+                if (success) {
+                    currentScore = currentScore + 1;
+                }
+
+            } catch (Exception e) {
+                throw new CustomGradingResult(TestStatus.FAILED, 0, "You have probably forget to define getArea and/or getPerimeter methods inside a class");
+            }
+
+        }
+
+        if (success) {
+            throw new CustomGradingResult(TestStatus.SUCCESS, 2);
+        } else {
+            throw new CustomGradingResult(TestStatus.FAILED, currentScore, error);
         }
 
     }
