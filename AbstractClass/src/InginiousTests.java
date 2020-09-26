@@ -116,13 +116,13 @@ public class InginiousTests {
                     // should be only public
                     if (success && !(modifier_of_method == Modifier.PUBLIC)) {
                         success = false;
-                        error = class_array[i].getSimpleName() + " - method " + methodsNames[i] + " is not public";
+                        error = class_array[i].getSimpleName() + " - method " + methodsNames[j] + " is not public";
                     }
 
                     // should have correct return type
                     if (success && !(my_method.getReturnType().equals(double.class))) {
                         success = false;
-                        error = class_array[i].getSimpleName() + " - method " + methodsNames[i] + " does not have the correct return type";
+                        error = class_array[i].getSimpleName() + " - method " + methodsNames[j] + " does not have the correct return type";
                     }
                 }
                 
