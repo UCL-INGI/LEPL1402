@@ -28,51 +28,7 @@ def compilation_feedback(result):
         templates_folder = helper.relative_path(PATH_TEMPLATES)
         if any(error.get("source", "templates") == templates_folder for error in errors):
             # Generate an custom RST report that will see the student
-            msg = ""
-            # Don't add \r to that as it produces strange results
-            next_line = "\n"
-            indentation = 4
-            headers = ["File", "Line", "Error Message", "Code"]
-
-            # Headers
-            msg += ".. csv-table:: " + next_line
-            # Need a symbol that isn't in the Java
-            msg += " " * indentation + ":quote: §" + next_line
-            msg += " " * indentation + ":header: " + ",".join(headers) + next_line
-            msg += " " * indentation + ":widths: auto" + next_line * 2
-
-            # Contents
-            for error in [error for error in errors if error.get("source", "Unknown Source") == templates_folder]:
-                # Print File , Line and Error message without problem
-                msg += " " * indentation + "§{}§".format(error.get("file", "Unknown Filename"))
-                msg += ",§{}§".format(error.get("line", "Unknown Line Number"))
-                msg += ",§{}§".format(error.get("message", "Unknown Message"))
-
-                # Print the code
-                code_lines = error.get("code", [])
-
-                # For whatever reason, INGINIOUS might truncate the stderr message if too long
-                # It might break the CSV table ... so we need this fix
-                if not code_lines:
-
-                    # Might be confusing but they are the rules of RST for empty block
-                    msg += ",§§" + next_line
-
-                else:
-
-                    msg += ",§.. code-block:: java" + next_line * 2
-                    indentation_for_code = indentation + 1
-
-                    for code_line in code_lines:
-                        # as we are in a code block, we need indentation + 1 in order to create compilable code in RST
-                        msg += " " * indentation_for_code + code_line
-
-                        # needed test to correctly format things
-                        if code_line != code_lines[-1]:
-                            msg += next_line
-
-                    # At the end , we should not forget the quote symbol and the next line
-                    msg += "§" + next_line
+            msg = generate_compilation_errors_table(errors, [PATH_TEMPLATES])
 
             # Send it to Inginious
             feedback.set_global_feedback(msg, True)
@@ -95,6 +51,60 @@ def compilation_feedback(result):
         feedback.set_global_result("failed")
         feedback.set_grade(0.0)
         sys.exit(0)
+
+# Generate compilation error table
+def generate_compilation_errors_table(errors, allowed_sources):
+    # Generate an custom RST report that will see the student
+    msg = ""
+    # Don't add \r to that as it produces strange results
+    next_line = "\n"
+    indentation = 4
+    headers = ["File", "Line", "Error Message", "Code"]
+
+    # Headers
+    msg += ".. csv-table:: " + next_line
+    # Need a symbol that isn't in the Java
+    msg += " " * indentation + ":quote: §" + next_line
+    msg += " " * indentation + ":header: " + ",".join(headers) + next_line
+    msg += " " * indentation + ":widths: auto" + next_line * 2
+
+    # Allowed sources for that table
+    sources = [helper.relative_path(source) for source in allowed_sources]
+
+    # Contents
+    for error in [error for error in errors if error.get("source", "Unknown Source") in sources]:
+        # Print File , Line and Error message without problem
+        msg += " " * indentation + "§{}§".format(error.get("file", "Unknown Filename"))
+        msg += ",§{}§".format(error.get("line", "Unknown Line Number"))
+        msg += ",§{}§".format(error.get("message", "Unknown Message"))
+
+        # Print the code
+        code_lines = error.get("code", [])
+
+        # For whatever reason, INGINIOUS might truncate the stderr message if too long
+        # It might break the CSV table ... so we need this fix
+        if not code_lines:
+
+            # Might be confusing but they are the rules of RST for empty block
+            msg += ",§§" + next_line
+
+        else:
+
+            msg += ",§.. code-block:: java" + next_line * 2
+            indentation_for_code = indentation + 1
+
+            for code_line in code_lines:
+                # as we are in a code block, we need indentation + 1 in order to create compilable code in RST
+                msg += " " * indentation_for_code + code_line
+
+                # needed test to correctly format things
+                if code_line != code_lines[-1]:
+                    msg += next_line
+
+            # At the end , we should not forget the quote symbol and the next line
+            msg += "§" + next_line
+
+    return msg
 
 
 # All the feedback functions for all known "feedback_kind"
