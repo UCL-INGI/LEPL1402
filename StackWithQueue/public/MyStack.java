@@ -2,7 +2,6 @@ import java.util.LinkedList;
 
 public class MyStack<E> {
 
-
     private LinkedList<E> queue;
 
     /*
@@ -12,32 +11,40 @@ public class MyStack<E> {
         this.queue = new LinkedList<>();
     }
 
-    /*
-    * push an element at top (remember, a stack is "Last In First Out")
-    */
+    /**
+     * Push an element on the stack
+     *
+     * @param elem the Element to push
+     */
     public void push(E elem) {
-      //TODO
     }
 
-    /*
-    * Return the top of the stack AND remove the retrieved element
-    */
+    /**
+     * Remove the element at the top of the stack
+     *
+     * @return The element at the top of the stack
+     */
     public E pop() {
-      //TODO
+        return null;
     }
 
-    /*
-    * Return the top element of the stack, without removing it
-    */
+    /**
+     * Look at the element at the top of the stack
+     *
+     * @return The element at the top of the stack
+     */
     public E peek() {
-      //TODO
+        return null;
     }
 
-    /*
-    * Tells if the stack is empty or not
-    */
+    /**
+     * Is the stack empty
+     *
+     * @return True if there is no element in the stack
+     *         and false otherwise
+     */
     public boolean empty() {
-      //TODO
+        return false;
     }
 
 }

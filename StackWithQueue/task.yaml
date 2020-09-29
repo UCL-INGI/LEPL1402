@@ -12,13 +12,7 @@ context: |-
     - ``isEmpty``
     - ``size``
 
-    (You can find the file here_). The challenge of this exercise is to use **only** the queue that is provided as instance variable: ``queue``. In other words, you **can't** instantiate a new ``LinkedList`` anywhere.
-
-    You can download the `IntelliJ Project`_ that contains few tests to help you.
-
-    .. _`IntelliJ Project`: /course/LEPL1402/StackWithQueue/LEPL1402_StackWithQueue.zip
-
-    .. _here: /course/LEPL1402/StackWithQueue/MyStack.java
+    The challenge of this exercise is to use **only** the queue that is provided as instance variable: ``queue``. In other words, you **can't** instantiate a new ``LinkedList`` anywhere. Here is the skeleton of the method
 
     .. code-block:: java
 
@@ -29,39 +23,49 @@ context: |-
             private LinkedList<E> queue;
 
             /*
-            * Constructor
-            */
+             * Constructor
+             */
             public MyStack() {
                 this.queue = new LinkedList<>();
             }
 
-            /*
-            * push an element at top (remember, a stack is "Last In First Out")
-            */
+            /**
+             * Push an element on the stack
+             *
+             * @param elem the Element to push
+             */
             public void push(E elem) {
-                //TODO
             }
 
-            /*
-            * Return the top of the stack AND remove the retrieved element
-            */
+            /**
+             * Remove the element at the top of the stack
+             *
+             * @return The element at the top of the stack
+             */
             public E pop() {
-                //TODO
+                return null;
             }
 
-            /*
-            * Return the top element of the stack, without removing it
-            */
+            /**
+             * Look at the element at the top of the stack
+             *
+             * @return The element at the top of the stack
+             */
             public E peek() {
-                //TODO
+                return null;
             }
 
-            /*
-            * Tells if the stack is empty or not
-            */
+            /**
+             * Is the stack empty
+             *
+             * @return True if there is no element in the stack
+             *         and false otherwise
+             */
             public boolean empty() {
-                //TODO
+                return false;
             }
+
+        }
 environment: java8scala
 evaluate: best
 file: ''
