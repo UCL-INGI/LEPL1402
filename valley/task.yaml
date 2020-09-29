@@ -3,16 +3,9 @@ author: Bastin J, Piron H
 categories:
 - module2
 context: |
-    A geologist is trying to find the deepest valley and the biggest mountain between 2 locations and he thinks you can help him! He'll give you an array of integer like this one:
-
-    .. image:: /course/LEPL1402/valley/arraytest.png
-       :scale: 35%
-       :align: center
-       :height: 184px
-       :width: 1771px
-
-
-    The negative values mean the slope is negative and the positive ones mean it's positive. Thus previous array looks like this:
+    A geologist is trying to find the deepest valley and the biggest mountain between 2 locations and he thinks you can help him!
+    He already preprocess the field and give you as input an array of binary values (`1` and `-1`) representin the slope (when looking at the field from left to right).
+    An example of array with the associated relief is shown next
 
     .. image:: /course/LEPL1402/valley/schema.png
        :scale: 35%
@@ -20,51 +13,32 @@ context: |
        :height: 912px
        :width: 1771px
 
-    Your method will return an array containing the depth of the deepest valley at index 0 and the biggest mountain at index 1. In this example, the depth is 5 and the summit is at 3.
+    He would like to know the depth of the deepest valley as well as the height of the highest mountain.
+    A valley is, as one might expect, a succession of `n` negative slopes followed by `n` positive slopes. In the same manner, a mountain is a succession of `n` positive slopes followed by `n` negative slopes.
+    The height (resp. depth) of a mountain (resp. valley) is the number of consecutive positive (resp. negative) slop `n`.
 
-    \
-    We can define a valley by saying it is sequence of negative number followed by a sequence of positive number with the same amount of numbers. The depth is the length of the sequence.
+    In the example above, the highest mountain has a height of 3 and the deepest valley a depth of 5. Thus your method should return the array [5, 3].
 
-    Here is the mathematical definition:
-
-    Given :math:`A` an Array of integer :math:`\forall i, 0\leq i < |A|, A[i]\neq 0`,
-    Given :math:`v` the length of the longest valley,
-    :math:`\exists ! i,j` with :math:`0\leq i < j \leq |A|` so that :math:`\forall m` , :math:`i \leq m < (j-i)/2` , :math:`A[m]<0` and :math:`\forall n` , :math:`(j-i)/2 < m \leq j` , :math:`A[n]>0` , :math:`j-i > v*2`
-
-
-    \
-    We can define a mountain by saying it is sequence of positive number followed by a sequence of negative number with the same amount of numbers. The height is the length of the sequence.
-
-    Here is the mathematical definition:
-
-    Given :math:`A` an Array of integer :math:`\forall i, 0\leq i < |A|, A[i]\neq 0`,
-    Given :math:`v` the length of the longest valley,
-    :math:`\exists ! i,j` with :math:`0\leq i < j \leq |A|` so that :math:`\forall m` , :math:`i \leq m < (j-i)/2` , :math:`A[m]>0` and :math:`\forall n` , :math:`(j-i)/2 < m \leq j` , :math:`A[n]<0` , :math:`j-i > v*2`
-
-    Consider that the array is never gonna be empty and your method should have a theta(n) complexity
-    \
+      To spice up a bit the thing, your code should have a :math:`\Theta(m)` temporal complexity where m is the length of the array.
 
     Here is the class you have to fill:
 
     .. code-block:: java
 
         public class Valley{
-            /*
-             * Example:
-             * [1, 1, 1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, -1, -1]
-             * Should return
-             * [5, 3]
+
+            /**
+             * Compute the deepest valley and highest mountain
+             *
+             * @param slopes A non-empty array of slope
+             * @return An array of two element. The first is the
+             *         depth of the deepest valley and the second
+             *         the height of the highest mountain
              */
-
-             public static int[] valley ( int[] array){
-             //TODO By Student
-
+            public static int[] valley (int[] slope){
             }
         }
 
-    You can download the `IntelliJ Project`_ that contains few tests to help you.
-
-    .. _`IntelliJ Project`: /course/LEPL1402/valley/LEPL1402_valley.zip
 environment: pyjavacpp
 evaluate: best
 file: ''

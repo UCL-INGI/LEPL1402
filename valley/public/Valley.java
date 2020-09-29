@@ -1,13 +1,13 @@
 public class Valley{
-    /*
-     * Example:
-     * [1, 1, 1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, -1, -1]
-     * Should return
-     * [5, 3]
+
+    /**
+     * Compute the deepest valley and highest mountain
+     *
+     * @param slopes A non-empty array of slope
+     * @return An array of two element. The first is the
+     *         depth of the deepest valley and the second
+     *         the height of the highest mountain
      */
-
-     public static int[] valley ( int[] array){
-     //TODO By Student
-
+    public static int[] valley (int[] slope){
     }
 }
