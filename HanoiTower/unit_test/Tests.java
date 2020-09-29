@@ -35,10 +35,8 @@ public class Tests {
         TowerOfHanoi.towerOfHanoi(size, a, b, c);
 
         for(int i = 1; i<=size; i++){
-            assertEquals(i, b.pop().getI());
+            assertEquals(i, c.pop().getI());
         }
-        //assertEquals(i, b.pop().getI());
-
     }
 
 
@@ -52,10 +50,8 @@ public class Tests {
 
         TowerOfHanoi.towerOfHanoi(size, a, b, c);
         for(int i = 1; i<=size; i++){
-            assertEquals(i, b.pop().getI());
+            assertEquals(i, c.pop().getI());
         }
-        //assertEquals(i, b.pop().getI());
-
     }
 
     @Test()
@@ -68,10 +64,8 @@ public class Tests {
 
         TowerOfHanoi.towerOfHanoi(size, a, b, c);
         for(int i = 1; i<=size; i++){
-            assertEquals(i, b.pop().getI());
+            assertEquals(i, c.pop().getI());
         }
-        //assertEquals(i, b.pop().getI());
-
     }
 
     @Test()
@@ -85,10 +79,8 @@ public class Tests {
         TowerOfHanoi.towerOfHanoi(size, a, b, c);
 
         for(int i = 1; i<=size; i++){
-            assertEquals(i, b.pop().getI());
+            assertEquals(i, c.pop().getI());
         }
-        //assertEquals(i, b.pop().getI());
-
     }
 
 }

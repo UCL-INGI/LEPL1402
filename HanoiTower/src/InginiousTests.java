@@ -58,7 +58,7 @@ public class InginiousTests {
         assertEquals(TowerOfHanoi.counter, (int)Math.pow(2, size) -1);
 
         for(int i = 1; i<=size; i++){
-            assertEquals(i, b.pop().getI());
+            assertEquals(i, c.pop().getI());
         }
             //assertEquals(i, b.pop().getI());
 
@@ -90,7 +90,7 @@ public class InginiousTests {
         assertEquals(TowerOfHanoi.counter, (int)Math.pow(2, size) -1);
 
         for(int i = 1; i<=size; i++){
-            assertEquals(i, b.pop().getI());
+            assertEquals(i, c.pop().getI());
         }
             //assertEquals(i, b.pop().getI());
 
@@ -120,7 +120,7 @@ public class InginiousTests {
         assertEquals(TowerOfHanoi.counter, (int)Math.pow(2, size) -1);
 
         for(int i = 1; i<=size; i++){
-            assertEquals(i, b.pop().getI());
+            assertEquals(i, c.pop().getI());
         }
             //assertEquals(i, b.pop().getI());
 
@@ -150,7 +150,7 @@ public class InginiousTests {
         assertEquals(TowerOfHanoi.counter, (int)Math.pow(2, size) -1);
 
         for(int i = 1; i<=size; i++){
-            assertEquals(i, b.pop().getI());
+            assertEquals(i, c.pop().getI());
         }
             //assertEquals(i, b.pop().getI());
 

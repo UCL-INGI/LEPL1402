@@ -18,18 +18,12 @@ context: |-
        :height: 384px
        :width: 684 px
 
-    In this exercise, you are asked to solve this puzzle for any size of stack by implementing this method and this method only! We are using Stack_, to get the first element of a stack, use the method ``pop``, and to add an element use the method ``push``. The object Disk_ is here to make sure you will not solve the exercise by just creating another stack.
-
-    Here is the class TowerOfHanoi_ you must implement, you can create disk by yourself to test your method but it will not compile on Inginious if you try to do it.
-
-    You can download the `IntelliJ Project`_ that contains few tests to help you.
-
-    .. _`IntelliJ Project`: /course/LEPL1402/HanoiTower/LEPL1402_HanoiTower.zip
+    In this exercise we ask you to code a method that solve this puzzle for any size of stacks.
+    To represent the rods we use the java class Stack_. The object Disk_ is here to make sure you will not solve the exercise by just creating another stack.
 
     **hint:** you can call ``towerOfHanoi`` inside itself
 
     .. _Stack: https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html
-    .. _TowerOfHanoi: /course/LEPL1402/HanoiTower/TowerOfHanoi.java
     .. _Disk: /course/LEPL1402/HanoiTower/Disk.java
 environment: java8scala
 evaluate: best
@@ -48,7 +42,27 @@ problems:
         type: code
         name: Hanoi Tower implementation
         default: ''
-        header: 'Paste here the **body** of the method ``towerOfHanoi``:'
+        header: |-
+
+          Paste here the **body** of the method ``towerOfHanoi`` defined has follows
+
+          .. code-block:: java
+
+              public class TowerOfHanoi{
+
+                  /**
+                   * Solve the Tower of Hanoi puzzle
+                   *
+                   * @param n The number of disks to move
+                   * @param a The tower from which we want to move the disks
+                   * @param b An intermediate tower
+                   * @param c The tower to which we want to move the disks
+                   */
+                  public static void towerOfHanoi(int n, Stack<Disk> a, Stack<Disk> b, Stack<Disk> c) {
+                    // TODO
+                  }
+
+              }
         language: java
     studentNumber:
         default: ''
