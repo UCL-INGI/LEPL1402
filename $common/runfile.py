@@ -11,6 +11,9 @@ from fragments.constants import *
 
 
 def main():
+
+    username = input.get_input("@username")
+
     #####################################
     #   Load feedback task settings     #
     #####################################
@@ -76,7 +79,9 @@ def main():
     result = helper.run_command(compile_cmd)
 
     # handle compilation errors
-    feedback.compilation_feedback(result)
+    # For teaching assistant that test some tasks might want the full feedback
+    full_log = config["has_feedback"] and username == config["username_for_full_log"]
+    feedback.compilation_feedback(result, full_log)
 
     #####################################
     #       GENERATE A JAR FILE         #
@@ -124,14 +129,12 @@ def main():
     #####################################
     if feedback_settings["plagiarism"]:
 
-        student_name = input.get_input("@username")
-
         # The files filled by the student are all inside PATH_TEMPLATES
         files_to_be_tested = helper.find_files_in_path(PATH_TEMPLATES)
 
         # Creates the archive like expected by JPlag
         for student_file in files_to_be_tested:
-            command = "archive -a {} -o {}".format(student_file, student_name)
+            command = "archive -a {} -o {}".format(student_file, username)
             helper.run_command(command, universal_newlines=True)
 
 

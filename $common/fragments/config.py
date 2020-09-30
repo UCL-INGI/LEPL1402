@@ -15,6 +15,8 @@ def config_file_to_dict(file_path):
         "plagiarism": False,
         "external_libraries": None,
         "custom_feedback_script": None,
+        "username_for_full_log": None,
+        "full_log": False,
         "status_message": {
             0: "Your code has successfully passed all tests for this mission.",
             1: "Your code failed all tests for this mission.",

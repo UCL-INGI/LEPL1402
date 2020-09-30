@@ -20,7 +20,7 @@ def jar_feedback(result):
 
 
 # Throw a fatal error if the given code doesn't compile
-def compilation_feedback(result):
+def compilation_feedback(result, full_log):
     if result.returncode != 0:
         errors = extract_compilation_errors(result.stderr)
 
@@ -34,17 +34,26 @@ def compilation_feedback(result):
             feedback.set_global_feedback(msg, True)
 
         else:
+            
+            if full_log:
+                
+                # A teaching assitant wants to debug this task and no error is coming from template folder
+                msg = generate_compilation_errors_table(errors, [PATH_SRC, PATH_FLAVOUR])
 
-            # Either the student has made mistake(s) eg in the signature(s) of method(s) ....
-            # Or a TA adds code that doesn't compile
-            feedback.set_global_feedback(
-                "{}{}".format(
-                    "You modified the signature of at least a function or modified the content of a class.",
-                    "You should not; the tests fail to compile"
-                ))
+                # Send it to Inginious
+                feedback.set_global_feedback(msg, True)
 
-            # For debug purposes ; if the student code isn't to blame
-            print(result.stderr)
+                # For debug purposes
+                print(result.stderr)
+            else:
+
+                # Either the student has made mistake(s) eg in the signature(s) of method(s) ....
+                # Or a TA adds code that doesn't compile
+                feedback.set_global_feedback(
+                    "{}{}".format(
+                        "You modified the signature of at least a function or modified the content of a class.",
+                        "You should not; the tests fail to compile"
+                    ))
 
         # Final instructions commons for all scenario
 
