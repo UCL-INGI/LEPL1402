@@ -128,6 +128,12 @@ def validations(feedback_settings, folder, items_in_task):
             else:
                 return ""
 
+    def username_check():
+        if not isinstance(feedback_settings["username_for_full_log"], str):
+            return text_with_color("username_for_full_log should be a string", 196) + "\n"
+        else:
+            return ""
+
     return iter([
         verification_result("feedback_kind", feedback_kind_check),
         verification_result("quorum", quorum_check),
@@ -137,7 +143,8 @@ def validations(feedback_settings, folder, items_in_task):
         verification_result("plagiarism", plagiarism_check),
         verification_result("external_libraries", external_libraries_check),
         verification_result("custom_feedback_script", custom_feedback_script_check),
-        verification_result("status_message", status_message_check)
+        verification_result("status_message", status_message_check),
+        verification_result("username_for_full_log", username_check)
     ])
 
 
