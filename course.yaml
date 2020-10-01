@@ -2,6 +2,7 @@ accessible: true
 name: '[LEPL1402] Informatique 2'
 description: ''
 admins:
+- xgillard
 - gderval
 - pschaus
 - jyakoub
@@ -57,3 +58,72 @@ tags:
         type: 2
         name: Module 6
 lti_url: ''
+toc:
+-   id: tasks-list
+    rank: 0
+    tasks_list:
+        ASCIIDecoder: 10
+        AbstractClass: 36
+        AccessModifiers: 12
+        Array2D: 6
+        BlackBox: 37
+        BoundedBuffer: 56
+        BubbleSortInvariant: 22
+        Casting: 11
+        CircularLL: 26
+        CodeAccuracy: 61
+        CodeAccuracy2: 62
+        CommonErrors: 7
+        ComparatorAndCollections: 13
+        ComparatorvsComparable: 34
+        ComplexityArraySearch: 18
+        ComplexityMCQ1: 16
+        ComplexitySpaceMCQ: 17
+        Coverage: 38
+        CyclicBarrier: 58
+        FList: 48
+        FListMergeSort: 49
+        FTree: 50
+        Factory: 39
+        Fibonacci: 21
+        Future: 54
+        Generics: 44
+        Generics2: 45
+        Generics3: 46
+        HanoiTower: 23
+        InfiniteStreams: 52
+        Inheritance: 35
+        Introduction: 3
+        LambdaExpressioninJava: 43
+        LearnException: 4
+        ListIterator: 27
+        MakeMistakeToUnderstandThem: 5
+        MaximumSumSubarray: 20
+        MergeSortImplementation: 19
+        MidTermQuiz: 0
+        MidTermQuizMCQ: 1
+        MidTermQuizMCQ2: 2
+        MyArrayList: 29
+        Observer: 40
+        Optional: 47
+        ParallelelMergeSort: 60
+        PostScript: 63
+        ProducerConsumer: 59
+        QueueWithStacks: 28
+        SharedCounter: 57
+        SieveOfEratosthenesImplementation: 15
+        SieveOfEratosthenesMCQ: 14
+        StackWithQueue: 25
+        Streams: 51
+        Streams2: 53
+        StringUtils: 9
+        ThreadsIntroduction: 55
+        TreeCombineWith: 32
+        TreeInorder: 31
+        TreeSame: 30
+        ValueOrReference: 8
+        Visitor: 42
+        VisitorBasic: 41
+        complexityMCQ2: 33
+        valley: 24
+    title: List of exercises

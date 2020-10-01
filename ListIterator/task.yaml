@@ -1,0 +1,121 @@
+accessible: false
+author: Alexandre Dubray
+categories: []
+contact_url: ''
+context: |-
+    When you have a list, most of the time you will want to iterate over it.
+    You can make your custom list implementations iterable by implementing the Iterable_ interface.
+    To implement this interface you just have to implement an :code:`public Iterator<E> iterator()` method that return an Iterator_ object.
+    In this exercise we ask you to complete the implementation of the custom iterator class for the following custom linked list.
+
+    .. code-block:: java
+
+        import java.util.NoSuchElementException;
+        import java.util.ConcurrentModificationException;
+
+        import java.lang.Iterable;
+        import java.util.Iterator;
+
+        public class CustomList<Item> implements Iterable<Item> {
+
+            private int size;
+            private ListNode<Item> first;
+            private ListNode<Item> last;
+
+            public CustomList() {
+                first=null;
+                last=null;
+                size = 0;
+            }
+
+            /**
+             * Add an element to the list
+             *
+             * @param The element to add at the end of the list
+             */
+            public void add(Item e) {
+                // provided
+            }
+
+            /**
+             * Pop the first element of the list
+             *
+             * @return The first element in the list
+             */
+            public Item pop() throws NoSuchElementException {
+                // provided
+            }
+
+            private class CustomIterator implements Iterator<Item> {
+
+                /**
+                 * Still has element to iterate
+                 *
+                 * @return true if there is still an element
+                 *         that has not been iterated over,
+                 *         false otherwise
+                 */
+                @Override
+                public boolean hasNext() {
+                    // TODO
+                }
+
+                /**
+                 * Next element in the iteration
+                 *
+                 * @return The next element in the iteration.
+                 *         The list is iterated from first to last
+                 *
+                 * @throws ConcurrentModificationException if the list
+                 *         has been modified during the iteration
+                 * @throws NoSuchElementException if there is no more
+                 *         element to iterate over
+                 */
+                @Override
+                public Item next() {
+                    // TODO
+                }
+            }
+
+            /**
+             * Return an iterator over the list
+             *
+             * @return An iterator that iterate from first to last
+             */
+            @Override
+            public Iterator<Item> iterator() {
+                return new CustomIterator();
+            }
+
+        }
+
+    .. _Iterable: https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html
+    .. _Iterator: https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
+environment_id: java8scala
+environment_parameters:
+    limits:
+        memory: '100'
+        time: '30'
+        hard_time: ''
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: '[Module 2] Linked list: Iterator'
+network_grading: false
+problems:
+    q1:
+        default: ''
+        type: code
+        name: ''
+        language: java
+        header: Past here the **content** of the CustomIterator class. You can add
+            as many variables/functions as you want as long as you implement the two
+            needed functions
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
