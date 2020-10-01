@@ -8,6 +8,7 @@ public class Valley{
      *         depth of the deepest valley and the second
      *         the height of the highest mountain
      */
-    public static int[] valley (int[] slope){
+    public static int[] valley (int[] slopes){
+        return null;
     }
 }
