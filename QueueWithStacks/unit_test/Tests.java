@@ -1,68 +1,71 @@
-import com.github.guillaumederval.javagrading.Grade;
-import com.github.guillaumederval.javagrading.GradingRunner;
-import com.github.guillaumederval.javagrading.GradeFeedback;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import java.util.Arrays;
-import java.util.function.Supplier;
-import java.util.stream.Stream;
-
 import static org.junit.Assert.*;
 
+import java.util.NoSuchElementException;
 
-@RunWith(GradingRunner.class)
 public class Tests{
 
-    Supplier<Integer> rnd = () -> (int) (Math.random() * 100);
-
-
     @Test
-    @Grade
-    @GradeFeedback(message = "Order in the queue is not respected", onFail = true, onTimeout = true)
-    public void testFIFO(){
-
-        MyQueue<Integer> queue = new MyQueue<>();
-        Integer [] seeds = Stream.generate(rnd).limit(100).toArray(Integer[]::new);
-        Arrays.stream(seeds).forEach(queue::enqueue);
-
-        for(int i=0; i < 100; i++){
-            assertEquals(seeds[i], queue.dequeue());
-        }
-
+    public void testEmptyNew() {
+        MyQueue<Integer> q = new MyQueue<>();
+        assertTrue("Your method empty() return false for newly created queue", q.empty());
     }
 
+    @Test
+    public void testNonEmpty() {
+        MyQueue<Integer> q = new MyQueue<>();
+        q.enqueue(10);
+        assertFalse("Your method empty() return true on a non-emtpy list", q.empty());
+    }
 
     @Test
-    @Grade
-    @GradeFeedback(message = "Order in the queue is not respected", onFail = true, onTimeout = true)
-    public void testEnqueueAndPeek(){
+    public void testEmpty() {
+        MyQueue<Integer> q = new MyQueue<>();
+        q.enqueue(10);
+        q.dequeue();
+        assertTrue("Your method empty() return false on an empty queue", q.empty());
+    }
 
-        MyQueue<Integer> queue = new MyQueue<>();
-        Integer [] seeds = Stream.generate(rnd).limit(100).toArray(Integer[]::new);
-
-        for(Integer seed : seeds){
-            queue.enqueue(seed);
-            assertEquals(seeds[0], queue.peek());
+    @Test
+    public void testQueue() {
+        MyQueue<Integer> q = new MyQueue<>();
+        for (int i = 0; i < 10; i++) {
+            q.enqueue(i);
+        }
+        for (int i = 0; i < 10; i++) {
+            assertEquals("Your queue and dequeue methods does not work correctly",
+                    i, (int) q.dequeue());
         }
     }
 
+    @Test(expected=NoSuchElementException.class)
+    public void testEmptyDequeue() {
+        MyQueue<Integer> q = new MyQueue<>();
+        q.dequeue();
+    }
 
     @Test
-    @Grade
-    @GradeFeedback(message = "Order in the queue is not respected", onFail = true, onTimeout = true)
-    public void testEmpty(){
+    public void testPeek() {
+        MyQueue<Integer> q = new MyQueue<>();
+        for (int i = 0; i < 10; i++) {
+            q.enqueue(i);
+            assertEquals("Your method peaks does not gives the first element in the list",
+                    0, (int) q.peek());
+        }
+    }
 
-        MyQueue<Integer> queue = new MyQueue<>();
+    @Test(expected=NoSuchElementException.class)
+    public void testEmptyPeek() {
+        MyQueue<Integer> q = new MyQueue<>();
+        q.peek();
+    }
 
-        assertTrue(queue.empty());
-        queue.enqueue(1);
-        assertFalse(queue.empty());
-        queue.peek();
-        assertFalse(queue.empty());
-        queue.dequeue();
-        assertTrue(queue.empty());
-
+    @Test
+    public void testPeekElement() {
+        MyQueue<Integer> q = new MyQueue<>();
+        q.enqueue(1);
+        q.peek();
+        assertFalse("Your method peek should not empty a list of 1 element", q.empty());
     }
 
 }

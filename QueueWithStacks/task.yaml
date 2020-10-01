@@ -4,63 +4,76 @@ categories:
 - module2
 context: |-
     In this short exercise we will ask you to implement a FIFO queue using two stacks (provided as two Java ``Stack<E>``). We need you to provide 4 methods :
-    ``enqueue``, ``dequeue``, ``peek``, ``empty``. You can use the ``Stack`` API_ , but you can't instantiate a new ``Stack``. Use ``s1`` and ``s2`` from the MyQueue_ class below.
+    ``enqueue``, ``dequeue``, ``peek``, ``empty``. You can use the ``Stack`` API_ , but you can't instantiate a new ``Stack``. Use ``s1`` and ``s2`` from the `MyQueue` class below.
 
     You can download the `IntelliJ Project`_ that contains few tests to help you.
 
     .. _`IntelliJ Project`: /course/LEPL1402/QueueWithStacks/LEPL1402_QueueWithStacks.zip
 
     .. _API : https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html
-    .. _MyQueue: /course/LEPL1402/QueueWithStacks/MyQueue.java
 
     .. code-block:: java
 
-        import java.util.Stack;
+      import java.util.Stack;
+      import java.util.NoSuchElementException;
 
-        public class MyQueue<E> {
+      public class MyQueue<E> {
 
-            Stack<E> s1;
-            Stack<E> s2;
+          Stack<E> s1;
+          Stack<E> s2;
 
-            private E front;
+          private E front;
 
-            /*
-            * Constructor
-            */
-            public MyQueue() {
-                s1 = new Stack<>();
-                s2 = new Stack<>();
-                this.front = null;
-            }
+          /*
+           * Constructor
+           */
+          public MyQueue() {
+              s1 = new Stack<>();
+              s2 = new Stack<>();
+              this.front = null;
+          }
 
-            /*
-            * Push element x to the end of the queue (remember, a queue is FIFO)
-            */
-            public void enqueue(E elem) {
-                //TODO
-            }
+          /**
+           * Add an element to the end of the list
+           *
+           * @param elem The element to add
+           */
+          public void enqueue(E elem) {
+              // TODO
+          }
 
-            /*
-            * Removes the front element of this queue
-            */
-            public E dequeue() {
-                //TODO
-            }
+          /**
+           * Remove the first element from the queue
+           *
+           * @return The oldest element in the queue
+           * @throws NoSuchElementException if the queue is empty
+           */
+          public E dequeue() {
+              // TODO
+              return null;
+          }
 
-            /*
-            * Get the first element of this list but does not remove it
-            */
-            public E peek() {
-                //TODO
-            }
+          /**
+           * Peek at the first element of the queue
+           *
+           * @return The first element of the queue
+           * @throws NoSuchElementException if the queue is empty
+           */
+          public E peek() {
+              // TODO
+              return null;
+          }
 
-            /*
-            * Tells if the queue is empty or not.
-            */
-            public boolean empty() {
-                //TODO
-            }
-        }
+          /**
+           * @return true if the queue is empty
+           */
+          public boolean empty() {
+              // TODO
+              return false;
+          }
+
+      }
+
 environment: java8scala
 evaluate: best
 file: ''

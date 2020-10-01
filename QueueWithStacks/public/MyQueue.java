@@ -1,4 +1,5 @@
 import java.util.Stack;
+import java.util.NoSuchElementException;
 
 public class MyQueue<E> {
 
@@ -16,20 +17,43 @@ public class MyQueue<E> {
         this.front = null;
     }
 
+    /**
+     * Add an element to the end of the list
+     *
+     * @param elem The element to add
+     */
     public void enqueue(E elem) {
-      //TODO
+        // TODO
     }
 
+    /**
+     * Remove the first element from the queue
+     *
+     * @return The oldest element in the queue
+     * @throws NoSuchElementException if the queue is empty
+     */
     public E dequeue() {
-      //TODO
+        // TODO
+        return null;
     }
 
+    /**
+     * Peek at the first element of the queue
+     *
+     * @return The first element of the queue
+     * @throws NoSuchElementException if the queue is empty
+     */
     public E peek() {
-      //TODO
+        // TODO
+        return null;
     }
 
+    /**
+     * @return true if the queue is empty
+     */
     public boolean empty() {
-      //TODO
+        // TODO
+        return false;
     }
 
 }

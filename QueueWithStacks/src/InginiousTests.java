@@ -6,9 +6,8 @@ import com.github.guillaumederval.javagrading.GradeFeedback;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.Arrays;
-import java.util.function.Supplier;
-import java.util.stream.Stream;
+import java.util.Random;
+import java.util.NoSuchElementException;
 
 import static org.junit.Assert.*;
 
@@ -16,55 +15,86 @@ import static org.junit.Assert.*;
 @RunWith(GradingRunner.class)
 public class InginiousTests {
 
-    Supplier<Integer> rnd = () -> (int) (Math.random() * 100);
-
+    private Random random = new Random();
 
     @Test
-    @Grade
-    @GradeFeedback(message = "Order in the queue is not respected", onFail = true, onTimeout = true)
-    public void testFIFO(){
-
-        MyQueue<Integer> queue = new MyQueue<>();
-        Integer [] seeds = Stream.generate(rnd).limit(100).toArray(Integer[]::new);
-        Arrays.stream(seeds).forEach(queue::enqueue);
-
-        for(int i=0; i < 100; i++){
-            assertEquals(seeds[i], queue.dequeue());
-        }
-
+	@Grade
+    public void testEmptyNew() {
+        MyQueue<Integer> q = new MyQueue<>();
+        assertTrue("Your method empty() return false for newly created queue", q.empty());
     }
 
+    @Test
+	@Grade
+    public void testNonEmpty() {
+        MyQueue<Integer> q = new MyQueue<>();
+        q.enqueue(random.nextInt());
+        assertFalse("Your method empty() return true on a non-emtpy list", q.empty());
+    }
 
     @Test
-    @Grade
-    @GradeFeedback(message = "Order in the queue is not respected", onFail = true, onTimeout = true)
-    public void testEnqueueAndPeek(){
+	@Grade
+    public void testEmpty() {
+        MyQueue<Integer> q = new MyQueue<>();
+        q.enqueue(random.nextInt());
+        q.dequeue();
+        assertTrue("Your method empty() return false on an empty queue", q.empty());
+    }
 
-        MyQueue<Integer> queue = new MyQueue<>();
-        Integer [] seeds = Stream.generate(rnd).limit(100).toArray(Integer[]::new);
-
-        for(Integer seed : seeds){
-            queue.enqueue(seed);
-            assertEquals(seeds[0], queue.peek());
+    @Test
+	@Grade
+    public void testQueue() {
+        MyQueue<Integer> q = new MyQueue<>();
+        int nbElements = random.nextInt(100);
+        int [] expecteds = new int[nbElements];
+        for (int i = 0; i < nbElements; i++) {
+            int element = random.nextInt();
+            q.enqueue(element);
+            expecteds[i] = element;
+        }
+        for (int i = 0; i < nbElements; i++) {
+            assertEquals("Your queue and dequeue methods does not work correctly",
+                    expecteds[i], (int) q.dequeue());
         }
     }
 
+    @Test(expected=NoSuchElementException.class)
+    @Grade
+    public void testEmptyDequeue() {
+        MyQueue<Integer> q = new MyQueue<>();
+        q.dequeue();
+    }
 
     @Test
+	@Grade
+    public void testPeek() {
+        MyQueue<Integer> q = new MyQueue<>();
+        int nbElements = random.nextInt(100);
+        int head = 0;
+        for (int i = 0; i < nbElements; i++) {
+            int element = random.nextInt();
+            q.enqueue(element);
+            if (i == 0)
+                head = element;
+            assertEquals("Your method peaks does not gives the first element in the list",
+                    element, (int) q.peek());
+        }
+    }
+
+    @Test(expected=NoSuchElementException.class)
     @Grade
-    @GradeFeedback(message = "Order in the queue is not respected", onFail = true, onTimeout = true)
-    public void testEmpty(){
+    public void testEmptyPeek() {
+        MyQueue<Integer> q = new MyQueue<>();
+        q.peek();
+    }
 
-        MyQueue<Integer> queue = new MyQueue<>();
-
-        assertTrue(queue.empty());
-        queue.enqueue(1);
-        assertFalse(queue.empty());
-        queue.peek();
-        assertFalse(queue.empty());
-        queue.dequeue();
-        assertTrue(queue.empty());
-
+    @Test
+	@Grade
+    public void testPeekElement() {
+        MyQueue<Integer> q = new MyQueue<>();
+        q.enqueue(random.nextInt());
+        q.peek();
+        assertFalse("Your method peek should not empty a list of 1 element", q.empty());
     }
 
 }
