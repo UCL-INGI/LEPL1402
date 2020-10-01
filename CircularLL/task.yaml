@@ -90,7 +90,7 @@ context: |-
              *         less than 0 or greater or equal to the size
              *         of the list
              */
-            public Item remove(int index) throws IndexOutOfBoundsException {
+            public Item remove(int index) {
                 // TODO
             }
 

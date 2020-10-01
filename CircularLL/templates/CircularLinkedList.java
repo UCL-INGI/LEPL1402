@@ -29,7 +29,7 @@ public class CircularLinkedList<Item> {
      *         less than 0 or greater to the size
      *         of the list
      */
-    public Item remove(int index) throws IndexOutOfBoundsException {
+    public Item remove(int index) {
         @@student_remove@@
     }
 
