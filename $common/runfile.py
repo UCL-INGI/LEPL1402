@@ -80,7 +80,7 @@ def main():
 
     # handle compilation errors
     # For teaching assistant that test some tasks might want the full feedback
-    full_log = username == config["username_for_full_log"]
+    full_log = username in feedback_settings["usernames_for_full_log"]
     feedback.compilation_feedback(result, full_log)
 
     #####################################
