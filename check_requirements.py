@@ -129,8 +129,8 @@ def validations(feedback_settings, folder, items_in_task):
                 return ""
 
     def username_check():
-        if not isinstance(feedback_settings["username_for_full_log"], str):
-            return text_with_color("username_for_full_log should be a string", 196) + "\n"
+        if not isinstance(feedback_settings["usernames_for_full_log"], str):
+            return text_with_color("usernames_for_full_log should be a string", 196) + "\n"
         else:
             return ""
         if not isinstance(feedback_settings["usernames_for_full_log"], list):
