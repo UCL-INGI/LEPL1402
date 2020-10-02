@@ -133,6 +133,16 @@ def validations(feedback_settings, folder, items_in_task):
             return text_with_color("username_for_full_log should be a string", 196) + "\n"
         else:
             return ""
+        if not isinstance(feedback_settings["usernames_for_full_log"], list):
+            return text_with_color("usernames_for_full_log should be a sequence of string", 196) + "\n"
+        else:
+            if any([
+                    (not isinstance(item, str))
+                    for item in feedback_settings["usernames_for_full_log"]
+            ]):
+                return text_with_color("At least not a string value inside usernames_for_full_log", 196) + "\n"
+            else:
+                return ""
 
     return iter([
         verification_result("feedback_kind", feedback_kind_check),
