@@ -1,6 +1,7 @@
 package src;
 
 import java.util.Stack;
+import java.util.NoSuchElementException;
 
 public class MyQueue<E> {
 

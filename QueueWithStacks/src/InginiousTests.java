@@ -77,7 +77,7 @@ public class InginiousTests {
             if (i == 0)
                 head = element;
             assertEquals("Your method peaks does not gives the first element in the list",
-                    element, (int) q.peek());
+                    head, (int) q.peek());
         }
     }
 
