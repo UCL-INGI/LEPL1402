@@ -103,7 +103,7 @@ public class InginiousTests{
             } else {
                 assertNull("The first element is not correctly updated", list.getFirst());
             }
-            ptr = ptr.getNext();
+            ptr = nextFirst;
         }
     }
 

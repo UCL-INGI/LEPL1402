@@ -53,7 +53,7 @@ public class Tests{
             } else {
                 assertNull(list.getFirst());
             }
-            ptr = ptr.getNext();
+            ptr = nextFirst;
         }
     }
 
