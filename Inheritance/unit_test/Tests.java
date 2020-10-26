@@ -48,7 +48,7 @@ public class Tests{
             @GradeFeedback(onFail = true, message = "Your act_forTestMethod method in Cat didn't work as expected")})
     public void test_act_forTestMethod() {
         Cat a1 = new Cat();
-        a1.act_forTestMethod();
+        a1.actForTestMethod();
         assertEquals("Cat is performing the following action: Thinking\n", a1.logs());
     }
 
@@ -58,7 +58,7 @@ public class Tests{
             @GradeFeedback(onFail = true, message = "Your clear_log method in SuperCat didn't work as expected")})
     public void test_clear_log() {
         SuperCat a1 = new SuperCat();
-        a1.clear_log();
+        a1.clearLog();
         assertTrue(a1.logs().isEmpty());
     }
 
