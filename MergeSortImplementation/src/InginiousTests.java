@@ -22,18 +22,22 @@ import static org.junit.Assert.*;
 @RunWith(GradingRunner.class)
 public class InginiousTests {
 
+    private final int arraySize = 10000;
+
     @Test()
     @Grade(value=1, cpuTimeout=1000)
     @GradeFeedback(onFail=true, message = "Your sort don't work properly")
     public void testSort(){
-
-        int[] array = randomArray(10000);
+        int [] array = randomArray(arraySize);
+        int [] copyArray = new int[arraySize];
+        System.arraycopy(array, 0, copyArray, 0, arraySize);
         MergeSort.studentSort(array);
-
-        assertTrue(isArraySorted(array));
-
+        Arrays.sort(copyArray);
+        assertArrayEquals(copyArray, array);
     }
 
+    /*
+     * TODO: better evaluation of number of count. Sensitive to small variation in algorithm
     @Test()
     @Grade(value=1, cpuTimeout=1000)
     @GradeFeedback(onFail=true, message = "Your sort don't call the merge method enough")
@@ -50,17 +54,18 @@ public class InginiousTests {
         assertEquals(count, 9999);
 
     }
+    */
 
     @Test()
     @Grade(value=1, cpuTimeout=1000)
     @GradeFeedback(onFail=true, message = "Your merge don't work properly")
     public void testMerge(){
-
-        int[] array = randomArray(10000);
+        int [] array = randomArray(arraySize);
+        int [] copyArray = new int[arraySize];
+        System.arraycopy(array, 0, copyArray, 0, arraySize);
         MergeSort.sort(array);
-
-        assertTrue(isArraySorted(array));
-
+        Arrays.sort(copyArray);
+        assertArrayEquals(copyArray, array);
     }
 
     @Test()
@@ -68,22 +73,12 @@ public class InginiousTests {
     @GradeFeedback(onTimeout=true, message = "Your implementation is too slow")
     @GradeFeedback(onFail=true, message = "Your method sort don't work with your method merge")
     public void testComplete(){
-
-        int[] array = randomArray(10000);
+        int [] array = randomArray(arraySize);
+        int [] copyArray = new int[arraySize];
+        System.arraycopy(array, 0, copyArray, 0, arraySize);
         MergeSortBis.sort(array);
-
-        assertTrue(isArraySorted(array));
-
-    }
-
-
-    private static boolean isArraySorted(int[] array){
-        for(int i = 0 ; i < array.length -1; i++){
-            if(array[i]>array[i+1])
-                return false;
-
-        }
-        return true;
+        Arrays.sort(copyArray);
+        assertArrayEquals(copyArray, array);
     }
 
     private static int[] randomArray(int size){

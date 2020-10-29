@@ -38,23 +38,20 @@ public class MergeSort {
 
 
     public static void sort(int[] a) {
-        int s = a.length;
-        int[] aux = new int[s];
+        int[] aux = new int[a.length];
+        sortRecursiveWithNameTheStudentWontNormallyFind(a, aux, 0, a.length-1);
+    }
 
-        for(int n = 1 ; n< s ; n = n+n){
-            for(int i = 0 ; i< s-n ; i += n+n){
-                int lo= i;
-                int mid = i+n-1;
-                int hi = Math.min(i+n+n-1, s-1);
-                studentMerge(a, aux , lo , mid , hi);
-            }
-        }
+    private static void sortRecursiveWithNameTheStudentWontNormallyFind(int [] a, int [] aux, int lo, int hi) {
+        if (lo >= hi)
+            return;
+        int mid = lo + (hi-lo)/2;
+        sortRecursiveWithNameTheStudentWontNormallyFind(a, aux, lo, mid);
+        sortRecursiveWithNameTheStudentWontNormallyFind(a, aux, mid+1, hi);
+        studentMerge(a, aux, lo, mid,  hi);
     }
 
     public static void studentMerge(int[] a, int[] aux, int lo, int mid, int hi) {
-
-
-
         @@student_merge@@
     }
     public static void studentSort(int[] a) {
