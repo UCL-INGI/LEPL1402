@@ -26,7 +26,7 @@ public class BinarySearch{
             if (array[mid] == value)
                 return mid;
 
-            if (mid > value)
+            if (array[mid] > value)
                 hi = mid - 1;
             else
                 lo = mid + 1;
