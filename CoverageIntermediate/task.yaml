@@ -1,0 +1,83 @@
+accessible: true
+author: Alexandre Dubray
+categories:
+- module4
+contact_url: ''
+context: |
+    In this task, you should provide a test suite for coverage check of the following class:
+
+    .. code-block:: java
+
+        public class BinarySearch{
+
+            /**
+             * Find a value in an integer array
+             *
+             * @param array A non-null array of distinct integer
+             *              values sorted in increasing order
+             * @param value The value to look for in the array
+             * @return The index of the value in the array of -1
+             *         if the value is not in the array
+             */
+            public static int binarySearch(int [] array, int value) {
+                int lo = 0;
+                int hi = array.length - 1;
+
+                while (lo <= hi) {
+                    if (array[lo] == value)
+                        return lo;
+                    if (array[hi] == value)
+                        return hi;
+
+                    int mid = lo + (hi - lo)/2;
+
+                    if (array[mid] == value)
+                        return mid;
+
+                    if (mid > value)
+                        hi = mid - 1;
+                    else
+                        lo = mid + 1;
+                }
+                return -1;
+            }
+        }
+
+    Here is a small example to show you how to call the method:
+
+    .. code-block:: java
+
+        @Test
+        public void test() {
+          int [] a = new int[]{}; // your test array
+          int max = BinarySearch.binarySearch(a); // find the value
+          // some asserts
+        }
+
+        // some other tests in order to have edge and node coverage
+      
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[Module 4] Coverage Testing: intermediate'
+network_grading: false
+order: 37
+problems:
+    student_code:
+        type: code
+        header: 'Insert the **BODY** (i.e., your test functions) of your test suite here:'
+        language: java
+        name: ''
+        default: ''
+run_cmd: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

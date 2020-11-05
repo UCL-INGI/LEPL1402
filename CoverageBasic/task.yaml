@@ -1,0 +1,67 @@
+accessible: true
+author: Alexandre Dubray
+categories:
+- module4
+contact_url: ''
+context: |
+    In this task, you should provide a test suite for coverage check of the following class:
+
+    .. code-block:: java
+
+        public class Maximum {
+
+            /**
+             * Find the maximum in an array
+             *
+             * @param array A non-null and non empty array of integers
+             * @return The maximum value in the array
+             */
+            public static int maximum(int [] array) {
+                int max = array[0];
+                for (int i = 1; i < array.length; i++) {
+                    if (array[i] > max) {
+                        max = array[i];
+                    }
+                }
+                return max;
+            }
+        }
+
+    Here is a small example to show you how to call the method:
+
+    .. code-block:: java
+
+        @Test
+        public void test() {
+          int [] a = new int[]{}; // your test array
+          int max = Maximum.maximum(a); // find the maximum
+          // some asserts
+        }
+
+        // some other tests in order to have edge and node coverage
+      
+environment: java8scala
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: '[Module 4] Coverage Testing: the basics'
+network_grading: false
+order: 37
+problems:
+    student_code:
+        type: code
+        header: 'Insert the **BODY** (i.e., your test functions) of your test suite here:'
+        language: java
+        name: ''
+        default: ''
+run_cmd: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

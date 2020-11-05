@@ -1,0 +1,6 @@
+has_feedback: true
+quorum: 0.9
+feedback_kind: JaCoCo
+coverage_stats:
+  - INSTRUCTION
+  - BRANCH
