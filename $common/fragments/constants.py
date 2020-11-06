@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 #####################################
 #             CONSTANTS             #
@@ -54,4 +55,4 @@ JACOCO_RESULT_FILE = str(CWD / "coverage_result.xml")
 LIBS_FOLDER = "/course/common/libs"
 
 # Default Libraries used in the runscript ( stored in LIBS_FOLDER )
-DEFAULT_LIBRARIES = ["junit-4.12.jar", "hamcrest-core-1.3.jar", "JavaGrading.jar"]
+DEFAULT_LIBRARIES = [file for file in os.listdir(LIBS_FOLDER) if file.endswith('.jar')]
