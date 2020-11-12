@@ -6,6 +6,7 @@ import org.junit.runner.notification.Failure;
 
 import java.lang.reflect.Field;
 import java.util.List;
+import java.util.ArrayList;
 
 import templates.*;
 
@@ -14,46 +15,22 @@ public class StudentTestRunner {
 
     public static void main(String[] args) {
 
-        // Give all the classes implementing binarySearch as arguments.
+        Exercise ex = new Exercise();
 
-        boolean flag = false;
-        boolean fp = false; // if the student test suite yields false positive
-        ExerciseFlavour ex = new Exercise();
-        int nDefinitions = 0;
-        int nBugs = 0;
-        int nBugsFound = 0;
-        String feedbackMessage = "";
-
-        try {
-            //The number of different implementations of binarySearch you want to submit the student test suite to.
-            Field flavours = ex.getClass().getField("nImplems");
-            nDefinitions = flavours.getInt(ex);
-            Field bugs = ex.getClass().getField("nBugs");
-            nBugs = bugs.getInt(ex);
-        } catch(NoSuchFieldException | IllegalAccessException e){
-            System.err.println(e.getMessage());
-            System.exit(1); // No point on continuing if there's nothing to run the student tests on
-        }
-
-
+        boolean hasErrors = false;
+        int falsePositive = 0;
+        int falseNegative = 0;
+        int bugsFound = 0;
 
         JUnitCore runner = new JUnitCore();
 
-        for(int i=0; i < nDefinitions; i++) {
+        List<String> bugsDetected = new ArrayList<>();
 
-            try {
-                Field field = ex.getClass().getDeclaredField("count");
-                field.setAccessible(true); // BE CAUTIOUS WHEN USING SUCH INSTRUCTIONS
-                field.setInt(ex, i);
-                field.setAccessible(false);
-            } catch (NoSuchFieldException | IllegalAccessException e){
-                System.err.println(e.getClass());
-                flag = true;
-            }
-
-            //Get the student's test class here !!!
+        for (int i = 0; i < ex.nbImplem(); i++) {
+            ex.count = i;
             Result result = runner.run(StudentTests.class);
             List<Failure> failures = result.getFailures();
+
             for(Failure fail : failures){
                 if(fail.getMessage() != null && fail.getMessage().contains("access denied")){
                     // If the student uses a forbidden instruction, exit with this code 2
@@ -67,31 +44,35 @@ public class StudentTestRunner {
                 }
             }
 
-            boolean correctness = ex.correctness();
-            flag |= !(result.wasSuccessful() == correctness);
-            // If the flavour is supposed to be correct and the test suite is successful, then OK.
-            // If the flavour has a bug and the students' suite fails, then OK.
-            // Else, KO.
+            boolean shouldBeCorrect = ex.correctness();
+            if (!result.wasSuccessful() && !shouldBeCorrect) {
+                bugsFound ++;
+                bugsDetected.add(ex.feedbackMessage());
+            }
 
-            if(!result.wasSuccessful() && !correctness) {
-                nBugsFound++; // the std correctly found a bug
-                feedbackMessage+=Exercise.feedbackMessages[i]+",";
+            if (!result.wasSuccessful() && shouldBeCorrect) {
+                hasErrors = true;
+                falsePositive += 1;
             }
-            if(!result.wasSuccessful() && correctness) {
-                fp = true; // the std code yield a false positive
-                feedbackMessage+=i;
-                feedbackMessage+=Exercise.feedbackMessages[i]+",";
+
+            if (result.wasSuccessful() && !shouldBeCorrect) {
+                hasErrors = true;
+                falseNegative += 1;
             }
+
 
         }
 
-        System.out.println(nBugsFound+"\t"+nBugs+"\t"+(fp ? "FP" : "NFP"));
-        System.out.println(feedbackMessage);
-        // NBUGSFOUND   NBUGS   FP or NFP
+        System.out.println(bugsFound+"\t"+ex.nBugs+"\t"+(falsePositive > 0 ? "FP" : "NFP")); 
+
+        System.out.println(String.format("You found %d bugs out of %d and detected %d bugs in correct code. You detected the following bugs:", bugsFound, ex.nBugs, falsePositive));
+        for (String s : bugsDetected) {
+            System.out.println(s);
+        }
 
         // If everything went well (flag = false) we exit with code 0
         // If smthing went wrong, exit with 1.
-        if(!flag) {
+        if(!hasErrors) {
             System.exit(0);
         } else {
             System.exit(1);

@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Yakoub J, Rucquoy A, Maris L
 categories:
 - module4
@@ -55,7 +55,7 @@ limits:
     memory: '100'
     output: '2'
     time: '60'
-name: '[Module 4] BlackBox Testing - Binary Search'
+name: 'BlackBox test'
 network_grading: false
 order: 36
 problems:

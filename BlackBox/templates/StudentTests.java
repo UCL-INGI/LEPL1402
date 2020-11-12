@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 public class StudentTests {
 
     // STUDENT CODE WILL BE INSERTED HERE
-@   @student_code@@
+    @@student_code@@
     // END OF STUDENT CODE
 
 }

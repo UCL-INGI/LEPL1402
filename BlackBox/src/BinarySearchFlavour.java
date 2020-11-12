@@ -1,37 +1,20 @@
 package src;
+public abstract class BinarySearchFlavour {
 
-public class BinarySearchFlavour implements ExerciseFlavour {
-
-    public int binarySearch(int [] arr, int low, int high, int elem){
-        // The "presumably" correct implementation, the one we'll give to students.
-
-        if(low > high || low < 0 || arr == null ||  high > arr.length-1){
-            return -2;
-        }
-
-        while (high >= low) {
-
-            int mid = (low + high) / 2;
-
-            if (arr[mid] == elem){
-                return mid;
-            }
-
-            if (arr[mid] > elem){
-                high = mid - 1;
-            } else {
-                low = mid + 1;
-            }
-
-        }
-
-        // not found.
-        return -1;
+    public BinarySearchFlavour() {
     }
 
-    @Override
-    public boolean correctness() {
-        return true;
+    public boolean checkPre(int [] arr, int low, int high) {
+        if (arr == null)
+            return false;
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] > arr[i+1])
+                return false;
+        }
+        return low <= high && low >= 0 && high <= arr.length - 1;
     }
 
+    public abstract int binarySearch(int [] arr, int low, int high, int elem);
+    public abstract boolean correctness();
+    public abstract String feedbackMessage();
 }

@@ -1,5 +1,5 @@
 #!/bin/python3
-from inginious import feedback
+from inginious import feedback, rst
 import re
 
 
@@ -7,7 +7,7 @@ def main(result, feedback_settings):
     # Top level message
     msg = "{}\n".format(feedback_settings["status_message"].get(result.returncode, "Uncommon Failure"))
     feedback.set_global_feedback(msg, True)
-    
+
     print("INSIDE CUSTOM SCRIPT")
 
     # No runnable method(s)
@@ -16,7 +16,6 @@ def main(result, feedback_settings):
 
     # if the student didn't cheat
     if result.returncode not in [2, 3]:
-        
         # Extract the data
         format = re.compile("(?P<nBugsFound>[0-9]+)\t(?P<nBugs>[0-9]+)\t(?P<status>N?FP)\n")
         regex_result = format.search(result.stdout)
@@ -24,7 +23,7 @@ def main(result, feedback_settings):
         nBugs = int(regex_result.group("nBugs"))
         status = regex_result.group("status")
         score_ratio = nBugsFound / nBugs
-        extraFeedback = result.stdout.split('\n', 1)[1].split(',')
+        extraFeedback = result.stdout.split('\n')[1:]
 
         print("nBugsFound : {} , nBugs : {} , status : {}".format(nBugsFound, nBugs, status))
 
@@ -37,19 +36,11 @@ def main(result, feedback_settings):
         feedback.set_grade(updated_score_ratio * 100)
 
         # Give him some explanation
-        msg2 = "You have found {} bug(s) on a total of {} bugs".format(nBugsFound, nBugs)
-        if status == "FP":
-            feedback.set_global_feedback(msg2+" but your test suite generates a false positive: therefore you have 0.0%.\n", True)
-            feedback.set_global_feedback("You should check whether a correct binary search implementation is able to pass your tests.\n", True)
-        elif result == "success": # 100%, no need for extra feedback
-            feedback.set_global_feedback(msg2+".\n", True)
-        else: # Failure, so we give the student extra feedback
-            feedback.set_global_feedback(msg2+".\n", True)
-            feedback.set_global_feedback("Your tests managed to single out the following bugs:\n", True)
-            for bug in extraFeedback[:-2]: # [-2] because [-1] is just an empty string, due to the way StudentTestRunner.java prints the feedback
-                feedback.set_global_feedback(bug+", ", True)
-            feedback.set_global_feedback(extraFeedback[-2]+".\n", True)
-    
+        details = extraFeedback[0]
+        listBugs = extraFeedback[1:]
+        bug_feedback = rst.indent_block(1, '\n'.join(listBugs), '\t')
+        global_feedback = details + bug_feedback
+        feedback.set_global_feedback(global_feedback)
     else:
         feedback.set_global_result("failed")
         feedback.set_grade(0.0)
