@@ -106,7 +106,7 @@ def extract_compilation_errors(javac_result):
 
     for line in lines:
         # ignores line that contains the sum of errors
-        if regex_errors.match(line):
+        if line.startswith('warning') or regex_errors.match(line):
             continue
 
         # when the regex matches, we are on the first line that explain the problem

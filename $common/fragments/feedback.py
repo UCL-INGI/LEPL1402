@@ -34,9 +34,7 @@ def compilation_feedback(result, full_log):
             feedback.set_global_feedback(msg, True)
 
         else:
-            
             if full_log:
-                
                 # A teaching assitant wants to debug this task and no error is coming from template folder
                 msg = generate_compilation_errors_table(errors, [PATH_SRC, PATH_FLAVOUR])
 
