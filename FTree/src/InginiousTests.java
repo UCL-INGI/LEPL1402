@@ -65,7 +65,7 @@ public class InginiousTests {
 
         assertEquals(4960, fTreeSum(result) );
 
-        if(FTree.counter != 31){
+        if(FTree.counter < 2){
             throw new CustomGradingResult(TestStatus.FAILED, 0, "Your map method must be recursive");
         }
 
@@ -120,7 +120,7 @@ public class InginiousTests {
 
         assertEquals(elemSum*10, fTreeSum(result) );
 
-        if(FTree.counter != 31){
+        if(FTree.counter < 2){
             throw new CustomGradingResult(TestStatus.FAILED, 0, "Your map method must be recursive");
         }
 
@@ -157,7 +157,7 @@ public class InginiousTests {
 
         assertEquals(4, root.depth());
 
-        if(FTree.counter != 5){
+        if(FTree.counter < 2){
             throw new CustomGradingResult(TestStatus.FAILED, 0, "Your map method must be recursive");
         }
 
