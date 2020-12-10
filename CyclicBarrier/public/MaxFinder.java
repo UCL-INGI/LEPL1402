@@ -11,24 +11,47 @@ public class MaxFinder {
     private int[] sums;
     private int max;
 
-    /*
-     * Worker constructor takes only one parameter int r, which is his associated row number
-     * A worker is responsible of the calculation of the sum of each 2D-Array with row == r + nThread * round; with round >= 0
+    /**
+     * Worker class, responsible for the computation of some 2D-arrays.
      *
-     * Run should compute the sum of a 2D-array and store the result in sums[] then wait for the cyclic barrier to get the result
-     * And restart computing nThreads further
+     * The constructor of the worker take only an integer as parameter.
+     * For instance:
+     *
+     *  public Worker(int threadId) {
+     *      // some code
+     *  }
+     *
+     * To know which matrix the thread should process, use this formula:
+     *
+     * threadId + nThread*x with x = 0,1,2,...
+     *
+     * For instance, if there is 2 threads and threadId = 0, we have that this
+     * thread should compute data[0], data[2], data[4], etc.
+     *
+     * After each computation, the thread must put the result in the `sums` array
+     * and wait for the barrier to get the results. Then it continues until there
+     * is no more element to compute.
      */
     class Worker implements Runnable {
-        
         //TODO by student
-        
     }
 	
     
-    /*
+    /**
+     * Initialize the instance variables, start the threads for the computation
+     * and create the barrier.
      *
-     * Initialize all the instance variable and start the right amount of Threads
-     *
+     * Explication for the instances variables:
+     *  - nTreahds: number of threads, given as argument
+     *  - length: number of 2D-Arrays. First dimension of the matrix
+     *  - width: Second dimension of the matrix. First dimension of the 2D-arrays
+     *  - depth: Third dimension of the matrix. Second dimension of the 2D-arrays
+     *  - data: the 3D-array for the computation. Given as argument
+     *  - barrier: The cyclic barrier that will fetch the results.
+     *  - sums: the array in which the thread will put their computation. This array
+     *          should be of size nThreads
+     *  - max: The maximum values found by the threads. Will be update by the barrier
+     * 
      */
     private MaxFinder(int[][][] matrix, int nThreads) throws InterruptedException{
         
