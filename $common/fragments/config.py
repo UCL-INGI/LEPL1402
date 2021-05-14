@@ -10,6 +10,7 @@ def config_file_to_dict(file_path):
         "quorum": 1.0,
         "feedback_kind": None,
         "coverage_stats": None,
+        "coverage_xpaths": ["./counter"]
         "prohibited": {},
         "required": {},
         "plagiarism": False,
