@@ -4,7 +4,7 @@ categories:
 - module4
 context: |-
     Example of Task using Coverage testing
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false
