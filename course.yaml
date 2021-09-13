@@ -2,18 +2,12 @@ accessible: true
 name: '[LEPL1402] Informatique 2'
 description: ''
 admins:
-- xgillard
-- gderval
 - pschaus
-- jyakoub
-- rucquoya
 - raminsadre
-- pironhe
-- bastinjul
-- ogoletti
 - aldubray
-- louisna
-- marisl
+- jodogne
+- fdekeersmaek
+- ldierckx
 tutors: []
 groups_student_choice: false
 use_classrooms: true
@@ -59,77 +53,97 @@ tags:
         name: Module 6
 lti_url: ''
 toc:
--   id: tasks-list
+-   id: Module 1
+    title: Module 1
     rank: 0
     tasks_list:
-        ASCIIDecoder: 7
-        AbstractClass: 34
-        AccessModifiers: 9
+        Introduction: 0
+        LearnException: 1
+        MakeMistakeToUnderstandThem: 2
         Array2D: 3
-        BlackBox: 35
-        BoundedBuffer: 54
-        BubbleSortInvariant: 19
-        Casting: 8
-        CircularLL: 24
-        CodeAccuracy: 59
-        CodeAccuracy2: 60
         CommonErrors: 4
+        ValueOrReference: 5
+        StringUtils: 6
+        ASCIIDecoder: 7
+        Casting: 8
+        AccessModifiers: 9
         ComparatorAndCollections: 10
-        ComparatorvsComparable: 32
-        ComplexityArraySearch: 15
+        SieveOfEratosthenesMCQ: 11
+        SieveOfEratosthenesImplementation: 12
+-   id: Module 2
+    title: Module 2
+    rank: 1
+    tasks_list:
         ComplexityMCQ1: 13
         ComplexitySpaceMCQ: 14
+        ComplexityArraySearch: 15
+        MergeSortImplementation: 16
+        MaximumSumSubarray: 17
+        Fibonacci: 18
+        BubbleSortInvariant: 19
+        FastExponentiationInvariant: 20
+        HanoiTower: 21
+        valley: 22
+        StackWithQueue: 23
+        CircularLL: 24
+        ListIterator: 25
+        QueueWithStacks: 26
+        MyArrayList: 27
+-   id: Module 3
+    title: Module 3
+    rank: 2
+    tasks_list:
+        TreeSame: 28
+        TreeInorder: 29
+        TreeCombineWith: 30
+        complexityMCQ2: 31
+        ComparatorvsComparable: 32
+        Inheritance: 33
+        AbstractClass: 34
+-   id: Module 4
+    title: Module 4
+    rank: 3
+    tasks_list:
+        BlackBox: 35
         CFGBasic: 35
         CoverageBasic: 36
         CoverageIntermediate: 36
         Coverage: 36
-        CyclicBarrier: 56
-        FList: 46
-        FListMergeSort: 47
-        FTree: 48
         Factory: 37
-        FastExponentiationInvariant: 20
-        Fibonacci: 18
-        Future: 52
+        Observer: 38
+        VisitorBasic: 39
+        Visitor: 40
+-   id: Module 5
+    title: Module 5
+    rank: 4
+    tasks_list:
+        LambdaExpressioninJava: 41
         Generics: 42
         Generics2: 43
         Generics3: 44
-        HanoiTower: 21
-        InfiniteStreams: 50
-        Inheritance: 33
-        Introduction: 0
-        LambdaExpressioninJava: 41
-        LearnException: 1
-        ListIterator: 25
-        MakeMistakeToUnderstandThem: 2
-        MaximumSumSubarray: 17
-        MergeSortImplementation: 16
-        MyArrayList: 27
-        Observer: 38
         Optional: 45
-        ParallelelMergeSort: 58
-        PostScript: 61
-        ProducerConsumer: 57
-        QueueWithStacks: 26
-        SharedCounter: 55
-        SieveOfEratosthenesImplementation: 12
-        SieveOfEratosthenesMCQ: 11
-        StackWithQueue: 23
+        FList: 46
+        FListMergeSort: 47
+        FTree: 48
         Streams: 49
+        InfiniteStreams: 50
         Streams2: 51
-        StringUtils: 6
+-   id: Module 6
+    title: Module 6
+    rank: 5
+    tasks_list:
+        Future: 52
         ThreadsIntroduction: 53
-        TreeCombineWith: 30
-        TreeInorder: 29
-        TreeSame: 28
-        ValueOrReference: 5
-        Visitor: 40
-        VisitorBasic: 39
-        complexityMCQ2: 31
-        valley: 22
-    title: Liste des exercices
+        BoundedBuffer: 54
+        SharedCounter: 55
+        CyclicBarrier: 56
+        ProducerConsumer: 57
+        ParallelelMergeSort: 58
+        CodeAccuracy: 59
+        CodeAccuracy2: 60
+        PostScript: 61
 -   id: quizz_and_exam_preparation
-    rank: 1
+    rank: 6
     tasks_list:
         BinarySearchTree: 3
         CleanLinkedList: 4
