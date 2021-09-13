@@ -63,7 +63,7 @@ context: |-
             public int size() { return this.tail - this.head; }
 
         }
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

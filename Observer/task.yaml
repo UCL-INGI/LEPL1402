@@ -33,7 +33,7 @@ context: |-
     .. _Observable: /course/LEPL1402/Observer/Observable.java
     .. _Observer: /course/LEPL1402/Observer/Observer.java
     .. _Pair: /course/LEPL1402/Observer/Pair.java
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

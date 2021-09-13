@@ -23,7 +23,7 @@ context: |-
 
     .. _`Functional programming`: https://en.wikipedia.org/wiki/Functional_programming
     .. _immutable: https://en.wikipedia.org/wiki/Purely_functional_data_structure
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

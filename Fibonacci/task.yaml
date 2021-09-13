@@ -42,7 +42,7 @@ context: |-
          f(n) =\begin{cases}0 & n=0 \\1 & n = 1\\ f(n-1) + f(n-2) & n > 1\end{cases}
 
     .. _Fibonacci: /course/LEPL1402/Fibonacci/Fibonacci.java
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

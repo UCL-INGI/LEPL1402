@@ -8,7 +8,7 @@ context: |-
     Lisez attentivement les commentaires de chaque méthode et remplissez les parties manquantes marquées par "TODO".
 
     Vous pouvez ajouter tout code que vous souhaitez dans cette classe (nouveaux membres, nouvelles méthodes, etc.). Naturellement, vous ne devez pas modifier les signatures des méthodes existantes.
-environment_id: java8scala
+environment_id: java8
 environment_parameters:
     limits:
         memory: '100'

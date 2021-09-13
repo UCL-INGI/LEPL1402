@@ -12,7 +12,7 @@ context: |+
     .. _ArrayIndexOutOfBoundsException: https://docs.oracle.com/javase/8/docs/api/java/lang/ArrayIndexOutOfBoundsException.html
     .. _NullPointerException: https://docs.oracle.com/javase/8/docs/api/java/lang/NullPointerException.html
 
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false
@@ -41,7 +41,7 @@ problems:
         name: NullPointerException
     studentConcurrent:
         header: 'Write a piece of code that generates an ConcurrentModificationException
-            without using the ``throw`` statement and with the usage of a list. '
+            without using the ``throw`` statement and with the usage of a ``ArrayList``. '
         language: java
         name: ConcurrentModificationException
         type: code

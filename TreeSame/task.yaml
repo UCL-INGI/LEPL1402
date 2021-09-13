@@ -50,7 +50,7 @@ context: |-
 
     .. _Tree: /course/LEPL1402/TreeSame/Tree.java
     .. _Node: /course/LEPL1402/TreeSame/Node.java
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

@@ -30,7 +30,7 @@ context: |-
     .. _`IntelliJ Project`: /course/LEPL1402/CodeAccuracy2/LEPL1402_CodeAccuracy2.zip
 
     .. _file: /course/LEPL1402/CodeAccuracy2/QuickSort.java
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

@@ -25,7 +25,7 @@ context: |-
 
     .. _Stack: https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html
     .. _Disk: /course/LEPL1402/HanoiTower/Disk.java
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

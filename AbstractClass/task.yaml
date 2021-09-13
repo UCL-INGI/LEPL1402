@@ -17,7 +17,7 @@ context: |-
       - No need of instance variables in your code as we pass you the needed parameter to apply your computation
       - Use Math.PI in your Circle implementation
       - Advanced feedback are available only if your code has complied
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

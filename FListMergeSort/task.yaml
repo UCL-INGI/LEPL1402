@@ -37,7 +37,7 @@ context: |-
     .. _`IntelliJ Project`: /course/LEPL1402/FListMergeSort/LEPL1402_FListMergeSort.zip
     .. _here: /course/LEPL1402/FListMergeSort/FList.java
     .. _`previous exercise`: https://inginious.info.ucl.ac.be/course/LEPL1402/FList
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

@@ -132,7 +132,7 @@ context: |-
             }
         }
 
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

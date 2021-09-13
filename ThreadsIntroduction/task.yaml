@@ -66,7 +66,7 @@ context: |-
     .. _Runnable : https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html
     .. _Counter: /course/LEPL1402/ThreadsIntroduction/Counter.java
     .. _Launcher: /course/LEPL1402/ThreadsIntroduction/Launcher.java
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

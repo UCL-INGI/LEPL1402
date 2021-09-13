@@ -45,7 +45,7 @@ context: |-
 
     .. _documentation: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
     .. _Cons: /course/LEPL1402/Generics2/Cons.java
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

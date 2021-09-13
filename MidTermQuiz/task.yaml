@@ -69,7 +69,7 @@ context: |-
     .. _`IntelliJ Project`: /course/LEPL1402/MidTermQuiz/LEPL1402_MidTermQuiz.zip
     .. _Sorter: /course/LEPL1402/MidTermQuiz/Sorter.java
     .. _LinkedList: /course/LEPL1402/MidTermQuiz/LinkedList.java
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

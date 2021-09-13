@@ -51,7 +51,7 @@ context: |-
     .. _Cons: /course/LEPL1402/Generics/Cons.java
     .. _F: /course/LEPL1402/Generics/F.java
     .. _P: /course/LEPL1402/Generics/P.java
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

@@ -36,7 +36,7 @@ context: |-
 
     .. _StringBuilder : https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html
     .. _ArrayList : https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

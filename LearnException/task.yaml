@@ -33,7 +33,7 @@ context: |-
 
     .. _Divider: /course/LEPL1402/LearnException/Divider.java
     .. _`intellij project`: /course/LEPL1402/LearnException/LEPL1402_LearnException.zip
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

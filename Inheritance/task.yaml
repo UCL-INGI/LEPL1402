@@ -12,7 +12,7 @@ context: |-
     .. _Animal: /course/LEPL1402/Inheritance/Animal.java
     .. _Cat: /course/LEPL1402/Inheritance/Cat.java
     .. _SuperCat: /course/LEPL1402/Inheritance/SuperCat.java
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

@@ -91,7 +91,7 @@ context: |-
 
     .. _Iterable: https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html
     .. _Iterator: https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
-environment_id: java8scala
+environment_id: java8
 environment_parameters:
     limits:
         memory: '100'

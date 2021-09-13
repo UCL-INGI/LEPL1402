@@ -57,7 +57,7 @@ context: |-
 
 
     .. _Mission: /course/LEPL1402/PostScript/mission.pdf
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

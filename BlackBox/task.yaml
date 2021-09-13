@@ -46,7 +46,7 @@ context: |-
 
 
     .. _`Junit4 assert documentation`: https://junit.org/junit4/javadoc/4.12/org/junit/Assert.html
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

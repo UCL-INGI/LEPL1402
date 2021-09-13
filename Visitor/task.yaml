@@ -37,7 +37,7 @@ context: |-
     .. _`IntelliJ Project`: /course/LEPL1402/Visitor/LEPL1402_Visitor.zip
 
     .. _here: /course/LEPL1402/Visitor/source.zip
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

@@ -29,7 +29,7 @@ context: |-
     .. _Function: https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html
     .. _BiFunction: https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html
     .. _Evaluator: /course/LEPL1402/Generics3/Evaluator.java
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

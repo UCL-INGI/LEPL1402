@@ -29,7 +29,7 @@ context: |-
     .. _IntelliJ: https://www.jetbrains.com/idea/
     .. _here: https://www.jetbrains.com/student/
     .. _`this tutorial`: https://lepl1402.readthedocs.io/en/latest/tools/index.html
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

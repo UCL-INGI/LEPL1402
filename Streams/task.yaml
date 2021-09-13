@@ -42,7 +42,7 @@ context: |-
     .. _StudentStreamFunction: /course/LEPL1402/Streams/StudentStreamFunction.java
     .. _Student: /course/LEPL1402/Streams/Student.java
     .. _StudentFunctions: /course/LEPL1402/Streams/StudentFunctions.java
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

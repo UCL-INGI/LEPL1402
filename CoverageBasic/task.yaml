@@ -40,7 +40,7 @@ context: |
 
         // some other tests in order to have edge and node coverage
       
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

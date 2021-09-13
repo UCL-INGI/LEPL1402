@@ -28,7 +28,7 @@ context: |-
 
     .. _monitors: https://www.artima.com/insidejvm/ed2/threadsynch.html
     .. _deadlock: https://en.wikipedia.org/wiki/Deadlock
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false

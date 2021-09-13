@@ -46,7 +46,7 @@ context: |-
     .. _here: /course/LEPL1402/TreeCombineWith/Node.java
     .. _Tree: /course/LEPL1402/TreeCombineWith/Tree.java
     .. _source: https://practiceit.cs.washington.edu/problem/view/cs2/exams/finals/final4/combineWith
-environment: java8scala
+environment: java8
 evaluate: best
 file: ''
 groups: false
