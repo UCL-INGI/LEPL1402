@@ -65,11 +65,12 @@ toc:
         ValueOrReference: 5
         StringUtils: 6
         ASCIIDecoder: 7
-        Casting: 8
-        AccessModifiers: 9
-        ComparatorAndCollections: 10
-        SieveOfEratosthenesMCQ: 11
-        SieveOfEratosthenesImplementation: 12
+        Anagram: 8
+        Casting: 9
+        AccessModifiers: 10
+        ComparatorAndCollections: 11
+        SieveOfEratosthenesMCQ: 12
+        SieveOfEratosthenesImplementation: 13
 -   id: Module 2
     title: Module 2
     rank: 1
