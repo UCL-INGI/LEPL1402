@@ -62,10 +62,8 @@ public class Tests{
             assertEquals(StringUtils.toLowerCase(s), s.toLowerCase());
         }
 
-        assertEquals(StringUtils.toLowerCase("HelLo WorLd"), "HelLo WorLd".toLowerCase());
-        assertEquals(StringUtils.toLowerCase("Hello World "), "Hello World ".toLowerCase());
-
-
+        assertEquals("hello world", StringUtils.toLowerCase("HelLo WorLd"));
+        assertEquals("hello world ", StringUtils.toLowerCase("Hello World "));
     }
 
 
