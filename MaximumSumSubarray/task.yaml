@@ -3,36 +3,32 @@ author: Bastin J, Piron H
 categories:
 - module2
 context: |-
-    In this exercise you must write a method  ``maxSubArray`` that finds the largest sum in a contiguous subarray :
+        In this exercise you must write a method  ``maxSubArray`` that finds the largest sum in a contiguous subarray.
 
-    Given:
-        - an array :math:`s`,
-        - :math:`(i, j)`, two indexes defining the start and the end of a subarray :math:`sub` such that :math:`0 \leq i \leq j < s.length`
-        - :math:`sum(sub)` the sum of all elements of the subarray :math:`sub`.
+        For example if the array is ``a = [-2,1,-3,4,-1,2,1,-5,4]``. A contiguous subarray is defined by two indices, ``i`` and ``j`` such that ``0 <= i < j < a.lenght``. For instance the contiguous subarray defined by ``i = 2`` and j = ``4`` is ``[-3, -1]``.
+        The sum of this subarray is ``-4``.
 
-    :math:`\forall sub \in s` such that :math:`sub \neq sub_{optimal}`; :math:`sub_{optimal}` is the maximum subarray of :math:`s` if and only if :math:`sum(sub_{optimal}) > sum(sub)`.
+        The goal of your code is to find the **first** subarray that has the maximum sum. In the example, this subarray is ``[4, -1, 2, 1]`` with a sum of 6.
 
-    What it means is that given an array, your program should find the **first** subarray that produces the maximum result.
+        Your algorithm should run in :math:`\mathcal{O}(n)` and you can use the following properties to help you get this complexity:
+            - if the sum of a subarray is less or equal to 0, then every extension to it (i.e., any subarray just after it) has a sum greater or equal to it
+            - Let assume that you have a contiguous subarray from ``i`` to ``j`` with a sum of ``S``. If ``a[j+1] > S + a[j+1]`` then you have no interest in extending the contiguous subarray but should start a new one from ``j+1``
 
-    Your method must return an array of three integers :
-        - The sum of the subarray
-        - The index of the start of the subarray
-        - The index of the end of the subarray
+        .. code-block:: java
 
-    .. code-block:: java
-
-        /*
-        *    Given the array [-2,1,-3,4,-1,2,1,-5,4]
-        *    The contiguous subarray that produces the best result is [4,-1,2,1]
-        *    For this array your method should return [6, 3, 6]
-        */
-        public static int[] maxSubArray(int[] a){
-
-            //TODO By Student
-
-        }
-
-    Note that the length of the array **a** is strictly greater than 0.
+            /**
+             * Find the contiguous subarray with the maximal sum
+             *
+             * @param a a non-empty array
+             * @return A triplet (sum, start, end) with sum the sum of the subarray and `start` and `end` the
+             *         start and end of the subarray
+             *
+             * For example for the array [-2,1,-3,4,-1,2,1,-5,4] your method should return [6, 3, 6]
+             */
+            public static int[] maxSubArray(int[] a){
+                // TODO: students
+                return null;
+            }
 environment: pyjavacpp
 evaluate: best
 file: ''
