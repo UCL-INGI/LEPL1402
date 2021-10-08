@@ -17,21 +17,17 @@ public class MergeSort {
 
         counter++;
 
-        for (int k = lo; k <= hi; k++) {
-            aux[k] = a[k];
-        }
-
         int i = lo;
         int j = mid + 1;
         for (int k = lo; k <= hi; k++) {
             if (i > mid) {
-                a[k] = aux[j++];
+                aux[k] = a[j++];
             } else if (j > hi) {
-                a[k] = aux[i++];
-            } else if (aux[j] - aux[i] < 0) {
-                a[k] = aux[j++];
+                aux[k] = a[i++];
+            } else if (a[j] - a[i] < 0) {
+                aux[k] = a[j++];
             } else {
-                a[k] = aux[i++];
+                aux[k] = a[i++];
             }
         }
     }
@@ -49,6 +45,9 @@ public class MergeSort {
         sortRecursiveWithNameTheStudentWontNormallyFind(a, aux, lo, mid);
         sortRecursiveWithNameTheStudentWontNormallyFind(a, aux, mid+1, hi);
         studentMerge(a, aux, lo, mid,  hi);
+        for (int i = lo; i <= hi; i++) {
+            a[i] = aux[i];
+        }
     }
 
     public static void studentMerge(int[] a, int[] aux, int lo, int mid, int hi) {
