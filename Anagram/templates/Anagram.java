@@ -1,1 +1,3 @@
-@@code@@
+package templates;
+
+@@student_answer@@

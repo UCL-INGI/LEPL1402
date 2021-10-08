@@ -3,6 +3,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import com.github.guillaumederval.javagrading.*;
+import templates.*;
 public class AnagramTestInginious {
     
     @Test
