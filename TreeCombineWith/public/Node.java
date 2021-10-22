@@ -23,12 +23,12 @@ public class Node {
         if (!(o instanceof Node)) return false;
 
         Node other = (Node) o;
-
-        if (this.val != other.val) return false;
-        if (this.isLeaf() != other.isLeaf()) return false;
-        if (this.left != null && !this.left.equals(other.left)) return false;
-        if (this.right != null && !this.right.equals(other.right)) return false;
-
-        return true;
+        if (this.isLeaf() && other.isLeaf()) {
+            return this.val == other.val;
+        } else if (this.isLeaf() != other.isLeaf()) {
+            return false;
+        } else {
+            return this.val == other.val && this.left.equals(other.left) && this.right.equals(other.right);
+        }
     }
 }
