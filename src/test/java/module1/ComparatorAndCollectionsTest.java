@@ -1,43 +1,30 @@
 package src;
 
-import com.github.guillaumederval.javagrading.Grade;
-import com.github.guillaumederval.javagrading.GradingRunner;
-import com.github.guillaumederval.javagrading.CustomGradingResult;
-import com.github.guillaumederval.javagrading.TestStatus;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.*;
 
-import templates.*;
-
 import static org.junit.Assert.*;
 
-@RunWith(GradingRunner.class) // classic "jail runner" from Guillaume's library
-public class InginiousTests {
+public class ComparatorAndCollectionsTest {
 
+    //BEGIN STRIP
     @Test
-    @Grade(value = 1, custom = true, cpuTimeout = 3000)
-    public void testWithTwoPersonsOfSameAge() throws CustomGradingResult {
+    public void testWithTwoPersonsOfSameAge() {
 
         Person[] person_objects = {new Person("Guillaume", 20), new Person("John", 20)};
         ArrayList<Person> persons = new ArrayList<Person>(Arrays.asList(person_objects));
 
         // use student code here
-        Sorter.sortPerson(persons);
+        ComparatorAndCollections.sortPerson(persons);
 
         // verification time
-
-        if (persons.get(0).equals(person_objects[1])) {
-            throw new CustomGradingResult(TestStatus.FAILED, 0, "John should be after Guillaume : not the opposite");
-        }
-
-        throw new CustomGradingResult(TestStatus.SUCCESS, 1);
+        assertNotEquals("John should be after Guillaume : not the opposite", persons.get(0), person_objects[1]);
     }
 
     @Test
-    @Grade(value = 1, custom = true, cpuTimeout = 3000)
-    public void testWithThreePersonsOfSameName() throws CustomGradingResult {
+    public void testWithThreePersonsOfSameName() {
 
         Person[] person_objects = {
                 new Person("Guillaume", 74),
@@ -51,20 +38,15 @@ public class InginiousTests {
         ArrayList<Person> persons = new ArrayList<>(Arrays.asList(person_objects));
 
         // use student code here
-        Sorter.sortPerson(persons);
+        ComparatorAndCollections.sortPerson(persons);
 
         // verification time
-
-        if ( ! expected_persons.equals(persons) ) {
-            throw new CustomGradingResult(TestStatus.FAILED, 0, "Not the correct order ");
-        }
-
-        throw new CustomGradingResult(TestStatus.SUCCESS, 1);
+        assertEquals("Not the correct order ", expected_persons, persons);
     }
+    //END STRIP
 
     @Test
-    @Grade(value = 1, custom = true, cpuTimeout = 3000)
-    public void testWithGivenExample() throws CustomGradingResult {
+    public void testWithGivenExample() {
 
         Person[] person_objects = {
                 new Person("Guillaume",20),
@@ -82,16 +64,10 @@ public class InginiousTests {
         ArrayList<Person> persons = new ArrayList<>(Arrays.asList(person_objects));
 
         // use student code here
-        Sorter.sortPerson(persons);
+        ComparatorAndCollections.sortPerson(persons);
 
         // verification time
-
-        if ( ! expected_persons.equals(persons) ) {
-            throw new CustomGradingResult(TestStatus.FAILED, 0, "Not the correct order ");
-        }
-
-        throw new CustomGradingResult(TestStatus.SUCCESS, 1);
-
+        assertEquals("Not the correct order ", expected_persons, persons);
     }
 
 }

@@ -1,9 +1,5 @@
 package src;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import com.github.guillaumederval.javagrading.GradingRunner;
-import com.github.guillaumederval.javagrading.Grade;
 
 import java.util.stream.Collectors;
 import java.util.Arrays;
@@ -12,11 +8,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertArrayEquals;
 
 import java.util.Random;
-import templates.*;
 
-@RunWith(GradingRunner.class)
-public class InginiousTests {
+public class Array2DTest {
 
+    //BEGIN STRIP
     final private Random rand = new Random();
 
     private int[][] generateRectangularMatrix() {
@@ -51,18 +46,16 @@ public class InginiousTests {
     }
 
     @Test
-    @Grade(value=1)
     public void testBuildFrom() {
         for(int i = 0; i < 10; i++) {
             int [][] expected = generateNonRectangularMatrix();
             String input = matrixtoStr(expected);
-            int [][] result = Matrix.buildFrom(input);
+            int [][] result = Array2D.buildFrom(input);
             assertArrayEquals(expected, result);
         }
     }
 
     @Test
-    @Grade(value=1)
     public void testSum() {
         for(int i = 0; i < 10; i++) {
             int [][] matrix = generateNonRectangularMatrix();
@@ -71,12 +64,11 @@ public class InginiousTests {
                 for (int col = 0; col < matrix[row].length; col++)
                     sum += matrix[row][col];
             }
-            assertEquals(sum, Matrix.sum(matrix));
+            assertEquals(sum, Array2D.sum(matrix));
         }
     }
 
     @Test
-    @Grade(value=1)
     public void testTranspose() {
 
         for(int i = 0; i < 10; i++) {
@@ -86,12 +78,11 @@ public class InginiousTests {
                 for (int col = 0; col < matrix[0].length; col++)
                     expected[col][row] = matrix[row][col];
             }
-            assertArrayEquals(expected, Matrix.transpose(matrix));
+            assertArrayEquals(expected, Array2D.transpose(matrix));
         }
     }
 
     @Test
-    @Grade(value=1)
     public void testProduct() {
         for(int i = 0; i < 10; i++) {
             int [][] m1 = generateRectangularMatrix();
@@ -112,8 +103,61 @@ public class InginiousTests {
                     expected[row][col] = sum;
                 }
             }
-            assertArrayEquals(expected, Matrix.product(m1, m2));
+            assertArrayEquals(expected, Array2D.product(m1, m2));
         }
+    }
+    //END STRIP
+
+    @Test
+    public void testBuildFromStudent() {
+        int [][] matrix = new int[][]{
+                new int[]{1, 2, 3},
+                new int[]{10, 11}
+        };
+        String repr = "1 2 3\n10 11";
+        assertEquals(matrix, Array2D.buildFrom(repr));
+    }
+
+    @Test
+    public void testSumStudent() {
+        int [][] matrix = new int[][]{
+                new int[]{1, 2, 3},
+                new int[]{10, 11}
+        };
+        assertEquals(27, Array2D.sum(matrix));
+    }
+
+    @Test
+    public void testTransposeStudent() {
+        int [][] matrix = new int[][]{
+                new int[]{1, 2, 3},
+                new int[]{10, 11, 12}
+        };
+        int [][] transposed = new int[][]{
+                new int[]{1, 10},
+                new int[]{2, 11},
+                new int[]{3, 12}
+        };
+        assertArrayEquals(transposed, Array2D.transpose(matrix));
+    }
+
+    @Test
+    public void testProductStudent() {
+        int [][] matrix = new int[][]{
+                new int[]{1, 2, 3},
+                new int[]{10, 11, 12}
+        };
+        int [][] mult = new int[][]{
+                new int[]{4, 13},
+                new int[]{5, 14},
+                new int[]{6, 15}
+        };
+
+        int [][] product = new int[][]{
+                new int[]{32, 86},
+                new int[]{167, 464}
+        };
+        assertArrayEquals(product, Array2D.product(matrix, mult));
     }
 
 }

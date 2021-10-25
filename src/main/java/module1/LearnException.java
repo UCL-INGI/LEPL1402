@@ -24,7 +24,7 @@
  *
  *
  */
-public class Divider{
+public class LearnException{
 
     /**
     * This method receives two integer as argument and return the exact result of the division i1/i2

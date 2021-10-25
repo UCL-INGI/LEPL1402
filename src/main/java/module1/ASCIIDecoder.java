@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *      - ArrayList : https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
  * We strongly encourage you to use them for this exercise.
  */
-public class Decoder {
+public class ASCIIDecoder {
 
     /**
      * Forbidden characters are passed as an array of int.

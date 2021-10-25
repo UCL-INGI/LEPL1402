@@ -1,3 +1,4 @@
+package src;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,7 +9,7 @@ import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
 
-public class Tests{
+public class StringUtilsTest {
 
 
     private char [] markers = {'-',' ', '=', ','};
@@ -62,8 +63,10 @@ public class Tests{
             assertEquals(StringUtils.toLowerCase(s), s.toLowerCase());
         }
 
-        assertEquals("hello world", StringUtils.toLowerCase("HelLo WorLd"));
-        assertEquals("hello world ", StringUtils.toLowerCase("Hello World "));
+        assertEquals(StringUtils.toLowerCase("HelLo WorLd"), "HelLo WorLd".toLowerCase());
+        assertEquals(StringUtils.toLowerCase("Hello World "), "Hello World ".toLowerCase());
+
+
     }
 
 
@@ -96,7 +99,6 @@ public class Tests{
             String[] splitStd = StringUtils.split(seed[0], seed[1].charAt(0));
             assertArrayEquals(splitJDK, splitStd);
         }
-
     }
 
 

@@ -18,7 +18,7 @@
  * You must find the return type by yourself.
  */
 
-public class IntroductionExercises {
+public class Introduction {
 
     public static int variable = 0;
 
@@ -108,7 +108,7 @@ public class IntroductionExercises {
      *
      * because 3.1 can not be converted to an integer
      * */
-    public static void main(String... args){
+    public static void main2(String... args){
         //TODO main body
     }
 

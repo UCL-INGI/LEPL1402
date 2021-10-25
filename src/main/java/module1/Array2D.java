@@ -4,7 +4,7 @@
  *
  * Note: Except for the `product` function, the matrix are not necesseraly rectangular
  */
-public class Matrix {
+public class Array2D {
 
     /**
      * Create a matrix from a String.

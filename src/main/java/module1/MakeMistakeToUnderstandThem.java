@@ -12,7 +12,7 @@ import java.util.List;
  * -    ArrayIndexOutOfBoundsException: https://docs.oracle.com/javase/8/docs/api/java/lang/ArrayIndexOutOfBoundsException.html
  * -    NullPointerException: https://docs.oracle.com/javase/8/docs/api/java/lang/NullPointerException.html
  */
-public class Except{
+public class MakeMistakeToUnderstandThem{
 
     /**
      * Write a piece of code that generates an ArrayIndexOutOfBoundsException
