@@ -1,15 +1,21 @@
-/*
-    Welcome to the first task of a long series!
-    This serie of inginious tasks will accompany you throughout the quadrimester to learn java and apprehend the material seen in class.
-    Successful completion of all tasks is a major step towards the success of this course.
-    We encourage you to try to do them yourself without going on the Internet.
-    We also encourage you to try your solutions by yourself on you computer.
-    To do so take a look at  https://lepl1402.readthedocs.io/en/latest/tools/index.html on the tools you will need.
-    This first task will cover the basics of java step by step.
-
-    Here is the class that you must implements in this task.
-    The context of all variable must be static and the modifier public.
-    You must find the return type by yourself.
+/**
+ * Welcome to the first task of a long series!
+ *
+ * This serie of inginious tasks will accompany you throughout the quadrimester to learn java and apprehend the material seen in class.
+ * Successful completion of all tasks is a major step towards the success of this course.
+ * We encourage you to try to do them yourself without going on the Internet.
+ *
+ * We also encourage you to try your solutions by yourself on you computer.
+ * To do so take a look at this tutorial https://lepl1402.readthedocs.io/en/latest/tools/index.html
+ * on the tools you will need.
+ *
+ * This first task will cover the basics of java step by step.
+ * In most exercises we want you to paste the **signature** and the **body** of the methods you create.
+ * In other cases we just wan to you paste the **body** and we give you the **signature**.
+ *
+ * Here is the class that you must implements in this task.
+ * The context of all variable must be static and the modifier public.
+ * You must find the return type by yourself.
  */
 
 public class IntroductionExercises {
@@ -18,22 +24,22 @@ public class IntroductionExercises {
 
     public static int[] squares;
 
-    /*
+    /**
      * Function that bound variable to value
      */
     //TODO attribute(int value) method
 
-    /*
+    /**
      * Function that return the addition of the two parameters
      */
     //TODO add(int a, int b) method
 
-    /*
+    /**
      * return true is a and b are equal
      */
     //TODO equalsIntegers(int a, int b) method
 
-    /*
+    /**
      * Function that return the max between a and b
      * You must use a ternary operation
      */
@@ -41,14 +47,14 @@ public class IntroductionExercises {
         //TODO the body of this function in one line
     }
 
-    /*
+    /**
      * Function that return the middle value.
      * If a > b > c, the function must return b.
      * If two value are equals, return -1.
      */
     //TODO middleValue(int a, int b, int c) method
 
-    /*
+    /**
      * This function must return :
      * "Good morning, sir!" if str is "Morning"
      * "Good evening, sir!" if str is "Evening"
@@ -58,7 +64,7 @@ public class IntroductionExercises {
      */
     //TODO greetings(String str) method
 
-    /*
+    /**
      * This function must return a new array of length 3
      * The first element of this new array is the last element of a
      * The second element is the first element of a
@@ -66,12 +72,12 @@ public class IntroductionExercises {
      */
     //TODO lastFirstMiddle(int[] a)
 
-    /*
+    /**
      * This function must return the sum of the elements of array using a for loop
      */
     //TODO sum(int[] array) method
 
-    /*
+    /**
      * return the maximum element of array using a while loop
      */
     //TODO maxArray(int[] array) method

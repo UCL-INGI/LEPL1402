@@ -3,7 +3,7 @@ import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
-public class DividerTest {
+public class Tests {
 
     @Test
     public void testExample(){
