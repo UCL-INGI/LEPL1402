@@ -1,13 +1,13 @@
-package src;
+package module1;
+
 import org.junit.Test;
 
-import java.util.stream.Collectors;
 import java.util.Arrays;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertArrayEquals;
-
 import java.util.Random;
+import java.util.stream.Collectors;
+
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class Array2DTest {
 

@@ -1,3 +1,5 @@
+package module1;
+
 /**
  * In this task you need to implement the Anagram class.
  * A word `w1` is an anagram of a word `w2` if it consists of all the letters of `w2`, possibly in another order.

@@ -1,15 +1,12 @@
-package src;
+package module1;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.Arrays;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
-
-import java.util.*;
-import templates.*;
 
 import static org.junit.Assert.*;
 
@@ -27,15 +24,13 @@ public class IntroductionTest {
                 method = m;
             }
         }
+
+
         try{
-            if(!method.getReturnType().equals(returnType)){
-                throw new CustomGradingResult(TestStatus.FAILED, 0, "The return type is not the right");
-            }
-            if(!Modifier.isPublic(method.getModifiers()) || !Modifier.isStatic(method.getModifiers())){
-                throw new CustomGradingResult(TestStatus.FAILED, 0, "Your method must be public and static");
-            }
+            assertEquals("The return type is not the right", method.getReturnType(), returnType);
+            assertTrue("Your method must be public and static", Modifier.isPublic(method.getModifiers()) || !Modifier.isStatic(method.getModifiers()));
         } catch(NullPointerException e){
-			throw new CustomGradingResult(TestStatus.FAILED, 0, "The method " + s + " doesn't exist");
+            fail("The method " + s + " doesn't exist");
         }
     }
 
@@ -157,14 +152,12 @@ public class IntroductionTest {
         try{
         	Introduction.main2(args);
         } catch(NullPointerException e){
-            throw new CustomGradingResult(TestStatus.FAILED, 0, "Don't forget to initialize the variable squares");
+            fail("Don't forget to initialize the variable squares");
         }
 
         int[] sq = Arrays.stream(array).map(i -> (int) Math.pow(i, 2)).toArray();
 
-        if(!Arrays.equals(sq, Introduction.squares)){
-            throw new CustomGradingResult(TestStatus.FAILED, 0, "Your method does not work as espected");
-        }
+        assertEquals("Your method does not work as espected", sq, Introduction.squares);
 
         String[] args2 = {"2", "1", "I'm really good", "10"};
         int[] res = {4, 1, 0, 100};

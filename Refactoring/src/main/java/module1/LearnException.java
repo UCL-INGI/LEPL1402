@@ -1,3 +1,5 @@
+package module1;
+
 /**
  * In this task we ask you to implement method throwing and catching exceptions.
  * In Java, Exceptions are handled using ``try`` and ``catch`` statement like the example below
@@ -32,6 +34,7 @@ public class LearnException{
     * */
     public static double divide(int i1, int i2) throws ArithmeticException{
 		//TODO by student
+        return 0.0;
     }
 
     /**
@@ -42,6 +45,7 @@ public class LearnException{
     */
     public static boolean canDivide(int i1, int i2){
         //TODO by student
+        return false;
     }
 
     /**
@@ -55,6 +59,7 @@ public class LearnException{
     * */
     public static double betterDivide(int i1, int i2) throws ArithmeticException{
         //TODO by student
+        return 0.0;
     }
 
     /**
@@ -64,6 +69,7 @@ public class LearnException{
     * */
     public static String betterCanDivide(int i1, int i2){
         //TODO by student
+        return null;
     }
 
 

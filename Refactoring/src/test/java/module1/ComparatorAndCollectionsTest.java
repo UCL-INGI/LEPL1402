@@ -1,9 +1,9 @@
-package src;
+package module1;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.Assert.*;
 

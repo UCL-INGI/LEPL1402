@@ -1,14 +1,9 @@
-package src;
+package module1;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
+
 import java.util.BitSet;
 import java.util.Random;
-import java.util.function.Supplier;
-import java.util.stream.Stream;
-
-import templates.*;
-
 
 import static org.junit.Assert.*;
 

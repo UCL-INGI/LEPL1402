@@ -1,12 +1,6 @@
-package src;
+package module1;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import java.util.Random;
-import java.util.function.Supplier;
-import java.util.stream.Stream;
-
-import templates.*;
 
 import static org.junit.Assert.*;
 
@@ -19,7 +13,7 @@ public class LearnExceptionTest {
         boolean correct=false;
         double res= 0.0;
         try{
-            res = LearnExceptionTest.divide(i1, i2);
+            res = LearnException.divide(i1, i2);
         }catch(ArithmeticException e){
             correct = true;
         }
@@ -31,7 +25,7 @@ public class LearnExceptionTest {
         i2 = 5;
 
         try{
-            res = LearnExceptionTest.divide(i1, i2);
+            res = LearnException.divide(i1, i2);
         }catch(ArithmeticException e){
             correct = true;
         }
@@ -44,7 +38,7 @@ public class LearnExceptionTest {
         i2 = 2;
 
         try{
-            res = LearnExceptionTest.divide(i1, i2);
+            res = LearnException.divide(i1, i2);
         }catch(ArithmeticException e){
             correct = true;
         }
@@ -54,15 +48,13 @@ public class LearnExceptionTest {
 
         i1 = 5;
         i2 = 0;
-        correct = LearnExceptionTest.canDivide(i1, i2);
+        correct = LearnException.canDivide(i1, i2);
 
-        if(correct){
-            throw new CustomGradingResult(TestStatus.FAILED, 4 , "canDivide has returned true when it should have returned false");
-        }
+        assertFalse("canDivide has returned true when it should have returned false", correct);
 
         i1 = 5;
         i2 = 2;
-        correct = LearnExceptionTest.canDivide(i1, i2);
+        correct = LearnException.canDivide(i1, i2);
 
         assertTrue("canDivide has returned false when it should have returned true", correct);
 
@@ -70,7 +62,7 @@ public class LearnExceptionTest {
         i1 = 5;
         i2 = 2;
         try{
-            res = LearnExceptionTest.betterDivide(i1, i2);
+            res = LearnException.betterDivide(i1, i2);
         }catch(ArithmeticException e){
             correct = false;
         }
@@ -82,7 +74,7 @@ public class LearnExceptionTest {
         i2 = 0;
         String message = null;
         try{
-            res = LearnExceptionTest.betterDivide(i1, i2);
+            res = LearnException.betterDivide(i1, i2);
         }catch(ArithmeticException e){
             message = e.getMessage();
             correct = e.getMessage()!=null;
@@ -92,14 +84,14 @@ public class LearnExceptionTest {
 
         i1 = 5;
         i2 = 2;
-        String s = LearnExceptionTest.betterCanDivide(i1, i2);
+        String s = LearnException.betterCanDivide(i1, i2);
 
         assertFalse("BetterCanDivide has not given the expected result", almostEquals(2.5, Double.valueOf(s)));
 
         s=null;
         i1 = 5;
         i2 = 0;
-        s = LearnExceptionTest.betterCanDivide(i1, i2);
+        s = LearnException.betterCanDivide(i1, i2);
 
         assertEquals("BetterCanDivide didn't return the message given by betterDivide exception", message.compareTo(s), 0);
 

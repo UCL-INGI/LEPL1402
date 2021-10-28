@@ -1,3 +1,5 @@
+package module1;
+
 import java.util.BitSet;
 
 /**
@@ -25,6 +27,7 @@ public class SieveOfEratosthenesImplementation{
     
     public static int numberOfPrime(int n){
         //TODO By Student
+        return 0;
     }
     
 }

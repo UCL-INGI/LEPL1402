@@ -1,3 +1,5 @@
+package module1;
+
 /**
  * In order to better aprehend the concept of multi-dimensionnal array,
  * we ask you to complete the `Matrix` class given next.

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package module1;
 
 /**
  * For this exercise we want you to make a method able to decode a set of ASCII (decimal) codes into a String.
@@ -26,7 +26,7 @@ public class ASCIIDecoder {
      * You should NEVER return null or an array containing null
      */
     public static String [] decode(int[] forbidden, String[][] sentences){
-        
+        return null;
     }
 
 }

@@ -1,8 +1,6 @@
-package templates;
+package module1;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * In this task, the challenge is to sort a custom class Person described as :
@@ -64,7 +62,7 @@ public class ComparatorAndCollections {
     }
 }
 
-private class Person {
+class Person {
     public String name;
     public int age;
 

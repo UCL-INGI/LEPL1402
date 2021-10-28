@@ -1,3 +1,5 @@
+package module1;
+
 /**
  * Welcome to the first task of a long series!
  *
@@ -27,16 +29,31 @@ public class Introduction {
     /**
      * Function that bound variable to value
      */
+    //BEGIN STRIP
+    static void attribute (int value) {
+
+    }
+    //END STRIP
     //TODO attribute(int value) method
 
     /**
      * Function that return the addition of the two parameters
      */
+    //BEGIN STRIP
+    static int add (int a, int b) {
+        return 0;
+    }
+    //END STRIP
     //TODO add(int a, int b) method
 
     /**
      * return true is a and b are equal
      */
+    //BEGIN STRIP
+    static boolean equalsIntegers (int a, int b) {
+        return false;
+    }
+    //END STRIP
     //TODO equalsIntegers(int a, int b) method
 
     /**
@@ -45,6 +62,7 @@ public class Introduction {
      */
     public static int max(int a, int b){
         //TODO the body of this function in one line
+        return 0;
     }
 
     /**
@@ -52,6 +70,11 @@ public class Introduction {
      * If a > b > c, the function must return b.
      * If two value are equals, return -1.
      */
+    //BEGIN STRIP
+    static int middleValue (int a, int b, int c) {
+        return 0;
+    }
+    //END STRIP
     //TODO middleValue(int a, int b, int c) method
 
     /**
@@ -62,6 +85,11 @@ public class Introduction {
      * Use a switch case statement
      * Your implementation must be case sensitive
      */
+    //BEGIN STRIP
+    static String greetings (String str) {
+        return null;
+    }
+    //END STRIP
     //TODO greetings(String str) method
 
     /**
@@ -70,18 +98,32 @@ public class Introduction {
      * The second element is the first element of a
      * The last element is the middle element of a
      */
+    //BEGIN STRIP
+    static int[] lastFirstMiddle (int[] a) {
+        return null;
+    }
+    //END STRIP
     //TODO lastFirstMiddle(int[] a)
 
     /**
      * This function must return the sum of the elements of array using a for loop
      */
+    //BEGIN STRIP
+    static int sum (int[] array) {
+        return 0;
+    }
+    //END STRIP
     //TODO sum(int[] array) method
 
     /**
      * return the maximum element of array using a while loop
      */
     //TODO maxArray(int[] array) method
-
+    //BEGIN STRIP
+    static int maxArray (int[] array) {
+        return 0;
+    }
+    //END STRIP
 
 
     /**

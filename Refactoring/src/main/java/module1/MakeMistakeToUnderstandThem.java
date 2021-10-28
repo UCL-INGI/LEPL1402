@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+package module1;
 
 /**
  * Although it will seem a bit weird, we will ask you to write code generating Exception. But why?

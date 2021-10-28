@@ -1,3 +1,5 @@
+package module1;
+
 /**
  * In this task, we ask you to implement several common methods inspired from java's String API.
  * Java String API : https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#subSequence-int-int-
@@ -33,7 +35,7 @@ public class StringUtils {
      *          return an array of size 1 with the string at element 0
      */
     public static String [] split(String str, char delimiter){
-
+        return null;
     }
 
 
@@ -47,7 +49,7 @@ public class StringUtils {
      *          in str
      */
     public static int indexOf(String str, String sub){
-
+        return 0;
     }
 
 
@@ -59,7 +61,7 @@ public class StringUtils {
      *          character put to lower case.
      */
     public static String toLowerCase(String str){
-
+        return null;
     }
 
 
@@ -74,7 +76,7 @@ public class StringUtils {
      * @return true if str is a palyndrome, false otherwise
      */
     public static boolean palindrome(String str){
-    
+        return false;
     }
 
 
