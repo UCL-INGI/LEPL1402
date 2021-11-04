@@ -5,10 +5,10 @@ package module3;
  * Two instances of ``Tree`` are considered equal when they both have the exact same structure
  * (same number of nodes, each node at the same place in both trees) and when every node has the same val.
  */
-public class BinaryTreeEquals {
+class Tree2 {
     public Node root;
 
-    public BinaryTreeEquals(Node root){
+    public Tree2(Node root){
         this.root = root;
     }
 
@@ -17,25 +17,25 @@ public class BinaryTreeEquals {
         // YOUR CODE HERE
         return false;
     }
-}
 
-class Node {
+    static class Node {
 
-    public int val;
-    public Node left;
-    public Node right;
+        public int val;
+        public Node left;
+        public Node right;
 
-    public Node(int val){
-        this.val = val;
-    }
+        public Node(int val){
+            this.val = val;
+        }
 
-    public boolean isLeaf(){
-        return this.left == null && this.right == null;
-    }
+        public boolean isLeaf(){
+            return this.left == null && this.right == null;
+        }
 
-    @Override
-    public boolean equals(Object o){
-        // YOUR CODE HERE
-        return false;
+        @Override
+        public boolean equals(Object o){
+            // YOUR CODE HERE
+            return false;
+        }
     }
 }

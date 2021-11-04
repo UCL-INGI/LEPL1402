@@ -35,50 +35,50 @@ package module3;
  *
  * You may define private helper methods to solve this problem but in any case, your method should not change the structure or contents of either of the two trees being compared.
  */
-public class BinaryTreeCombineWith {
+class Tree1 {
     public Node root;
 
-    public BinaryTreeCombineWith(Node root){
+    public Tree1(Node root){
         this.root = root;
     }
 
-    public BinaryTreeCombineWith combineWith(BinaryTreeCombineWith o){
+    public Tree1 combineWith(Tree1 o){
         // YOUR CODE HERE
         return null;
     }
-}
 
-public class Node {
+    static class Node {
 
-    public int val;
-    public Node left;
-    public Node right;
+        public int val;
+        public Node left;
+        public Node right;
 
-    public Node(int val){
-        this.val = val;
-    }
+        public Node(int val){
+            this.val = val;
+        }
 
-    public Node(int val, Node left, Node right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
+        public Node(int val, Node left, Node right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
 
-    public boolean isLeaf(){
-        return this.left == null && this.right == null;
-    }
+        public boolean isLeaf(){
+            return this.left == null && this.right == null;
+        }
 
-    @Override
-    public boolean equals(Object o) {
-        if (!(o instanceof Node)) return false;
+        @Override
+        public boolean equals(Object o) {
+            if (!(o instanceof Node)) return false;
 
-        Node other = (Node) o;
+            Node other = (Node) o;
 
-        if (this.val != other.val) return false;
-        if (this.isLeaf() != other.isLeaf()) return false;
-        if (this.left != null && !this.left.equals(other.left)) return false;
-        if (this.right != null && !this.right.equals(other.right)) return false;
+            if (this.val != other.val) return false;
+            if (this.isLeaf() != other.isLeaf()) return false;
+            if (this.left != null && !this.left.equals(other.left)) return false;
+            if (this.right != null && !this.right.equals(other.right)) return false;
 
-        return true;
+            return true;
+        }
     }
 }

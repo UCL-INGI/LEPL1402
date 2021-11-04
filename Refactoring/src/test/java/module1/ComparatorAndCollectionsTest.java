@@ -17,7 +17,7 @@ public class ComparatorAndCollectionsTest {
         ArrayList<Person> persons = new ArrayList<Person>(Arrays.asList(person_objects));
 
         // use student code here
-        ComparatorAndCollections.sortPerson(persons);
+        Sorter.sortPerson(persons);
 
         // verification time
         assertNotEquals("John should be after Guillaume : not the opposite", persons.get(0), person_objects[1]);
@@ -38,7 +38,7 @@ public class ComparatorAndCollectionsTest {
         ArrayList<Person> persons = new ArrayList<>(Arrays.asList(person_objects));
 
         // use student code here
-        ComparatorAndCollections.sortPerson(persons);
+        Sorter.sortPerson(persons);
 
         // verification time
         assertEquals("Not the correct order ", expected_persons, persons);
@@ -64,7 +64,7 @@ public class ComparatorAndCollectionsTest {
         ArrayList<Person> persons = new ArrayList<>(Arrays.asList(person_objects));
 
         // use student code here
-        ComparatorAndCollections.sortPerson(persons);
+        Sorter.sortPerson(persons);
 
         // verification time
         assertEquals("Not the correct order ", expected_persons, persons);

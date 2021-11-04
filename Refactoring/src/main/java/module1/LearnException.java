@@ -26,7 +26,7 @@ package module1;
  *
  *
  */
-public class LearnException{
+class Divider {
 
     /**
     * This method receives two integer as argument and return the exact result of the division i1/i2

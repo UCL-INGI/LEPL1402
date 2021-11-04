@@ -19,7 +19,7 @@ import java.util.List;
  *        :height: 218px
  *        :width: 240 px
  */
-public class BinaryTreeInOrder {
+class Tree3 {
     //BEGIN STRIP
     public static int nCalls = 0;
     //END STRIP
@@ -38,23 +38,21 @@ public class BinaryTreeInOrder {
         //END STRIP
         // YOUR CODE HERE
     }
-}
 
+    static class Node {
 
-class Node {
+        public int val;
 
-    public int val;
+        public Node left;
+        public Node right;
 
-    public Node left;
-    public Node right;
+        public Node(int val){
+            this.val = val;
+        }
 
-    public Node(int val){
-        this.val = val;
+        public boolean isLeaf(){
+            return this.left == null && this.right == null;
+        }
+
     }
-
-    public boolean isLeaf(){
-        return this.left == null && this.right == null;
-    }
-
 }
-

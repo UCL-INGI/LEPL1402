@@ -21,7 +21,7 @@ import java.util.BitSet;
  *  - BitSet: https://docs.oracle.com/javase/8/docs/api/java/util/BitSet.html
  *  - java documentation: https://docs.oracle.com/javase/8/docs/api/
  */
-public class SieveOfEratosthenesImplementation{
+class Sieve {
     
     public static BitSet bits; //You should work on this BitSet
     

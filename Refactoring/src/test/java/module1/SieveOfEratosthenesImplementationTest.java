@@ -16,15 +16,15 @@ public class SieveOfEratosthenesImplementationTest {
         Random rng = new Random();
         int r = rng.nextInt(15000);
 
-        assertEquals(np(r), SieveOfEratosthenesImplementation.numberOfPrime(r));
+        assertEquals(np(r), Sieve.numberOfPrime(r));
     }
     //END STRIP
 
     @Test
     public void testLow(){
-        assertEquals(4, SieveOfEratosthenesImplementation.numberOfPrime(10));
-        assertEquals(25, SieveOfEratosthenesImplementation.numberOfPrime(100));
-        assertEquals(SieveOfEratosthenesImplementation.numberOfPrime(1000), 168);
+        assertEquals(4, Sieve.numberOfPrime(10));
+        assertEquals(25, Sieve.numberOfPrime(100));
+        assertEquals(Sieve.numberOfPrime(1000), 168);
         /*SieveOfEratosthenesImplementation.bits.set(0,true);
         SieveOfEratosthenesImplementation.bits.set(1,true);
         
@@ -36,7 +36,7 @@ public class SieveOfEratosthenesImplementationTest {
     //BEGIN STRIP
     @Test
     public void testComplexity(){
-        assertEquals(5761455, SieveOfEratosthenesImplementation.numberOfPrime(100_000_000));
+        assertEquals(5761455, Sieve.numberOfPrime(100_000_000));
     }
 
 

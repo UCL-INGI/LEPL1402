@@ -1,7 +1,6 @@
 package module2;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import java.util.Random;
 
@@ -23,7 +22,7 @@ public class LongestValleyTest {
 
         int[] example = new int[]{1, 1, 1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, -1, -1};
 
-        int[] result = LongestValley.valley(example);
+        int[] result = Valley.valley(example);
 
         assertNotNull(result);
         assertEquals(5, result[0]);
@@ -34,7 +33,7 @@ public class LongestValleyTest {
 
         int[] example = new int[]{1, 1, 1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, -1, -1};
 
-        int[] result = LongestValley.valley(example);
+        int[] result = Valley.valley(example);
 
         assertNotNull(result);
         assertEquals(3, result[1]);
@@ -45,7 +44,7 @@ public class LongestValleyTest {
 
         int[] example = new int[]{1,1,1,1,1,-1,-1,-1,-1,-1};
 
-        int[] result = LongestValley.valley(example);
+        int[] result = Valley.valley(example);
 
         assertNotNull(result);
         assertEquals(5, result[1]);
@@ -56,7 +55,7 @@ public class LongestValleyTest {
 
         int[] example = new int[]{-1,-1,-1,-1,-1,1,1,1,1,1};
 
-        int[] result = LongestValley.valley(example);
+        int[] result = Valley.valley(example);
 
         assertNotNull(result);
         assertEquals(5, result[0]);
@@ -68,7 +67,7 @@ public class LongestValleyTest {
 
         int[] example = buildArray(100);
 
-        int[] result = LongestValley.valley(example);
+        int[] result = Valley.valley(example);
         int[] answer = correctValley(example);
 
         assertNotNull(result);
@@ -80,7 +79,7 @@ public class LongestValleyTest {
 
         int[] example = buildArray(100);
 
-        int[] result = LongestValley.valley(example);
+        int[] result = Valley.valley(example);
         int[] answer = correctValley(example);
 
         assertNotNull(result);
@@ -92,7 +91,7 @@ public class LongestValleyTest {
 
         int[] example = buildArray(100);
 
-        int[] result = LongestValley.valley(example);
+        int[] result = Valley.valley(example);
         int[] answer = correctValley(example);
 
         assertNotNull(result);
@@ -106,7 +105,7 @@ public class LongestValleyTest {
 
         int[] example = buildArray(100000);
 
-        int[] result = LongestValley.valley(example);
+        int[] result = Valley.valley(example);
         int[] answer = correctValley(example);
 
         assertNotNull(result);

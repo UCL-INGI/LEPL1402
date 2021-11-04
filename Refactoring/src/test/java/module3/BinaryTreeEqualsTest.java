@@ -18,12 +18,12 @@ public class BinaryTreeEqualsTest {
         for(int i = 0; i < 10; i++) {
 
             Integer[] seeds = Stream.generate(rnd).limit(15).toArray(Integer[]::new);
-            Node root = new Node(0);
-            Node root2 = new Node(0);
+            Tree2.Node root = new Tree2.Node(0);
+            Tree2.Node root2 = new Tree2.Node(0);
             root = buildTree(root, seeds, 0);
             root2 = buildTree(root2, seeds, 0);
-            BinaryTreeEquals tree = new BinaryTreeEquals(root);
-            BinaryTreeEquals tree2 = new BinaryTreeEquals(root2);
+            Tree2 tree = new Tree2(root);
+            Tree2 tree2 = new Tree2(root2);
 
             assertEquals(tree, tree2); // root.equals(root2) == true
         }
@@ -35,31 +35,31 @@ public class BinaryTreeEqualsTest {
 
         Integer [] seeds = Stream.generate(rnd).limit(7).toArray(Integer[]::new);
 
-        Node root = new Node(seeds[0]);
-        root.left = new Node(seeds[1]);
-        root.right = new Node(seeds[2]);
-        root.left.left = new Node(seeds[3]);
-        root.left.right = new Node(seeds[4]);
-        root.right.left = new Node(seeds[5]);
-        root.right.right = new Node(seeds[6]);
+        Tree2.Node root = new Tree2.Node(seeds[0]);
+        root.left = new Tree2.Node(seeds[1]);
+        root.right = new Tree2.Node(seeds[2]);
+        root.left.left = new Tree2.Node(seeds[3]);
+        root.left.right = new Tree2.Node(seeds[4]);
+        root.right.left = new Tree2.Node(seeds[5]);
+        root.right.right = new Tree2.Node(seeds[6]);
 
-        BinaryTreeEquals tree = new BinaryTreeEquals(root);
+        Tree2 tree = new Tree2(root);
 
-        Node root2 = new Node(seeds[0]);
-        root2.left = new Node(seeds[1]);
-        root2.right = new Node(seeds[2]);
-        root2.left.left = new Node(seeds[3]);
-        root2.left.right = new Node(seeds[4]);
-        root2.right.left = new Node(seeds[5]);
-        root2.right.right = new Node(seeds[5]);
+        Tree2.Node root2 = new Tree2.Node(seeds[0]);
+        root2.left = new Tree2.Node(seeds[1]);
+        root2.right = new Tree2.Node(seeds[2]);
+        root2.left.left = new Tree2.Node(seeds[3]);
+        root2.left.right = new Tree2.Node(seeds[4]);
+        root2.right.left = new Tree2.Node(seeds[5]);
+        root2.right.right = new Tree2.Node(seeds[5]);
 
-        BinaryTreeEquals tree2 = new BinaryTreeEquals(root2);
+        Tree2 tree2 = new Tree2(root2);
 
         assertNotEquals(tree, tree2);
 
-        root2.right.right = new Node(seeds[6]);
+        root2.right.right = new Tree2.Node(seeds[6]);
 
-        tree2 = new BinaryTreeEquals(root2);
+        tree2 = new Tree2(root2);
 
         assertEquals(tree, tree2);
     }
@@ -68,12 +68,12 @@ public class BinaryTreeEqualsTest {
     @Test
     public void cornerCasesTest(){
 
-        BinaryTreeEquals tree = new BinaryTreeEquals(null);
-        BinaryTreeEquals tree2 = new BinaryTreeEquals(null);
+        Tree2 tree = new Tree2(null);
+        Tree2 tree2 = new Tree2(null);
 
         assertEquals(tree, tree2);
 
-        tree2 = new BinaryTreeEquals(new Node(1));
+        tree2 = new Tree2(new Tree2.Node(1));
 
         assertNotEquals(tree, tree2);
         assertNotEquals(tree, null);
@@ -84,11 +84,11 @@ public class BinaryTreeEqualsTest {
 
 
 
-    private Node buildTree(Node root, Integer [] seeds, int idx){
+    private Tree2.Node buildTree(Tree2.Node root, Integer [] seeds, int idx){
 
         if(idx < seeds.length){
 
-            root = new Node(seeds[idx]);
+            root = new Tree2.Node(seeds[idx]);
 
             root.left = buildTree(root.left, seeds, 2*idx+1);
             root.right = buildTree(root.right, seeds, 2*idx+2);

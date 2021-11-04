@@ -26,17 +26,17 @@ public class BinaryTreeInOrderTraversalTest {
     @Test
     public void test1(){
         //BEGIN STRIP
-        BinaryTreeInOrder.nCalls = 0;
+        Tree3.nCalls = 0;
         //END STRIP
         Integer [] nodes = Stream.generate(rnd).limit(6).toArray(Integer[]::new);
 
-        Node node = new Node(nodes[0]);
+        Tree3.Node node = new Tree3.Node(nodes[0]);
         buildTree(node,nodes);
 
         ArrayList<Integer> res = new ArrayList<>();
-        BinaryTreeInOrder.recursiveInorder(node, res);
+        Tree3.recursiveInorder(node, res);
         //BEGIN STRIP
-        assertEquals(BinaryTreeInOrder.nCalls, nodes.length);
+        assertEquals(Tree3.nCalls, nodes.length);
         //END STRIP
 
         for(int i =0; i < nodes.length; i++){
@@ -50,19 +50,19 @@ public class BinaryTreeInOrderTraversalTest {
     @Test
     public void test2(){
         //BEGIN STRIP
-        BinaryTreeInOrder.nCalls = 0;
+        Tree3.nCalls = 0;
         //END STRIP
 
         Integer [] nodes = Stream.generate(rnd).limit(6).toArray(Integer[]::new);
 
-        Node node = new Node(nodes[0]);
+        Tree3.Node node = new Tree3.Node(nodes[0]);
         buildTree(node,nodes);
 
         ArrayList<Integer> res = new ArrayList<>();
-        BinaryTreeInOrder.iterativeInorder(node, res);
+        Tree3.iterativeInorder(node, res);
 
         //BEGIN STRIP
-        assertEquals(1, BinaryTreeInOrder.nCalls);
+        assertEquals(1, Tree3.nCalls);
         //END STRIP
 
         for(int i =0; i < nodes.length; i++){
@@ -79,15 +79,15 @@ public class BinaryTreeInOrderTraversalTest {
 
         Integer [] nodes = Stream.generate(rnd).limit(6).toArray(Integer[]::new);
 
-        Node nodeIt = new Node(nodes[0]);
-        Node nodeRec = new Node(nodes[0]);
+        Tree3.Node nodeIt = new Tree3.Node(nodes[0]);
+        Tree3.Node nodeRec = new Tree3.Node(nodes[0]);
         buildTree(nodeIt, nodes);
         buildTree(nodeRec, nodes);
 
         ArrayList<Integer> it = new ArrayList<>();
         ArrayList<Integer> rec = new ArrayList<>();
-        BinaryTreeInOrder.iterativeInorder(nodeIt, it);
-        BinaryTreeInOrder.recursiveInorder(nodeRec, rec);
+        Tree3.iterativeInorder(nodeIt, it);
+        Tree3.recursiveInorder(nodeRec, rec);
 
         assertEquals(it.size(), rec.size());
 
@@ -97,12 +97,12 @@ public class BinaryTreeInOrderTraversalTest {
 
     }
 
-    private void buildTree(Node node, Integer[] nodes){
-        node.left = new Node(nodes[1]);
-        node.right = new Node(nodes[2]);
-        node.left.left = new Node(nodes[3]);
-        node.left.right = new Node(nodes[4]);
-        node.right.left = new Node(nodes[5]);
+    private void buildTree(Tree3.Node node, Integer[] nodes){
+        node.left = new Tree3.Node(nodes[1]);
+        node.right = new Tree3.Node(nodes[2]);
+        node.left.left = new Tree3.Node(nodes[3]);
+        node.left.right = new Tree3.Node(nodes[4]);
+        node.right.left = new Tree3.Node(nodes[5]);
     }
 
 }

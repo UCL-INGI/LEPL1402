@@ -55,7 +55,7 @@ import java.util.ArrayList;
  *
  *        [Guillaume 10, Guillaume 20, John 10, John 20, Luc 5]
  */
-public class ComparatorAndCollections {
+class Sorter {
 
     public static void sortPerson(ArrayList<Person> persons) {
         // TODO

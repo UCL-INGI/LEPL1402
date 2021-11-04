@@ -29,17 +29,17 @@ public class BinaryTreeCombineWithTest {
     }
 
     // to generate a tree given a int array
-    private BinaryTreeCombineWith geneateRandomTree(int[] array) {
-        Node root = null;
+    private Tree1 geneateRandomTree(int[] array) {
+        Tree1.Node root = null;
         root = insertLevelOrder(array, root, 0);
-        return new BinaryTreeCombineWith(root);
+        return new Tree1(root);
     }
 
     // inspired by https://www.geeksforgeeks.org/construct-complete-binary-tree-given-array/
-    private Node insertLevelOrder(int[] arr, Node root, int i) {
+    private Tree1.Node insertLevelOrder(int[] arr, Tree1.Node root, int i) {
         // Base case for recursion
         if (i < arr.length) {
-            root = new Node(arr[i]);
+            root = new Tree1.Node(arr[i]);
 
             // insert left child
             root.left = insertLevelOrder(arr, root.left,
@@ -62,38 +62,38 @@ public class BinaryTreeCombineWithTest {
 
     @Test
     public void test1() {
-        BinaryTreeCombineWith t1 = new BinaryTreeCombineWith(
-                new Node(
+        Tree1 t1 = new Tree1(
+                new Tree1.Node(
                         9,
-                        new Node(6,
-                                new Node(9),
-                                new Node(2, new Node(4), null)
+                        new Tree1.Node(6,
+                                new Tree1.Node(9),
+                                new Tree1.Node(2, new Tree1.Node(4), null)
                         ),
-                        new Node(14,
+                        new Tree1.Node(14,
                                 null,
-                                new Node(11)
+                                new Tree1.Node(11)
                         )
                 )
         );
 
-        BinaryTreeCombineWith t2 = new BinaryTreeCombineWith(
-                new Node(
+        Tree1 t2 = new Tree1(
+                new Tree1.Node(
                         0,
-                        new Node(-3, new Node(8), null),
-                        new Node(8, new Node(5, null, new Node(1)), new Node(6))
+                        new Tree1.Node(-3, new Tree1.Node(8), null),
+                        new Tree1.Node(8, new Tree1.Node(5, null, new Tree1.Node(1)), new Tree1.Node(6))
                 )
         );
 
-        BinaryTreeCombineWith expected = new BinaryTreeCombineWith(
-                new Node(
+        Tree1 expected = new Tree1(
+                new Tree1.Node(
                         9,
-                        new Node(3,
-                                new Node(17),
-                                new Node(2, new Node(4), null)
+                        new Tree1.Node(3,
+                                new Tree1.Node(17),
+                                new Tree1.Node(2, new Tree1.Node(4), null)
                         ),
-                        new Node(22,
-                                new Node(5, null, new Node(1)),
-                                new Node(17)
+                        new Tree1.Node(22,
+                                new Tree1.Node(5, null, new Tree1.Node(1)),
+                                new Tree1.Node(17)
                         )
                 )
         );
@@ -106,20 +106,20 @@ public class BinaryTreeCombineWithTest {
             int[] data1 = generateIntArray();
             int[] data2 = generateIntArray();
             int[] result = sum(data1, data2);
-            BinaryTreeCombineWith t1 = geneateRandomTree(data1);
-            BinaryTreeCombineWith t2 = geneateRandomTree(data2);
-            BinaryTreeCombineWith expected = geneateRandomTree(result);
+            Tree1 t1 = geneateRandomTree(data1);
+            Tree1 t2 = geneateRandomTree(data2);
+            Tree1 expected = geneateRandomTree(result);
             assertEquals(expected.root, t1.combineWith(t2).root);
         }
     }
 
     @Test
     public void test_null_tree(){
-        BinaryTreeCombineWith t2 = null;
-        BinaryTreeCombineWith t3 = new BinaryTreeCombineWith(null);
+        Tree1 t2 = null;
+        Tree1 t3 = new Tree1(null);
         for (int i = 0; i < 100; i++) {
             int[] data1 = generateIntArray();
-            BinaryTreeCombineWith t1 = geneateRandomTree(data1);
+            Tree1 t1 = geneateRandomTree(data1);
             assertEquals(t1.root, t1.combineWith(t2).root); // passed tree is null
             assertEquals(t1.root, t3.combineWith(t1).root); // root of actual tree is null
             assertEquals(t1.root, t1.combineWith(t3).root); // root of passed tree is null
