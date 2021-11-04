@@ -1,7 +1,0 @@
-has_feedback: True
-feedback_kind: JavaGrading
-prohibited:
-  "student_recursive":
-    - nCalls
-  "student_iterative":
-    - nCalls

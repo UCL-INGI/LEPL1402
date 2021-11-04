@@ -1,9 +1,0 @@
-has_feedback: True
-feedback_kind: JavaGrading
-prohibited: 
-  "student_sort":
-    - Arrays.sort
-  "student_merge":
-    - Arrays.sort
-  "student_additionnal":
-    - Arrays.sort
