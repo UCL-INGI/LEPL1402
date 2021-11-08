@@ -1,7 +1,5 @@
-import com.github.guillaumederval.javagrading.Grade;
-import com.github.guillaumederval.javagrading.GradeFeedback;
-import com.github.guillaumederval.javagrading.GradeFeedbacks;
-import com.github.guillaumederval.javagrading.GradingRunner;
+package module5;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,11 +7,12 @@ import org.junit.runner.RunWith;
 import java.util.Map;
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
 
-@RunWith(GradingRunner.class) // classic "jail runner" from Guillaume's library
-public class Tests {
+public class LogicalCircuitFunctionalTest {
 
     private Evaluator evaluator;
 
@@ -26,9 +25,6 @@ public class Tests {
     //private Supplier<Integer> rng = () -> (int) ((Math.random()*100) + 2); // never generate 0 or 1
 
     @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-            @GradeFeedback(message = "Your logic gate AND doesn't work as expected\n", onFail = true, onTimeout = true)})
     public void testAND(){
 
         BiFunction<Boolean, Boolean, Boolean> and_gate = evaluator.and_gate();
@@ -43,9 +39,6 @@ public class Tests {
     }
 
     @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-            @GradeFeedback(message = "Your logic gate OR doesn't work as expected\n", onFail = true, onTimeout = true)})
     public void testOR(){
 
         BiFunction<Boolean, Boolean, Boolean> or_gate = evaluator.or_gate();
@@ -60,9 +53,6 @@ public class Tests {
     }
 
     @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-            @GradeFeedback(message = "Your logic gate XOR doesn't work as expected\n", onFail = true, onTimeout = true)})
     public void testXOR(){
 
         BiFunction<Boolean, Boolean, Boolean> xor_gate = evaluator.xor_gate();
@@ -77,9 +67,6 @@ public class Tests {
     }
 
     @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-            @GradeFeedback(message = "Your logic gate NOT doesn't work as expected\n", onFail = true, onTimeout = true)})
     public void testNOT(){
 
         Function<Boolean, Boolean> not_gate = evaluator.not_gate();
@@ -92,9 +79,6 @@ public class Tests {
     }
 
     @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true),
-            @GradeFeedback(message = "Your full adder implementation in evaluate_circuit doesn't work as expected\n", onFail = true, onTimeout = true)})
     public void testEvaluateCircuit(){
 
         Function<Boolean, Boolean> not = a -> !a;
