@@ -1,7 +1,7 @@
 package module2;
 
-import java.util.Stack;
 import java.util.NoSuchElementException;
+import java.util.Stack;
 
 /**
  * In this short exercise we will ask you to implement a FIFO queue using two stacks (provided as two Java Stack<E>).

@@ -6,7 +6,8 @@ import java.util.Stack;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class BinaryTreeEqualsTest {
 

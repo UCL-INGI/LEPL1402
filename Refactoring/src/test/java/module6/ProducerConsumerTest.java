@@ -1,7 +1,7 @@
 package module6;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;

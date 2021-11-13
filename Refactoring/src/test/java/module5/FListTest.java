@@ -2,14 +2,13 @@ package module5;
 
 import org.junit.Test;
 
-import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.function.Function;
-import java.util.function.Supplier;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
 import java.util.Random;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
 

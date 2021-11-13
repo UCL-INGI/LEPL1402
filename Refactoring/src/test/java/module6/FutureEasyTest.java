@@ -1,15 +1,14 @@
 package module6;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import java.util.function.Supplier;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.function.Supplier;
 
-import java.util.*;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class FutureEasyTest {
     //BEGIN STRIP

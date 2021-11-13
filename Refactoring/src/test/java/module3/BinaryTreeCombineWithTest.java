@@ -1,11 +1,11 @@
 package module3;
 
-import static org.junit.Assert.*;
-
-import org.junit.*;
+import org.junit.Test;
 
 import java.util.Random;
 import java.util.stream.IntStream;
+
+import static org.junit.Assert.assertEquals;
 
 // TODO Finish tests
 public class BinaryTreeCombineWithTest {

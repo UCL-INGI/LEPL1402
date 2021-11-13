@@ -1,8 +1,5 @@
 package module6;
 
-import java.util.List;
-import java.util.function.Supplier;
-
 /**
  * A bounded buffer is a way for multiple producers and consumers to synchronize.
  * Indeed multiple producers are going to fill the buffer while consumers are going to clear out this buffer.

@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.*;
-import static org.junit.Assume.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assume.assumeTrue;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BinaryTreeInOrderTraversalTest {

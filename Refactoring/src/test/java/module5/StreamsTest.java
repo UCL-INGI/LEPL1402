@@ -1,20 +1,18 @@
 package module5;
 
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
-import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-// To have nice double numbers like 10.42
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class StreamsTest {
     //BEGIN STRIP

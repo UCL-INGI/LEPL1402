@@ -2,10 +2,10 @@ package module2;
 
 import org.junit.Test;
 
-import java.util.Random;
 import java.util.Arrays;
+import java.util.Random;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
 
 //BEGIN STRIP
 /*

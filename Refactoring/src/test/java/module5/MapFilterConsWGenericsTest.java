@@ -2,12 +2,11 @@ package module5;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-import java.util.*;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class MapFilterConsWGenericsTest {
 

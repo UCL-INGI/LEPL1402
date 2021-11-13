@@ -1,13 +1,14 @@
 package module3;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import java.awt.Color;
 
-import java.util.*;
-
-import static org.junit.Assert.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
+
+import static org.junit.Assert.assertTrue;
 
 public class ComparatorVsComparableTest {
 

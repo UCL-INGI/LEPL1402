@@ -1,10 +1,8 @@
 package module5;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import java.util.Random;
-import java.util.Arrays;
 
 import static org.junit.Assert.*;
 

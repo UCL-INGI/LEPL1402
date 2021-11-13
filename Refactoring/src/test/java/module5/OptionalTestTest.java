@@ -1,13 +1,9 @@
 package module5;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import java.util.function.Supplier;
-import java.util.stream.Stream;
+import java.util.NoSuchElementException;
 import java.util.Optional;
-
-import java.util.*;
 
 import static org.junit.Assert.*;
 
