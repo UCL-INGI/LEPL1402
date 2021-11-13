@@ -1,21 +1,13 @@
-import com.github.guillaumederval.javagrading.CustomGradingResult;
-import com.github.guillaumederval.javagrading.Grade;
-import com.github.guillaumederval.javagrading.GradeFeedback;
-import com.github.guillaumederval.javagrading.GradingRunner;
-import com.github.guillaumederval.javagrading.TestStatus;
+package module5;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.Random;
 import java.util.Arrays;
-
 import static org.junit.Assert.*;
 
-
-
-@RunWith(GradingRunner.class) // classic "jail runner" from Guillaume's library
-public class Tests{
-
+public class FListMergeSortTest {
     private static Random rng = new Random();
 
     public static int randomInt(){
@@ -33,10 +25,7 @@ public class Tests{
     }
 
     @Test()
-    @Grade(value=5, custom=true, cpuTimeout=1000)
-    @GradeFeedbacks({@GradeFeedback(message = "Your code was able to sort a short and simple list", onSuccess = true),
-            @GradeFeedback(message = "Your code failed to sort a short and simple list", onFail = true, onTimeout = true)})
-    public void testBasic() throws CustomGradingResult {
+    public void testBasic() {
 
         FList<Integer> fl = FList.nil();
         fl = fl.cons(199);
@@ -50,10 +39,11 @@ public class Tests{
 
         FList<Integer> supposedSorted;
         try {
-            supposedSorted = FListMerge.mergeSort(fl);
+            supposedSorted = FListMergeSort.mergeSort(fl);
         }
         catch (Exception e) {
-            throw new CustomGradingResult(TestStatus.FAILED, 0, "Your code produced the following exception: " + e);
+            fail("Your code produced the following exception: " + e);
+            return;
         }
 
         assertEquals(133, (int)supposedSorted.head());
@@ -74,8 +64,7 @@ public class Tests{
     }
 
     @Test()
-    @Grade(value=10, custom=true, cpuTimeout=1000)
-    public void testGlobal() throws CustomGradingResult{
+    public void testGlobal() {
         FList<Integer> fl = FList.nil();
         int[] array = new int[1000];
         for(int i = 0 ; i < 1000 ; i++){
@@ -85,29 +74,31 @@ public class Tests{
         }
         Arrays.sort(array);
 
-        FList<Integer> supposedSorted = FListMerge.mergeSort(fl);
+        FList<Integer> supposedSorted = FListMergeSort.mergeSort(fl);
 
-        if(FListMerge.counter<1000){
-            throw new CustomGradingResult(TestStatus.FAILED, 0, "mergeSort is not recursive");
+        //BEGIN STRIP
+        if(FListMergeSort.counter<1000){
+            fail("mergeSort is not recursive");
         }
+        //END STRIP
 
 
         if(!isSorted(supposedSorted)){
-            throw new CustomGradingResult(TestStatus.FAILED, 0, "mergeSort does not sort correctly");
+            fail("mergeSort does not sort correctly");
         }
 
         FList<Integer> copy = supposedSorted;
         for(int i = 0 ; i < 1000 ; i++){
-            if(array[i]!=copy.head()) throw new CustomGradingResult(TestStatus.FAILED, 0 , "Some elements have changed");
+            if(array[i]!=copy.head()) {
+                fail("Some elements have changed");
+            }
             copy = copy.tail();
         }
     }
 
 
     @Test()
-    @Grade(value=10, custom=true, cpuTimeout=10000)
-    @GradeFeedback(message = "Your implementation is too slow", onTimeout = true, onFail = true)
-    public void testComplexity() throws CustomGradingResult{
+    public void testComplexity() {
         int size = 10000;
 
         FList<Integer> fl = FList.nil();
@@ -119,15 +110,17 @@ public class Tests{
         }
         Arrays.sort(array);
         long t = System.currentTimeMillis();
-        FList<Integer> supposedSorted = FListMerge.mergeSort(fl);
+        FList<Integer> supposedSorted = FListMergeSort.mergeSort(fl);
         long timeTaken = System.currentTimeMillis()-t;
         FList<Integer> copy = supposedSorted;
         for(int i = 0 ; i < size ; i++){
-            if(array[i]!=copy.head()) throw new CustomGradingResult(TestStatus.FAILED, 0 , "Some elements have changed");
+            if(array[i]!=copy.head()) {
+                fail("Some elements have changed");
+            }
             copy = copy.tail();
         }
         if(timeTaken>4500){
-            throw new CustomGradingResult(TestStatus.TIMEOUT, 0 , "Your implementation is too slow: " + timeTaken);
+            fail("Your implementation is too slow: " + timeTaken);
         }
     }
 }

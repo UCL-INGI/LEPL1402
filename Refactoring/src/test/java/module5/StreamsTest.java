@@ -1,16 +1,9 @@
-package src;
-
-import com.github.guillaumederval.javagrading.Grade;
-import com.github.guillaumederval.javagrading.GradeFeedback;
-import com.github.guillaumederval.javagrading.GradeFeedbacks;
-import com.github.guillaumederval.javagrading.GradingRunner;
+package module5;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import templates.*;
 
 import java.util.*;
 import java.util.function.Function;
@@ -23,9 +16,9 @@ import java.util.stream.Stream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-@RunWith(GradingRunner.class) // classic "jail runner" from Guillaume's library
-public class InginiousTests {
-    private StudentStreamFunction streamFunction;
+public class StreamsTest {
+    //BEGIN STRIP
+    private Streams.StudentStreamFunction streamFunction;
 
     // For simplicity , use them both for first name / last name
     private String[] studentNames = new String[] {
@@ -44,8 +37,8 @@ public class InginiousTests {
     private String[] courses = new String[] {"Algorithmn", "Proba & Stat", "ORG"};
 
     // generate random students
-    private Stream<Student> generate_random_students(int number) {
-        List<Student> my_list = new ArrayList<>();
+    private Stream<Streams.Student> generate_random_students(int number) {
+        List<Streams.Student> my_list = new ArrayList<>();
         for(int i = 0; i < number; i++) {
             // get random index / values
             int index = new Random().nextInt(studentNames.length);
@@ -55,7 +48,7 @@ public class InginiousTests {
             for(String course : courses) {
                 grades.put(course, grade_rng.get());
             }
-            my_list.add(new Student(studentNames[index], studentNames[index2], section, grades));
+            my_list.add(new Streams.Student(studentNames[index], studentNames[index2], section, grades));
         }
 
         return my_list.stream();
@@ -89,23 +82,21 @@ public class InginiousTests {
 
     @Before
     public void setUp(){
-        streamFunction = new StudentFunctions();
+        streamFunction = new Streams.StudentFunctions();
     }
 
     @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "findSecondAndThirdTopStudentForGivenCourse() didn't work", onFail = true, onTimeout = true)})
     public void testQuestion1() {
 
         for(int i = 0; i < 10; i++) {
             // random students ( at least 3 )
-            Student[] random_students = generate_random_students(3 + section_rng.get()).toArray(Student[]::new);
+            Streams.Student[] random_students = generate_random_students(3 + section_rng.get()).toArray(Streams.Student[]::new);
             String course = courses[new Random().nextInt(courses.length)];
 
-            Student[] expected = Stream
+            Streams.Student[] expected = Stream
                     .of(random_students)
                     .sorted(
-                            ((Comparator<Student>) (o1, o2) -> {
+                            ((Comparator<Streams.Student>) (o1, o2) -> {
                                 double d1 = o1.getCoursesResults().get(course);
                                 double d2 = o2.getCoursesResults().get(course);
                                 return Double.compare(d1, d2);
@@ -113,25 +104,23 @@ public class InginiousTests {
                     )
                     .limit(3)
                     .skip(1)
-                    .toArray(Student[]::new);
+                    .toArray(Streams.Student[]::new);
 
-            Student[] result = streamFunction
-                    .find_second_and_third_top_student_for_given_course(
+            Streams.Student[] result = streamFunction
+                    .findSecondAndThirdTopStudentForGivenCourse(
                             Stream.of(random_students),
                             course
-                    ).toArray(Student[]::new);
+                    ).toArray(Streams.Student[]::new);
 
             assertTrue(Arrays.deepEquals(expected, result));
         }
     }
 
     @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "computeAverageForStudentInSection() didn't work", onFail = true, onTimeout = true)})
     public void testQuestion2() {
         for(int i = 0; i < 10; i++) {
 
-            Student[] random_students = generate_random_students(section_rng.get()).toArray(Student[]::new);
+            Streams.Student[] random_students = generate_random_students(section_rng.get()).toArray(Streams.Student[]::new);
             int section = section_rng.get();
 
             Object[] expected = Stream
@@ -143,7 +132,7 @@ public class InginiousTests {
                     })
                     .toArray();
 
-            Object[] result = streamFunction.compute_average_for_student_in_section(Stream.of(random_students), section);
+            Object[] result = streamFunction.computeAverageForStudentInSection(Stream.of(random_students), section);
 
             assertTrue(Arrays.deepEquals(expected, result));
 
@@ -151,12 +140,10 @@ public class InginiousTests {
     }
 
     @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "getNumberOfSuccessfulStudents() didn't work", onFail = true, onTimeout = true)})
     public void testQuestion3() {
         for(int i = 0; i < 10; i++) {
 
-            Student[] random_students = generate_random_students(section_rng.get()).toArray(Student[]::new);
+            Streams.Student[] random_students = generate_random_students(section_rng.get()).toArray(Streams.Student[]::new);
 
             int expected = (int) Stream
                     .of(random_students)
@@ -167,44 +154,40 @@ public class InginiousTests {
                                     .allMatch(result -> result > 10.0)
                     ).count();
 
-            int result = streamFunction.get_number_of_successful_students(Stream.of(random_students));
+            int result = streamFunction.getNumberOfSuccessfulStudents(Stream.of(random_students));
             assertEquals(expected, result);
         }
     }
 
     @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "findLastInLexicographicOrder() didn't work", onFail = true, onTimeout = true)})
-    public void testQuestion4() {
+   public void testQuestion4() {
         for(int i = 0; i < 1000; i++) {
 
-            Student[] random_students = generate_random_students(section_rng.get()).toArray(Student[]::new);
+            Streams.Student[] random_students = generate_random_students(section_rng.get()).toArray(Streams.Student[]::new);
 
-            Student expected = Stream
+            Streams.Student expected = Stream
                     .of(random_students)
                     .sorted(
                             (o1, o2) ->
                                     Comparator
-                                            .comparing(Student::getLastName, Comparator.reverseOrder())
-                                            .thenComparing(Student::getFirstName, Comparator.reverseOrder())
+                                            .comparing(Streams.Student::getLastName, Comparator.reverseOrder())
+                                            .thenComparing(Streams.Student::getFirstName, Comparator.reverseOrder())
                                             .compare(o1, o2)
                     )
                     .limit(1)
                     .findFirst()
                     .get();
 
-            Student result = streamFunction.find_last_in_lexicographic_order(Stream.of(random_students));
+            Streams.Student result = streamFunction.findLastInLexicographicOrder(Stream.of(random_students));
             assertEquals(expected, result);
         }
     }
 
     @Test
-    @Grade
-    @GradeFeedbacks({@GradeFeedback(message = "", onSuccess = true), @GradeFeedback(message = "getFullSum() didn't work", onFail = true, onTimeout = true)})
     public void testQuestion5() {
         for(int i = 0; i < 10; i++) {
 
-            Student[] random_students = generate_random_students(section_rng.get()).toArray(Student[]::new);
+            Streams.Student[] random_students = generate_random_students(section_rng.get()).toArray(Streams.Student[]::new);
 
             double expected = Stream
                     .of(random_students)
@@ -217,9 +200,9 @@ public class InginiousTests {
                     )
                     .reduce(0.0, Double::sum);
 
-            double result = streamFunction.get_full_sum(Stream.of(random_students));
+            double result = streamFunction.getFullSum(Stream.of(random_students));
             assertTrue(Double.compare(expected, result) == 0);
         }
     }
-
+    //END STRIP
 }

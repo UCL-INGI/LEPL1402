@@ -1,14 +1,6 @@
-package src;
+package module5;
 
-import com.github.guillaumederval.javagrading.CustomGradingResult;
-import com.github.guillaumederval.javagrading.Grade;
-import com.github.guillaumederval.javagrading.GradeFeedback;
-import com.github.guillaumederval.javagrading.GradeFeedbacks;
-import com.github.guillaumederval.javagrading.GradingRunner;
-import com.github.guillaumederval.javagrading.TestStatus;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
@@ -18,12 +10,159 @@ import java.util.function.Supplier;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 import java.util.Random;
-import templates.*;
 
 import static org.junit.Assert.*;
 
-@RunWith(GradingRunner.class) // classic "jail runner" from Guillaume's library
-public class InginiousTests {
+public class FListTest {
+    //BEGIN STRIP
+    abstract static class CorrectFList<A> implements Iterable<A> {
+        /**
+         * Returns an empty FList
+         */
+        public static <A> CorrectFList<A> nil() {
+            return (Nil<A>) Nil.INSTANCE;
+        }
+
+        /**
+         * Returns a new FList obtained by prepending a to this list
+         */
+        public final CorrectFList<A> cons(final A a) {
+            return new Cons(a, this);
+        }
+
+        /**
+         * @return the number of elements in this list
+         */
+        public abstract int length();
+
+        /**
+         * @return true if the list is empty, false otherwise
+         */
+        public abstract boolean isEmpty();
+
+        /**
+         * @return the head of the list.
+         * @throws NoSuchElementException if the list is empty
+         */
+        public abstract A head();
+
+        /**
+         * @return the tail of the list (i.e. the sublist without the first element of this list)
+         * @throws NoSuchElementException if the list is empty
+         */
+        public abstract CorrectFList<A> tail();
+
+        /**
+         * Returns a new list containing the outputs obtained by applying function f to each element of this list
+         */
+        public abstract <B> CorrectFList<B> map(Function<A,B> f);
+
+        /**
+         * Returns a new list containing only the elements from this list that fullfill predicate f (i.e. f(elem) == true)
+         */
+        public abstract CorrectFList<A> filter(Predicate<A> f);
+
+
+        public Iterator<A> iterator() {
+            return new Iterator<A>() {
+                // Do whatever you want here
+                CorrectFList<A> cur = CorrectFList.this;
+
+                public boolean hasNext() {
+                    return !cur.isEmpty();
+                }
+
+                public A next() {
+                    A elem = cur.head();
+                    cur = cur.tail();
+                    return elem;
+                }
+
+                public void remove() {
+                    throw new UnsupportedOperationException();
+                }
+            };
+        }
+
+
+        private static final class Nil<A> extends CorrectFList<A> {
+            public static final Nil<Object> INSTANCE = new Nil();
+
+            @Override
+            public int length() {
+                return 0;
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return true;
+            }
+
+            @Override
+            public A head() {
+                throw new NoSuchElementException();
+            }
+
+            @Override
+            public CorrectFList<A> tail() {
+                throw new NoSuchElementException();
+            }
+
+            @Override
+            public <B> CorrectFList<B> map(Function<A, B> f) {
+                return CorrectFList.nil();
+            }
+
+            @Override
+            public CorrectFList<A> filter(Predicate<A> f) {
+                return CorrectFList.nil();
+            }
+        }
+
+        private static final class Cons<A> extends CorrectFList<A> {
+            private final A elem;
+            private final CorrectFList<A> next;
+
+            public Cons(final A elem, final CorrectFList<A> next) {
+                this.elem = elem;
+                this.next = next;
+            }
+
+            @Override
+            public int length() {
+                return 1 + tail().length();
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return false;
+            }
+
+            @Override
+            public A head() {
+                return elem;
+            }
+
+            @Override
+            public CorrectFList<A> tail() {
+                return next;
+            }
+
+            @Override
+            public <B> CorrectFList<B> map(Function<A, B> f) {
+                return tail().map(f).cons(f.apply(elem));
+            }
+
+            @Override
+            public CorrectFList<A> filter(Predicate<A> f) {
+                if(f.test(elem))
+                    return tail().filter(f).cons(elem);
+                else
+                    return tail().filter(f);
+            }
+        }
+    }
+    //END STRIP
 
     private Supplier<Integer> rng = () -> (int) (new Random().nextInt(100));
 
@@ -39,7 +178,7 @@ public class InginiousTests {
         return array;
     }
 
-
+    //BEGIN STRIP
     private Object[] asArray(CorrectFList list){
         Object[] array = new Object[list.length()];
         int index= 0;
@@ -48,11 +187,9 @@ public class InginiousTests {
         }
         return array;
     }
+    //END STRIP
 
     @Test()
-    @Grade(value=5, cpuTimeout=100)
-    @GradeFeedbacks({@GradeFeedback(message = "Your isEmpty() works as expected", onSuccess = true),
-            @GradeFeedback(message = "Your code has an issue with isEmpty()", onFail = true, onTimeout = true)})
     public void testIsEmpty() {
         FList<Integer> list = FList.nil(); // list = nil
         assertTrue(list.isEmpty());
@@ -62,9 +199,6 @@ public class InginiousTests {
     }
 
     @Test()
-    @Grade(value=5, cpuTimeout=100)
-    @GradeFeedbacks({@GradeFeedback(message = "Both head() and tail() seem to work correctly", onSuccess = true),
-            @GradeFeedback(message = "Your code has an issue with head() or tail()", onFail = true, onTimeout = true)})
     public void testHeadTail() {
         FList<Integer> list = FList.nil(); // list = nil
 
@@ -104,9 +238,6 @@ public class InginiousTests {
     }
 
     @Test()
-    @Grade(value=5, cpuTimeout=100)
-    @GradeFeedbacks({@GradeFeedback(message = "Your code succesfully performed a simple map operation", onSuccess = true),
-            @GradeFeedback(message = "Your code failed to perform a simple map operation", onFail = true, onTimeout = true)})
     public void testMapBasic() {
         FList<Integer> list = FList.nil();
         // list = nil
@@ -127,9 +258,6 @@ public class InginiousTests {
     }
 
     @Test()
-    @Grade(value=5, cpuTimeout=100)
-    @GradeFeedbacks({@GradeFeedback(message = "Your code succesfully performed a simple filter operation", onSuccess = true),
-            @GradeFeedback(message = "Your code failed to perform a simple filter operation", onFail = true, onTimeout = true)})
     public void testFilterBasic() {
         FList<Integer> list = FList.nil();
         // list = nil
@@ -150,9 +278,6 @@ public class InginiousTests {
     }
 
     @Test()
-    @Grade(value=10, cpuTimeout=100)
-    @GradeFeedbacks({@GradeFeedback(message = "Your length() is working as expected", onSuccess = true),
-            @GradeFeedback(message = "The length you return is incorrect", onFail = true, onTimeout = true)})
     public void testLength() {
 
         int[] sizes = randomNumberSup(100);
@@ -169,11 +294,8 @@ public class InginiousTests {
         assertEquals(list.length(), 0);
     }
 
-
+    //BEGIN STRIP
     @Test()
-    @Grade(value=10, cpuTimeout=100)
-    @GradeFeedbacks({@GradeFeedback(message = "Your code succesfully performed complex map operations", onSuccess = true),
-            @GradeFeedback(message = "Your map function doesn't work as expected", onFail = true, onTimeout = true)})
     public void testMap() {
         FList<Integer> list = FList.nil();
         CorrectFList<Integer> correctList = CorrectFList.nil();
@@ -193,9 +315,6 @@ public class InginiousTests {
 
 
     @Test()
-    @Grade(value=10, cpuTimeout=100)
-    @GradeFeedbacks({@GradeFeedback(message = "Your code succesfully performed complex filter operations", onSuccess = true),
-            @GradeFeedback(message = "Your filter function doesn't work as expected", onFail = true, onTimeout = true)})
     public void testFilter() {
         FList<Integer> list = FList.nil();
         CorrectFList<Integer> correctList = CorrectFList.nil();
@@ -212,12 +331,10 @@ public class InginiousTests {
         assertArrayEquals(result, answer);
 
     }
+    //END STRIP
 
-	@Test()
-    @Grade(value=10, custom=true, cpuTimeout=100)
-    @GradeFeedbacks({@GradeFeedback(message = "Your iterator is working as expected", onSuccess = true),
-            @GradeFeedback(message = "Your iterator doesn't work as expected", onFail = true, onTimeout = true)})
-    public void testIterator() throws CustomGradingResult {
+    @Test()
+    public void testIterator() {
         FList<Integer> list = FList.nil();
 
         int[] values = randomNumberSup(100);
@@ -252,13 +369,13 @@ public class InginiousTests {
         }
 
         if(!unsupported && !noSuch) {
-            throw new CustomGradingResult(TestStatus.FAILED, 0 , "You forgot about the exceptions");
+            fail("You forgot about the exceptions");
         }
         if(!unsupported) {
-            throw new CustomGradingResult(TestStatus.FAILED, 3, "You forgot about the UnsupportedOperationException");
+            fail("You forgot about the UnsupportedOperationException");
         }
         if(!noSuch) {
-            throw new CustomGradingResult(TestStatus.FAILED, 3 , "You forgot about the NoSuchElementException");
+            fail("You forgot about the NoSuchElementException");
         }
     }
 }
