@@ -20,7 +20,7 @@ import java.util.function.Predicate;
  *  Since you know how your code should work, we strongly recommend you to test it on your computer before trying to submit.
  *  The iterator is the most critical part of this task, so if it doesn't work, most of the tests will not work.
  */
-abstract class FList<A> implements Iterable<A> {
+public abstract class FList<A> implements Iterable<A> {
     /**
      * Returns an empty FList
      */

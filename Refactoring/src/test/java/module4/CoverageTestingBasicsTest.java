@@ -6,7 +6,7 @@ public class CoverageTestingBasicsTest {
     @Test
     public void test() {
         int [] a = new int[]{}; // your test array
-        int max = Maximum.maximum(a); // find the maximum
+        int max = CoverageTestingBasics.Maximum.maximum(a); // find the maximum
         // some asserts
     }
 

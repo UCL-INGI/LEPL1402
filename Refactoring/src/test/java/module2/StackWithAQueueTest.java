@@ -16,7 +16,7 @@ public class StackWithAQueueTest {
     @Test
     public void testLIFO(){
 
-        MyStack<Integer> stack = new MyStack<>();
+        StackWithAQueue<Integer> stack = new StackWithAQueue<>();
         Integer [] seeds = Stream.generate(rnd).limit(100).toArray(Integer[]::new);
         Arrays.stream(seeds).forEach(stack::push);
 
@@ -30,7 +30,7 @@ public class StackWithAQueueTest {
     @Test
     public void testPushAndPeek(){
 
-        MyStack<Integer> stack = new MyStack<>();
+        StackWithAQueue<Integer> stack = new StackWithAQueue<>();
         Integer [] seeds = Stream.generate(rnd).limit(100).toArray(Integer[]::new);
 
         for(Integer seed : seeds){
@@ -43,7 +43,7 @@ public class StackWithAQueueTest {
     @Test
     public void testEmpty(){
 
-        MyStack<Integer> stack = new MyStack<>();
+        StackWithAQueue<Integer> stack = new StackWithAQueue<>();
 
         assertTrue(stack.empty());
         stack.push(1);

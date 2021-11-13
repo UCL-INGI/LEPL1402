@@ -13,11 +13,11 @@ public class ComparatorAndCollectionsTest {
     @Test
     public void testWithTwoPersonsOfSameAge() {
 
-        Person[] person_objects = {new Person("Guillaume", 20), new Person("John", 20)};
-        ArrayList<Person> persons = new ArrayList<Person>(Arrays.asList(person_objects));
+        ComparatorAndCollections.Person[] person_objects = {new ComparatorAndCollections.Person("Guillaume", 20), new ComparatorAndCollections.Person("John", 20)};
+        ArrayList<ComparatorAndCollections.Person> persons = new ArrayList<ComparatorAndCollections.Person>(Arrays.asList(person_objects));
 
         // use student code here
-        Sorter.sortPerson(persons);
+        ComparatorAndCollections.Sorter.sortPerson(persons);
 
         // verification time
         assertNotEquals("John should be after Guillaume : not the opposite", persons.get(0), person_objects[1]);
@@ -26,19 +26,19 @@ public class ComparatorAndCollectionsTest {
     @Test
     public void testWithThreePersonsOfSameName() {
 
-        Person[] person_objects = {
-                new Person("Guillaume", 74),
-                new Person("Guillaume", 20),
-                new Person("Guillaume", 45),
+        ComparatorAndCollections.Person[] person_objects = {
+                new ComparatorAndCollections.Person("Guillaume", 74),
+                new ComparatorAndCollections.Person("Guillaume", 20),
+                new ComparatorAndCollections.Person("Guillaume", 45),
         };
 
-        Person[] correct_order = { person_objects[1], person_objects[2], person_objects[0]};
-        ArrayList<Person> expected_persons = new ArrayList<>(Arrays.asList(correct_order));
+        ComparatorAndCollections.Person[] correct_order = { person_objects[1], person_objects[2], person_objects[0]};
+        ArrayList<ComparatorAndCollections.Person> expected_persons = new ArrayList<>(Arrays.asList(correct_order));
 
-        ArrayList<Person> persons = new ArrayList<>(Arrays.asList(person_objects));
+        ArrayList<ComparatorAndCollections.Person> persons = new ArrayList<>(Arrays.asList(person_objects));
 
         // use student code here
-        Sorter.sortPerson(persons);
+        ComparatorAndCollections.Sorter.sortPerson(persons);
 
         // verification time
         assertEquals("Not the correct order ", expected_persons, persons);
@@ -48,23 +48,23 @@ public class ComparatorAndCollectionsTest {
     @Test
     public void testWithGivenExample() {
 
-        Person[] person_objects = {
-                new Person("Guillaume",20),
-                new Person("John",20),
-                new Person("Guillaume",10),
-                new Person("John",10),
-                new Person("Luc",5)
+        ComparatorAndCollections.Person[] person_objects = {
+                new ComparatorAndCollections.Person("Guillaume",20),
+                new ComparatorAndCollections.Person("John",20),
+                new ComparatorAndCollections.Person("Guillaume",10),
+                new ComparatorAndCollections.Person("John",10),
+                new ComparatorAndCollections.Person("Luc",5)
         };
 
-        Person[] correct_order = {
+        ComparatorAndCollections.Person[] correct_order = {
                 person_objects[2], person_objects[0], person_objects[3], person_objects[1], person_objects[4]
         };
-        ArrayList<Person> expected_persons = new ArrayList<>(Arrays.asList(correct_order));
+        ArrayList<ComparatorAndCollections.Person> expected_persons = new ArrayList<>(Arrays.asList(correct_order));
 
-        ArrayList<Person> persons = new ArrayList<>(Arrays.asList(person_objects));
+        ArrayList<ComparatorAndCollections.Person> persons = new ArrayList<>(Arrays.asList(person_objects));
 
         // use student code here
-        Sorter.sortPerson(persons);
+        ComparatorAndCollections.Sorter.sortPerson(persons);
 
         // verification time
         assertEquals("Not the correct order ", expected_persons, persons);

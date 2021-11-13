@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 
 import static org.junit.Assert.*;
 
-public class FactoryTest {
+public class FactoryDesignPatternTest {
     //BEGIN STRIP
 
     private Supplier<Integer> rng = () -> (int) (Math.random() * 4); // between 0 and 3
@@ -41,7 +41,7 @@ public class FactoryTest {
         try {
             for (String in : input) {
 
-                Level level = new Level(in);
+                FactoryDesignPattern.Level level = new FactoryDesignPattern.Level(in);
 
                 // check if their toString method works as expected
                 if (!in.equals(level.toString())) {
@@ -50,7 +50,7 @@ public class FactoryTest {
                 }
 
 
-                LevelComponent[][] levelcomps = level.getComponents();
+                FactoryDesignPattern.LevelComponent[][] levelcomps = level.getComponents();
 
                 // check that their levelcomps isn't empty
                 if (levelcomps == null || levelcomps.length == 0 || levelcomps[0].length == 0) {
@@ -124,11 +124,11 @@ public class FactoryTest {
     @Test(expected = IllegalAccessException.class)
     public void testSingleton() throws IllegalAccessException, InstantiationException {
 
-        ElementFactory factory = ElementFactory.getInstance();
-        ElementFactory factoryBis = ElementFactory.getInstance();
+        FactoryDesignPattern.ElementFactory factory = FactoryDesignPattern.ElementFactory.getInstance();
+        FactoryDesignPattern.ElementFactory factoryBis = FactoryDesignPattern.ElementFactory.getInstance();
         assertTrue(factory == factoryBis);
 
-        Class cls = ElementFactory.class;
+        Class cls = FactoryDesignPattern.ElementFactory.class;
         cls.newInstance(); // shouldn't be possible to instantiate the factory
 
     }
@@ -136,7 +136,7 @@ public class FactoryTest {
     @Test(expected = IllegalArgumentException.class)
     public void testExceptionBadInput() throws IllegalArgumentException {
         String input = levels.get().replaceFirst("#", "9").replaceFirst("D", "A");
-        Level level = new Level(input);
+        FactoryDesignPattern.Level level = new FactoryDesignPattern.Level(input);
     }
     //END STRIP
 }

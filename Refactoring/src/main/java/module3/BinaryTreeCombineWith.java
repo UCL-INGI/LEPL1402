@@ -35,50 +35,52 @@ package module3;
  *
  * You may define private helper methods to solve this problem but in any case, your method should not change the structure or contents of either of the two trees being compared.
  */
-class Tree1 {
-    public Node root;
+public class BinaryTreeCombineWith {
+    static class Tree {
+        public Node root;
 
-    public Tree1(Node root){
-        this.root = root;
-    }
-
-    public Tree1 combineWith(Tree1 o){
-        // YOUR CODE HERE
-        return null;
-    }
-
-    static class Node {
-
-        public int val;
-        public Node left;
-        public Node right;
-
-        public Node(int val){
-            this.val = val;
+        public Tree(Node root){
+            this.root = root;
         }
 
-        public Node(int val, Node left, Node right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
+        public Tree combineWith(Tree o){
+            // YOUR CODE HERE
+            return null;
         }
 
-        public boolean isLeaf(){
-            return this.left == null && this.right == null;
-        }
+        static class Node {
 
-        @Override
-        public boolean equals(Object o) {
-            if (!(o instanceof Node)) return false;
+            public int val;
+            public Node left;
+            public Node right;
 
-            Node other = (Node) o;
+            public Node(int val){
+                this.val = val;
+            }
 
-            if (this.val != other.val) return false;
-            if (this.isLeaf() != other.isLeaf()) return false;
-            if (this.left != null && !this.left.equals(other.left)) return false;
-            if (this.right != null && !this.right.equals(other.right)) return false;
+            public Node(int val, Node left, Node right) {
+                this.val = val;
+                this.left = left;
+                this.right = right;
+            }
 
-            return true;
+            public boolean isLeaf(){
+                return this.left == null && this.right == null;
+            }
+
+            @Override
+            public boolean equals(Object o) {
+                if (!(o instanceof Node)) return false;
+
+                Node other = (Node) o;
+
+                if (this.val != other.val) return false;
+                if (this.isLeaf() != other.isLeaf()) return false;
+                if (this.left != null && !this.left.equals(other.left)) return false;
+                if (this.right != null && !this.right.equals(other.right)) return false;
+
+                return true;
+            }
         }
     }
 }

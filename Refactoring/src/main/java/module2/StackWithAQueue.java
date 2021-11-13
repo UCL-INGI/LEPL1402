@@ -15,14 +15,14 @@ import java.util.LinkedList;
  * The challenge of this exercise is to use only the queue that is provided as instance variable: queue.
  * In other words, you can't instantiate a new LinkedList anywhere.
  */
-class MyStack<E> {
+public class StackWithAQueue<E> {
 
     private LinkedList<E> queue;
 
     /*
      * Constructor
      */
-    public MyStack() {
+    public StackWithAQueue() {
         this.queue = new LinkedList<>();
     }
 

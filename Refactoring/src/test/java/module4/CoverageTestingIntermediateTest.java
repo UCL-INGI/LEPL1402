@@ -6,7 +6,7 @@ public class CoverageTestingIntermediateTest {
     @Test
     public void test() {
         int [] a = new int[]{}; // your test array
-        int e = BinarySearch.binarySearch(a, 3); // find the value
+        int e = CoverageTestingIntermediate.BinarySearch.binarySearch(a, 3); // find the value
         // some asserts
     }
 

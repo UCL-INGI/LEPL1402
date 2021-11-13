@@ -28,35 +28,37 @@ import java.util.function.Function;
  *
  * Your task is thus to implement the following class: Evaluator.
  */
-class Evaluator {
+public class LogicalCircuitFunctional {
+    static class Evaluator {
 
-    public BiFunction<Boolean, Boolean, Boolean> xor_gate() {
-        // TODO BY STUDENT
-        return null;
+        public BiFunction<Boolean, Boolean, Boolean> xor_gate() {
+            // TODO BY STUDENT
+            return null;
+        }
+
+        public BiFunction<Boolean, Boolean, Boolean> or_gate() {
+            // TODO BY STUDENT
+            return null;
+        }
+
+        public BiFunction<Boolean, Boolean, Boolean> and_gate() {
+            // TODO BY STUDENT
+            return null;
+        }
+
+        public Function<Boolean, Boolean> not_gate() {
+            // TODO BY STUDENT
+            return null;
+        }
+
+        // Should return a map containing the computation's results (use HashMap)
+        // You're asked to store the results under the following keys: "SUM" & "carry_out"
+        // TODO WARNING : ONLY USE the previously defined methods to compute the result
+        // (INGInious will prevent you from cheating by directly invoking logical operators)
+        public Map<String, Boolean> evaluate_circuit(Boolean a, Boolean b, Boolean carry_in) {
+            // TODO BY STUDENT
+            return null;
+        }
+
     }
-
-    public BiFunction<Boolean, Boolean, Boolean> or_gate() {
-        // TODO BY STUDENT
-        return null;
-    }
-
-    public BiFunction<Boolean, Boolean, Boolean> and_gate() {
-        // TODO BY STUDENT
-        return null;
-    }
-
-    public Function<Boolean, Boolean> not_gate() {
-        // TODO BY STUDENT
-        return null;
-    }
-
-    // Should return a map containing the computation's results (use HashMap)
-    // You're asked to store the results under the following keys: "SUM" & "carry_out"
-    // TODO WARNING : ONLY USE the previously defined methods to compute the result
-    // (INGInious will prevent you from cheating by directly invoking logical operators)
-    public Map<String, Boolean> evaluate_circuit(Boolean a, Boolean b, Boolean carry_in) {
-        // TODO BY STUDENT
-        return null;
-    }
-
 }

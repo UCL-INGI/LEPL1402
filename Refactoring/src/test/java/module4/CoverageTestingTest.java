@@ -14,7 +14,7 @@ public class CoverageTestingTest
         int offset = 0/*Some value HERE*/;
         int len = 0/*Some value HERE*/;
         // run the program with the given situation
-        BigDecimal.parseExp(in, offset, len);
+        CoverageTesting.BigDecimal.parseExp(in, offset, len);
     }
 
     //TODO: Add more tests here.

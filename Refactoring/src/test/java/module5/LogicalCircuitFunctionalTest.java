@@ -14,11 +14,11 @@ import static org.junit.Assert.*;
 
 public class LogicalCircuitFunctionalTest {
 
-    private Evaluator evaluator;
+    private LogicalCircuitFunctional.Evaluator evaluator;
 
     @Before
     public void setUp() {
-        evaluator = new Evaluator();
+        evaluator = new LogicalCircuitFunctional.Evaluator();
     }
 
     // generate random number

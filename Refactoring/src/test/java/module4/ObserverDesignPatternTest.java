@@ -5,16 +5,16 @@ import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
-public class ObserverTest {
+public class ObserverDesignPatternTest {
 
     @Test
     public void testSubscriptions(){
 
-        WeatherStation station = new WeatherStation();
+        ObserverDesignPattern.WeatherStation station = new ObserverDesignPattern.WeatherStation();
 
-        Observer[] clients = {new Client(1), new Client(2), new Client(2), new Client(3)};
+        ObserverDesignPattern.Observer[] clients = {new ObserverDesignPattern.Client(1), new ObserverDesignPattern.Client(2), new ObserverDesignPattern.Client(2), new ObserverDesignPattern.Client(3)};
 
-        for(Observer client : clients){
+        for(ObserverDesignPattern.Observer client : clients){
             station.addObserver(client);
         }
 
@@ -29,9 +29,9 @@ public class ObserverTest {
     @Test
     public void testAlerts(){
 
-        WeatherStation station = new WeatherStation();
+        ObserverDesignPattern.WeatherStation station = new ObserverDesignPattern.WeatherStation();
 
-        Observer[] clients = {new Client(1), new Client(2), new Client(2)};
+        ObserverDesignPattern.Observer[] clients = {new ObserverDesignPattern.Client(1), new ObserverDesignPattern.Client(2), new ObserverDesignPattern.Client(2)};
 
         station.addObserver(clients[0]);
         station.addObserver(clients[1]);
@@ -52,11 +52,11 @@ public class ObserverTest {
     @Test
     public void testUpdate(){
 
-        WeatherStation station = new WeatherStation();
+        ObserverDesignPattern.WeatherStation station = new ObserverDesignPattern.WeatherStation();
 
-        Observer[] clients = {new Client(1), new Client(2), new Client(2)};
+        ObserverDesignPattern.Observer[] clients = {new ObserverDesignPattern.Client(1), new ObserverDesignPattern.Client(2), new ObserverDesignPattern.Client(2)};
 
-        for(Observer client : clients){
+        for(ObserverDesignPattern.Observer client : clients){
             station.addObserver(client);
         }
 
@@ -80,8 +80,8 @@ public class ObserverTest {
     @Test
     public void testDuplicate(){
 
-        Observable station = new WeatherStation();
-        Observer client = new Client(0);
+        ObserverDesignPattern.Observable station = new ObserverDesignPattern.WeatherStation();
+        ObserverDesignPattern.Observer client = new ObserverDesignPattern.Client(0);
 
         station.addObserver(client);
         station.addObserver(client);
@@ -95,7 +95,7 @@ public class ObserverTest {
     @Test
     public void testConstructor(){
 
-        Observer client = new Client(3);
+        ObserverDesignPattern.Observer client = new ObserverDesignPattern.Client(3);
 
         assertNotNull(client.getNews());
         assertEquals(3, client.getZone());

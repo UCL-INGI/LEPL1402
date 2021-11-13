@@ -55,33 +55,35 @@ import java.util.ArrayList;
  *
  *        [Guillaume 10, Guillaume 20, John 10, John 20, Luc 5]
  */
-class Sorter {
+public class ComparatorAndCollections {
+    static class Sorter {
 
-    public static void sortPerson(ArrayList<Person> persons) {
-        // TODO
-    }
-}
-
-class Person {
-    public String name;
-    public int age;
-
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+        public static void sortPerson(ArrayList<Person> persons) {
+            // TODO
+        }
     }
 
-    @Override
-    public String toString() {
-        return name+" "+age;
-    }
+    static class Person {
+        public String name;
+        public int age;
 
-    //BEGIN STRIP
-    @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof Person)) return false;
-        Person other = (Person) obj;
-        return this.name.equals(other.name) && Integer.compare(this.age, other.age) == 0;
+        public Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        @Override
+        public String toString() {
+            return name+" "+age;
+        }
+
+        //BEGIN STRIP
+        @Override
+        public boolean equals(Object obj) {
+            if (!(obj instanceof Person)) return false;
+            Person other = (Person) obj;
+            return this.name.equals(other.name) && Integer.compare(this.age, other.age) == 0;
+        }
+        //END STRIP
     }
-    //END STRIP
 }

@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 import static org.junit.Assert.*;
 
-public class VisitorTest {
+public class VisitorDesignPatternTest {
 
     private Class [] cls = {Integer.class, Double.class, String.class, Long.class};
 
@@ -36,8 +36,8 @@ public class VisitorTest {
                     random[i] = suppliers[rng.get()].get();
                 }
 
-                Visitable list = new VisitableList(random);
-                Visitor visitor = new VisitorList(c);
+                VisitorDesignPattern.Visitable list = new VisitorDesignPattern.VisitableList(random);
+                VisitorDesignPattern.Visitor visitor = new VisitorDesignPattern.VisitorList(c);
 
                 visitor.visit(list);
 
@@ -59,21 +59,21 @@ public class VisitorTest {
     }
 
     //BEGIN STRIP
-    class VisitableList2 extends Visitable {
+    class VisitableList2 extends VisitorDesignPattern.Visitable {
 
         public VisitableList2(Object[] elems){
             this.elements = elems;
         }
 
         @Override
-        void accept(Visitor visitor) {
+        void accept(VisitorDesignPattern.Visitor visitor) {
             for(Object o : this.elements){
                 visitor.visit(o);
             }
         }
     }
 
-    class VisitorList2 extends Visitor {
+    class VisitorList2 extends VisitorDesignPattern.Visitor {
 
         public VisitorList2(Class cls){
             super(cls);
@@ -85,7 +85,7 @@ public class VisitorTest {
         }
 
         @Override
-        void visit(Visitable visitable) {
+        void visit(VisitorDesignPattern.Visitable visitable) {
             visitable.accept(this);
         }
 
@@ -110,8 +110,8 @@ public class VisitorTest {
                     random[i] = suppliers[rng.get()].get();
                 }
 
-                Visitable list = new VisitableList2(random);
-                Visitor visitor = new VisitorList(c);
+                VisitorDesignPattern.Visitable list = new VisitableList2(random);
+                VisitorDesignPattern.Visitor visitor = new VisitorDesignPattern.VisitorList(c);
 
                 visitor.visit(list);
 
@@ -145,8 +145,8 @@ public class VisitorTest {
                     random[i] = suppliers[rng.get()].get();
                 }
 
-                Visitable list = new VisitableList(random);
-                Visitor visitor = new VisitorList2(c);
+                VisitorDesignPattern.Visitable list = new VisitorDesignPattern.VisitableList(random);
+                VisitorDesignPattern.Visitor visitor = new VisitorList2(c);
 
                 visitor.visit(list);
 

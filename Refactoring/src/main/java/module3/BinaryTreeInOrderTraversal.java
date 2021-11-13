@@ -19,40 +19,42 @@ import java.util.List;
  *        :height: 218px
  *        :width: 240 px
  */
-class Tree3 {
-    //BEGIN STRIP
-    public static int nCalls = 0;
-    //END STRIP
-
-    public static void recursiveInorder(Node root, List<Integer> res) {
+public class BinaryTreeInOrderTraversal {
+    static class Tree {
         //BEGIN STRIP
-        nCalls++;
+        public static int nCalls = 0;
         //END STRIP
-        // YOUR CODE HERE
-    }
 
-
-    public static void iterativeInorder(Node root, List<Integer> res) {
-        //BEGIN STRIP
-        nCalls++;
-        //END STRIP
-        // YOUR CODE HERE
-    }
-
-    static class Node {
-
-        public int val;
-
-        public Node left;
-        public Node right;
-
-        public Node(int val){
-            this.val = val;
+        public static void recursiveInorder(Node root, List<Integer> res) {
+            //BEGIN STRIP
+            nCalls++;
+            //END STRIP
+            // YOUR CODE HERE
         }
 
-        public boolean isLeaf(){
-            return this.left == null && this.right == null;
+
+        public static void iterativeInorder(Node root, List<Integer> res) {
+            //BEGIN STRIP
+            nCalls++;
+            //END STRIP
+            // YOUR CODE HERE
         }
 
+        static class Node {
+
+            public int val;
+
+            public Node left;
+            public Node right;
+
+            public Node(int val){
+                this.val = val;
+            }
+
+            public boolean isLeaf(){
+                return this.left == null && this.right == null;
+            }
+
+        }
     }
 }

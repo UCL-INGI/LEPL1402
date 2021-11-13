@@ -22,7 +22,7 @@ package module2;
  *
  * To spice up a bit the thing, your code should have a :math:`\Theta(m)` temporal complexity where m is the length of the array.
  */
-class Valley {
+public class LongestValley {
 
     /**
      * Compute the deepest valley and highest mountain

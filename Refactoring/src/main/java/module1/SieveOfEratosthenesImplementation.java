@@ -21,13 +21,15 @@ import java.util.BitSet;
  *  - BitSet: https://docs.oracle.com/javase/8/docs/api/java/util/BitSet.html
  *  - java documentation: https://docs.oracle.com/javase/8/docs/api/
  */
-class Sieve {
-    
-    public static BitSet bits; //You should work on this BitSet
-    
-    public static int numberOfPrime(int n){
-        //TODO By Student
-        return 0;
+public class SieveOfEratosthenesImplementation {
+    static class Sieve {
+
+        public static BitSet bits; //You should work on this BitSet
+
+        public static int numberOfPrime(int n){
+            //TODO By Student
+            return 0;
+        }
+
     }
-    
 }
