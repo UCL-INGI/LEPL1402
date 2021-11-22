@@ -43,11 +43,27 @@ def get_exercises(modules):
 def generate_inginious_tasks(exercises):
     for module, exos in exercises.items():
         for exo in exos:
-            _safe_mkdir(os.path.join(inginious_dir, exo[1]), delete=True)
-            generate_task_yaml(module, exo)
+            folder = os.path.join(inginious_dir, exo[1])
+            _safe_mkdir(folder, delete=True)
+
+            generate_task_yaml(exo)
+            copy_run_file(folder)
+            copy_libs(folder)
 
 
-def generate_task_yaml(module, exercise):
+def copy_run_file(folder):
+    run_file = 'run'
+    source = os.path.join(templates_dir, run_file)
+    dest = os.path.join(folder, run_file)
+    shutil.copyfile(source, dest)
+
+
+def copy_libs(folder):
+    shutil.copytree(os.path.join(templates_dir, 'libs'),
+                    os.path.join(folder, 'libs'))
+
+
+def generate_task_yaml(exercise):
     with open(os.path.join(templates_dir, 'task.yaml.tpl'), 'r') as f:
               tpl = ''.join(f.readlines())
     with open(os.path.join(inginious_dir, exercise[1], 'task.yaml'), 'w') as f:
