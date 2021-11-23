@@ -22,6 +22,13 @@ def _safe_mkdir(directory, delete=False):
 
 
 def _make_archive(source, destination):
+    """
+    Wrapper to shutil.make_archive taken from:
+    https://stackoverflow.com/questions/45245079/python-how-to-use-shutil-make-archive
+    :param source: source path
+    :param destination: destination (including .zip)
+    :return: None
+    """
     base = os.path.basename(destination)
     name = base.split('.')[0]
     format = base.split('.')[1]
@@ -89,21 +96,21 @@ def generate_inginious_tasks(exercises):
             copy_exercise(folder, module, exo)
 
 
-def generate_task_yaml(folder, exercise, archive_id):
+def generate_task_yaml(path, exercise, archive_id):
     with open(os.path.join(templates_dir, 'task.yaml.tpl'), 'r') as f:
-              tpl = ''.join(f.readlines())
-    with open(os.path.join(folder, 'task.yaml'), 'w') as f:
+        tpl = ''.join(f.readlines())
+    with open(os.path.join(path, 'task.yaml'), 'w') as f:
         f.write(tpl.format(COURSE_NAME, exercise[1], archive_id, exercise[0]))
 
 
-def create_task_public(folder):
-    _safe_mkdir(os.path.join(folder, 'public'), delete=True)
+def create_task_public(path):
+    _safe_mkdir(os.path.join(path, 'public'), delete=True)
 
 
-def generate_task_test(folder, module, exercise):
+def generate_task_test(path, module, exercise):
     in_name = exercise[1] + 'Test.java'
     out_name = exercise[1] + 'TestInginious.java'
-    outfile = open(os.path.join(folder, out_name), 'w')
+    outfile = open(os.path.join(path, out_name), 'w')
     with open(os.path.join(test_dir, module, in_name)) as f:
         buffer = list()
         in_test = False
@@ -138,51 +145,61 @@ def generate_task_test(folder, module, exercise):
     outfile.close()
 
 
-def copy_run_file(folder):
+def copy_run_file(path):
     run_file = 'run'
     source = os.path.join(templates_dir, run_file)
-    dest = os.path.join(folder, run_file + '.py')
+    dest = os.path.join(path, run_file + '.py')
     shutil.copyfile(source, dest)
 
 
-def copy_libs(folder):
+def copy_libs(path):
     shutil.copytree(os.path.join(templates_dir, 'libs'),
-                    os.path.join(folder, 'libs'))
+                    os.path.join(path, 'libs'))
 
 
-def copy_exercise(folder, module, exercise):
+def copy_exercise(path, module, exercise):
     source = os.path.join(source_dir, module, exercise[1] + '.java')
-    dest = os.path.join(folder, exercise[1] + '.java')
+    dest = os.path.join(path, exercise[1] + '.java')
     shutil.copyfile(source, dest)
 
 
-def create_archive(folder, module, exercise):
-    temp_folder = os.path.join(folder, 'temp')
-    _safe_mkdir(temp_folder, True)
-    shutil.copyfile(os.path.join(script_dir, 'pom.xml'), os.path.join(temp_folder, 'pom.xml'))
+def create_archive(path, module, exercise):
+    temp_dir_path = os.path.join(path, exercise[1])
+    _safe_mkdir(temp_dir_path, True)
+    shutil.copyfile(os.path.join(script_dir, 'pom.xml'), os.path.join(temp_dir_path, 'pom.xml'))
+
+    copy_libs(temp_dir_path)
+
+    temp_src_dir = os.path.join(temp_dir_path, 'src')
+    _safe_mkdir(temp_src_dir, True)
+    temp_main_dir = os.path.join(temp_src_dir, 'src')
+    _safe_mkdir(temp_main_dir, True)
+    temp_test_folder = os.path.join(temp_src_dir, 'test')
+    _safe_mkdir(temp_test_folder, True)
 
     src_file = exercise[1] + '.java'
     test_file = exercise[1] + 'Test.java'
     shutil.copyfile(os.path.join(source_dir, module, src_file),
-                    os.path.join(temp_folder, src_file))
+                    os.path.join(temp_main_dir, src_file))
     shutil.copyfile(os.path.join(test_dir, module, test_file),
-                    os.path.join(temp_folder, test_file))
+                    os.path.join(temp_test_folder, test_file))
 
     archive_id = ''.join(random.choice(string.ascii_letters) for _ in range(20))
     archive_id = f'{exercise[1]}-' + archive_id + '.zip'
-    archive_path = os.path.join(folder, archive_id)
+    archive_path = os.path.join(path, archive_id)
 
-    strip_directory(temp_folder)
+    strip_directory(temp_main_dir)
+    strip_directory(temp_test_folder)
 
-    _make_archive(temp_folder, archive_path)
-    shutil.rmtree(temp_folder)
+    _make_archive(temp_dir_path, archive_path)
+    shutil.rmtree(temp_dir_path)
 
     return archive_id
 
 
 def generate_course_yaml(exercises):
     with open(os.path.join(templates_dir, 'course.yaml.tpl'), 'r') as f:
-              tpl = ''.join(f.readlines())
+        tpl = ''.join(f.readlines())
 
     dispenser_data = ""
     for module, exos in exercises.items():
