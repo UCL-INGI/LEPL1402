@@ -141,7 +141,7 @@ def generate_task_test(folder, module, exercise):
 def copy_run_file(folder):
     run_file = 'run'
     source = os.path.join(templates_dir, run_file)
-    dest = os.path.join(folder, run_file)
+    dest = os.path.join(folder, run_file + '.py')
     shutil.copyfile(source, dest)
 
 
