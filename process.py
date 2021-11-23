@@ -1,6 +1,8 @@
 import os
 import shutil
 import re
+import random
+import string
 
 COURSE_NAME = 'LEPL1402-0821'
 
@@ -19,6 +21,16 @@ def _safe_mkdir(directory, delete=False):
         os.mkdir(directory)
 
 
+def _make_archive(source, destination):
+    base = os.path.basename(destination)
+    name = base.split('.')[0]
+    format = base.split('.')[1]
+    archive_from = os.path.dirname(source)
+    archive_to = os.path.basename(source.strip(os.sep))
+    shutil.make_archive(name, format, archive_from, archive_to)
+    shutil.move('%s.%s' % (name, format), destination)
+
+
 def strip_file(filename, outfile=None):
     lines = open(filename, 'r').readlines()
     out = filename if outfile is None else outfile
@@ -33,6 +45,11 @@ def strip_file(filename, outfile=None):
                 continue
             if not pruning:
                 fout.write(line.replace("// STUDENT", ""))
+
+
+def strip_directory(path):
+    for file in os.listdir(path):
+        strip_file(os.path.join(path, file))
 
 
 def create_inginious_dir():
@@ -63,22 +80,23 @@ def generate_inginious_tasks(exercises):
             folder = os.path.join(inginious_dir, exo[1])
             _safe_mkdir(folder, delete=True)
 
-            generate_task_yaml(folder, exo)
-            generate_task_public(folder)
+            create_task_public(folder)
+            archive_id = create_archive(os.path.join(folder, 'public'), module, exo)
+            generate_task_yaml(folder, exo, archive_id)
             generate_task_test(folder, module, exo)
             copy_run_file(folder)
             copy_libs(folder)
             copy_exercise(folder, module, exo)
 
 
-def generate_task_yaml(folder, exercise):
+def generate_task_yaml(folder, exercise, archive_id):
     with open(os.path.join(templates_dir, 'task.yaml.tpl'), 'r') as f:
               tpl = ''.join(f.readlines())
     with open(os.path.join(folder, 'task.yaml'), 'w') as f:
-        f.write(tpl.format(COURSE_NAME, exercise[1], 'placeholder.zip', exercise[0]))
+        f.write(tpl.format(COURSE_NAME, exercise[1], archive_id, exercise[0]))
 
 
-def generate_task_public(folder):
+def create_task_public(folder):
     _safe_mkdir(os.path.join(folder, 'public'), delete=True)
 
 
@@ -136,6 +154,30 @@ def copy_exercise(folder, module, exercise):
     source = os.path.join(source_dir, module, exercise[1] + '.java')
     dest = os.path.join(folder, exercise[1] + '.java')
     shutil.copyfile(source, dest)
+
+
+def create_archive(folder, module, exercise):
+    temp_folder = os.path.join(folder, 'temp')
+    _safe_mkdir(temp_folder, True)
+    shutil.copyfile(os.path.join(script_dir, 'pom.xml'), os.path.join(temp_folder, 'pom.xml'))
+
+    src_file = exercise[1] + '.java'
+    test_file = exercise[1] + 'Test.java'
+    shutil.copyfile(os.path.join(source_dir, module, src_file),
+                    os.path.join(temp_folder, src_file))
+    shutil.copyfile(os.path.join(test_dir, module, test_file),
+                    os.path.join(temp_folder, test_file))
+
+    archive_id = ''.join(random.choice(string.ascii_letters) for _ in range(20))
+    archive_id = f'{exercise[1]}-' + archive_id + '.zip'
+    archive_path = os.path.join(folder, archive_id)
+
+    strip_directory(temp_folder)
+
+    _make_archive(temp_folder, archive_path)
+    shutil.rmtree(temp_folder)
+
+    return archive_id
 
 
 def generate_course_yaml(exercises):
