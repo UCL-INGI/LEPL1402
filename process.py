@@ -19,6 +19,22 @@ def _safe_mkdir(directory, delete=False):
         os.mkdir(directory)
 
 
+def strip_file(filename, outfile=None):
+    lines = open(filename, 'r').readlines()
+    out = filename if outfile is None else outfile
+    with open(out, 'w') as fout:
+        pruning = False
+        for line in lines:
+            if "BEGIN STRIP" in line:
+                pruning = True
+                continue
+            elif "END STRIP" in line:
+                pruning = False
+                continue
+            if not pruning:
+                fout.write(line.replace("// STUDENT", ""))
+
+
 def create_inginious_dir():
     _safe_mkdir(inginious_dir, delete=True)
 
@@ -52,6 +68,7 @@ def generate_inginious_tasks(exercises):
             generate_task_test(folder, module, exo)
             copy_run_file(folder)
             copy_libs(folder)
+            copy_exercise(folder, module, exo)
 
 
 def generate_task_yaml(folder, exercise):
@@ -113,6 +130,12 @@ def copy_run_file(folder):
 def copy_libs(folder):
     shutil.copytree(os.path.join(templates_dir, 'libs'),
                     os.path.join(folder, 'libs'))
+
+
+def copy_exercise(folder, module, exercise):
+    source = os.path.join(source_dir, module, exercise[1] + '.java')
+    dest = os.path.join(folder, exercise[1] + '.java')
+    shutil.copyfile(source, dest)
 
 
 def generate_course_yaml(exercises):
