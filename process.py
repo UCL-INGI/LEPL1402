@@ -172,7 +172,7 @@ def create_archive(path, module, exercise):
 
     temp_src_dir = os.path.join(temp_dir_path, 'src')
     _safe_mkdir(temp_src_dir, True)
-    temp_main_dir = os.path.join(temp_src_dir, 'src')
+    temp_main_dir = os.path.join(temp_src_dir, 'main')
     _safe_mkdir(temp_main_dir, True)
     temp_test_folder = os.path.join(temp_src_dir, 'test')
     _safe_mkdir(temp_test_folder, True)
