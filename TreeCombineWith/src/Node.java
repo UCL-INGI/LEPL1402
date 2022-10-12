@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Objects;
+
 public class Node {
 
     public int val;
@@ -22,15 +24,10 @@ public class Node {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Node)) return false;
-
-        Node other = (Node) o;
-
-        if (this.val != other.val) return false;
-        if (this.isLeaf() != other.isLeaf()) return false;
-        if (this.left != null && !this.left.equals(other.left)) return false;
-        if (this.right != null && !this.right.equals(other.right)) return false;
-
-        return true;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        
+        Node node = (Node) o;
+        return val == node.val && Objects.equals(left, node.left) && Objects.equals(right, node.right);
     }
 }
