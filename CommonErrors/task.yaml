@@ -226,8 +226,6 @@ problems:
             text: |-
                 .. code-block:: java
 
-                  PrintWriter writer = null;
-
                     PrintWriter writer = null;
 
                     try {
@@ -247,7 +245,6 @@ problems:
                     PrintWriter writer = null;
 
                     try (PrintWriter writer = new PrintWriter(new File("hello_world.txt"))) {
-                        writer = new PrintWriter(new File("hello_world.txt"));
                         writer.write("Hello, world!");
                     } catch (Exception err) {
                         err.printStackTrace();
